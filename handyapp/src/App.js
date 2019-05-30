@@ -1,24 +1,14 @@
 import React from 'react';
+import {withRouter, Route} from 'react-router-dom';
+import Register from './components/Register';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route exact path="/register" component={Register} />
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
