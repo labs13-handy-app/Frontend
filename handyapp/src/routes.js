@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Router} from 'react-router-dom';
-import AuthNavBar from './AuthNavBar';
+import Landing from './Landing';
 import Callback from './Callback/Callback';
 import Auth from './auth/Auth';
 import history from './history';
@@ -20,7 +20,7 @@ export const MakeMainRoutes = () => {
         <Route
           exact
           path="/"
-          render={props => <AuthNavBar auth={auth} {...props} />}
+          render={props => <Landing auth={auth} {...props} />}
         />
         <Route
           exact
