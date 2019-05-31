@@ -1,3 +1,3 @@
-// export const REG_START = 'REG_START';
-// export const REG_SUCCESS = 'REG_SUCCESS';
-// export const REG_FAILURE = 'REG_FAILURE';
+export const GET_TOKEN_START = 'GET_TOKEN_START';
+export const GET_TOKEN_SUCCESS = 'GET_TOKEN_SUCCESS';
+export const GET_TOKEN_FAILURE = 'GET_TOKEN_FAILURE';

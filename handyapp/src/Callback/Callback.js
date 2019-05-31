@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import loading from './loading.svg';
+import {connect} from 'react-redux';
+import {getToken} from '../actions';
 
 class Callback extends Component {
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    this.props.getToken(token);
+  }
   render() {
     const style = {
       position: 'absolute',
@@ -24,4 +30,13 @@ class Callback extends Component {
   }
 }
 
-export default Callback;
+const mapStateToProps = ({tokenReducer}, props) => {
+  return {
+    token: tokenReducer.token
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {getToken}
+)(Callback);
