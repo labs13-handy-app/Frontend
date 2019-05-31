@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
-class NavBar extends Component {
-  login() {
-    this.props.auth.login();
-  }
+export default class NavBar extends Component {
   render() {
-    const {isAuthenticated} = this.props.auth;
+    const {isAuthenticated} = this.props;
     return (
-      <div className="container">
+      <div>
         {isAuthenticated() && <h4>You are logged in!</h4>}
         {!isAuthenticated() && (
           <header>
@@ -16,7 +13,7 @@ class NavBar extends Component {
               <h2>Handyapp</h2>
             </div>
             <nav>
-              <NavLink to="#" onClick={this.login.bind(this)}>
+              <NavLink to="#" onClick={this.props.login}>
                 Login
               </NavLink>
             </nav>
@@ -26,5 +23,3 @@ class NavBar extends Component {
     );
   }
 }
-
-export default NavBar;
