@@ -1,9 +1,8 @@
 import React from 'react';
 import {Route, Router} from 'react-router-dom';
-import App from './App';
-import Home from './Home/Home';
+import AuthNavBar from './AuthNavBar';
 import Callback from './Callback/Callback';
-import Auth from './Auth/Auth';
+import Auth from './auth/Auth';
 import history from './history';
 
 const auth = new Auth();
@@ -14,13 +13,17 @@ const handleAuthentication = ({location}) => {
   }
 };
 
-export const makeMainRoutes = () => {
+export const MakeMainRoutes = () => {
   return (
     <Router history={history}>
       <div>
-        <Route path="/" component={App} />
-        <Route path="/home" render={props => <Home auth={auth} {...props} />} />
         <Route
+          exact
+          path="/"
+          render={props => <AuthNavBar auth={auth} {...props} />}
+        />
+        <Route
+          exact
           path="/callback"
           render={props => {
             handleAuthentication(props);

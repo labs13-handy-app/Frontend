@@ -8,11 +8,11 @@ export default class Auth {
   expiresAt;
 
   auth0 = new auth0.WebAuth({
-    domain: 'dev-t67d1inm.auth0.com',
-    clientID: 'C2qEif6X9XtPtOJEgwUbPLG3E3Tmgaro',
-    redirectUri: 'http://localhost:3000/callback',
+    domain: AUTH_CONFIG.domain,
+    clientID: AUTH_CONFIG.clientId,
+    redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
-    scope: 'openId'
+    scope: 'openid'
   });
 
   constructor() {
@@ -51,6 +51,7 @@ export default class Auth {
   setSession(authResult) {
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('token', authResult.idToken);
 
     // Set the time that the access token will expire at
     let expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
