@@ -1,9 +1,6 @@
 import {combineReducers} from 'redux';
-
-const mockReducer = () => {
-  return null;
-};
+import {tokenReducer} from './tokenReducer';
 
 export default combineReducers({
-  mockReducer
+  tokenReducer
 });

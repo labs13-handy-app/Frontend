@@ -13,7 +13,7 @@ const handleAuthentication = ({location}) => {
   }
 };
 
-export const MakeMainRoutes = () => {
+const MakeMainRoutes = () => {
   return (
     <Router history={history}>
       <div>
@@ -34,3 +34,5 @@ export const MakeMainRoutes = () => {
     </Router>
   );
 };
+
+export default MakeMainRoutes;
