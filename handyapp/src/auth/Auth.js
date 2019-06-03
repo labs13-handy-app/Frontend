@@ -12,7 +12,9 @@ export default class Auth {
     clientID: AUTH_CONFIG.clientId,
     redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
-    scope: 'openid'
+    audience: 'handy-app-api',
+    scope: 'openid profile read:username',
+    issuer: AUTH_CONFIG.domain
   });
 
   constructor() {
