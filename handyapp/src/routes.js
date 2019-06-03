@@ -4,6 +4,7 @@ import Landing from './Landing';
 import Callback from './Callback/Callback';
 import Auth from './auth/Auth';
 import history from './history';
+import Home from './components/Home';
 
 const auth = new Auth();
 
@@ -30,6 +31,11 @@ const MakeMainRoutes = () => {
             return <Callback {...props} />;
           }}
         />
+        <Route 
+        exact
+        path="/home"
+        component={Home}/>
+
       </div>
     </Router>
   );
