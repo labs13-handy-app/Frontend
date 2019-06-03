@@ -4,10 +4,12 @@ import {connect} from 'react-redux';
 import {getToken} from '../actions';
 
 class Callback extends Component {
-  componentDidMount() {
+  componentWillUnmount() {
     const token = localStorage.getItem('token');
-    this.props.getToken(token);
+    const newToken = `Bearer ${token}`;
+    this.props.getToken(newToken);
   }
+
   render() {
     const style = {
       position: 'absolute',
@@ -21,6 +23,7 @@ class Callback extends Component {
       right: 0,
       backgroundColor: 'white'
     };
+    console.log(this.props);
 
     return (
       <div style={style}>
