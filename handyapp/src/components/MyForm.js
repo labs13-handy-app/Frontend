@@ -22,6 +22,7 @@ class ContactForm extends Component {
         <Field name="email" component="input" type="email" />
       </div>
       <button type="submit">Submit</button>
+      <button type-="upload">Upload Picture</button>
     </form>
   );
 }
