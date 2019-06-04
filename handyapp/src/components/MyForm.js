@@ -8,15 +8,23 @@ class ContactForm extends Component {
   return (
     <form onSubmit={this.props.handleSubmit}>
       <div>
-        <label htmlFor="firstName">First Name</label>
+        <label htmlFor="name">Name</label>
 
         {/* Get Value of the field you refernce it by firstName */}
-        <Field name="firstName" component="input" type="text" />
+        <Field name="name" component="input" type="text" />
       </div>
+
       <div>
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" component="input" type="text" />
+        <label>Account Type</label>
+        <div>
+          <Field name="type" component="select">
+            <option />
+            <option value="homeowner">Home Owner</option>
+            <option value="serviceprovider">Service Provider</option>
+          </Field>
+        </div>
       </div>
+
       <div>
         <label htmlFor="email">Email</label>
         <Field name="email" component="input" type="email" />
@@ -32,10 +40,20 @@ class ContactForm extends Component {
       {/* <button disabled={!valid} type="submit">Submit</button> */}
        <button type="submit">Submit</button> 
       <button type-="upload">Upload Picture</button>
+      
     </form>
   );
 }
 }
+
+
+
+//  <select name='type' defaultValue={'Account Type'} onChange={this.handleChanges}>
+//                             <option disabled value='Account Type'>Account Type</option>
+//                             <option value='homeowner'>Home Owner</option>
+//                             <option value='serviceprovider'>Service Provider</option>
+ 
+
 
 // Wrap component with redux function
 ContactForm = reduxForm({
