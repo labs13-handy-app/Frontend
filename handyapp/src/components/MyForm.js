@@ -37,7 +37,7 @@ class ContactForm extends Component {
       <label htmlFor="address">Home Address</label>
         <Field name="address" component="input" type="text" />
       </div>
-      {/* <button disabled={!valid} type="submit">Submit</button> */}
+
        <button type="submit">Submit</button> 
       <button type-="upload">Upload Picture</button>
       
@@ -45,14 +45,6 @@ class ContactForm extends Component {
   );
 }
 }
-
-
-
-//  <select name='type' defaultValue={'Account Type'} onChange={this.handleChanges}>
-//                             <option disabled value='Account Type'>Account Type</option>
-//                             <option value='homeowner'>Home Owner</option>
-//                             <option value='serviceprovider'>Service Provider</option>
- 
 
 
 // Wrap component with redux function
