@@ -21,7 +21,17 @@ class ContactForm extends Component {
         <label htmlFor="email">Email</label>
         <Field name="email" component="input" type="email" />
       </div>
-      <button type="submit">Submit</button>
+      <div>
+      <label htmlFor="phone">Phone Number</label>
+        <Field name="phone" component="input" type="text" />
+      </div>
+      <div>
+      <label htmlFor="address">Home Address</label>
+        <Field name="address" component="input" type="text" />
+      </div>
+      {/* <button disabled={!valid} type="submit">Submit</button> */}
+       <button type="submit">Submit</button> 
+      <button type-="upload">Upload Picture</button>
     </form>
   );
 }
