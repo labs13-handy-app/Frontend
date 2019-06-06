@@ -1,6 +1,17 @@
-import {combineReducers} from 'redux';
-import {tokenReducer} from './tokenReducer';
+import {combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+import { reducer as formReducer } from 'redux-form'
+import { tokenReducer} from './tokenReducer';
+import {connectionReducer} from './connectionReducer'
+
+
+// const store = createStore(rootReducer)
+
 
 export default combineReducers({
-  tokenReducer
+  tokenReducer,
+  routing: routerReducer,
+form: formReducer,
+connectionReducer
 });
+
