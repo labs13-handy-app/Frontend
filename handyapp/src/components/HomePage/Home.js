@@ -20,6 +20,11 @@ class Home extends Component {
     const users = this.props.getUsers();
     console.log(users);
   }
+
+  componentDidMount() {
+    const user = this.props.getToken();
+    console.log(user);
+  }
   // want the values pass the onsubmit prop
   submit = values => {
     console.log(values);
