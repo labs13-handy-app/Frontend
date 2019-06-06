@@ -5,7 +5,7 @@ export const getUsers = user => dispatch => {
   dispatch({type: GET_USERS_START});
 
   return axiosWithAuth()
-    .get('http://localhost:5000/users')
+    .get('https://handy-app-api.herokuapp.com/users')
     .then(res => dispatch({type: GET_USERS_SUCCESS, payload: res.data}))
     .catch(e => dispatch({type: GET_USERS_FAILURE, payload: e.message}));
 };
