@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MakeMainRoutes from './routes';
 import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {applyMiddleware, createStore, compose} from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
 import logger from 'redux-logger';
+
+import App from './App';
+import history from './history';
+import rootReducer from './reducers';
 
 import './index.css';
 
@@ -18,7 +21,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <MakeMainRoutes />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

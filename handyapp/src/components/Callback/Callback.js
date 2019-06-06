@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import loading from './loading.svg';
 import {connect} from 'react-redux';
-import {getToken} from '../actions';
+import {getToken} from '../../actions';
 
 class Callback extends Component {
   componentWillUnmount() {

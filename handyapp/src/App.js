@@ -1,14 +1,37 @@
 import React from 'react';
-// import {withRouter} from 'react-router-dom';
+import {withRouter, Route} from 'react-router-dom';
+import Auth from './components/Auth/Auth';
+import Landing from './components/Landing';
+import Callback from './components/Callback/Callback';
 
 import './App.css';
+
+const auth = new Auth();
+
+const handleAuthentication = ({location}) => {
+  if (/access_token|id_token|error/.test(location.hash)) {
+    auth.handleAuthentication();
+  }
+};
 
 function App() {
   return (
     <div className="App">
-      <h2>App</h2>
+      <Route
+        exact
+        path="/"
+        render={props => <Landing auth={auth} {...props} />}
+      />
+      <Route
+        exact
+        path="/callback"
+        render={props => {
+          handleAuthentication(props);
+          return <Callback {...props} />;
+        }}
+      />
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
