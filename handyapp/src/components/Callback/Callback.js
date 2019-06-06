@@ -23,7 +23,6 @@ class Callback extends Component {
       right: 0,
       backgroundColor: 'white'
     };
-    console.log(this.props);
 
     return (
       <div style={style}>
