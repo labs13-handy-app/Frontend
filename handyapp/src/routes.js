@@ -1,14 +1,16 @@
 import React from 'react';
-import {Route, Router} from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import Landing from './Landing';
 import Callback from './Callback/Callback';
 import Auth from './auth/Auth';
 import history from './history';
-import Home from './components/Home';
+import Home from './components/HomePage/Home';
+import MyProjects from './components/HomeOwners/MyProjects';
+import AddNewProject from './components/HomeOwners/AddNewProject';
 
 const auth = new Auth();
 
-const handleAuthentication = ({location}) => {
+const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -31,11 +33,9 @@ const MakeMainRoutes = () => {
             return <Callback {...props} />;
           }}
         />
-        <Route 
-        exact
-        path="/home"
-        component={Home}/>
-
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/my-projects" component={MyProjects} />
+        <Route exact path="/add-new-project" component={AddNewProject} />
       </div>
     </Router>
   );

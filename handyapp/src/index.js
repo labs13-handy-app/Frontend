@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MakeMainRoutes from './routes';
-import {Provider} from 'react-redux';
-import {applyMiddleware, createStore, compose} from 'redux';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import logger from 'redux-logger';
