@@ -1,15 +1,40 @@
-import React from "react";
-// import {withRouter} from 'react-router-dom';
-import { Button } from "reactstrap";
+import React from 'react';
+import {withRouter, Route} from 'react-router-dom';
+import Auth from './components/Auth/Auth';
+import Callback from './components/Callback/Callback';
+import Landing from './components/Landing';
+import Home from './components/Home';
+// import {Button} from 'reactstrap';
 
-import "./App.css";
+import './App.css';
+
+const auth = new Auth();
+
+const handleAuthentication = ({location}) => {
+  if (/access_token|id_token|error/.test(location.hash)) {
+    auth.handleAuthentication();
+  }
+};
 
 function App() {
-    return (
-        <div className="App">
-            <h2>App</h2>
-        </div>
-    );
+  return (
+    <div className="App">
+      <Route
+        exact
+        path="/"
+        render={props => <Landing auth={auth} {...props} />}
+      />
+      <Route
+        exact
+        path="/callback"
+        render={props => {
+          handleAuthentication(props);
+          return <Callback {...props} />;
+        }}
+      />
+      <Route exact path="/home" component={Home} />
+    </div>
+  );
 }
 
-export default App;
+export default withRouter(App);
