@@ -7,7 +7,6 @@ export const getToken = token => dispatch => {
     .post('https://handy-app-api.herokuapp.com/register')
     .then(res => {
       dispatch({type: GET_TOKEN_SUCCESS, payload: res.data});
-      localStorage.setItem('token', token);
     })
     .catch(err => dispatch({type: GET_TOKEN_FAILURE, payload: err.message}));
 };

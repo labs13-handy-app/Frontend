@@ -4,7 +4,5 @@
 // const getUser = user => dispatch => {
 //   dispatch({type: GET_USER_START});
 
-//   return axiosWithAuth().get(
-//     'https://https://heuristic-bose-b28e6e.netlify.com'
-//   );
+//   return axiosWithAuth().get('https://handy-app-api.herokuapp.com/users');
 // };
