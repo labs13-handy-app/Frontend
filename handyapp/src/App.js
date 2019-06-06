@@ -1,6 +1,10 @@
 import React from 'react';
-// import {withRouter} from 'react-router-dom';
-import {Button} from 'reactstrap';
+import {withRouter, Route} from 'react-router-dom';
+import Auth from './components/Auth/Auth';
+import Landing from './components/Landing';
+import Callback from './components/Callback/Callback';
+import Home from './components/Home';
+// import {Button} from 'reactstrap';
 
 import './App.css';
 
@@ -15,7 +19,20 @@ const handleAuthentication = ({location}) => {
 function App() {
   return (
     <div className="App">
-      <h2>App</h2>
+      <Route
+        exact
+        path="/"
+        render={props => <Landing auth={auth} {...props} />}
+      />
+      <Route
+        exact
+        path="/callback"
+        render={props => {
+          handleAuthentication(props);
+          return <Callback {...props} />;
+        }}
+      />
+      <Route exact path="/home" component={Home} />
     </div>
   );
 }

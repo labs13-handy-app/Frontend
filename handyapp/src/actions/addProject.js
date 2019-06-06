@@ -1,3 +1,4 @@
+import axiosWithAuth from '../utils/AxiosAuth';
 import {
   ADD_PROJECT_START,
   ADD_PROJECT_SUCCESS,
@@ -5,14 +6,10 @@ import {
 } from '../actions';
 
 export const addProject = project => dispatch => {
-  console.log(project);
   dispatch({type: ADD_PROJECT_START});
 
-  fetch('http://localhost:3000/projects', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(project)
-  })
+  return axiosWithAuth()
+    .post('http://localhost:3000/projects', {project})
     .then(res => dispatch({type: ADD_PROJECT_SUCCESS, payload: res.body}))
     .catch(err => dispatch({type: ADD_PROJECT_FAILURE, payload: err.message}));
 };
