@@ -11,6 +11,7 @@ class Callback extends Component {
   }
 
   render() {
+    console.log(this.props);
     const style = {
       position: 'absolute',
       display: 'flex',
