@@ -4,21 +4,11 @@ import {getUsers, getToken} from '../../actions';
 import MyForm from './MyForm';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {
-        name: '',
-        email: '',
-        account_type: 'homeowner',
-        phone: '',
-        address: ''
-      }
-    };
-  }
   componentWillMount() {
-    const users = this.props.getUsers();
-    console.log(users);
+    const user = this.props.getToken();
+    console.log(user);
+    // const users = this.props.getUsers();
+    // console.log(users);
   }
 
   componentDidMount() {
@@ -31,15 +21,16 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.props);
-    return <MyForm onSubmit={this.submit} />;
+    const {foundUser: user} = this.props.user;
+    console.log(user);
+    return <MyForm onSubmit={this.submit} user={user} />;
   }
 }
 
 const mapStatToProps = ({usersReducer, tokenReducer}, props) => {
   return {
     users: usersReducer.users,
-    token: tokenReducer.token
+    user: tokenReducer.token
   };
 };
 

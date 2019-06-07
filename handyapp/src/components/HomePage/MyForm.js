@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import React, {Component} from 'react';
+import {Field, reduxForm} from 'redux-form';
 
 class ContactForm extends Component {
   render() {
+    if (this.props.user) {
+      const {email, name} = this.props.user;
+    }
     return (
       <form onSubmit={this.props.handleSubmit}>
         <div>
