@@ -13,7 +13,10 @@ export {
   PAYMENT_CONNECTION_FAILURE,
   GET_USERS_START,
   GET_USERS_SUCCESS,
-  GET_USERS_FAILURE
+  GET_USERS_FAILURE,
+  ONBOARDING_START,
+  ONBOARDING_SUCCESS,
+  ONBOARDING_FAILURE
 } from './types';
 
 export {getToken} from './getToken';
@@ -21,3 +24,4 @@ export {getUsers} from './getUsers';
 export {addProject} from './addProject';
 export {deleteProject} from './deleteProject';
 export {paymentConnection} from './paymentConnection';
+export {onBoarding} from './onBoarding';
