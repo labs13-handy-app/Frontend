@@ -3,12 +3,14 @@ import {connect} from 'react-redux';
 import {onBoarding} from '../../actions';
 // import {Field, reduxForm} from 'redux-form';
 
-class ContactForm extends Component {
+class ContractorForm extends Component {
   state = {
     user: {
       id: '',
-      name: '',
-      email: '',
+      first_name: '',
+      last_name: '',
+      isBoarded: false,
+      nickname: '',
       phone_number: '',
       account_type: 'homeowner',
       address: '',
@@ -24,10 +26,13 @@ class ContactForm extends Component {
       this.setState({
         user: {
           id: user.id,
-          name: user.name,
+          first_name: '',
+          last_name: '',
+          isBoarded: false,
+          nickname: user.nickname,
           email: user.email,
           phone_number: '',
-          account_type: 'homeowner',
+          account_type: user.account_type,
           address: '',
           skills: '',
           licenses: '',
@@ -50,35 +55,36 @@ class ContactForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.onBoarding(this.state.user.id, this.state.user);
+
+    const user = {
+      ...this.state.user,
+      isBoarded: true
+    };
+    this.props.onBoarding(user.id, user);
   };
 
   render() {
     return (
       <form onSubmit={this.onSubmit} id="user-onboarding">
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="first_name">First Name</label>
           <input
             onChange={this.onChange}
-            id="name"
+            id="first_name"
             type="text"
-            value={this.state.user.name}
-            placeholder="Enter name"
+            value={this.state.user.first_name}
+            placeholder="Enter first name"
           />
         </div>
         <div>
-          <label htmlFor="acount_type">Account Type</label>
-          <div>
-            <select
-              onChange={this.onChange}
-              id="account_type"
-              form="user-onboarding"
-              value={this.state.user.account_type}
-            >
-              <option value="homeowner">Homeowner</option>
-              <option value="Contractor">Contractor</option>
-            </select>
-          </div>
+          <label htmlFor="last_name">Last Name</label>
+          <input
+            onChange={this.onChange}
+            id="last_name"
+            type="text"
+            value={this.state.user.last_name}
+            placeholder="Enter last name"
+          />
         </div>
 
         <div>
@@ -112,7 +118,7 @@ class ContactForm extends Component {
           />
         </div>
         <div>
-          <label htmlFor="skills">Skills</label>
+          <label htmlFor="skills">Skill</label>
           <input
             required
             onChange={this.onChange}
@@ -161,4 +167,4 @@ class ContactForm extends Component {
 export default connect(
   null,
   {onBoarding}
-)(ContactForm);
+)(ContractorForm);

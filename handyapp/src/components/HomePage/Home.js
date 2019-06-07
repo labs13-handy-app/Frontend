@@ -1,22 +1,26 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getUsers, getToken} from '../../actions';
-import MyForm from './MyForm';
+import ContractorForm from './ContractorForm';
+import HomeownerForm from './HomeownerForm';
 
 class Home extends Component {
   componentWillMount() {
     this.props.getToken();
   }
 
-  renderUser = () => {
+  renderUserForm = () => {
     const {foundUser: user} = this.props.user;
-    if (user) {
-      return <MyForm user={user} />;
+    if (user && user.account_type === 'Contractor') {
+      return <ContractorForm user={user} />;
+    } else {
+      return <HomeownerForm user={user} />;
     }
   };
 
   render() {
-    return <>{this.renderUser()}</>;
+    // console.log(this.props);
+    return <>{this.renderUserForm()}</>;
   }
 }
 
