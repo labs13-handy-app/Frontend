@@ -1,14 +1,12 @@
 import history from '../../history';
 import auth0 from 'auth0-js';
 import {AUTH_CONFIG} from './auth0-variables';
-import {connect} from 'react-redux';
-import {getToken} from '../../actions';
+import axiosWithAuth from '../../utils/AxiosAuth';
 
 class Auth {
   accessToken;
   idToken;
   expiresAt;
-  getToken;
 
   auth0 = new auth0.WebAuth({
     domain: AUTH_CONFIG.domain,
@@ -28,7 +26,6 @@ class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.renewSession = this.renewSession.bind(this);
-    this.getToken = this.getToken.bind(this);
   }
 
   login() {
@@ -65,18 +62,27 @@ class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    // Get the user isBoarded value to redirect the use to the appropriate page after login.
-    const user = this.getToken(this.idToken);
+    let token = localStorage.getItem('token');
 
-    localStorage.setItem('isBoarded', user.isBoarded);
+    const headers = {
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${token}`
+    };
 
-    if (!user.isBoarded) {
-      // navigate to the home route
-      history.replace('/onboarding');
-    } else {
-      // navigate to the profile route
-      history.replace('/profile');
-    }
+    axiosWithAuth()
+      .post('https://handy-app-api.herokuapp.com/register', headers)
+      .then(res => {
+        if (
+          res.data.foundUser.isBoarded === 0 ||
+          res.data.foundUser.isBoarded === false
+        ) {
+          // navigate to the onboarding route
+          history.replace('/onboarding');
+        } else {
+          // navigate to the dashboard route
+          history.replace('/dashboard');
+        }
+      });
   }
 
   renewSession() {
@@ -118,7 +124,4 @@ class Auth {
   }
 }
 
-export default connect(
-  null,
-  {getToken}
-)(Auth);
+export default Auth;
