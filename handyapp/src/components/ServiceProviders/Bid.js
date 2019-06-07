@@ -44,7 +44,7 @@ export default class Example extends React.Component {
               It's a bit lighter and easily wraps to a new line.
             </FormText>
           </Col>
-        </FormGroup>
+          </FormGroup>
         <FormGroup tag="fieldset" row>
           <legend className="col-form-label col-sm-2">Radio Buttons</legend>
           <Col sm={10}>
