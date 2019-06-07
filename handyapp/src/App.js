@@ -3,14 +3,10 @@ import {withRouter, Route} from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 import Callback from './components/Callback/Callback';
 import Landing from './components/Landing';
-<<<<<<< HEAD
 import Home from './components/HomePage/Home';
 import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
-=======
-import Home from './components/HomePage/Home'
->>>>>>> master
 // import {Button} from 'reactstrap';
 
 import './App.css';
