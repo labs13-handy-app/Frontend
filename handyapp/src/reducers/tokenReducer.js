@@ -14,18 +14,21 @@ export const tokenReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_TOKEN_START:
       return {
+        ...state,
         isGetting: true,
         token: '',
         error: null
       };
     case GET_TOKEN_SUCCESS:
       return {
+        ...state,
         isGetting: false,
         token: action.payload,
         error: null
       };
     case GET_TOKEN_FAILURE:
       return {
+        ...state,
         isGetting: false,
         token: '',
         error: action.payload
