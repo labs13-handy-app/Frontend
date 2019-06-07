@@ -1,11 +1,14 @@
 import history from '../../history';
 import auth0 from 'auth0-js';
 import {AUTH_CONFIG} from './auth0-variables';
+import {connect} from 'react-redux';
+import {getToken} from '../../actions';
 
-export default class Auth {
+class Auth {
   accessToken;
   idToken;
   expiresAt;
+  getToken;
 
   auth0 = new auth0.WebAuth({
     domain: AUTH_CONFIG.domain,
@@ -25,6 +28,7 @@ export default class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.renewSession = this.renewSession.bind(this);
+    this.getToken = this.getToken.bind(this);
   }
 
   login() {
@@ -61,8 +65,18 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    // navigate to the home route
-    history.replace('/onboarding');
+    // Get the user isBoarded value to redirect the use to the appropriate page after login.
+    const user = this.getToken(this.idToken);
+
+    localStorage.setItem('isBoarded', user.isBoarded);
+
+    if (!user.isBoarded) {
+      // navigate to the home route
+      history.replace('/onboarding');
+    } else {
+      // navigate to the profile route
+      history.replace('/profile');
+    }
   }
 
   renewSession() {
@@ -103,3 +117,8 @@ export default class Auth {
     return new Date().getTime() < expiresAt;
   }
 }
+
+export default connect(
+  null,
+  {getToken}
+)(Auth);
