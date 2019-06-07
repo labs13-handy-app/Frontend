@@ -90,23 +90,3 @@ export default class Example extends React.Component {
 }
 
 
-
-// type text
-// typex number
-
-
-
-
-
-Tags project maneul exist or throw err
-// Project Id
-// Contracter Id
-// Price numbers interggers 
-
-// '' strings ammount of time its going to take 2week 3 days input bar
-//  matrieals included drop down valye yes or no. radio button/ drop down
-
-// send bid button says (button)
-// playground test cloundary
-// profile fixed
-// feedback contracter 
