@@ -77,7 +77,7 @@ class Auth {
           history.replace('/onboarding');
         } else if (
           res.data.foundUser.isBoarded === 1 ||
-          res.data.isBoarded === true
+          res.data.foundUser.isBoarded === true
         ) {
           // navigate to the dashboard route
           history.replace('/dashboard');
