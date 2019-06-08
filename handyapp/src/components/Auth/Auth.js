@@ -68,7 +68,7 @@ class Auth {
     axiosWithAuth()
       .post('https://handy-app-api.herokuapp.com/register', user)
       .then(res => {
-        console.log(res.data);
+        console.log(res.data.foundUser);
         if (
           res.data.foundUser.isBoarded === 0 ||
           res.data.foundUser.isBoarded === false
