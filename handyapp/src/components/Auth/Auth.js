@@ -62,27 +62,53 @@ class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    let token = localStorage.getItem('token');
+    const user = authResult.idTokenPayload;
 
-    const headers = {
-      'Content-type': 'application/json',
-      Authorization: `Bearer ${token}`
-    };
-
+    // Comment to work locally
     axiosWithAuth()
-      .post('https://handy-app-api.herokuapp.com/register', headers)
+      .post('https://handy-app-api.herokuapp.com/register', user)
       .then(res => {
+        console.log(res.data);
         if (
           res.data.foundUser.isBoarded === 0 ||
           res.data.foundUser.isBoarded === false
         ) {
           // navigate to the onboarding route
           history.replace('/onboarding');
-        } else {
+        } else if (
+          res.data.foundUser.isBoarded === 1 ||
+          res.data.isBoarded === true
+        ) {
           // navigate to the dashboard route
           history.replace('/dashboard');
+        } else if (res.data === undefined) {
+          this.logout();
         }
-      });
+      })
+      .catch(err => console.log(err.message));
+
+    // Uncomment to work locally
+    // axiosWithAuth()
+    //   .post('http://localhost:5000/register', user)
+    //   .then(res => {
+    //     console.log(res.data);
+    //     if (
+    //       res.data.foundUser.isBoarded === 0 ||
+    //       res.data.foundUser.isBoarded === false
+    //     ) {
+    //       // navigate to the onboarding route
+    //       history.replace('/onboarding');
+    //     } else if (
+    //       res.data.foundUser.isBoarded === 1 ||
+    //       res.data.isBoarded === true
+    //     ) {
+    //       // navigate to the dashboard route
+    //       history.replace('/dashboard');
+    //     } else if (res.data === undefined) {
+    //       this.logout();
+    //     }
+    //   })
+    //   .catch(err => console.log(err.message));
   }
 
   renewSession() {
@@ -107,13 +133,16 @@ class Auth {
 
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('token');
 
     this.auth0.logout({
       returnTo: window.location.origin
     });
 
     // navigate to the home route
-    history.replace('/onboarding');
+    setTimeout(() => {
+      history.replace('/');
+    }, 1000);
   }
 
   isAuthenticated() {

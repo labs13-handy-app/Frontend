@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {onBoarding} from '../../actions';
+import {onBoarding, getToken} from '../../actions';
 // import {Field, reduxForm} from 'redux-form';
 
 class ContractorForm extends Component {
@@ -21,12 +21,13 @@ class ContractorForm extends Component {
   };
 
   componentWillMount() {
-    const user = this.props.user;
+    this.props.getToken();
+    const {foundUser: user} = this.props.user;
     if (user) {
       this.setState({
         user: {
           id: user.id,
-          first_name: '',
+          first_name: user.nickname,
           last_name: '',
           isBoarded: false,
           nickname: user.nickname,
@@ -61,6 +62,21 @@ class ContractorForm extends Component {
       isBoarded: true
     };
     this.props.onBoarding(user.id, user);
+
+    this.setState({
+      user: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        phone_number: '',
+        address: '',
+        skills: '',
+        licenses: '',
+        experience: ''
+      }
+    });
+
+    this.props.history.push('/dashboard');
   };
 
   render() {
@@ -158,13 +174,13 @@ class ContractorForm extends Component {
   }
 }
 
-// // Wrap component with redux function
-// ContactForm = reduxForm({
-//   // a unique name for the form
-//   form: 'contact'
-// })(ContactForm);
+const mapStateToProps = ({tokenReducer}, props) => {
+  return {
+    user: tokenReducer.token
+  };
+};
 
 export default connect(
-  null,
-  {onBoarding}
+  mapStateToProps,
+  {onBoarding, getToken}
 )(ContractorForm);

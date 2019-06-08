@@ -13,7 +13,6 @@ export const getToken = token => dispatch => {
     .catch(err => dispatch({type: GET_TOKEN_FAILURE, payload: err.message}));
 
   /* Uncomment to work locally   */
-
   // axiosWithAuth()
   //   .post('http://localhost:5000/register')
   //   .then(res => {
