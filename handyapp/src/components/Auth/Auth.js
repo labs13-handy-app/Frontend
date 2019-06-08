@@ -68,7 +68,7 @@ class Auth {
     axiosWithAuth()
       .post('https://handy-app-api.herokuapp.com/register', user)
       .then(res => {
-        console.log(res.data.foundUser);
+        console.log(res.data);
         if (
           res.data.foundUser.isBoarded === 0 ||
           res.data.foundUser.isBoarded === false
@@ -81,7 +81,7 @@ class Auth {
         ) {
           // navigate to the dashboard route
           history.replace('/dashboard');
-        } else if (res.data === undefined) {
+        } else if (res.data.foundUser === undefined) {
           this.logout();
         }
       })
