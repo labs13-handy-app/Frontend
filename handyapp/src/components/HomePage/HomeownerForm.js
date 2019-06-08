@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {onBoarding} from '../../actions';
-// import {Field, reduxForm} from 'redux-form';
+import {onBoarding, getToken} from '../../actions';
 
 class HomeownerForm extends Component {
   state = {
@@ -18,12 +17,13 @@ class HomeownerForm extends Component {
   };
 
   componentWillMount() {
-    const user = this.props.user;
+    this.props.getToken();
+    const {foundUser: user} = this.props.user;
     if (user) {
       this.setState({
         user: {
           id: user.id,
-          first_name: '',
+          first_name: user.nickname,
           last_name: '',
           isBoarded: false,
           nickname: user.nickname,
@@ -54,9 +54,22 @@ class HomeownerForm extends Component {
       isBoarded: true
     };
     this.props.onBoarding(user.id, user);
+
+    this.setState({
+      user: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        phone_number: '',
+        address: ''
+      }
+    });
+
+    this.props.history.push('/dashboard');
   };
 
   render() {
+    console.log(this.props);
     return (
       <form onSubmit={this.onSubmit} id="user-onboarding">
         <div>
@@ -117,13 +130,13 @@ class HomeownerForm extends Component {
   }
 }
 
-// // Wrap component with redux function
-// ContactForm = reduxForm({
-//   // a unique name for the form
-//   form: 'contact'
-// })(ContactForm);
+const mapStateToProps = ({tokenReducer}, props) => {
+  return {
+    user: tokenReducer.token
+  };
+};
 
 export default connect(
-  null,
-  {onBoarding}
+  mapStateToProps,
+  {onBoarding, getToken}
 )(HomeownerForm);

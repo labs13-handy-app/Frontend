@@ -35,7 +35,7 @@ class Callback extends Component {
 
 const mapStateToProps = ({tokenReducer}, props) => {
   return {
-    token: tokenReducer.token
+    user: tokenReducer.token
   };
 };
 
