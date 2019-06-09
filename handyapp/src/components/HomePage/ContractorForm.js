@@ -22,7 +22,7 @@ class ContractorForm extends Component {
 
   componentWillMount() {
     this.props.getToken();
-    const {foundUser: user} = this.props.user;
+    const {user} = this.props;
     if (user) {
       this.setState({
         user: {

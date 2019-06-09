@@ -69,15 +69,24 @@ class Auth {
       .post('https://handy-app-api.herokuapp.com/register', user)
       .then(res => {
         console.log(res.data);
-
-        if (res.data === undefined) {
-          this.logout();
-        } else if (res.data.isBoarded === 0 || res.data.isBoarded === false) {
+        if (
+          (res.data.flag && res.data.flag === 0) ||
+          res.data.flag === false ||
+          ((res.data && res.data.isBoarded === false) ||
+            res.data.isBoarded === 0)
+        ) {
           // navigate to the onboarding route
           history.replace('/onboarding');
-        } else if (res.data.isBoarded === 1 || res.data.isBoarded === true) {
+        } else if (
+          (res.data.flag && res.data.flag === 1) ||
+          res.data.flag === true ||
+          ((res.data && res.data.isBoarded === true) ||
+            res.data.isBoarded === 1)
+        ) {
           // navigate to the dashboard route
           history.replace('/dashboard');
+        } else {
+          this.login();
         }
       })
       .catch(err => console.log(err.message));
@@ -87,15 +96,24 @@ class Auth {
     //   .post('http://localhost:5000/register', user)
     //   .then(res => {
     //     console.log(res.data);
-
-    //     if (res.data === undefined) {
-    //       this.logout();
-    //     } else if (res.data.isBoarded === 0 || res.data.isBoarded === false) {
+    //     if (
+    //       (res.data.flag && res.data.flag === 0) ||
+    //       res.data.flag === false ||
+    //       ((res.data && res.data.isBoarded === false) ||
+    //         res.data.isBoarded === 0)
+    //     ) {
     //       // navigate to the onboarding route
     //       history.replace('/onboarding');
-    //     } else if (res.data.isBoarded === 1 || res.data.isBoarded === true) {
+    //     } else if (
+    //       (res.data.flag && res.data.flag === 1) ||
+    //       res.data.flag === true ||
+    //       ((res.data && res.data.isBoarded === true) ||
+    //         res.data.isBoarded === 1)
+    //     ) {
     //       // navigate to the dashboard route
     //       history.replace('/dashboard');
+    //     } else {
+    //       this.login();
     //     }
     //   })
     //   .catch(err => console.log(err.message));
