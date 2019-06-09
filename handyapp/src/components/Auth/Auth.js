@@ -69,20 +69,15 @@ class Auth {
       .post('https://handy-app-api.herokuapp.com/register', user)
       .then(res => {
         console.log(res.data);
-        if (
-          res.data.foundUser.isBoarded === 0 ||
-          res.data.foundUser.isBoarded === false
-        ) {
+
+        if (res.data === undefined) {
+          this.logout();
+        } else if (res.data.isBoarded === 0 || res.data.isBoarded === false) {
           // navigate to the onboarding route
           history.replace('/onboarding');
-        } else if (
-          res.data.foundUser.isBoarded === 1 ||
-          res.data.foundUser.isBoarded === true
-        ) {
+        } else if (res.data.isBoarded === 1 || res.data.isBoarded === true) {
           // navigate to the dashboard route
           history.replace('/dashboard');
-        } else if (res.data === undefined) {
-          this.logout();
         }
       })
       .catch(err => console.log(err.message));
@@ -92,20 +87,15 @@ class Auth {
     //   .post('http://localhost:5000/register', user)
     //   .then(res => {
     //     console.log(res.data);
-    //     if (
-    //       res.data.foundUser.isBoarded === 0 ||
-    //       res.data.foundUser.isBoarded === false
-    //     ) {
+
+    //     if (res.data === undefined) {
+    //       this.logout();
+    //     } else if (res.data.isBoarded === 0 || res.data.isBoarded === false) {
     //       // navigate to the onboarding route
     //       history.replace('/onboarding');
-    //     } else if (
-    //       res.data.foundUser.isBoarded === 1 ||
-    //       res.data.isBoarded === true
-    //     ) {
+    //     } else if (res.data.isBoarded === 1 || res.data.isBoarded === true) {
     //       // navigate to the dashboard route
     //       history.replace('/dashboard');
-    //     } else if (res.data === undefined) {
-    //       this.logout();
     //     }
     //   })
     //   .catch(err => console.log(err.message));
