@@ -30,6 +30,7 @@ class Onboarding extends Component {
     }
   };
   render() {
+    console.log(this.props.user);
     return (
       <div className="Onboarding">
         <div className="accounts">
