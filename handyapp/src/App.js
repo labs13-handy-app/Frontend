@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter, Route } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
-import NavBar from './components/NavBar';
 import Callback from './components/Callback/Callback';
 import Landing from './components/Landing';
 import Home from './components/HomePage/Home';
