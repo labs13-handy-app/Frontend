@@ -6,24 +6,33 @@ export default class NavBar extends Component {
     const {isAuthenticated} = this.props;
 
     return (
-      <div>
-        {isAuthenticated() && (
-          <NavLink to="#" onClick={this.props.logout}>
-            Logout
-          </NavLink>
-        )}
-        {!this.props.isAuthenticated() && (
-          <header>
-            <div className="logo">
-              <h2>Handyapp</h2>
-            </div>
-            <nav>
-              <NavLink to="#" onClick={this.props.login}>
-                Login
-              </NavLink>
-            </nav>
-          </header>
-        )}
+      <div className="Navbar">
+        <header>
+          <div className="logo">
+            <h2>Tasker</h2>
+          </div>
+          <nav>
+            {isAuthenticated() && (
+              <>
+                <NavLink to="#" onClick={this.props.logout}>
+                  Logout
+                </NavLink>
+                <p>Hello, Username</p>
+              </>
+            )}
+            {!this.props.isAuthenticated() && (
+              <>
+                <NavLink
+                  className="btn-action"
+                  to="#"
+                  onClick={this.props.login}
+                >
+                  Login
+                </NavLink>
+              </>
+            )}
+          </nav>
+        </header>
       </div>
     );
   }

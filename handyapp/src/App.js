@@ -39,23 +39,29 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <Route exact path="/" render={props => <Landing {...props} />} />
-        <Route
-          exact
-          path="/callback"
-          render={props => {
-            handleAuthentication(props);
-            return <Callback {...props} />;
-          }}
-        />
-        <Route
-          exact
-          path="/onboarding"
-          render={props => <Onboarding {...props} />}
-        />
-        <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
-        <Route exact path="/contractor-onboarding" component={ContractorForm} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <div className="container">
+          <Route exact path="/" render={props => <Landing {...props} />} />
+          <Route
+            exact
+            path="/callback"
+            render={props => {
+              handleAuthentication(props);
+              return <Callback {...props} />;
+            }}
+          />
+          <Route
+            exact
+            path="/onboarding"
+            render={props => <Onboarding {...props} />}
+          />
+          <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
+          <Route
+            exact
+            path="/contractor-onboarding"
+            component={ContractorForm}
+          />
+          <Route exact path="/dashboard" component={Dashboard} />
+        </div>
       </div>
     );
   }
