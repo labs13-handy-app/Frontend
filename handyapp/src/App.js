@@ -8,8 +8,8 @@ import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
-import Projects from './components/Projects/Projects'
-import Bids from './components/Bids/Bids'
+import Projects from './components/Projects/Projects';
+import Bids from './components/Bids/Bids';
 
 import './App.css';
 
@@ -41,25 +41,31 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <Route exact path="/" render={props => <Landing {...props} />} />
-        <Route
-          exact
-          path="/callback"
-          render={props => {
-            handleAuthentication(props);
-            return <Callback {...props} />;
-          }}
-        />
-        <Route
-          exact
-          path="/onboarding"
-          render={props => <Onboarding {...props} />}
-        />
-        <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
-        <Route exact path="/contractor-onboarding" component={ContractorForm} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/projects" component={Projects} />
-        <Route exact path="/bids" component={Bids} />
+        <div className="container">
+          <Route exact path="/" render={props => <Landing {...props} />} />
+          <Route
+            exact
+            path="/callback"
+            render={props => {
+              handleAuthentication(props);
+              return <Callback {...props} />;
+            }}
+          />
+          <Route
+            exact
+            path="/onboarding"
+            render={props => <Onboarding {...props} />}
+          />
+          <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
+          <Route
+            exact
+            path="/contractor-onboarding"
+            component={ContractorForm}
+          />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/projects" component={Projects} />
+          <Route exact path="/bids" component={Bids} />
+        </div>
       </div>
     );
   }
