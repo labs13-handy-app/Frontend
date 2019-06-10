@@ -16,7 +16,13 @@ export {
   GET_USERS_FAILURE,
   ONBOARDING_START,
   ONBOARDING_SUCCESS,
-  ONBOARDING_FAILURE
+  ONBOARDING_FAILURE,
+  GET_PROJECTS_START,
+  GET_PROJECTS_SUCCESS,
+  GET_PROJECTS_FAILURE,
+  GET_BIDS_START,
+  GET_BIDS_SUCCESS,
+  GET_BIDS_FAILURE
 } from './types';
 
 export {getToken} from './getToken';
@@ -25,3 +31,5 @@ export {addProject} from './addProject';
 export {deleteProject} from './deleteProject';
 export {paymentConnection} from './paymentConnection';
 export {onBoarding} from './onBoarding';
+export {getProjects} from './getProjects';
+export {getBids} from './getBids';
