@@ -12,7 +12,6 @@ import Projects from './components/Projects/Projects'
 import Bids from './components/Bids/Bids'
 
 import './App.css';
-// import Example from './components/ServiceProviders/Bid';
 
 const auth = new Auth();
 
@@ -22,30 +21,48 @@ const handleAuthentication = ({location}) => {
   }
 };
 
-function App() {
-  return (
-    <div className="App">
-      <Route
-        exact
-        path="/"
-        render={props => <Landing auth={auth} {...props} />}
-      />
-      <Route
-        exact
-        path="/callback"
-        render={props => {
-          handleAuthentication(props);
-          return <Callback {...props} />;
-        }}
-      />
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/onboarding" component={Onboarding} />
-      <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
-      <Route exact path="/contractor-onboarding" component={ContractorForm} />
-      {/* <Route exact path="/bid" component={Example} /> */}
+class App extends React.Component {
+  login = () => {
+    auth.login();
+  };
 
-    </div>
-  );
+  logout = () => {
+    setTimeout(() => {
+      auth.logout();
+    }, 1000);
+  };
+
+  render() {
+    const {isAuthenticated} = auth;
+    return (
+      <div className="App">
+        <NavBar
+          isAuthenticated={isAuthenticated}
+          login={this.login}
+          logout={this.logout}
+        />
+        <Route exact path="/" render={props => <Landing {...props} />} />
+        <Route
+          exact
+          path="/callback"
+          render={props => {
+            handleAuthentication(props);
+            return <Callback {...props} />;
+          }}
+        />
+        <Route
+          exact
+          path="/onboarding"
+          render={props => <Onboarding {...props} />}
+        />
+        <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
+        <Route exact path="/contractor-onboarding" component={ContractorForm} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/projects" component={Projects} />
+        <Route exact path="/bids" component={Bids} />
+      </div>
+    );
+  }
 }
 
 export default withRouter(App);

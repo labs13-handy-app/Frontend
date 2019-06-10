@@ -1,1 +1,0 @@
-Switch from React Strap to Material-UI
