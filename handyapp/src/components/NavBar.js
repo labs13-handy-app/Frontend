@@ -17,7 +17,6 @@ export default class NavBar extends Component {
                 <NavLink to="#" onClick={this.props.logout}>
                   Logout
                 </NavLink>
-                <p>Hello, Username</p>
               </>
             )}
             {!this.props.isAuthenticated() && (

@@ -7,11 +7,11 @@ html {
 }
 
 body {
-  margin: 0;
-  font-family: 'Encode Sans Expanded', sans-serif;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #fafafa;
+  background: #f5f7f9;
   font-size: 1.6rem;
   color: #020c1d;
 }

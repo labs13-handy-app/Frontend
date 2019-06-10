@@ -8,6 +8,8 @@ import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
+import Projects from './components/Projects/Projects';
+import Bids from './components/Bids/Bids';
 
 import './App.css';
 
@@ -61,6 +63,8 @@ class App extends React.Component {
             component={ContractorForm}
           />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/projects" component={Projects} />
+          <Route exact path="/bids" component={Bids} />
         </div>
       </div>
     );
