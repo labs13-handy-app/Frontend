@@ -3,8 +3,8 @@ import { withRouter, Route } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 import Callback from './components/Callback/Callback';
 import Landing from './components/Landing';
-import Home from './components/Home';
-// import {Button} from 'reactstrap';
+import Home from './components/HomePage/Home';
+import AddNewProject from './components/HomeOwners/AddNewProject';
 
 import './App.css';
 
@@ -33,6 +33,7 @@ function App() {
         }}
       />
       <Route exact path="/home" component={Home} />
+      <Route path="/add-new-project" component={AddNewProject} />
     </div>
   );
 }
