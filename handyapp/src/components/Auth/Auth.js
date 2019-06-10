@@ -1,8 +1,9 @@
 import history from '../../history';
 import auth0 from 'auth0-js';
 import {AUTH_CONFIG} from './auth0-variables';
+import axiosWithAuth from '../../utils/AxiosAuth';
 
-export default class Auth {
+class Auth {
   accessToken;
   idToken;
   expiresAt;
@@ -35,7 +36,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace('/home');
+        history.replace('/');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -61,8 +62,61 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    // navigate to the home route
-    history.replace('/home');
+    const user = authResult.idTokenPayload;
+
+    // Comment to work locally
+    axiosWithAuth()
+      .post('https://handy-app-api.herokuapp.com/register', user)
+      .then(res => {
+        console.log(res.data);
+        if (
+          (res.data.flag && res.data.flag === 0) ||
+          res.data.flag === false ||
+          ((res.data && res.data.isBoarded === false) ||
+            res.data.isBoarded === 0)
+        ) {
+          // navigate to the onboarding route
+          history.replace('/onboarding');
+        } else if (
+          (res.data.flag && res.data.flag === 1) ||
+          res.data.flag === true ||
+          ((res.data && res.data.isBoarded === true) ||
+            res.data.isBoarded === 1)
+        ) {
+          // navigate to the dashboard route
+          history.replace('/dashboard');
+        } else {
+          this.login();
+        }
+      })
+      .catch(err => console.log(err.message));
+
+    // Uncomment to work locally
+    // axiosWithAuth()
+    //   .post('http://localhost:5000/register', user)
+    //   .then(res => {
+    //     console.log(res.data);
+    //     if (
+    //       (res.data.flag && res.data.flag === 0) ||
+    //       res.data.flag === false ||
+    //       ((res.data && res.data.isBoarded === false) ||
+    //         res.data.isBoarded === 0)
+    //     ) {
+    //       // navigate to the onboarding route
+    //       history.replace('/onboarding');
+    //     } else if (
+    //       (res.data.flag && res.data.flag === 1) ||
+    //       res.data.flag === true ||
+    //       ((res.data && res.data.isBoarded === true) ||
+    //         res.data.isBoarded === 1)
+    //     ) {
+    //       // navigate to the dashboard route
+    //       history.replace('/dashboard');
+    //     } else {
+    //       this.login();
+    //     }
+    //   })
+    //   .catch(err => console.log(err.message));
   }
 
   renewSession() {
@@ -87,13 +141,16 @@ export default class Auth {
 
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('token');
 
     this.auth0.logout({
       returnTo: window.location.origin
     });
 
     // navigate to the home route
-    history.replace('/home');
+    setTimeout(() => {
+      history.replace('/');
+    }, 1000);
   }
 
   isAuthenticated() {
@@ -103,3 +160,5 @@ export default class Auth {
     return new Date().getTime() < expiresAt;
   }
 }
+
+export default Auth;

@@ -11,6 +11,7 @@ class Callback extends Component {
   }
 
   render() {
+    console.log(this.props);
     const style = {
       position: 'absolute',
       display: 'flex',
@@ -34,7 +35,7 @@ class Callback extends Component {
 
 const mapStateToProps = ({tokenReducer}, props) => {
   return {
-    token: tokenReducer.token
+    user: tokenReducer.token
   };
 };
 
