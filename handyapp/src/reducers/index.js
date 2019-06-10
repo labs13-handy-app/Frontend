@@ -5,6 +5,8 @@ import {tokenReducer} from './tokenReducer';
 import {connectionReducer} from './connectionReducer';
 import {usersReducer} from './usersReducer';
 import {onBoardingReducer} from './onBoardingReducer';
+import {getProjectsReducer} from './getProjectsReducer'
+import {getBidsReducer} from './getBidsReducer'
 
 export default combineReducers({
   tokenReducer,
@@ -12,5 +14,7 @@ export default combineReducers({
   form: formReducer,
   connectionReducer,
   usersReducer,
-  onBoardingReducer
+  onBoardingReducer,
+  getProjectsReducer,
+  getBidsReducer
 });
