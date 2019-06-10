@@ -10,6 +10,7 @@ import HomeownerForm from './components/HomePage/HomeownerForm';
 // import {Button} from 'reactstrap';
 
 import './App.css';
+// import Example from './components/ServiceProviders/Bid';
 
 const auth = new Auth();
 
@@ -39,6 +40,8 @@ function App() {
       <Route exact path="/onboarding" component={Onboarding} />
       <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
       <Route exact path="/contractor-onboarding" component={ContractorForm} />
+      {/* <Route exact path="/bid" component={Example} /> */}
+
     </div>
   );
 }
