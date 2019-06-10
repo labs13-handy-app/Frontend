@@ -12,7 +12,7 @@ import App from './App';
 import rootReducer from './reducers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+// import './index.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

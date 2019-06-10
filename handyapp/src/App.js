@@ -42,7 +42,7 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <div className="container">
+        <div>
           <Route exact path="/" render={props => <Landing {...props} />} />
           <Route
             exact

@@ -1,7 +1,3 @@
 .App {
-  text-align: center;
-}
-
-.App .container {
-  max-width: 85%;
+  justify-content: center;
 }
