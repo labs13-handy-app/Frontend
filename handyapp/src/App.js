@@ -66,7 +66,7 @@ class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/bids" component={Bids} />
-          <Route exact path='/projects/id' component={ProjectsById} />
+          <Route exact path='/projects/id' component={ProjectsById} /> 
         </div>
       </div>
     );
