@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const NavBar = props => {
-  const { isAuthenticated } = props;
+  // const { isAuthenticated } = props;
   const classes = useStyles();
 
   return (
@@ -45,8 +45,7 @@ const NavBar = props => {
           
         </header>
       )} */}
-      {isAuthenticated() && <h4>You are logged in!</h4>}
-      {!isAuthenticated() && (
+     
         <AppBar position="static" className={classes.bg}>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
@@ -76,7 +75,7 @@ const NavBar = props => {
             </Button>
           </Toolbar>
         </AppBar>
-      )}
+   
     </div>
   );
 };
