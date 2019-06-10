@@ -7,6 +7,8 @@ import {usersReducer} from './usersReducer';
 import {onBoardingReducer} from './onBoardingReducer';
 import {getProjectsReducer} from './getProjectsReducer'
 import {getBidsReducer} from './getBidsReducer'
+import {addBidReducer} from './addBidRedcuer'
+import {addProjectRedcuer} from './addProjectReducer'
 
 export default combineReducers({
   tokenReducer,
