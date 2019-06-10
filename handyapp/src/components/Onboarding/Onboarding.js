@@ -21,9 +21,16 @@ class Onboarding extends Component {
 
     this.props.onBoarding(editedUser.id, editedUser);
 
-    this.props.history.push('/home');
+    if (editedUser.account_type === 'Homeowner') {
+      this.props.history.push('/homeowner-onboarding');
+    } else if (editedUser.account_type === 'Contractor') {
+      this.props.history.push('/contractor-onboarding');
+    } else {
+      this.props.history.push('/onboarding');
+    }
   };
   render() {
+    console.log(this.props.user);
     return (
       <div className="Onboarding">
         <div className="accounts">

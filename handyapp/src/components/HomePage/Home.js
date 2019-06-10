@@ -24,9 +24,8 @@ class Home extends Component {
   }
 }
 
-const mapStatToProps = ({usersReducer, tokenReducer}, props) => {
+const mapStatToProps = ({tokenReducer}, props) => {
   return {
-    users: usersReducer.users,
     user: tokenReducer.token
   };
 };
