@@ -9,6 +9,9 @@ import './UserCard.css';
 class UserCard extends Component {
   render() {
     const {user} = this.props;
+    if (!user) {
+      return <h3>Loading...</h3>;
+    }
     return (
       <div className="UserCard">
         <div className="user-info">
