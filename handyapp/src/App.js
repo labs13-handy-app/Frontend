@@ -33,7 +33,7 @@ class App extends React.Component {
       auth.logout();
     }, 1000);
   };
-
+ 
   render() {
     const {isAuthenticated} = auth;
     return (
