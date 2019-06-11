@@ -47,7 +47,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     alignSelf: 'center',
-
   },
   header: {
     display: 'flex',
@@ -64,7 +63,7 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     width: '100%',
    
-  },
+  }
 }));
 
 const Landing = () => {
@@ -126,4 +125,4 @@ const Landing = () => {
   );
 }
 
-export default Landing;
+export default Landing
