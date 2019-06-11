@@ -5,11 +5,12 @@ import {tokenReducer} from './tokenReducer';
 import {connectionReducer} from './connectionReducer';
 import {usersReducer} from './usersReducer';
 import {onBoardingReducer} from './onBoardingReducer';
-import {getProjectsReducer} from './getProjectsReducer'
-import {getBidsReducer} from './getBidsReducer'
-import {addBidReducer} from './addBidRedcuer'
-import {addProjectReducer} from './addProjectReducer'
-import {getProjectByIdReducer} from './getProjectByIdReducer'
+import {getProjectsReducer} from './getProjectsReducer';
+import {getBidsReducer} from './getBidsReducer';
+import {addBidReducer} from './addBidRedcuer';
+import {addProjectReducer} from './addProjectReducer';
+import {getProjectByIdReducer} from './getProjectByIdReducer';
+import {getUserProjectsReducer} from './getUserProjectsReducer';
 
 export default combineReducers({
   tokenReducer,
@@ -22,5 +23,6 @@ export default combineReducers({
   getBidsReducer,
   addBidReducer,
   addProjectReducer,
-  getProjectByIdReducer
+  getProjectByIdReducer,
+  getUserProjectsReducer
 });

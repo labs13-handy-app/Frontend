@@ -1,15 +1,23 @@
 import React from 'react';
 
- const Project = props => {
+const Project = props => {
+  if (!localStorage.token) {
+    props.history.push('/');
+  }
   return (
     <div>
-      <p>name: {props.first_name} {props.last_name}</p>
-      <p>description: {props.description} </p>
-      <p> materials included? {props.materials_included}</p>
+      <p>{props.title}</p>
+      <p>{props.description} </p>
+      <p>
+        {props.materials_included === 'yes'
+          ? 'Materials Included'
+          : 'No materials included'}
+      </p>
+      <p>
+        {props.first_name} {props.last_name}
+      </p>
     </div>
   );
 };
 
-
-
- export default Project
+export default Project;
