@@ -11,6 +11,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import addbid from './components/ServiceProviders/addbid'
+import ProjectsById from './components/Projects/ProjectsById'
+
 import './App.css';
 
 const auth = new Auth();
@@ -41,7 +43,7 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <div className="container">
+        <div>
           <Route exact path="/" render={props => <Landing {...props} />} />
           <Route
             exact
@@ -66,6 +68,7 @@ class App extends React.Component {
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/bids" component={Bids} />
           <Route exact path="/addbid" component={addbid} />
+          <Route exact path='/projects/id' component={ProjectsById} /> 
         </div>
       </div>
     );
