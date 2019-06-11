@@ -13,14 +13,13 @@ class Dashboard extends Component {
     this.props.getUser();
   }
   render() {
-    console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
     return (
       <div className="Dashboard">
         <div className="side-panel">
-          <UserCard />
+          <UserCard user={this.props.user} />
         </div>
         <div className="main-panel">
           <Route path="/dashboard/add-project" component={AddProject} />

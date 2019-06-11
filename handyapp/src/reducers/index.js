@@ -11,6 +11,7 @@ import {addBidReducer} from './addBidRedcuer';
 import {addProjectReducer} from './addProjectReducer';
 import {getProjectByIdReducer} from './getProjectByIdReducer';
 import {getUserProjectsReducer} from './getUserProjectsReducer';
+import {addFeedbackReducer} from './addFeedbackReducer'
 
 export default combineReducers({
   tokenReducer,
@@ -24,5 +25,6 @@ export default combineReducers({
   addBidReducer,
   addProjectReducer,
   getProjectByIdReducer,
+  addFeedbackReducer,
   getUserProjectsReducer
 });
