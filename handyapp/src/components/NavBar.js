@@ -1,12 +1,11 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {makeStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   root: {
     flexGrow: 1,
     marginBottom: '30px'
@@ -28,32 +27,16 @@ const useStyles = makeStyles(theme => ({
     color: '#00000',
     fontSize: '1.6rem'
   }
-}));
+});
 
 const NavBar = props => {
-  const classes = useStyles();
+  const {classes} = this.props;
   return (
     <div className={classes.root}>
-      {/* {isAuthenticated() && <h4>You are logged in!</h4>}
-      {!isAuthenticated() && (
-        <header>
-          <div className="logo">
-            <h2>Handyapp</h2>
-          </div>
-          <nav>
-            <NavLink to="#" onClick={props.login}>
-              Login
-            </NavLink>
-          </nav>
-          
-        </header>
-      )} */}
-
       <AppBar position="static" className={classes.bg}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            {/* <img src={logo} alt="handy-app-logo" /> */}
-            {/* handyApp */}
+            handyApp
           </Typography>
           {!localStorage.token && (
             <Button
@@ -82,13 +65,4 @@ const NavBar = props => {
   );
 };
 
-const mapStateToprops = ({tokenReducer}, props) => {
-  return {
-    logged: tokenReducer.isAuthenticated
-  };
-};
-
-export default connect(
-  mapStateToprops,
-  {}
-)(NavBar);
+export default withStyles(styles)(NavBar);
