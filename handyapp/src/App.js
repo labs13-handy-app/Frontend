@@ -10,6 +10,7 @@ import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 import './App.css';
 
@@ -51,20 +52,24 @@ class App extends React.Component {
               return <Callback {...props} />;
             }}
           />
-          <Route
+          <PrivateRoute
             exact
             path="/onboarding"
             render={props => <Onboarding {...props} />}
           />
-          <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
-          <Route
+          <PrivateRoute
+            exact
+            path="/homeowner-onboarding"
+            component={HomeownerForm}
+          />
+          <PrivateRoute
             exact
             path="/contractor-onboarding"
             component={ContractorForm}
           />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/projects" component={Projects} />
-          <Route exact path="/bids" component={Bids} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute exact path="/projects" component={Projects} />
+          <PrivateRoute exact path="/bids" component={Bids} />
         </div>
       </div>
     );
