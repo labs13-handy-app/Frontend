@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {connect} from 'react-redux';
+import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -7,28 +8,31 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginBottom: '30px'
   },
   label: {
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    fontSize: '1.6rem'
   },
   title: {
-    flexGrow: 2
+    flexGrow: 2,
+    fontSize: '2.4rem'
   },
   bg: {
-    background: 'linear-gradient(45deg, #667761 30%, #545E56 90%)'
+    background: 'linear-gradient(45deg, #5659e1 30%, #484ac4 90%)'
   },
   task: {
     textTransform: 'lowercase',
     border: '1px solid #EAE1DF',
-    color: '#00000'
+    color: '#00000',
+    fontSize: '1.6rem'
   }
 }));
 
 const NavBar = props => {
-  // const { isAuthenticated } = props;
+  const {isAuthenticated, logged} = props;
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       {/* {isAuthenticated() && <h4>You are logged in!</h4>}
@@ -45,20 +49,13 @@ const NavBar = props => {
           
         </header>
       )} */}
-     
-        <AppBar position="static" className={classes.bg}>
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              handyApp
-            </Typography>
-            <Button
-              color="inherit"
-              variant="text"
-              onClick={props.login}
-              className={classes.label}
-            >
-              Sign up
-            </Button>
+
+      <AppBar position="static" className={classes.bg}>
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            handyApp
+          </Typography>
+          {!logged && !isAuthenticated() && (
             <Button
               color="inherit"
               onClick={props.login}
@@ -66,17 +63,39 @@ const NavBar = props => {
             >
               Login
             </Button>
-            <Button
-              color="inherit"
-              onClick={props.login}
-              className={classes.task}
-            >
-              Post a task
-            </Button>
-          </Toolbar>
-        </AppBar>
-   
+          )}
+          {logged && isAuthenticated() && (
+            <>
+              <Button
+                color="inherit"
+                onClick={props.login}
+                className={classes.task}
+              >
+                Post a task
+              </Button>
+              <Button
+                color="inherit"
+                variant="text"
+                onClick={props.logout}
+                className={classes.label}
+              >
+                Logout
+              </Button>
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
     </div>
   );
 };
-export default NavBar;
+
+const mapStateToprops = ({tokenReducer}, props) => {
+  return {
+    logged: tokenReducer.isAuthenticated
+  };
+};
+
+export default connect(
+  mapStateToprops,
+  {}
+)(NavBar);

@@ -8,7 +8,7 @@ import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
-import Projects from './components/Projects/Projects';
+// import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ProjectsById from './components/Projects/ProjectsById';
@@ -43,34 +43,32 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <div>
-          <Route exact path="/" render={props => <Landing {...props} />} />
-          <Route
-            exact
-            path="/callback"
-            render={props => {
-              handleAuthentication(props);
-              return <Callback {...props} />;
-            }}
-          />
-          <PrivateRoute
-            exact
-            path="/onboarding"
-            render={props => <Onboarding {...props} />}
-          />
-          <PrivateRoute
-            exact
-            path="/homeowner-onboarding"
-            component={HomeownerForm}
-          />
-          <PrivateRoute
-            exact
-            path="/contractor-onboarding"
-            component={ContractorForm}
-          />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/projects" component={Projects} />
-          <PrivateRoute exact path="/bids" component={Bids} />
+        <div className="container">
+          <div>
+            <Route exact path="/" render={props => <Landing {...props} />} />
+            <Route
+              path="/callback"
+              render={props => {
+                handleAuthentication(props);
+                return <Callback {...props} />;
+              }}
+            />
+            <Route
+              path="/onboarding"
+              render={props => <Onboarding {...props} />}
+            />
+            <PrivateRoute
+              path="/homeowner-onboarding"
+              component={HomeownerForm}
+            />
+            <PrivateRoute
+              path="/contractor-onboarding"
+              component={ContractorForm}
+            />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            {/* <PrivateRoute path="/projects" component={Projects} /> */}
+            <PrivateRoute path="/bids" component={Bids} />
+          </div>
         </div>
       </div>
     );

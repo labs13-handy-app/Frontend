@@ -3,6 +3,13 @@ import {connect} from 'react-redux';
 import {addProject} from '../../actions';
 
 class AddProject extends Component {
+  state = {
+    project: {
+      title: '',
+      description: '',
+      image: ''
+    }
+  };
   render() {
     return (
       <div className="AddProject">
@@ -33,9 +40,8 @@ class AddProject extends Component {
                 <input
                   onChange={this.onChange}
                   type="file"
-                  id="description"
-                  value={this.state.project.description}
-                  placeholder="Enter description"
+                  id="image"
+                  value={this.state.project.image}
                 />
                 Upload Images
               </label>
