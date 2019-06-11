@@ -34,7 +34,7 @@ class UserCard extends Component {
             <NavLink to="/dashboard/add-project" className="action-button">
               Add Project
             </NavLink>
-          </div>
+          </div>       
           <div className="tab">
             <NavLink to="/dashboard/contractor" className="tab-button">
               Contractor

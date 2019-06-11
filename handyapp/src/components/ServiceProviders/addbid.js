@@ -12,8 +12,8 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 const ranges = [
   {
-    value: '0-20',
-    label: '0 to 20',
+    value: '1-2',
+    label: '1 to 2',
   },
   {
     value: '21-50',
@@ -40,7 +40,7 @@ const useStyles = withStyles(theme => ({
 export default function OutlinedInputAdornments() {
   const classes = withStyles();
   const [values, setValues] = React.useState({
-    amount: '',
+    price: '',
     password: '',
     weight: '',
     weightRange: '',
@@ -61,22 +61,22 @@ export default function OutlinedInputAdornments() {
         id="outlined-simple-start-adornment"
         className={clsx(classes.margin, classes.textField)}
         variant="outlined"
-        label="With outlined TextField"
+        label="Project Completion"
         InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
+          startAdornment: <InputAdornment position="start">Day's</InputAdornment>,
         }}
       />
       <TextField
         select
         className={clsx(classes.margin, classes.textField)}
         variant="outlined"
-        label="With Select"
-        value={values.weightRange}
-        onChange={handleChange('weightRange')}
+        label="Time"
+        value={values.calendar }
+        onChange={handleChange('calendar')}
         InputProps={{
-          startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
+          startAdornment: <InputAdornment position="start">Week's</InputAdornment>,
         }}
-      >
+      >  
         {ranges.map(option => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
@@ -84,12 +84,12 @@ export default function OutlinedInputAdornments() {
         ))}
       </TextField>
       <TextField
-        id="outlined-adornment-amount"
+        id="outlined-adornment-price"
         className={clsx(classes.margin, classes.textField)}
         variant="outlined"
-        label="Amount"
-        value={values.amount}
-        onChange={handleChange('amount')}
+        label="price"
+        value={values.price}
+        onChange={handleChange('price')}
         InputProps={{
           startAdornment: <InputAdornment position="start">$</InputAdornment>,
         }}
