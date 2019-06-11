@@ -29,7 +29,7 @@ const styles = theme => ({
   }
 });
 
-class NavBar extends Component {
+export class NavBar extends Component {
   render() {
     const {classes} = this.props;
     return (
