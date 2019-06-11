@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -29,40 +29,42 @@ const styles = theme => ({
   }
 });
 
-const NavBar = props => {
-  const {classes} = this.props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.bg}>
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            handyApp
-          </Typography>
-          {!localStorage.token && (
-            <Button
-              color="inherit"
-              onClick={props.login}
-              className={classes.label}
-            >
-              Login
-            </Button>
-          )}
-          {localStorage.token && (
-            <>
+class NavBar extends Component {
+  render() {
+    const {classes} = this.props;
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" className={classes.bg}>
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              handyApp
+            </Typography>
+            {!localStorage.token && (
               <Button
                 color="inherit"
-                variant="text"
-                onClick={props.logout}
+                onClick={this.props.login}
                 className={classes.label}
               >
-                Logout
+                Login
               </Button>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
-};
+            )}
+            {localStorage.token && (
+              <>
+                <Button
+                  color="inherit"
+                  variant="text"
+                  onClick={this.props.logout}
+                  className={classes.label}
+                >
+                  Logout
+                </Button>
+              </>
+            )}
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
+}
 
 export default withStyles(styles)(NavBar);
