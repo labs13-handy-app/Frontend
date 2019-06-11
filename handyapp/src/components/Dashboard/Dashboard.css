@@ -6,11 +6,11 @@
 }
 
 .Dashboard .side-panel {
-  min-width: 10%;
+  min-width: 18%;
   margin-right: 1%;
 }
 
 .Dashboard .main-panel {
-  width: 80%;
+  width: 70%;
   margin-top: 38px;
 }

@@ -10,6 +10,9 @@ class Projects extends Component {
 
   render() {
     console.log(this.props);
+    if (!localStorage.token) {
+      this.props.history.push('/');
+    }
     if (this.props.projects.length === 0) {
       return (
         <>
@@ -25,7 +28,7 @@ class Projects extends Component {
             this.props.projects.map(project => {
               return (
                 <Project
-                  title={project.title}
+                  title={project.name}
                   key={project.id}
                   description={project.description}
                   homeowner_id={project.homeowner_id}

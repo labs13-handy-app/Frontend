@@ -1,24 +1,44 @@
 import React, {Component} from 'react';
+import {Route} from 'react-router-dom';
+import {connect} from 'react-redux';
 import UserCard from '../UserCard/UserCard';
-import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import AddProject from '../AddProject/AddProject';
-import Projects from '../Projects/Projects';
+import UserProjects from '../UserProjects/UserProjects';
+import {getToken as getUser} from '../../actions';
 
 import './Dashboard.css';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
+  componentDidMount() {
+    this.props.getUser();
+  }
   render() {
     console.log(this.props);
+    if (!localStorage.token) {
+      this.props.history.push('/');
+    }
     return (
       <div className="Dashboard">
         <div className="side-panel">
           <UserCard />
         </div>
         <div className="main-panel">
-          <PrivateRoute path="/dashboard/add-project" component={AddProject} />
-          <PrivateRoute path="/dashboard/projects" component={Projects} />
+          <Route path="/dashboard/add-project" component={AddProject} />
+          <Route
+            render={props => <UserProjects {...props} user={this.props.user} />}
+            path={`/dashboard/projects/:id`}
+          />
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = ({tokenReducer: usersReducer}, props) => ({
+  user: usersReducer.token
+});
+
+export default connect(
+  mapStateToProps,
+  {getUser}
+)(Dashboard);

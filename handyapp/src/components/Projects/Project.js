@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Project = props => {
+  if (!localStorage.token) {
+    props.history.push('/');
+  }
   return (
     <div>
       <p>{props.title}</p>

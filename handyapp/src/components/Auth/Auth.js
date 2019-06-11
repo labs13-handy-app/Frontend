@@ -65,35 +65,8 @@ class Auth {
     const user = authResult.idTokenPayload;
 
     // Comment to work locally
-    // axiosWithAuth()
-    //   .post('https://handy-app-api.herokuapp.com/register', user)
-    //   .then(res => {
-    //     console.log(res.data);
-    //     if (
-    //       (res.data.flag && res.data.flag === 0) ||
-    //       res.data.flag === false ||
-    //       ((res.data && res.data.isBoarded === false) ||
-    //         res.data.isBoarded === 0)
-    //     ) {
-    //       // navigate to the onboarding route
-    //       history.replace('/onboarding');
-    //     } else if (
-    //       (res.data.flag && res.data.flag === 1) ||
-    //       res.data.flag === true ||
-    //       ((res.data && res.data.isBoarded === true) ||
-    //         res.data.isBoarded === 1)
-    //     ) {
-    //       // navigate to the dashboard route
-    //       history.replace('/dashboard');
-    //     } else {
-    //       this.login();
-    //     }
-    //   })
-    //   .catch(err => console.log(err.message));
-
-    // Uncomment to work locally
     axiosWithAuth()
-      .post('http://localhost:5000/register', user)
+      .post('https://handy-app-api.herokuapp.com/register', user)
       .then(res => {
         console.log(res.data);
         if (
@@ -117,6 +90,32 @@ class Auth {
         }
       })
       .catch(err => console.log(err.message));
+
+    // Uncomment to work locally
+    // axiosWithAuth()
+    //   .post('http://localhost:5000/register', user)
+    //   .then(res => {
+    //     if (
+    //       (res.data.flag && res.data.flag === 0) ||
+    //       res.data.flag === false ||
+    //       ((res.data && res.data.isBoarded === false) ||
+    //         res.data.isBoarded === 0)
+    //     ) {
+    //       // navigate to the onboarding route
+    //       history.replace('/onboarding');
+    //     } else if (
+    //       (res.data.flag && res.data.flag === 1) ||
+    //       res.data.flag === true ||
+    //       ((res.data && res.data.isBoarded === true) ||
+    //         res.data.isBoarded === 1)
+    //     ) {
+    //       // navigate to the dashboard route
+    //       history.replace('/dashboard');
+    //     } else {
+    //       this.login();
+    //     }
+    //   })
+    //   .catch(err => console.log(err.message));
   }
 
   renewSession() {

@@ -31,7 +31,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const NavBar = props => {
-  const {isAuthenticated, logged} = props;
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -53,9 +52,10 @@ const NavBar = props => {
       <AppBar position="static" className={classes.bg}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            handyApp
+            {/* <img src={logo} alt="handy-app-logo" /> */}
+            {/* handyApp */}
           </Typography>
-          {!logged && !isAuthenticated() && (
+          {!localStorage.token && (
             <Button
               color="inherit"
               onClick={props.login}
@@ -64,15 +64,8 @@ const NavBar = props => {
               Login
             </Button>
           )}
-          {logged && isAuthenticated() && (
+          {localStorage.token && (
             <>
-              <Button
-                color="inherit"
-                onClick={props.login}
-                className={classes.task}
-              >
-                Post a task
-              </Button>
               <Button
                 color="inherit"
                 variant="text"

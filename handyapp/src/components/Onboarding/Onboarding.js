@@ -31,6 +31,9 @@ class Onboarding extends Component {
   };
   render() {
     console.log(this.props.user);
+    if (!localStorage.token) {
+      this.props.history.push('/');
+    }
     return (
       <div className="Onboarding">
         <div className="accounts">

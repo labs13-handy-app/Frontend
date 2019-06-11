@@ -8,7 +8,7 @@ import './UserCard.css';
 
 class UserCard extends Component {
   render() {
-    const {token: user} = this.props;
+    const {user} = this.props;
     return (
       <div className="UserCard">
         <div className="user-info">
