@@ -76,7 +76,7 @@ export default function OutlinedInputAdornments() {
         InputProps={{
           startAdornment: <InputAdornment position="start">Week's</InputAdornment>,
         }}
-      >
+      >  
         {ranges.map(option => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
