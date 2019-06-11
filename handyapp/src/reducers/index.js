@@ -12,6 +12,8 @@ import {addProjectReducer} from './addProjectReducer';
 import {getProjectByIdReducer} from './getProjectByIdReducer';
 import {getUserProjectsReducer} from './getUserProjectsReducer';
 import {addFeedbackReducer} from './addFeedbackReducer'
+import {getFeedbackByContractorIdReducer} from './getFeedbackByContractorIdReducer'
+import {editProjectsReducer} from './editProjectsReducer'
 
 export default combineReducers({
   tokenReducer,
@@ -26,5 +28,7 @@ export default combineReducers({
   addProjectReducer,
   getProjectByIdReducer,
   addFeedbackReducer,
-  getUserProjectsReducer
+  getUserProjectsReducer,
+  getFeedbackByContractorIdReducer,
+  editProjectsReducer
 });
