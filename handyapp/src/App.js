@@ -8,15 +8,10 @@ import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
-// import Projects from './components/Projects/Projects';
+import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
-<<<<<<< HEAD
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ProjectsById from './components/Projects/ProjectsById';
-=======
-import addbid from './components/ServiceProviders/addbid'
-import ProjectsById from './components/Projects/ProjectsById'
->>>>>>> master
+import addbid from './components/ServiceProviders/addbid';
 
 import './App.css';
 
@@ -38,44 +33,16 @@ class App extends React.Component {
       auth.logout();
     }, 1000);
   };
- 
+
   render() {
     const {isAuthenticated} = auth;
     return (
       <div className="App">
-        <NavBar 
+        <NavBar
           isAuthenticated={isAuthenticated}
           login={this.login}
           logout={this.logout}
         />
-<<<<<<< HEAD
-        <div className="container">
-          <div>
-            <Route exact path="/" render={props => <Landing {...props} />} />
-            <Route
-              path="/callback"
-              render={props => {
-                handleAuthentication(props);
-                return <Callback {...props} />;
-              }}
-            />
-            <Route
-              path="/onboarding"
-              render={props => <Onboarding {...props} />}
-            />
-            <PrivateRoute
-              path="/homeowner-onboarding"
-              component={HomeownerForm}
-            />
-            <PrivateRoute
-              path="/contractor-onboarding"
-              component={ContractorForm}
-            />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
-            {/* <PrivateRoute path="/projects" component={Projects} /> */}
-            <PrivateRoute path="/bids" component={Bids} />
-          </div>
-=======
         <div>
           <Route exact path="/" render={props => <Landing {...props} />} />
           <Route
@@ -101,8 +68,7 @@ class App extends React.Component {
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/bids" component={Bids} />
           <Route exact path="/addbid" component={addbid} />
-          <Route exact path='/projects/id' component={ProjectsById} /> 
->>>>>>> master
+          <Route exact path="/projects/id" component={ProjectsById} />
         </div>
       </div>
     );
