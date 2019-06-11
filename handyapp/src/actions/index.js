@@ -28,7 +28,10 @@ export {
   GET_BIDS_FAILURE,
   ADD_BID_START,
   ADD_BID_SUCCESS,
-  ADD_BID_FAILURE
+  ADD_BID_FAILURE,
+  ADD_FEEDBACK_START,
+  ADD_FEEDBACK_SUCCESS,
+  ADD_FEEDBACK_FAILURE
 } from './types';
 
 export {getToken} from './getToken';
@@ -41,3 +44,4 @@ export {getProjects} from './getProjects';
 export {getBids} from './getBids';
 export {addBid} from './addBid'
 export {getProjectById} from './getProjectById'
+export {addFeedback} from './addFeedback'
