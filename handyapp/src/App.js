@@ -10,7 +10,7 @@ import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
-
+import addbid from './components/ServiceProviders/addbid'
 import './App.css';
 
 const auth = new Auth();
@@ -36,7 +36,7 @@ class App extends React.Component {
     const {isAuthenticated} = auth;
     return (
       <div className="App">
-        <NavBar
+        <NavBar 
           isAuthenticated={isAuthenticated}
           login={this.login}
           logout={this.logout}
@@ -65,6 +65,7 @@ class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/bids" component={Bids} />
+          <Route exact path="/addbid" component={addbid} />
         </div>
       </div>
     );
