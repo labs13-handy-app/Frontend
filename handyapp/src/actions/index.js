@@ -31,7 +31,10 @@ export {
   ADD_BID_FAILURE,
   ADD_FEEDBACK_START,
   ADD_FEEDBACK_SUCCESS,
-  ADD_FEEDBACK_FAILURE
+  ADD_FEEDBACK_FAILURE,
+  GET_USER_PROJECTS_START,
+  GET_USER_PROJECTS_SUCCESS,
+  GET_USER_PROJECTS_FAILURE
 } from './types';
 
 export {getToken} from './getToken';
@@ -42,6 +45,7 @@ export {paymentConnection} from './paymentConnection';
 export {onBoarding} from './onBoarding';
 export {getProjects} from './getProjects';
 export {getBids} from './getBids';
-export {addBid} from './addBid'
-export {getProjectById} from './getProjectById'
+export {addBid} from './addBid';
+export {getProjectById} from './getProjectById';
+export {getUserProjects} from './getUserProjects';
 export {addFeedback} from './addFeedback'

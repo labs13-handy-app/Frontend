@@ -95,7 +95,6 @@ class Auth {
     // axiosWithAuth()
     //   .post('http://localhost:5000/register', user)
     //   .then(res => {
-    //     console.log(res.data);
     //     if (
     //       (res.data.flag && res.data.flag === 0) ||
     //       res.data.flag === false ||

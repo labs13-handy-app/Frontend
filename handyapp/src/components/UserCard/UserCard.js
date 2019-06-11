@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import avatar from '../../img/default-avatar.png';
 import {getToken} from '../../actions';
@@ -8,7 +8,7 @@ import './UserCard.css';
 
 class UserCard extends Component {
   render() {
-    const {token: user} = this.props;
+    const {user} = this.props;
     return (
       <div className="UserCard">
         <div className="user-info">
@@ -28,31 +28,34 @@ class UserCard extends Component {
         </div>
         <div className="tabs">
           <div className="tab-top">
-            <Link to="/add-project" className="action-button">
+            <NavLink to="/dashboard/add-project" className="action-button">
               Add Project
-            </Link>
+            </NavLink>
           </div>
           <div className="tab">
-            <NavLink to="/contractor" className="tab-button">
+            <NavLink to="/dashboard/contractor" className="tab-button">
               Contractor
               <i className="fas fa-chevron-right" />
             </NavLink>
           </div>
           <div className="tab">
-            <NavLink to="/plumber" className="tab-button">
+            <NavLink to="/dashboard/plumber" className="tab-button">
               Plumber
               <i className="fas fa-chevron-right" />
             </NavLink>
           </div>
           <div className="tab">
-            <NavLink to="/Electrician" className="tab-button">
+            <NavLink to="/dashboard/Electrician" className="tab-button">
               Electrician
               <i className="fas fa-chevron-right" />
             </NavLink>
           </div>
           <div className="tab">
-            <NavLink to="/my-projects" className="tab-button">
-              My projects
+            <NavLink
+              to={`/dashboard/projects/${user.id}`}
+              className="tab-button"
+            >
+              My Projects
               <i className="fas fa-chevron-right" />
             </NavLink>
           </div>

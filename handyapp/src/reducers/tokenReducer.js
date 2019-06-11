@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   token: '',
+  isAuthenticated: false,
   isGetting: false,
   error: null
 };
@@ -16,6 +17,7 @@ export const tokenReducer = (state = initialState, action) => {
       return {
         ...state,
         isGetting: true,
+        isAuthenticated: false,
         token: '',
         error: null
       };
@@ -24,6 +26,7 @@ export const tokenReducer = (state = initialState, action) => {
         ...state,
         isGetting: false,
         token: action.payload,
+        isAuthenticated: true,
         error: null
       };
     case GET_TOKEN_FAILURE:
@@ -31,7 +34,8 @@ export const tokenReducer = (state = initialState, action) => {
         ...state,
         isGetting: false,
         token: '',
-        error: action.payload
+        error: action.payload,
+        isAuthenticated: false
       };
     default:
       return state;

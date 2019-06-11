@@ -1,75 +1,68 @@
-import React, { Component } from 'react';
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-const styles = (theme => ({
+const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginBottom: '30px'
   },
   label: {
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    fontSize: '1.6rem'
   },
   title: {
-    flexGrow: 2
+    flexGrow: 2,
+    fontSize: '2.4rem'
   },
   bg: {
-    background: 'linear-gradient(45deg, #667761 30%, #545E56 90%)'
+    background: 'linear-gradient(45deg, #5659e1 30%, #484ac4 90%)'
   },
   task: {
     textTransform: 'lowercase',
     border: '1px solid #EAE1DF',
-    color: '#545E56',
-    background: '#EAE1DF',
-    marginLeft: 30,
-    "&:hover": {
-      color: '#EAE1DF',
-      background: '#545E56',
-      borderColor: '1px solid #545E56'
-    }
+    color: '#00000',
+    fontSize: '1.6rem'
   }
-}));
+});
 
-export class NavBar extends Component{
-  render() {
-    const { classes }= this.props;
-
-    return (
-      <div className={classes.root}>
-          <AppBar position="static" className={classes.bg}>
-            <Toolbar>
-              <Typography variant="h6" className={classes.title}>
-                handyApp
-              </Typography>
+const NavBar = props => {
+  const {classes} = this.props;
+  return (
+    <div className={classes.root}>
+      <AppBar position="static" className={classes.bg}>
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            handyApp
+          </Typography>
+          {!localStorage.token && (
+            <Button
+              color="inherit"
+              onClick={props.login}
+              className={classes.label}
+            >
+              Login
+            </Button>
+          )}
+          {localStorage.token && (
+            <>
               <Button
                 color="inherit"
                 variant="text"
-                onClick={this.props.login}
+                onClick={props.logout}
                 className={classes.label}
               >
-                Sign up
+                Logout
               </Button>
-              <Button
-                color="inherit"
-                onClick={this.props.login}
-                className={classes.label}
-              >
-                Login
-              </Button>
-              <Button
-                onClick={this.props.login}
-                className={classes.task}
-              >
-                Post a task
-              </Button>
-            </Toolbar>
-          </AppBar>
-     
-      </div>
-    );
-  }
- 
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 };
+
 export default withStyles(styles)(NavBar);
