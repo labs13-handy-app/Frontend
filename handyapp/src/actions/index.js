@@ -20,6 +20,9 @@ export {
   GET_PROJECTS_START,
   GET_PROJECTS_SUCCESS,
   GET_PROJECTS_FAILURE,
+  GET_PROJECT_BY_ID_START,
+  GET_PROJECT_BY_ID_SUCCESS,
+  GET_PROJECT_BY_ID_FAILURE,
   GET_BIDS_START,
   GET_BIDS_SUCCESS,
   GET_BIDS_FAILURE,
@@ -37,3 +40,4 @@ export {onBoarding} from './onBoarding';
 export {getProjects} from './getProjects';
 export {getBids} from './getBids';
 export {addBid} from './addBid'
+export {getProjectById} from './getProjectById'

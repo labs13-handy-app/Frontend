@@ -11,6 +11,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ProjectsById from './components/Projects/ProjectsById';
 
 import './App.css';
 
@@ -42,7 +43,7 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <div className="container">
+        <div>
           <Route exact path="/" render={props => <Landing {...props} />} />
           <Route
             exact
