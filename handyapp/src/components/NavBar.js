@@ -21,7 +21,14 @@ const styles = (theme => ({
   task: {
     textTransform: 'lowercase',
     border: '1px solid #EAE1DF',
-    color: '#00000'
+    color: '#545E56',
+    background: '#EAE1DF',
+    marginLeft: 30,
+    "&:hover": {
+      color: '#EAE1DF',
+      background: '#545E56',
+      borderColor: '1px solid #545E56'
+    }
   }
 }));
 
@@ -52,7 +59,6 @@ export class NavBar extends Component{
                 Login
               </Button>
               <Button
-                color="inherit"
                 onClick={this.props.login}
                 className={classes.task}
               >
