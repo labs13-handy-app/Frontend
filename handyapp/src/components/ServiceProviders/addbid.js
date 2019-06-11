@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
@@ -22,7 +24,6 @@ const ranges = [
     label: '51 to 100',
   },
 ];
-
 const useStyles = withStyles(theme => ({
   root: {
     display: 'flex',
