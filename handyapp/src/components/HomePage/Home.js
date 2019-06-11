@@ -20,6 +20,9 @@ class Home extends Component {
 
   render() {
     // console.log(this.props);
+    if (!localStorage.token) {
+      this.props.history.push('/');
+    }
     return <>{this.renderUserForm()}</>;
   }
 }

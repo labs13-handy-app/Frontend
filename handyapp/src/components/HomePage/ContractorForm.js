@@ -80,6 +80,9 @@ class ContractorForm extends Component {
   };
 
   render() {
+    if (!localStorage.token) {
+      this.props.history.push('/');
+    }
     return (
       <form onSubmit={this.onSubmit} id="user-onboarding">
         <div>
