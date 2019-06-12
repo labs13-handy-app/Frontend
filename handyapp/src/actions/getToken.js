@@ -13,10 +13,10 @@ export const getToken = token => dispatch => {
     .catch(err => dispatch({ type: GET_TOKEN_FAILURE, payload: err.message }));
 
   /* Uncomment to work locally   */
-  axiosWithAuth();
-  // .post('http://localhost:5000/register')
-  // .then(res => {
-  //   dispatch({ type: GET_TOKEN_SUCCESS, payload: res.data });
-  // })
-  // .catch(err => dispatch({ type: GET_TOKEN_FAILURE, payload: err.message }));
+  // axiosWithAuth()
+  //   .post('http://localhost:5000/register')
+  //   .then(res => {
+  //     dispatch({ type: GET_TOKEN_SUCCESS, payload: res.data });
+  //   })
+  //   .catch(err => dispatch({ type: GET_TOKEN_FAILURE, payload: err.message }));
 };
