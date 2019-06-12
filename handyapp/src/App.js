@@ -11,7 +11,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import ProjectsById from './components/Projects/ProjectsById';
-import addbid from './components/ServiceProviders/addbid';
+import AddBid from './components/ServiceProviders/AddBid';
 
 import './App.css';
 
@@ -67,7 +67,7 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
-            <Route path="/addbid" component={addbid} />
+            <Route path="/addbid" component={AddBid} />
             <Route e path="/projects/id" component={ProjectsById} />
           </div>
         </div>
