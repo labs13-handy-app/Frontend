@@ -183,6 +183,11 @@ export default function AddBid() {
 
 
 </div>
+
+
+
+
+
 );
 }
 // Button Component End
