@@ -3,11 +3,11 @@
   height: 526px;
   border-radius: 2px;
   background: #fff;
-  /* border: 1px solid #e2e2e2; */
+  border: 1px solid #e2e2e2;
   font-size: 15px;
   color: #333;
   font-weight: 600;
-  box-shadow: 0 0 10px #020c1d29;
+  /* box-shadow: 0 0 10px #020c1d29; */
   margin-top: 60px;
 }
 

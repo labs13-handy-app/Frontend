@@ -10,14 +10,18 @@ import Loader from 'react-loader-spinner';
 import './Dashboard.css';
 
 class Dashboard extends Component {
+  componentWillMount() {
+    this.props.getUser();
+  }
   componentDidMount() {
     this.props.getUser();
   }
   render() {
+    console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
-    if (!this.props.user) {
+    if (this.props.user === '') {
       return (
         <div className="centered">
           <Loader type="Oval" color="#4c5b48" height="100" width="100" />
@@ -32,7 +36,7 @@ class Dashboard extends Component {
         <div className="main-panel">
           <Route
             path="/dashboard/users/:id/add-project"
-            component={AddProject}
+            render={props => <AddProject {...props} user={this.props.user} />}
           />
           <Route
             render={props => <UserProjects {...props} user={this.props.user} />}

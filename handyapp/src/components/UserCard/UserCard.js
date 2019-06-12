@@ -3,12 +3,18 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import avatar from '../../img/default-avatar.png';
 import {getToken} from '../../actions';
+import Loader from 'react-loader-spinner';
 
 import './UserCard.css';
 
 class UserCard extends Component {
   render() {
     const {user} = this.props;
+    if (!this.props.user.first_name) {
+      return (
+        <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
+      );
+    }
     return (
       <div className="UserCard">
         <div className="user-info">
@@ -31,7 +37,7 @@ class UserCard extends Component {
             <NavLink to={`/dashboard/users/${user.id}/add-project`}>
               <button className="action-button">Add Project</button>
             </NavLink>
-          </div>       
+          </div>
           <div className="tab">
             <div className="icon">
               <i className="fas fa-hard-hat" />

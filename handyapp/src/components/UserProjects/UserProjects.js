@@ -20,7 +20,7 @@ class UserProjects extends Component {
     }
     if (!this.props.userProjects.projects) {
       return (
-        <div className="project-container content">
+        <div className="project-container empty">
           <Loader type="Oval" color="#4c5b48" height="100" width="100" />
         </div>
       );
@@ -35,7 +35,7 @@ class UserProjects extends Component {
           <p className="message">Click below to add your first project.</p>
           <NavLink to={`/dashboard/users/${this.props.user.id}/add-project`}>
             <button className="action-button">
-              <i class="fas fa-plus fa-lg" />
+              <i className="fas fa-plus fa-lg" />
             </button>
           </NavLink>
         </div>

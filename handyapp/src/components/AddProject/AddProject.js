@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addProject} from '../../actions';
+import {addProject, addProjectPics} from '../../actions';
 
 class AddProject extends Component {
-  state = {
-    project: {
-      title: '',
-      description: '',
-      image: null
-    }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      project: {
+        title: '',
+        description: '',
+        homeowner_id: this.props.user
+          ? this.props.user.id
+          : this.props.match.params.id,
+        materials_included: 'no',
+        image: null
+      }
+    };
+  }
 
-  onChange = e => {
+  onInputChange = e => {
     let {value} = e.target;
     e.persist();
     this.setState(prevState => ({
@@ -22,7 +29,7 @@ class AddProject extends Component {
     }));
   };
 
-  fileSelectedHandler = e => {
+  onFileChange = e => {
     e.persist();
     this.setState(prevState => ({
       project: {
@@ -31,7 +38,22 @@ class AddProject extends Component {
       }
     }));
   };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append(
+      'file',
+      this.state.project.image,
+      this.state.project.image.name
+    );
+    console.log(data);
+    // console.log(this.state.project);
+    // this.props.addProject(this.state.project);
+  };
+
   render() {
+    console.log(this.props);
     return (
       <div className="AddProject">
         <form onSubmit={this.onSubmit}>
@@ -39,7 +61,7 @@ class AddProject extends Component {
             <div className="form-item">
               <label htmlFor="title">Title</label>
               <input
-                onChange={this.onChange}
+                onChange={this.onInputChange}
                 type="text"
                 id="title"
                 value={this.state.project.title}
@@ -49,7 +71,7 @@ class AddProject extends Component {
             <div className="form-item">
               <label htmlFor="description">Description</label>
               <input
-                onChange={this.onChange}
+                onChange={this.onInputChange}
                 type="text"
                 id="description"
                 value={this.state.project.description}
@@ -57,16 +79,12 @@ class AddProject extends Component {
               />
             </div>
             <div className="form-item">
-              <label htmlFor="description">
-                <input
-                  onChange={this.fileSelectedHandler}
-                  type="file"
-                  id="image"
-                />
-                Upload Images
+              <label htmlFor="add-image">
+                <input onChange={this.onFileChange} type="file" id="image" />
               </label>
             </div>
           </div>
+          <button onSubmit={this.onSubmit}>Add Project</button>
         </form>
       </div>
     );
@@ -75,5 +93,5 @@ class AddProject extends Component {
 
 export default connect(
   null,
-  {addProject}
+  {addProject, addProjectPics}
 )(AddProject);
