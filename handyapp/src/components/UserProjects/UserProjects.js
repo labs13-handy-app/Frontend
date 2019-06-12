@@ -30,14 +30,17 @@ class UserProjects extends Component {
       this.props.userProjects.projects.length === 0
     ) {
       return (
-        <div className="project-container content">
-          <h3>You don't have any projects</h3>
-          <p className="message">Click below to add your first project.</p>
-          <NavLink to={`/dashboard/users/${this.props.user.id}/add-project`}>
-            <button className="action-button">
-              <i className="fas fa-plus fa-lg" />
-            </button>
-          </NavLink>
+        <div className="project-container">
+          <h2>My Projects </h2>
+          <div className="content">
+            <h3>You don't have any projects</h3>
+            <p className="message">Click below to add your first project.</p>
+            <NavLink to={`/dashboard/users/${this.props.user.id}/add-project`}>
+              <button className="action-button">
+                <i className="fas fa-plus fa-lg" />
+              </button>
+            </NavLink>
+          </div>
         </div>
       );
     }

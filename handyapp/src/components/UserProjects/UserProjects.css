@@ -5,7 +5,9 @@
 
 .project-container h2 {
   font-size: 18px;
+  font-weight: 300;
   margin-bottom: 24px;
+  font-weight: 300;
 }
 
 .project-container h3 {
@@ -31,6 +33,7 @@
   justify-content: center;
   align-items: center;
   border: 1px dashed #dcdcdc;
+  font-weight: 300;
 }
 
 .empty {
@@ -45,13 +48,14 @@
   justify-content: center;
   align-items: center;
   border: 0;
+  font-weight: 300;
 }
 
 .project-container .action-button {
   margin-top: 20px;
   width: 60px;
   height: 60px;
-  /* padding: 0px 30px; */
+  padding: 7px;
   border-radius: 50px;
   background: #538f40;
   font-size: 13px;

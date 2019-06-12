@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addProject, addProjectPics} from '../../actions';
+import axios from 'axios';
 
 class AddProject extends Component {
   constructor(props) {
@@ -39,17 +40,11 @@ class AddProject extends Component {
     }));
   };
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
     const data = new FormData();
-    data.append(
-      'file',
-      this.state.project.image,
-      this.state.project.image.name
-    );
-    console.log(data);
-    // console.log(this.state.project);
-    // this.props.addProject(this.state.project);
+    data.append('file', this.state.project.image);
+    const res = await axios.post('http://localhost:5000/upload', data);
   };
 
   render() {
