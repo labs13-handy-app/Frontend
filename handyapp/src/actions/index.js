@@ -41,6 +41,13 @@ export {
   EDIT_PROJECT_START,
   EDIT_PROJECT_SUCCESS,
   EDIT_PROJECT_FAILURE,
+  ADD_PROFILE_PIC_START,
+  ADD_PROFILE_PIC_SUCCESS,
+  ADD_PROFILE_PIC_FAILURE,
+  ADD_PROJECT_PICS_START,
+  ADD_PROJECT_PICS_SUCCESS,
+  ADD_PROJECT_PICS_FAILURE
+  
 } from './types';
 
 export {getToken} from './getToken';
@@ -54,6 +61,8 @@ export {getBids} from './getBids';
 export {addBid} from './addBid';
 export {getProjectById} from './getProjectById';
 export {getUserProjects} from './getUserProjects';
-export {addFeedback} from './addFeedback'
-export {getFeedbackByContractorId} from './getFeedbackByContractorId'
-export{editProject} from './editProject'
+export {addFeedback} from './addFeedback';
+export {getFeedbackByContractorId} from './getFeedbackByContractorId';
+export{editProject} from './editProject';
+export {addProfilePic} from './addProfilePic'
+export {addProjectPics} from './addProjectPics'
