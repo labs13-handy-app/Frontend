@@ -31,7 +31,7 @@ class UserCard extends Component {
             <NavLink to={`/dashboard/users/${user.id}/add-project`}>
               <button className="action-button">Add Project</button>
             </NavLink>
-          </div>
+          </div>       
           <div className="tab">
             <div className="icon">
               <i className="fas fa-hard-hat" />
