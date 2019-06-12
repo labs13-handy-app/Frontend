@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Route } from 'react-router-dom';
+import {withRouter, Route} from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 import NavBar from './components/LandingPage/NavBar';
 import Callback from './components/Callback/Callback';
@@ -13,19 +13,18 @@ import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
 import {library} from '@fortawesome/fontawesome-svg-core';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
+import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
-import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback'
-
-//import './App.css';
+import './App.css';
 
 
 library.add(fab, faCheckSquare);
 
 const auth = new Auth();
 
-const handleAuthentication = ({ location }) => {
+const handleAuthentication = ({location}) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -43,7 +42,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { isAuthenticated } = auth;
+    const {isAuthenticated} = auth;
     return (
       <div className="App">
         <NavBar
@@ -52,16 +51,16 @@ class App extends React.Component {
           logout={this.logout}
         />
         <div>
+          <Route exact path="/" render={props => <Landing {...props} />} />
+          <Route
+            exact
+            path="/callback"
+            render={props => {
+              handleAuthentication(props);
+              return <Callback {...props} />;
+            }}
+          />
           <div className="container">
-            <Route exact path="/" render={props => <Landing {...props} />} />
-            <Route
-              exact
-              path="/callback"
-              render={props => {
-                handleAuthentication(props);
-                return <Callback {...props} />;
-              }}
-            />
             <Route
               path="/onboarding"
               render={props => <Onboarding {...props} />}
@@ -77,7 +76,11 @@ class App extends React.Component {
             <Route path="/bids" component={Bids} />
             <Route path="/addbid" component={AddBid} />
             <Route exact path="/project/:id" component={ProjectsById} />
-            <Route exact path="/contractor/:id" component={ServiceProviderFeedback} />
+            <Route
+              exact
+              path="/contractor/:id"
+              component={ServiceProviderFeedback}
+            />
           </div>
         </div>
       </div>
