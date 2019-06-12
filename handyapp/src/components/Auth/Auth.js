@@ -84,7 +84,7 @@ class Auth {
             res.data.isBoarded === 1)
         ) {
           // navigate to the dashboard route
-          history.replace('/dashboard');
+          history.replace('/dashboard/users/:id/projects');
         } else {
           this.login();
         }

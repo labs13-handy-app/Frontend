@@ -89,7 +89,7 @@ const Landing = props => {
     setActiveStep(step);
   }
   if (localStorage.token) {
-    props.history.push('/dashboard');
+    props.history.push(`/dashboard`);
   }
   return (
     <>
