@@ -15,6 +15,7 @@ import ProjectsById from './components/Projects/ProjectsById';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback'
 
 //import './App.css';
 
@@ -73,7 +74,8 @@ class App extends React.Component {
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
             <Route path="/addbid" component={addbid} />
-            <Route e path="/projects/id" component={ProjectsById} />
+            <Route exact path="/project/:id" component={ProjectsById} />
+            <Route exact path="/contractor/:id" component={ServiceProviderFeedback} />
           </div>
         </div>
       </div>
