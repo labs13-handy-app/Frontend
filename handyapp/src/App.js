@@ -73,9 +73,14 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
+<<<<<<< HEAD
+            <Route path="/addbid" component={AddBid} />
+            <Route e path="/projects/id" component={ProjectsById} />
+=======
             <Route path="/addbid" component={addbid} />
             <Route exact path="/project/:id" component={ProjectsById} />
             <Route exact path="/contractor/:id" component={ServiceProviderFeedback} />
+>>>>>>> origin
           </div>
         </div>
       </div>
