@@ -28,6 +28,7 @@ class ProjectsById extends Component {
          <p>Description: {this.props.projects.description}</p>
          <p>Materials Included? {this.props.projects.materials_included}</p>
          <div>
+           <h2>Bids:</h2>
            {this.props.projects.bids.map(bid => (
              <BidsForProject bid={bid} key={bid.id} />
            ))}
