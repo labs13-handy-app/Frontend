@@ -49,31 +49,32 @@ class App extends React.Component {
           logout={this.logout}
         />
         <div>
-          <Route exact path="/" render={props => <Landing {...props} />} />
-          <Route
-            exact
-            path="/callback"
-            render={props => {
-              handleAuthentication(props);
-              return <Callback {...props} />;
-            }}
-          />
-          <Route
-            exact
-            path="/onboarding"
-            render={props => <Onboarding {...props} />}
-          />
-          <Route exact path="/homeowner-onboarding" component={HomeownerForm} />
-          <Route
-            exact
-            path="/contractor-onboarding"
-            component={ContractorForm}
-          />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/projects" component={Projects} />
-          <Route exact path="/bids" component={Bids} />
-          <Route exact path="/addbid" component={addbid} />
-          <Route exact path="/projects/id" component={ProjectsById} />
+          <div className="container">
+            <Route exact path="/" render={props => <Landing {...props} />} />
+            <Route
+              exact
+              path="/callback"
+              render={props => {
+                handleAuthentication(props);
+                return <Callback {...props} />;
+              }}
+            />
+            <Route
+              path="/onboarding"
+              render={props => <Onboarding {...props} />}
+            />
+            <Route path="/homeowner-onboarding" component={HomeownerForm} />
+            <Route
+              exact
+              path="/contractor-onboarding"
+              component={ContractorForm}
+            />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/bids" component={Bids} />
+            <Route path="/addbid" component={addbid} />
+            <Route e path="/projects/id" component={ProjectsById} />
+          </div>
         </div>
       </div>
     );

@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Landing = () => {
+const Landing = props => {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -88,7 +88,9 @@ const Landing = () => {
   function handleStepChange(step) {
     setActiveStep(step);
   }
-
+  if (localStorage.token) {
+    props.history.push('/dashboard');
+  }
   return (
     <>
       <div className={classes.root}>
