@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {addProject} from '../../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addProject } from '../../actions';
 
 class AddProject extends Component {
   state = {
@@ -55,5 +55,5 @@ class AddProject extends Component {
 
 export default connect(
   null,
-  {addProject}
+  { addProject }
 )(AddProject);
