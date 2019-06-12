@@ -1,23 +1,28 @@
 import React from 'react';
-import {withRouter, Route} from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
-import NavBar from './components/NavBar';
+import NavBar from './components/LandingPage/NavBar';
 import Callback from './components/Callback/Callback';
-import Landing from './components/Landing';
+import Landing from './components/LandingPage/Landing';
 import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
-import addbid from './components/ServiceProviders/addbid'
-import ProjectsById from './components/Projects/ProjectsById'
+import addbid from './components/ServiceProviders/addbid';
+import ProjectsById from './components/Projects/ProjectsById';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 
+library.add(fab, faCheckSquare);
+
 const auth = new Auth();
 
-const handleAuthentication = ({location}) => {
+const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -33,12 +38,12 @@ class App extends React.Component {
       auth.logout();
     }, 1000);
   };
- 
+
   render() {
-    const {isAuthenticated} = auth;
+    const { isAuthenticated } = auth;
     return (
       <div className="App">
-        <NavBar 
+        <NavBar
           isAuthenticated={isAuthenticated}
           login={this.login}
           logout={this.logout}
@@ -68,7 +73,7 @@ class App extends React.Component {
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/bids" component={Bids} />
           <Route exact path="/addbid" component={addbid} />
-          <Route exact path='/projects/id' component={ProjectsById} /> 
+          <Route exact path="/projects/id" component={ProjectsById} />
         </div>
       </div>
     );
