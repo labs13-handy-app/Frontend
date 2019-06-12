@@ -12,12 +12,14 @@ import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
-import { library } from '@console.log();';
+import {library} from '@fortawesome/fontawesome-svg-core';
+
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback'
 
 //import './App.css';
+
 
 library.add(fab, faCheckSquare);
 
@@ -82,5 +84,6 @@ class App extends React.Component {
     );
   }
 }
-6
+
+
 export default withRouter(App);
