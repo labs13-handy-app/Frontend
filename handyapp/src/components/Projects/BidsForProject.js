@@ -7,6 +7,7 @@ import React from 'react';
       <p>Cost: ${props.bid.price}</p>
       <p>Hours:{props.bid.time}</p>
       <p>Materials included? {props.bid.materials_included}</p>
+      <button>Accept Bid</button>
     </div>
   );
 };

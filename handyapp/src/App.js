@@ -16,6 +16,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
+import Stripe from './components/Stripe/Stripe';
 
 import './App.css';
 
@@ -81,6 +82,8 @@ class App extends React.Component {
               path="/contractor/:id"
               component={ServiceProviderFeedback}
             />
+           
+            <Route exact path='/checkout' component={Stripe} />
           </div>
         </div>
       </div>

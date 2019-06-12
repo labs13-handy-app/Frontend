@@ -28,6 +28,7 @@ const Project = props => {
         <div className="description">
           <p>{props.description} </p>
         </div>
+        <button>Place Bid</button>
       </div>
     </div>
   );
