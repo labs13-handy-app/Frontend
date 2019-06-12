@@ -122,18 +122,7 @@ export default function AddBid() {
           startAdornment: <InputAdornment position="start">$</InputAdornment>,
         }}
       />
-      {/* <TextField
-        id="outlined-adornment-weight"
-        className={clsx(classes.margin, classes.textField)}
-        variant="outlined"
-        label="Weight"
-        value={values.weight}
-        onChange={handleChange('weight')}
-        helperText="Weight"
-        InputProps={{
-          endAdornment: <InputAdornment position="end">Kg</InputAdornment>,
-        }} */}
-      />
+
       <TextField
         id="outlined-adornment-password"
         className={clsx(classes.margin, classes.textField)}
@@ -187,12 +176,18 @@ export default function AddBid() {
    </RadioGroup>
 </FormControl>
 
+{/* before push always pull */}
 
 
 </div>
 
 
 </div>
+
+
+
+
+
 );
 }
 // Button Component End

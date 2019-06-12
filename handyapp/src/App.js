@@ -19,6 +19,7 @@ import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeed
 
 import './App.css';
 
+
 library.add(fab, faCheckSquare);
 
 const auth = new Auth();
@@ -73,7 +74,6 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
-            <Route path="/projects/:id" component={ProjectsById} />
             <Route path="/addbid" component={AddBid} />
             <Route exact path="/project/:id" component={ProjectsById} />
             <Route
@@ -87,5 +87,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default withRouter(App);
