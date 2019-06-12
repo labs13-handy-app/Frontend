@@ -21,6 +21,7 @@ class ProjectsById extends Component {
       console.log(this.props.projects.bids)
       return (
         <div className="project-container">
+          <h2>{this.props.projects.title}</h2>
           <img src={this.props.projects.images}/>
           <img src={this.props.projects.images}/>
           <img src={this.props.projects.images}/>
