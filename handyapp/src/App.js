@@ -82,5 +82,5 @@ class App extends React.Component {
     );
   }
 }
-
+6
 export default withRouter(App);
