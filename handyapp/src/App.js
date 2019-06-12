@@ -10,9 +10,9 @@ import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
-import addbid from './components/ServiceProviders/addbid';
+import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { library } from '@console.log();';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback'
@@ -73,14 +73,9 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
-<<<<<<< HEAD
             <Route path="/addbid" component={AddBid} />
-            <Route e path="/projects/id" component={ProjectsById} />
-=======
-            <Route path="/addbid" component={addbid} />
             <Route exact path="/project/:id" component={ProjectsById} />
             <Route exact path="/contractor/:id" component={ServiceProviderFeedback} />
->>>>>>> origin
           </div>
         </div>
       </div>
