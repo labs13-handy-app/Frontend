@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import ProjectById from './Project';
+import BidsForProject from './BidsForProject';
 import {getProjectById} from '../../actions'
 
 class ProjectsById extends Component {
@@ -10,14 +10,32 @@ class ProjectsById extends Component {
     }
   
     render() {
+      if (this.props.projects.bids === undefined) {
+        return (
+          <>
+            <h4>Loading...</h4>
+          </>
+        );
+      } else {
+      console.log(this.props.projects)
       console.log(this.props.projects.bids)
       return (
         <div className="project-container">
-          <h1>Projects </h1>
-         <p>{this.props.projects.description}</p>
+          <img src={this.props.projects.images}/>
+          <img src={this.props.projects.images}/>
+          <img src={this.props.projects.images}/>
+          <img src={this.props.projects.images}/>
+         <p>Description: {this.props.projects.description}</p>
+         <p>Materials Included? {this.props.projects.materials_included}</p>
+         <div>
+           {this.props.projects.bids.map(bid => (
+             <BidsForProject bid={bid} key={bid.id} />
+           ))}
+         </div>
         </div>
       );
     }
+  }
   }
   
 
@@ -25,7 +43,6 @@ class ProjectsById extends Component {
   const mapStateToProps = ({getProjectByIdReducer}, props) => {
     return {
       projects: getProjectByIdReducer.projects,
-      bids: getProjectByIdReducer.projects.bids
     };
   };
 export default connect(mapStateToProps,{getProjectById})(ProjectsById);

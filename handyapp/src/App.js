@@ -1,23 +1,29 @@
 import React from 'react';
-import {withRouter, Route} from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
-import NavBar from './components/NavBar';
+import NavBar from './components/LandingPage/NavBar';
 import Callback from './components/Callback/Callback';
-import Landing from './components/Landing';
+import Landing from './components/LandingPage/Landing';
 import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
+import addbid from './components/ServiceProviders/addbid';
 import ProjectsById from './components/Projects/ProjectsById';
-import AddBid from './components/ServiceProviders/AddBid';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback'
 
-import './App.css';
+//import './App.css';
+
+library.add(fab, faCheckSquare);
 
 const auth = new Auth();
 
-const handleAuthentication = ({location}) => {
+const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -35,7 +41,7 @@ class App extends React.Component {
   };
 
   render() {
-    const {isAuthenticated} = auth;
+    const { isAuthenticated } = auth;
     return (
       <div className="App">
         <NavBar
@@ -67,8 +73,14 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
+<<<<<<< HEAD
             <Route path="/addbid" component={AddBid} />
             <Route e path="/projects/id" component={ProjectsById} />
+=======
+            <Route path="/addbid" component={addbid} />
+            <Route exact path="/project/:id" component={ProjectsById} />
+            <Route exact path="/contractor/:id" component={ServiceProviderFeedback} />
+>>>>>>> origin
           </div>
         </div>
       </div>
