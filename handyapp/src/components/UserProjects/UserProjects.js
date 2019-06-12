@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import Project from '../Projects/Project';
 import {getUserProjects} from '../../actions';
+import Loader from 'react-loader-spinner';
+
+import './UserProjects.css';
 
 class UserProjects extends Component {
   componentDidMount() {
@@ -14,16 +18,27 @@ class UserProjects extends Component {
     if (!localStorage.token) {
       this.props.history.push('/');
     }
+    if (!this.props.userProjects.projects) {
+      return (
+        <div className="project-container content">
+          <Loader type="Oval" color="#4c5b48" height="100" width="100" />
+        </div>
+      );
+    }
     if (
       this.props.userProjects.projects &&
       this.props.userProjects.projects.length === 0
     ) {
       return (
-        <>
-          <h2>My Projects</h2>
-          <h4>You don't have any projects</h4>
-          <p>Click add project button to add a new project!</p>
-        </>
+        <div className="project-container content">
+          <h3>You don't have any projects</h3>
+          <p className="message">Click below to add your first project.</p>
+          <NavLink to={`/dashboard/users/${this.props.user.id}/add-project`}>
+            <button className="action-button">
+              <i class="fas fa-plus fa-lg" />
+            </button>
+          </NavLink>
+        </div>
       );
     }
     return (

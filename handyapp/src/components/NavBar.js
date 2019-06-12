@@ -12,20 +12,14 @@ const styles = theme => ({
   },
   label: {
     textTransform: 'capitalize',
-    fontSize: '1.6rem'
+    fontSize: '16px'
   },
   title: {
     flexGrow: 2,
     fontSize: '2.4rem'
   },
   bg: {
-    background: 'linear-gradient(45deg, #5659e1 30%, #484ac4 90%)'
-  },
-  task: {
-    textTransform: 'lowercase',
-    border: '1px solid #EAE1DF',
-    color: '#00000',
-    fontSize: '1.6rem'
+    background: 'linear-gradient(45deg, #667761 30%, #545E56 90%)'
   }
 });
 

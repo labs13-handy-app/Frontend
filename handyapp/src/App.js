@@ -68,7 +68,7 @@ class App extends React.Component {
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
             <Route path="/addbid" component={addbid} />
-            <Route e path="/projects/id" component={ProjectsById} />
+            <Route path="/projects/:id" component={ProjectsById} />
           </div>
         </div>
       </div>

@@ -9,9 +9,6 @@ import './UserCard.css';
 class UserCard extends Component {
   render() {
     const {user} = this.props;
-    if (!user) {
-      return <h3>Loading...</h3>;
-    }
     return (
       <div className="UserCard">
         <div className="user-info">
@@ -31,31 +28,43 @@ class UserCard extends Component {
         </div>
         <div className="tabs">
           <div className="tab-top">
-            <NavLink to="/dashboard/add-project" className="action-button">
-              Add Project
+            <NavLink to={`/dashboard/users/${user.id}/add-project`}>
+              <button className="action-button">Add Project</button>
             </NavLink>
           </div>
           <div className="tab">
+            <div className="icon">
+              <i className="fas fa-hard-hat" />
+            </div>
             <NavLink to="/dashboard/contractor" className="tab-button">
               Contractor
               <i className="fas fa-chevron-right" />
             </NavLink>
           </div>
           <div className="tab">
+            <div className="icon">
+              <i className="fas fa-toilet" />
+            </div>
             <NavLink to="/dashboard/plumber" className="tab-button">
               Plumber
               <i className="fas fa-chevron-right" />
             </NavLink>
           </div>
           <div className="tab">
+            <div className="icon">
+              <i className="fas fa-bolt" />
+            </div>
             <NavLink to="/dashboard/Electrician" className="tab-button">
               Electrician
               <i className="fas fa-chevron-right" />
             </NavLink>
           </div>
           <div className="tab">
+            <div className="icon">
+              <i className="fas fa-clipboard-list" />
+            </div>
             <NavLink
-              to={`/dashboard/projects/${user.id}`}
+              to={`/dashboard/users/${user.id}/projects/`}
               className="tab-button"
             >
               My Projects

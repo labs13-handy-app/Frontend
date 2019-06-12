@@ -7,8 +7,29 @@ class AddProject extends Component {
     project: {
       title: '',
       description: '',
-      image: ''
+      image: null
     }
+  };
+
+  onChange = e => {
+    let {value} = e.target;
+    e.persist();
+    this.setState(prevState => ({
+      project: {
+        ...prevState.project,
+        [e.target.id]: value
+      }
+    }));
+  };
+
+  fileSelectedHandler = e => {
+    e.persist();
+    this.setState(prevState => ({
+      project: {
+        ...prevState.project,
+        image: e.target.files[0]
+      }
+    }));
   };
   render() {
     return (
@@ -38,10 +59,9 @@ class AddProject extends Component {
             <div className="form-item">
               <label htmlFor="description">
                 <input
-                  onChange={this.onChange}
+                  onChange={this.fileSelectedHandler}
                   type="file"
                   id="image"
-                  value={this.state.project.image}
                 />
                 Upload Images
               </label>
