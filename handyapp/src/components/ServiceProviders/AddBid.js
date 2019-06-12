@@ -14,6 +14,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
+import Button from '@material-ui/core/Button';
+
 
   
 
@@ -55,16 +57,11 @@ const useStyles = withStyles(theme => ({
  }));
 
 
-
-
 export default function AddBid() {
   const classes = withStyles();
   const [values, setValues] = React.useState({
     price: '',
-    password: '',
-    weight: '',
-    weightRange: '',
-    showPassword: false,
+
   
   });
   
@@ -76,10 +73,6 @@ export default function AddBid() {
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
   };
 
   return (
@@ -98,7 +91,7 @@ export default function AddBid() {
         select
         className={clsx(classes.margin, classes.textField)}
         variant="outlined"
-        label="Time"
+        label="TIME"
         value={values.calendar }
         onChange={handleChange('calendar')}
         InputProps={{
@@ -115,7 +108,7 @@ export default function AddBid() {
         id="outlined-adornment-price"
         className={clsx(classes.margin, classes.textField)}
         variant="outlined"
-        label="price"
+        label="PRICE"
         value={values.price}
         onChange={handleChange('price')}
         InputProps={{
@@ -123,28 +116,8 @@ export default function AddBid() {
         }}
       />
 
-      <TextField
-        id="outlined-adornment-password"
-        className={clsx(classes.margin, classes.textField)}
-        variant="outlined"
-        type={values.showPassword ? 'text' : 'password'}
-        label="Password"
-        value={values.password}
-        onChange={handleChange('password')}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                edge="end"
-                aria-label="Toggle password visibility"
-                onClick={handleClickShowPassword}
-              >
-                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-/>
+  
+
 
 {/* Button Component Section */}
 
@@ -181,8 +154,13 @@ export default function AddBid() {
 
 </div>
 
+<Button variant="contained" color="primary">
+Submit
+</Button>
 
 </div>
+
+
 
 
 
