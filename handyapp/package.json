@@ -27,7 +27,6 @@
     "react-swipeable-views": "^0.13.3",
     "react-swipeable-views-utils": "^0.13.3",
     "react-test-renderer": "^16.8.6",
-    "react-testing-library": "^7.0.1",
     "reactstrap": "^8.0.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
