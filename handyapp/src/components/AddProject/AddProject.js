@@ -43,7 +43,7 @@ class AddProject extends Component {
   onSubmit = async e => {
     e.preventDefault();
     const data = new FormData();
-    data.append('file', this.state.project.image);
+    data.append('file', this.state.project.image, this.state.project);
     const res = await axios.post('http://localhost:5000/upload', data);
   };
 
