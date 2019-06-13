@@ -2,7 +2,7 @@ import React from 'react'
 
 const Feedback = props =>{
     return(
-        <div>
+        <div className='Bid'>
             <p>Reviewer: {props.review.reviewer_name}</p>
             <p>Title: {props.review.title}</p>
             <p>Description: {props.review.description}</p>

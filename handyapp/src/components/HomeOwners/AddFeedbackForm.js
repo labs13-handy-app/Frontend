@@ -9,7 +9,7 @@ class AddFeedbackForm extends Component {
         title: '',
         description: '',
         reviewer_name: '',
-        contractor_id:'',
+        contractor_id:props.id,
         recommend:'',
         rating:'',
 
@@ -29,8 +29,6 @@ class AddFeedbackForm extends Component {
             <input type='text' onChange={this.handleChanges} value={this.state.description} placeholder='description'name='description' 
             />
             <input type='text'onChange={this.handleChanges} value={this.state.reviwer_name} placeholder='your name'name='reviewer_name'
-            />
-            <input type='number'onChange={this.handleChanges} value={this.state.contractor_id} placeholder='contractor_id'name='contractor_id' 
             />
             <input type='text'onChange={this.handleChanges} value={this.state.recommend} placeholder='would you recommend?'name='recommend'
             />
