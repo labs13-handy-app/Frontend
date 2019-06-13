@@ -12,7 +12,7 @@ class Projects extends Component {
     if (!localStorage.token) {
       this.props.history.push('/');
     }
-    if (this.props.projects.length === 0) {
+    if (this.props.project && this.props.projects.length === 0) {
       return (
         <>
           <h2>Available Projects</h2>
@@ -24,6 +24,7 @@ class Projects extends Component {
         <div className="project-container">
           <h2>Available Projects </h2>
           {this.props.projects &&
+            this.props.projects.length > 0 &&
             this.props.projects.map(project => {
               if (project.isActive === 1 || project.isActive === true) {
                 return (
@@ -38,7 +39,10 @@ class Projects extends Component {
                     thumbnail={project.thumbnail}
                   />
                 );
-              } else {
+              } else if (
+                this.props.project.isActive === 0 ||
+                this.props.projects.isActive === false
+              ) {
                 return <h2>There is no project available at this time.</h2>;
               }
             })}
