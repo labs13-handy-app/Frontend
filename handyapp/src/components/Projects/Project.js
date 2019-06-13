@@ -4,13 +4,14 @@ import placeholder from '../../img/Placeholder-image.png';
 import './Projects.css';
 
 const Project = props => {
+  console.log(props);
   if (!localStorage.token) {
     props.history.push('/');
   }
   return (
     <div className="Project">
       <div className="project-image">
-        <img src={props.image ? props.image : ''} alt="" />
+        <img src={props.thumbnail ? props.thumbnail : ''} alt="" />
       </div>
       <div className="project-content">
         <div className="project-info">

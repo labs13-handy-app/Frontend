@@ -14,7 +14,6 @@ class UserProjects extends Component {
   }
 
   render() {
-    console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
@@ -54,6 +53,7 @@ class UserProjects extends Component {
               <Project
                 title={project.title}
                 key={project.id}
+                thumbnail={project.thumbnail}
                 description={project.description}
                 materials_included={project.materials_included}
               />
