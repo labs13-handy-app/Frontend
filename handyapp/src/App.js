@@ -16,8 +16,10 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
+import Stripe from './components/Stripe/Stripe';
 
 import './App.css';
+
 
 library.add(fab, faCheckSquare);
 
@@ -73,7 +75,6 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
-            <Route path="/projects/:id" component={ProjectsById} />
             <Route path="/addbid" component={AddBid} />
             <Route exact path="/project/:id" component={ProjectsById} />
             <Route
@@ -81,11 +82,14 @@ class App extends React.Component {
               path="/contractor/:id"
               component={ServiceProviderFeedback}
             />
+           
+            <Route exact path='/checkout' component={Stripe} />
           </div>
         </div>
       </div>
     );
   }
 }
+
 
 export default withRouter(App);
