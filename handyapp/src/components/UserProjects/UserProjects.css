@@ -66,6 +66,7 @@
   transition: all 0.2s;
   /* box-shadow: 0 0 10px #01060e45; */
   outline: none;
+  cursor: pointer;
 }
 
 .project-container .action-button:hover {
