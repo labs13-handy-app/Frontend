@@ -8,15 +8,17 @@ import {
 export const addProjectPics = (id, pictures) => dispatch => {
   dispatch({type: ADD_PROJECT_PICS_START});
 
-  // return axiosWithAuth()
-  //   .post('https://handy-app-api.herokuapp.com/projects/upload', pictures)
-  //   .then(res => dispatch({type: ADD_PROJECT_PICS_SUCCESS, payload: res.body}))
-  //   .catch(err => dispatch({type: ADD_PROJECT_PICS_FAILURE, payload: err.message}));
-
   return axiosWithAuth()
-    .post(`http://localhost:5000/projects/${id}/upload`, pictures)
+    .post('https://handy-app-api.herokuapp.com/projects/upload', pictures)
     .then(res => dispatch({type: ADD_PROJECT_PICS_SUCCESS, payload: res.body}))
     .catch(err =>
       dispatch({type: ADD_PROJECT_PICS_FAILURE, payload: err.message})
     );
+
+  // return axiosWithAuth()
+  //   .post(`http://localhost:5000/projects/${id}/upload`, pictures)
+  //   .then(res => dispatch({type: ADD_PROJECT_PICS_SUCCESS, payload: res.body}))
+  //   .catch(err =>
+  //     dispatch({type: ADD_PROJECT_PICS_FAILURE, payload: err.message})
+  //   );
 };

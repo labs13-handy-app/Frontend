@@ -28,7 +28,7 @@ export const onBoarding = (id, user) => dispatch => {
 
   /* Uncomment to work locally   */
   axiosWithAuth()
-    .put(`http://localhost:5000/users/${id}`, user)
+    .put(`https://handy-app-api.herokuapp.com/users/${id}`, user)
     .then(res => {
       dispatch({
         type: ONBOARDING_SUCCESS,
