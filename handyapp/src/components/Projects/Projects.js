@@ -24,6 +24,7 @@ class Projects extends Component {
       return (
         <div className="project-container">
           <h2>Available Projects </h2>
+          {console.log(this.props.projects)}
           {this.props.projects &&
             this.props.projects.length > 0 &&
             this.props.projects.map(project => {
