@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+import {autoPlay} from 'react-swipeable-views-utils';
 import BottomNav from './BottomNav';
 import CenterContent from './CenterContent';
 
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '400',
     overflow: 'hidden',
     width: '100%',
-    '@media (max-width: 500px)': { height: 200 }
+    '@media (max-width: 500px)': {height: 200}
   },
   arrow: {
     color: '#545E56'

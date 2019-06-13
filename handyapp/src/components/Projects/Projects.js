@@ -13,7 +13,7 @@ class Projects extends Component {
     if (!localStorage.token) {
       this.props.history.push('/');
     }
-    if (this.props.project && this.props.projects.length === 0) {
+    if (this.props.projects && this.props.projects.length === 0) {
       return (
         <>
           <h2>Available Projects</h2>
@@ -40,10 +40,7 @@ class Projects extends Component {
                     thumbnail={project.thumbnail}
                   />
                 );
-              } else if (
-                this.props.project.isActive === 0 ||
-                this.props.projects.isActive === false
-              ) {
+              } else if (project.isActive === 0 || project.isActive === false) {
                 return <h2>There is no project available at this time.</h2>;
               }
             })}
