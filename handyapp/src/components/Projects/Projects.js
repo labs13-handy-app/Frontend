@@ -9,7 +9,6 @@ class Projects extends Component {
   }
 
   render() {
-    console.log(this.props.projects.map(project => project.isActive));
     if (!localStorage.token) {
       this.props.history.push('/');
     }
