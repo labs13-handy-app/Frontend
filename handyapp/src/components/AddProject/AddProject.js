@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import 'react-dropzone-uploader/dist/styles.css';
 import Dropzone from 'react-dropzone-uploader';
 import {addProject, addProjectPics} from '../../actions';
 import axiosWithAuth from '../../utils/AxiosAuthFD';
 
 import './AddProject.css';
+import 'react-dropzone-uploader/dist/styles.css';
 
 class AddProject extends Component {
   constructor(props) {
@@ -44,17 +44,20 @@ class AddProject extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
-    const data = new FormData();
-    data.append('thumbnail', this.state.thumbnail.file);
-    data.append('title', this.state.project.title);
-    data.append('description', this.state.project.description);
-    data.append('homeowner_id', this.state.project.homeowner_id);
-    const response = await axiosWithAuth().post(
-      'http://localhost:5000/projects',
-      data
-    );
+    if (this.state.thumbnail.file) {
+      const data = new FormData();
+      data.append('thumbnail', this.state.thumbnail.file);
+      data.append('title', this.state.project.title);
+      data.append('description', this.state.project.description);
+      data.append('homeowner_id', this.state.project.homeowner_id);
+      const response = await axiosWithAuth().post(
+        'http://localhost:5000/projects',
+        data
+      );
+    } else {
+      this.props.addProject(this.state.project);
+    }
 
-    console.log(response);
     // const imageData = new FormData();
     // imageData.append('images', this.state.images);
     // const result = await axiosWithAuth().post('http://loclahost:5000/projects')
