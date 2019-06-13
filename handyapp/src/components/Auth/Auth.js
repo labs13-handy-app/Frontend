@@ -109,8 +109,13 @@ class Auth {
           ((res.data && res.data.isBoarded === true) ||
             res.data.isBoarded === 1)
         ) {
-          // navigate to the dashboard route
-          history.replace('/dashboard');
+          if (res.data.account_type === 'homeowner') {
+            // navigate to the homeowner dashboard route
+            history.replace('/dashboard-homeowner');
+          } else {
+            // navigate to the contractor dashboard route
+            history.replace('/dashboard-contractor');
+          }
         } else {
           this.login();
         }

@@ -62,21 +62,22 @@ class ContractorForm extends Component {
       isBoarded: true
     };
     this.props.onBoarding(user.id, user);
+    console.log(user.id);
 
-    this.setState({
-      user: {
-        first_name: '',
-        last_name: '',
-        email: '',
-        phone_number: '',
-        address: '',
-        skills: '',
-        licenses: '',
-        experience: ''
-      }
-    });
+    // this.setState({
+    //   user: {
+    //     first_name: '',
+    //     last_name: '',
+    //     email: '',
+    //     phone_number: '',
+    //     address: '',
+    //     skills: '',
+    //     licenses: '',
+    //     experience: ''
+    //   }
+    // });
 
-    this.props.history.push('/dashboard');
+    this.props.history.push('/dashboard-contractor');
   };
 
   render() {
