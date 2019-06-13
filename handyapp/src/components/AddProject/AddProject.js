@@ -52,7 +52,7 @@ class AddProject extends Component {
       data.append('description', this.state.project.description);
       data.append('homeowner_id', this.state.project.homeowner_id);
       const response = await axiosWithAuth().post(
-        'http://localhost:5000/projects',
+        'https://handy-app-api.herokuapp.com/projects',
         data
       );
       console.log(response.data.foundProject);
