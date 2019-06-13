@@ -1,0 +1,128 @@
+.UserCard {
+  width: 100%;
+  /* height: 526px; */
+  border-radius: 4px;
+  background: #fff;
+  /* border: 1px solid #e2e2e2; */
+  font-size: 15px;
+  color: #333;
+  font-weight: 600;
+  box-shadow: 0 12px 20px rgba(128, 128, 128, 0.28);
+  margin-top: 60px;
+  padding: 20px;
+  padding-bottom: 0;
+  font-weight: 300;
+}
+
+.UserCard .user-info {
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 37px;
+  padding-bottom: 16px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
+  text-align: center;
+}
+.UserCard h4 {
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+}
+
+.UserCard .user-info .active-user {
+  margin-bottom: 20px;
+}
+
+.UserCard .username {
+  font-size: 22px;
+  color: #0a1004;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.UserCard .edit-photo {
+  background: none;
+  border: 0;
+  color: #808080;
+  cursor: pointer;
+  outline: none;
+  font-weight: 300;
+  font-size: 14px;
+  transition: all 0.1s ease-in-out;
+}
+
+.UserCard .edit-photo:hover {
+  color: #538f40;
+  font-weight: 600;
+}
+
+.UserCard .tabs {
+  height: 306px;
+  width: 100%;
+}
+
+.UserCard .tabs .tab-top {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 28px;
+  text-align: center;
+}
+
+.UserCard .tabs .tab-top .action-button {
+  width: 100%;
+  height: 46px;
+  /* padding: 0px 60px; */
+  border-radius: 4px;
+  background: #538f40;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  transition: all 0.2s;
+  box-shadow: 0 12px 20px rgba(105, 118, 107, 0.28);
+  text-align: center;
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
+}
+.UserCard .tabs .tab .icon {
+  margin-right: 15px;
+  color: #0e2113;
+  opacity: 0.8;
+}
+
+.UserCard .tabs .tab-top .action-button:hover {
+  background: #66895c;
+}
+
+.UserCard .tabs .tab {
+  width: 100%;
+  height: 58px;
+  padding: 20px 28px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.UserCard .tabs .tab .tab-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #373737;
+  font-weight: 300;
+}
+
+.UserCard .tabs .tab a.active {
+  font-weight: 700;
+  color: #0e2113;
+  opacity: 0.8;
+}
+
+.UserCard .tabs .tab:nth-child(5) {
+  border-bottom: none;
+}

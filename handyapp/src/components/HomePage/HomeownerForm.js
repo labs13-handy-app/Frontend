@@ -65,7 +65,7 @@ class HomeownerForm extends Component {
       }
     });
 
-    this.props.history.push('/dashboard');
+    this.props.history.push('/dashboard-homeowner');
   };
 
   render() {

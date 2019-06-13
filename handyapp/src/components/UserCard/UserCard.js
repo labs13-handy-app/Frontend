@@ -34,7 +34,7 @@ class UserCard extends Component {
         </div>
         <div className="tabs">
           <div className="tab-top">
-            <NavLink to={`/dashboard/users/${user.id}/add-project`}>
+            <NavLink to={`/dashboard-homeowner/users/${user.id}/add-project`}>
               <button className="action-button">Add Project</button>
             </NavLink>
           </div>
@@ -42,7 +42,10 @@ class UserCard extends Component {
             <div className="icon">
               <i className="fas fa-hard-hat" />
             </div>
-            <NavLink to="/dashboard/contractor" className="tab-button">
+            <NavLink
+              to="/dashboard-homeowner/contractor"
+              className="tab-button"
+            >
               Contractor
               <i className="fas fa-chevron-right" />
             </NavLink>
@@ -51,7 +54,7 @@ class UserCard extends Component {
             <div className="icon">
               <i className="fas fa-toilet" />
             </div>
-            <NavLink to="/dashboard/plumber" className="tab-button">
+            <NavLink to="/dashboard-homeowner/plumber" className="tab-button">
               Plumber
               <i className="fas fa-chevron-right" />
             </NavLink>
@@ -60,7 +63,10 @@ class UserCard extends Component {
             <div className="icon">
               <i className="fas fa-bolt" />
             </div>
-            <NavLink to="/dashboard/Electrician" className="tab-button">
+            <NavLink
+              to="/dashboard-homeowner/Electrician"
+              className="tab-button"
+            >
               Electrician
               <i className="fas fa-chevron-right" />
             </NavLink>
@@ -70,7 +76,7 @@ class UserCard extends Component {
               <i className="fas fa-clipboard-list" />
             </div>
             <NavLink
-              to={`/dashboard/users/${user.id}/projects/`}
+              to={`/dashboard-homeowner/users/${user.id}/projects/`}
               className="tab-button"
             >
               My Projects

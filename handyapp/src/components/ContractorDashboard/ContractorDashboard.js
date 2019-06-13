@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import UserCard from '../UserCard/UserCard';
-import AddProject from '../AddProject/AddProject';
-import UserProjects from '../UserProjects/UserProjects';
+import ContractorCard from '../ContractorCard/ContractorCard';
+import Projects from '../Projects/Projects';
+// import UserProjects from '../UserProjects/UserProjects';
 import {getToken as getUser} from '../../actions';
 import Loader from 'react-loader-spinner';
 
-import './Dashboard.css';
+import './ContractorDashboard.css';
 
-class Dashboard extends Component {
+class ContractorDashboard extends Component {
   componentWillMount() {
     this.props.getUser();
   }
@@ -17,7 +17,7 @@ class Dashboard extends Component {
     this.props.getUser();
   }
   render() {
-    console.log(this.props);
+    console.log(this.props.user);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
@@ -28,19 +28,20 @@ class Dashboard extends Component {
         </div>
       );
     }
+    if (this.props.user.account_type === 'homeowner') {
+      this.props.history.push('/dashboard-homeowner');
+    } else if (this.props.user.account_type === null) {
+      // this.props.history.push('/onboarding');
+    }
     return (
       <div className="Dashboard">
         <div className="side-panel">
-          <UserCard user={this.props.user} />
+          <ContractorCard user={this.props.user} />
         </div>
         <div className="main-panel">
           <Route
-            path="/dashboard/users/:id/add-project"
-            render={props => <AddProject {...props} user={this.props.user} />}
-          />
-          <Route
-            render={props => <UserProjects {...props} user={this.props.user} />}
-            path={`/dashboard/users/:id/projects/`}
+            render={props => <Projects {...props} user={this.props.user} />}
+            path={`/dashboard-contractor/projects`}
           />
         </div>
       </div>
@@ -55,4 +56,4 @@ const mapStateToProps = ({tokenReducer: usersReducer}, props) => ({
 export default connect(
   mapStateToProps,
   {getUser}
-)(Dashboard);
+)(ContractorDashboard);
