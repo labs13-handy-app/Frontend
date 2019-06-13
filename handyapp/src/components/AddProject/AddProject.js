@@ -4,8 +4,8 @@ import Dropzone from 'react-dropzone-uploader';
 import {addProject, addProjectPics} from '../../actions';
 import axiosWithAuth from '../../utils/AxiosAuthFD';
 
-import './AddProject.css';
 import 'react-dropzone-uploader/dist/styles.css';
+import './AddProject.css';
 
 class AddProject extends Component {
   constructor(props) {
@@ -44,6 +44,7 @@ class AddProject extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
+
     if (this.state.thumbnail.file) {
       const data = new FormData();
       data.append('thumbnail', this.state.thumbnail.file);
@@ -54,6 +55,7 @@ class AddProject extends Component {
         'http://localhost:5000/projects',
         data
       );
+      console.log(response.data.foundProject);
     } else {
       this.props.addProject(this.state.project);
     }
@@ -76,9 +78,10 @@ class AddProject extends Component {
       thumbnail: files[0],
       images: [...files]
     });
-    // console.log(files.map(f => f.meta));
-    // allFiles.forEach(f => f.remove());
-    console.log(this.state.images);
+    // console.log(this.state);
+    console.log(files.map(f => f.meta));
+    allFiles.forEach(f => f.remove());
+    console.log(this.state);
   };
 
   render() {

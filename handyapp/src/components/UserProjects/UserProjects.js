@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import Project from '../Projects/Project';
+import UserProject from '../Projects/UserProject';
 import {getUserProjects} from '../../actions';
 import Loader from 'react-loader-spinner';
 
@@ -50,7 +50,7 @@ class UserProjects extends Component {
           this.props.userProjects.projects.length > 0 &&
           this.props.userProjects.projects.map(project => {
             return (
-              <Project
+              <UserProject
                 title={project.title}
                 key={project.id}
                 thumbnail={project.thumbnail}

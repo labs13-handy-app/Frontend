@@ -1,7 +1,9 @@
 import React from 'react';
 import placeholder from '../../img/Placeholder-image.png';
 
-const Project = props => {
+import './UserProject.css';
+
+const UserProject = props => {
   console.log(props);
   if (!localStorage.token) {
     props.history.push('/');
@@ -27,10 +29,9 @@ const Project = props => {
         <div className="description">
           <p>{props.description} </p>
         </div>
-        <button>Place Bid</button>
       </div>
     </div>
   );
 };
 
-export default Project;
+export default UserProject;
