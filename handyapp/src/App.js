@@ -18,6 +18,7 @@ import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 import Stripe from './components/Stripe/Stripe';
+import SubmitBid from './components/ServiceProviders/SubmitBid'
 
 import './App.css';
 
@@ -88,6 +89,7 @@ class App extends React.Component {
             />
 
             <Route exact path="/checkout" component={Stripe} />
+            <Route exact path="/add-bid/:id" component={SubmitBid} />
           </div>
         </div>
       </div>
