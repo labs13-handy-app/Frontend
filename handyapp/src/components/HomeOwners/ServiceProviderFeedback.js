@@ -50,9 +50,9 @@ class ServiceProviderFeedback extends Component {
               <Feedback review={review} key={review.id}/>
             ))}
           </div>
-          <AddFeedbackForm />
+          {/* <AddFeedbackForm /> */}
           {/* Uncomment Material UI form<FeedbackFormM />  */}
-          {/* <FeedbackFormM /> */}
+          <FeedbackFormM id={this.props.match.params.id}/>
         </div>
       );
     }

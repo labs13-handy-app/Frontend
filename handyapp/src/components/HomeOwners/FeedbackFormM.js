@@ -87,7 +87,7 @@ class FeedbackFormM extends Component {
                   onChange={this.handleChanges}
                   label="Your Name"
                   name="reviewer_name"
-                  value={this.state.reviwer_name}
+                  value={this.state.reviewer_name}
                   variant="outlined"
                   required
                   fullWidth
@@ -101,6 +101,7 @@ class FeedbackFormM extends Component {
                   label="Rating"
                   name="rating"
                   value={this.state.rating}
+                  type="number"
                   variant="outlined"
                   required
                   fullWidth
@@ -120,7 +121,9 @@ class FeedbackFormM extends Component {
                 />
               </Grid>
             </Grid>
-            <Button
+         
+          </form>
+          <Button
               onClick={() => this.props.addFeedback(this.state)}
               type="submit"
               fullWidth
@@ -130,7 +133,6 @@ class FeedbackFormM extends Component {
             >
               Submit
             </Button>
-          </form>
         </div>
       </Container>
     );
