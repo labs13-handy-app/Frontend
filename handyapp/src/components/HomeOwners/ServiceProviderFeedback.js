@@ -36,7 +36,8 @@ class ServiceProviderFeedback extends Component {
             ))}
           </div>
           <AddFeedbackForm />
-          <FeedbackFormM />
+          {/* Uncomment Material UI form<FeedbackFormM />  */}
+          {/* <FeedbackFormM /> */}
         </div>
       );
     }
