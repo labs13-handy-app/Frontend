@@ -15,6 +15,8 @@ class SubmitBid extends Component {
   
     render() {
       if (this.props.projects && this.props.user === undefined) {
+        console.log(this.props.user)
+        console.log(this.props.projects)
         return (
           <>
             <h4>Loading...</h4>
