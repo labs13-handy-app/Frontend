@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Feedback from './Feedback';
 import {getFeedbackByContractorId} from '../../actions';
 import AddFeedbackForm from './AddFeedbackForm';
+import FeedbackFormM from './FeedbackFormM';
 
 class ServiceProviderFeedback extends Component {
   componentDidMount() {
@@ -35,6 +36,7 @@ class ServiceProviderFeedback extends Component {
             ))}
           </div>
           <AddFeedbackForm />
+          <FeedbackFormM />
         </div>
       );
     }
