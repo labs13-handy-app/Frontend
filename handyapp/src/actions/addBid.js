@@ -13,3 +13,10 @@ export const addBid = bid => dispatch => {
     .then(res => dispatch({type: ADD_BID_SUCCESS, payload: res.body}))
     .catch(err => dispatch({type: ADD_BID_FAILURE, payload: err.message}));
 };
+
+// uncomment to work locally
+// return axiosWithAuth()
+//     .post('http://localhost:5000/bids', bid)
+//     .then(res => dispatch({type: ADD_BID_SUCCESS, payload: res.body}))
+//     .catch(err => dispatch({type: ADD_BID_FAILURE, payload: err.message}));
+// };

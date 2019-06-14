@@ -8,7 +8,7 @@ class AddNewBid extends Component {
       this.state = {
         contractor_id: props.contractor_id,
         project_id: props.project_id,
-        price: '',
+        price:'',
         time:'',
         materials_included:''
 
@@ -23,7 +23,7 @@ class AddNewBid extends Component {
       return (
         <div>
           <form>
-            <input type='number' onChange={this.handleChanges} placeholder='price' name='pice' value={this.state.price}
+            <input type='number' onChange={this.handleChanges} placeholder='price' name='price' value={this.state.price}
             />
             <input type='text' onChange={this.handleChanges} value={this.state.time} placeholder='hours'name='time' 
             />
