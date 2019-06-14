@@ -14,7 +14,7 @@ class SubmitBid extends Component {
     
   
     render() {
-      if (this.props.projects && this.props.user === undefined) {
+      if (this.props.projects && this.props.user.id === undefined) {
         console.log(this.props.user)
         console.log(this.props.projects)
         return (
@@ -40,7 +40,7 @@ class SubmitBid extends Component {
           </div>
           </div>
          </div>
-           <AddNewBid project_id={this.props.match.params.id} user_id={this.props.user.id} />
+           <AddNewBid project_id={this.props.match.params.id} contractor_id={this.props.user.id} />
         </div>
       );
     }
