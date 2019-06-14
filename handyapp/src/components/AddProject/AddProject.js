@@ -25,7 +25,7 @@ class AddProject extends Component {
   }
 
   onInputChange = e => {
-    let { value } = e.target;
+    let {value} = e.target;
     e.persist();
     this.setState(prevState => ({
       project: {
@@ -44,25 +44,51 @@ class AddProject extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
+    let response = null;
 
-    if (this.state.thumbnail.file) {
+    if (this.state.thumbnail !== null) {
       const data = new FormData();
       data.append('thumbnail', this.state.thumbnail.file);
       data.append('title', this.state.project.title);
       data.append('description', this.state.project.description);
       data.append('homeowner_id', this.state.project.homeowner_id);
-      const response = await axiosWithAuth().post(
+      response = await axiosWithAuth().post(
         'https://handy-app-api.herokuapp.com/projects',
         data
       );
-      console.log(response.data.foundProject);
+
+      // response = await axiosWithAuth().post(
+      //   'http://localhost:5000/projects',
+      //   data
+      // );
+
+      setTimeout(async () => {
+        // Get the id of the newly created project.
+        const {id} = await response.data.foundProject;
+        console.log(id);
+        const images = this.state.images.map(image => image.file);
+        console.log(images);
+        if (id) {
+          // Send the images to the project_images table in the database.
+          const imagesData = new FormData();
+          imagesData.append('images', images);
+          // const result = await axiosWithAuth().post(
+          //   `http://localhost:5000/projects/${id}/images`,
+          //   imagesData
+          // );
+          const result = await axiosWithAuth().post(
+            `https://handy-app-api.herokuapp.com/projects/${id}/images`,
+            imagesData
+          );
+          // Redirect User to the project listing page.
+          this.props.history.push(
+            `/dashboard-homeowner/users/${this.props.match.params.id}/projects`
+          );
+        }
+      }, 100);
     } else {
       this.props.addProject(this.state.project);
     }
-
-    // const imageData = new FormData();
-    // imageData.append('images', this.state.images);
-    // const result = await axiosWithAuth().post('http://loclahost:5000/projects')
   };
 
   getUploadParams = () => {
@@ -70,7 +96,7 @@ class AddProject extends Component {
   };
 
   handleChangeStatus = ({meta}, status) => {
-    // console.log(status, meta);
+    console.log(status, meta);
   };
 
   handleSubmit = (files, allFiles) => {
@@ -78,14 +104,11 @@ class AddProject extends Component {
       thumbnail: files[0],
       images: [...files]
     });
-    // console.log(this.state);
-    console.log(files.map(f => f.meta));
-    allFiles.forEach(f => f.remove());
-    console.log(this.state);
+    // console.log(files.map(f => f.meta));
+    // allFiles.forEach(f => f.remove());
+    console.log(this.state.images);
   };
-
   render() {
-    console.log(this.props);
     return (
       <>
         <h2>Add Project</h2>
@@ -134,5 +157,5 @@ class AddProject extends Component {
 
 export default connect(
   null,
-  { addProject, addProjectPics }
+  {addProject, addProjectPics}
 )(AddProject);
