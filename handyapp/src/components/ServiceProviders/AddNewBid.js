@@ -7,7 +7,7 @@ class AddNewBid extends Component {
       super(props);
       this.state = {
         contractor_id: props.contractor_id,
-        project_id: props.project_id,
+        project_id: props.user_id,
         price:'',
         time:'',
         materials_included:''
@@ -29,8 +29,8 @@ class AddNewBid extends Component {
             />
             <input type='text'onChange={this.handleChanges} value={this.state.materials_included} placeholder='materials_included'name='materials_included'
             />
+             <button onClick={() => this.props.addBid(this.state)}>Submit Bid</button>
           </form>
-          <button onClick={() => this.props.addBid(this.state)}>Submit Feedback</button>
         </div>
       );
     }
