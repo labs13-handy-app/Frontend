@@ -49,10 +49,10 @@ class SubmitBid extends Component {
   
 
 
-  const mapStateToProps = ({getProjectByIdReducer,usersReducer}, props) => {
+  const mapStateToProps = ({getProjectByIdReducer,tokenReducer}, props) => {
     return {
       projects: getProjectByIdReducer.projects,
-      user: usersReducer.token
+      user: tokenReducer.token
     };
   };
 export default connect(mapStateToProps,{getProjectById,getToken})(SubmitBid);
