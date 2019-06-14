@@ -11,7 +11,7 @@ const UserProject = props => {
   return (
     <div className="Project">
       <div className="project-image">
-        <img src={props.thumbnail ? props.thumbnail : ''} alt="" />
+        <img src={props.thumbnail ? props.thumbnail : placeholder} alt="" />
       </div>
       <div className="project-content">
         <div className="project-info">
