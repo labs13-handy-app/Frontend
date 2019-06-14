@@ -1,6 +1,6 @@
 import history from '../../history';
 import auth0 from 'auth0-js';
-import { AUTH_CONFIG } from './auth0-variables';
+import {AUTH_CONFIG} from './auth0-variables';
 import axiosWithAuth from '../../utils/AxiosAuth';
 
 class Auth {
@@ -65,41 +65,10 @@ class Auth {
     const user = authResult.idTokenPayload;
 
     // Comment to work locally
-    // axiosWithAuth()
-    //   .post('https://handy-app-api.herokuapp.com/register', user)
-    //   .then(res => {
-    //     console.log(res.data);
-    //     if (
-    //       (res.data.flag && res.data.flag === 0) ||
-    //       res.data.flag === false ||
-    //       ((res.data && res.data.isBoarded === false) ||
-    //         res.data.isBoarded === 0)
-    //     ) {
-    //       // navigate to the onboarding route
-    //       history.replace('/onboarding');
-    //     } else if (
-    //       (res.data.flag && res.data.flag === 1) ||
-    //       res.data.flag === true ||
-    //       ((res.data && res.data.isBoarded === true) ||
-    //         res.data.isBoarded === 1)
-    //     ) {
-    //       if (res.data.account_type === 'homeowner') {
-    //         // navigate to the homeowner dashboard route
-    //         history.replace('/dashboard-homeowner');
-    //       } else {
-    //         // navigate to the contractor dashboard route
-    //         history.replace('/dashboard-contractor');
-    //       }
-    //     } else {
-    //       this.login();
-    //     }
-    //   })
-    //   .catch(err => console.log(err.message));
-
-    // Uncomment to work locally
     axiosWithAuth()
-      .post('http://localhost:5000/register', user)
+      .post('https://handy-app-api.herokuapp.com/register', user)
       .then(res => {
+        console.log(res.data);
         if (
           (res.data.flag && res.data.flag === 0) ||
           res.data.flag === false ||
@@ -126,6 +95,37 @@ class Auth {
         }
       })
       .catch(err => console.log(err.message));
+
+    // Uncomment to work locally
+    // axiosWithAuth()
+    //   .post('http://localhost:5000/register', user)
+    //   .then(res => {
+    //     if (
+    //       (res.data.flag && res.data.flag === 0) ||
+    //       res.data.flag === false ||
+    //       ((res.data && res.data.isBoarded === false) ||
+    //         res.data.isBoarded === 0)
+    //     ) {
+    //       // navigate to the onboarding route
+    //       history.replace('/onboarding');
+    //     } else if (
+    //       (res.data.flag && res.data.flag === 1) ||
+    //       res.data.flag === true ||
+    //       ((res.data && res.data.isBoarded === true) ||
+    //         res.data.isBoarded === 1)
+    //     ) {
+    //       if (res.data.account_type === 'homeowner') {
+    //         // navigate to the homeowner dashboard route
+    //         history.replace('/dashboard-homeowner');
+    //       } else {
+    //         // navigate to the contractor dashboard route
+    //         history.replace('/dashboard-contractor');
+    //       }
+    //     } else {
+    //       this.login();
+    //     }
+    //   })
+    //   .catch(err => console.log(err.message));
   }
 
   renewSession() {

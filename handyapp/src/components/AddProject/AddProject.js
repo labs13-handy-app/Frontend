@@ -25,7 +25,7 @@ class AddProject extends Component {
   }
 
   onInputChange = e => {
-    let { value } = e.target;
+    let {value} = e.target;
     e.persist();
     this.setState(prevState => ({
       project: {
@@ -52,15 +52,15 @@ class AddProject extends Component {
       data.append('title', this.state.project.title);
       data.append('description', this.state.project.description);
       data.append('homeowner_id', this.state.project.homeowner_id);
-      // const response = await axiosWithAuth().post(
-      //   'https://handy-app-api.herokuapp.com/projects',
-      //   data
-      // );
-
       response = await axiosWithAuth().post(
-        'http://localhost:5000/projects/upload',
+        'https://handy-app-api.herokuapp.com/projects',
         data
       );
+
+      // response = await axiosWithAuth().post(
+      //   'http://localhost:5000/projects',
+      //   data
+      // );
 
       setTimeout(async () => {
         // Get the id of the newly created project.
@@ -72,8 +72,12 @@ class AddProject extends Component {
           // Send the images to the project_images table in the database.
           const imagesData = new FormData();
           imagesData.append('images', images);
+          // const result = await axiosWithAuth().post(
+          //   `http://localhost:5000/projects/${id}/images`,
+          //   imagesData
+          // );
           const result = await axiosWithAuth().post(
-            `http://localhost:5000/projects/${id}/images`,
+            `https://handy-app-api.herokuapp.com/projects/${id}/images`,
             imagesData
           );
           // Redirect User to the project listing page.
@@ -92,22 +96,19 @@ class AddProject extends Component {
   };
 
   handleChangeStatus = ({meta}, status) => {
-    // console.log(status, meta);
+    console.log(status, meta);
   };
 
   handleSubmit = (files, allFiles) => {
     this.setState({
       thumbnail: files[0],
-      images: [allFiles]
+      images: [...files]
     });
-    // console.log(this.state);
-    console.log(files.map(f => f.meta));
-    allFiles.forEach(f => f.remove());
-    console.log(files);
+    // console.log(files.map(f => f.meta));
+    // allFiles.forEach(f => f.remove());
+    console.log(this.state.images);
   };
-
   render() {
-    console.log(this.props);
     return (
       <>
         <h2>Add Project</h2>
@@ -156,5 +157,5 @@ class AddProject extends Component {
 
 export default connect(
   null,
-  { addProject, addProjectPics }
+  {addProject, addProjectPics}
 )(AddProject);

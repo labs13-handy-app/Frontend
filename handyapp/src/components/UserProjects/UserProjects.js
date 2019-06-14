@@ -34,7 +34,11 @@ class UserProjects extends Component {
           <div className="content">
             <h3>You don't have any projects</h3>
             <p className="message">Click below to add your first project.</p>
-            <NavLink to={`/dashboard/users/${this.props.user.id}/add-project`}>
+            <NavLink
+              to={`/dashboard-homeowner/users/${
+                this.props.user.id
+              }/add-project`}
+            >
               <button className="action-button">
                 <i className="fas fa-plus fa-lg" />
               </button>
