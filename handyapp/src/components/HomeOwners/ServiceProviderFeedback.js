@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Feedback from './Feedback';
 import {getFeedbackByContractorId} from '../../actions';
 import AddFeedbackForm from './AddFeedbackForm';
+import FeedbackFormM from './FeedbackFormM';
 
 import './ServiceProviderFeedback.css'
 
@@ -49,8 +50,14 @@ class ServiceProviderFeedback extends Component {
               <Feedback review={review} key={review.id}/>
             ))}
           </div>
+<<<<<<< HEAD
+          <AddFeedbackForm />
+          {/* Uncomment Material UI form<FeedbackFormM />  */}
+          {/* <FeedbackFormM /> */}
+=======
           <AddFeedbackForm id={this.props.match.params.id}/>
         
+>>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
         </div>
       );
     }

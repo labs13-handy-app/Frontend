@@ -14,13 +14,19 @@
     "auth0-js": "^9.10.4",
     "auth0-lock": "^11.16.2",
     "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
     "cloudinary-react": "^1.1.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
+    "react-dropzone": "^10.1.5",
+=======
     "react-dropzone-uploader": "^2.10.0",
+>>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
     "react-loader-spinner": "^2.3.0",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.1",
@@ -36,8 +42,7 @@
     "redux": "^4.0.1",
     "redux-form": "^8.2.3",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "supertest": "^4.0.2"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
