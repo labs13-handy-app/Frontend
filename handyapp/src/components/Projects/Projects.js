@@ -39,6 +39,7 @@ class Projects extends Component {
                     first_name={project.name}
                     last_name={project.last_name}
                     thumbnail={project.thumbnail}
+                    id={project.id}
                   />
                 );
               } else if (project.isActive === 0 || project.isActive === false) {

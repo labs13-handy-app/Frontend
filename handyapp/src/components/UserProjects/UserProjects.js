@@ -56,6 +56,7 @@ class UserProjects extends Component {
                 thumbnail={project.thumbnail}
                 description={project.description}
                 materials_included={project.materials_included}
+                id={project.id}
               />
             );
           })}

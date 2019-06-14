@@ -1,5 +1,6 @@
 import React from 'react';
 import placeholder from '../../img/Placeholder-image.png';
+import {Link} from 'react-router-dom'
 
 const Project = props => {
   console.log(props);
@@ -27,7 +28,9 @@ const Project = props => {
         <div className="description">
           <p>{props.description} </p>
         </div>
+        <Link to= {`/add-bid/${props.id}`}>
         <button>Place Bid</button>
+        </Link>
       </div>
     </div>
   );
