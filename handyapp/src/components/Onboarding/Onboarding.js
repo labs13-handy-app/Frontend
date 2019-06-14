@@ -15,15 +15,17 @@ class Onboarding extends Component {
   onSubmit = e => {
     e.preventDefault();
     const editedUser = {
-      ...this.props.user.foundUser,
+      ...this.props.user,
       account_type: this.state.user.account_type
     };
 
     this.props.onBoarding(editedUser.id, editedUser);
 
-    if (editedUser.account_type === 'Homeowner') {
+    console.log(editedUser);
+
+    if (editedUser.account_type === 'homeowner') {
       this.props.history.push('/homeowner-onboarding');
-    } else if (editedUser.account_type === 'Contractor') {
+    } else if (editedUser.account_type === 'contractor') {
       this.props.history.push('/contractor-onboarding');
     } else {
       this.props.history.push('/onboarding');
@@ -40,7 +42,7 @@ class Onboarding extends Component {
           <h2>Welcome to Handyapp</h2>
           <p>Do you want to use the app as a:</p>
           <button
-            onClick={() => this.setState({user: {account_type: 'Homeowner'}})}
+            onClick={() => this.setState({user: {account_type: 'homeowner'}})}
             className="homeowner-btn"
           >
             <div className="homeowner">
@@ -49,7 +51,7 @@ class Onboarding extends Component {
           </button>
           <p>Or</p>
           <button
-            onClick={() => this.setState({user: {account_type: 'Contractor'}})}
+            onClick={() => this.setState({user: {account_type: 'contractor'}})}
             className="contractor-btn"
           >
             <div className="contractor">

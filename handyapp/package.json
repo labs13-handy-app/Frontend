@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@material-ui/core": "^4.1.0",
     "@material-ui/icons": "^4.1.0",
+    "@material-ui/styles": "^4.1.1",
     "@testing-library/react": "^8.0.1",
     "auth0-js": "^9.10.4",
     "auth0-lock": "^11.16.2",
@@ -21,13 +22,18 @@
     "prop-types": "^15.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
     "react-dropzone": "^10.1.5",
+=======
+    "react-dropzone-uploader": "^2.10.0",
+>>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
     "react-loader-spinner": "^2.3.0",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-router-redux": "^4.0.8",
     "react-scripts": "^3.0.1",
+    "react-stripe-elements": "^3.0.0",
     "react-swipeable-views": "^0.13.3",
     "react-swipeable-views-utils": "^0.13.3",
     "react-test-renderer": "^16.8.6",

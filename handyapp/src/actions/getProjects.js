@@ -8,8 +8,13 @@ import {
 export const getProjects = projects => dispatch => {
   dispatch({type: GET_PROJECTS_START});
 
+  // return axiosWithAuth()
+  //   .get('http://localhost:5000/projects')
+  //   .then(res => dispatch({type: GET_PROJECTS_SUCCESS, payload: res.data}))
+  //   .catch(e => dispatch({type: GET_PROJECTS_FAILURE, payload: e.message}));
+
   return axiosWithAuth()
-    .get('http://localhost:5000/projects')
+    .get('https://handy-app-api.herokuapp.com/projects')
     .then(res => dispatch({type: GET_PROJECTS_SUCCESS, payload: res.data}))
     .catch(e => dispatch({type: GET_PROJECTS_FAILURE, payload: e.message}));
 };

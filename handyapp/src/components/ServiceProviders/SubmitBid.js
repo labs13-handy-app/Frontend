@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import BidsForProject from './BidsForProject';
-import {getProjectById} from '../../actions'
+import AddNewBid from './AddNewBid';
+import {getProjectById,getToken} from '../../actions'
 
-import './ProjectsById.css';
+import './SubmitBid.css';
 
-class ProjectsById extends Component {
+class SubmitBid extends Component {
     componentDidMount(){
     const id=this.props.match.params.id
       this.props.getProjectById(id);
+      this.props.getToken();
     }
+    
   
     render() {
-      if (this.props.projects.bids === undefined) {
+      if (this.props.projects && this.props.user.id === undefined) {
+        console.log(this.props.user)
+        console.log(this.props.projects)
         return (
           <>
             <h4>Loading...</h4>
@@ -20,7 +24,6 @@ class ProjectsById extends Component {
         );
       } else {
       console.log(this.props.projects)
-      console.log(this.props.projects.bids)
       return (
         <div className="project-container">
         <div className='Project'>
@@ -37,12 +40,7 @@ class ProjectsById extends Component {
           </div>
           </div>
          </div>
-           <h2>Bids:</h2>
-           <div className='bid-container'>
-           {this.props.projects.bids.map(bid => (
-             <BidsForProject bid={bid} key={bid.id} />
-           ))}
-         </div>
+           <AddNewBid project_id={this.props.match.params.id} contractor_id={this.props.user.id} />
         </div>
       );
     }
@@ -51,9 +49,10 @@ class ProjectsById extends Component {
   
 
 
-  const mapStateToProps = ({getProjectByIdReducer}, props) => {
+  const mapStateToProps = ({getProjectByIdReducer,tokenReducer}, props) => {
     return {
       projects: getProjectByIdReducer.projects,
+      user: tokenReducer.token
     };
   };
-export default connect(mapStateToProps,{getProjectById})(ProjectsById);
+export default connect(mapStateToProps,{getProjectById,getToken})(SubmitBid);

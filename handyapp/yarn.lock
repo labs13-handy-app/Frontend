@@ -1183,6 +1183,30 @@
     prop-types "^15.7.2"
     warning "^4.0.1"
 
+"@material-ui/styles@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.1.1.tgz#16e9d4770bd18b85c25fd3cb925043af5fa37f36"
+  integrity sha512-BmtfLRY0CqAkYPdcFmNcD1/zyU6ATRx9vaBxJ31//YVxfRsyPOuQXW6fvAoDvQt/hbZpTR4E0K/+4D3wHHTdHQ==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    "@emotion/hash" "^0.7.1"
+    "@material-ui/types" "^4.1.0"
+    "@material-ui/utils" "^4.1.0"
+    clsx "^1.0.2"
+    csstype "^2.5.2"
+    deepmerge "^3.0.0"
+    hoist-non-react-statics "^3.2.1"
+    jss "10.0.0-alpha.17"
+    jss-plugin-camel-case "10.0.0-alpha.17"
+    jss-plugin-default-unit "10.0.0-alpha.17"
+    jss-plugin-global "10.0.0-alpha.17"
+    jss-plugin-nested "10.0.0-alpha.17"
+    jss-plugin-props-sort "10.0.0-alpha.17"
+    jss-plugin-rule-value-function "10.0.0-alpha.17"
+    jss-plugin-vendor-prefixer "10.0.0-alpha.17"
+    prop-types "^15.7.2"
+    warning "^4.0.1"
+
 "@material-ui/system@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.1.0.tgz#c850a625d1a5d5440e1ad039d2503da63f8c6727"
@@ -8534,6 +8558,7 @@ react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
+<<<<<<< HEAD
 react-dropzone@^10.1.5:
   version "10.1.5"
   resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-10.1.5.tgz#5f2817ab924b270010c7034fe01f49b6240b9c91"
@@ -8542,6 +8567,14 @@ react-dropzone@^10.1.5:
     attr-accept "^1.1.3"
     file-selector "^0.1.11"
     prop-types "^15.7.2"
+=======
+react-dropzone-uploader@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/react-dropzone-uploader/-/react-dropzone-uploader-2.10.0.tgz#b7d6ad6c2d724b5fb96384236cb5a538f296d454"
+  integrity sha512-sDlJia1a/4fv34hZQhvegg4sawwk2YCEEyJovN8xCkAzbToFm+U8qjoXVlKATaF6NS39BxCDjIUuf9Lv5RzXHg==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+>>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
 
 react-error-overlay@^5.1.6:
   version "5.1.6"
@@ -8692,6 +8725,13 @@ react-scripts@^3.0.1:
     workbox-webpack-plugin "4.2.0"
   optionalDependencies:
     fsevents "2.0.6"
+
+react-stripe-elements@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-stripe-elements/-/react-stripe-elements-3.0.0.tgz#8b5e354e6e421b85f909329c9818a719b132410a"
+  integrity sha512-ouGHPmPhdg7KUTOFVuYIr0UWVgBjG5CqmOn9/y0vaJICryPB6llkiOGeUXKrac7fu1/vtPdn8t/4JKnbi8PT8g==
+  dependencies:
+    prop-types "^15.5.10"
 
 react-swipeable-views-core@^0.13.1:
   version "0.13.1"

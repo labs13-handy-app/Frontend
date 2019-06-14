@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addFeedback } from '../../actions';
 
 class AddFeedbackForm extends Component {
+<<<<<<< HEAD
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +14,44 @@ class AddFeedbackForm extends Component {
       recommend: '',
       rating: ''
     };
+=======
+    constructor(props) {
+      super(props);
+      this.state = {
+        title: '',
+        description: '',
+        reviewer_name: '',
+        contractor_id:props.id,
+        recommend:'',
+        rating:'',
+
+      };
+    }
+  
+     handleChanges = e => {
+      this.setState({ [e.target.name]: e.target.value });
+    };
+  
+     render() {
+      return (
+        <div>
+          <form>
+            <input type='text' onChange={this.handleChanges} placeholder='title' name='title' value={this.state.title}
+            />
+            <input type='text' onChange={this.handleChanges} value={this.state.description} placeholder='description'name='description' 
+            />
+            <input type='text'onChange={this.handleChanges} value={this.state.reviwer_name} placeholder='your name'name='reviewer_name'
+            />
+            <input type='text'onChange={this.handleChanges} value={this.state.recommend} placeholder='would you recommend?'name='recommend'
+            />
+            <input type='number'onChange={this.handleChanges} value={this.state.rating} placeholder='rating'name='rating'
+            />
+          </form>
+          <button onClick={() => this.props.addFeedback(this.state)}>Submit Feedback</button>
+        </div>
+      );
+    }
+>>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
   }
 
   handleChanges = e => {

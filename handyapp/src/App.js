@@ -7,7 +7,8 @@ import Landing from './components/LandingPage/Landing';
 import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
-import Dashboard from './components/Dashboard/Dashboard';
+import HomeOwnerDashboard from './components/HomeOwnerDashboard/HomeOwnerDashboard';
+import ContractorDashboard from './components/ContractorDashboard/ContractorDashboard';
 import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
@@ -16,9 +17,10 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
+import Stripe from './components/Stripe/Stripe';
+import SubmitBid from './components/ServiceProviders/SubmitBid'
 
 import './App.css';
-
 
 library.add(fab, faCheckSquare);
 
@@ -71,7 +73,11 @@ class App extends React.Component {
               path="/contractor-onboarding"
               component={ContractorForm}
             />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard-homeowner" component={HomeOwnerDashboard} />
+            <Route
+              path="/dashboard-contractor"
+              component={ContractorDashboard}
+            />
             <Route path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
             <Route path="/addbid" component={AddBid} />
@@ -81,12 +87,14 @@ class App extends React.Component {
               path="/contractor/:id"
               component={ServiceProviderFeedback}
             />
+
+            <Route exact path="/checkout" component={Stripe} />
+            <Route exact path="/add-bid/:id" component={SubmitBid} />
           </div>
         </div>
       </div>
     );
   }
 }
-
 
 export default withRouter(App);
