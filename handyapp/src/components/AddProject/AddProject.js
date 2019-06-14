@@ -25,7 +25,7 @@ class AddProject extends Component {
   }
 
   onInputChange = e => {
-    let {value} = e.target;
+    let { value } = e.target;
     e.persist();
     this.setState(prevState => ({
       project: {
@@ -156,5 +156,5 @@ class AddProject extends Component {
 
 export default connect(
   null,
-  {addProject, addProjectPics}
+  { addProject, addProjectPics }
 )(AddProject);

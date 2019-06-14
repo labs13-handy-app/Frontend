@@ -1,5 +1,6 @@
 import React from 'react';
 import placeholder from '../../img/Placeholder-image.png';
+import {Link} from 'react-router-dom'
 
 import './UserProject.css';
 
@@ -23,7 +24,9 @@ const UserProject = props => {
               : 'No materials included'}
           </p>
           <p>
-            <i className="fas fa-gavel" />5 Bids
+            <Link to={`/project/${props.id}`} >
+            <i className="fas fa-gavel" />view Bids
+            </Link>
           </p>
         </div>
         <div className="description">

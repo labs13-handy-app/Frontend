@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
  const BidsForProject = props => {
   return (
@@ -8,8 +9,12 @@ import React from 'react';
       <p>Hours:{props.bid.time}</p>
       <p>Materials included? {props.bid.materials_included}</p>
       <div className='buttons'>
+      <Link to ={'/checkout'} >
       <button>Accept Bid</button>
+      </Link>
+      <Link to={`/contractor/${props.bid.contractor_id}`}>
       <button>View Contractor</button>
+      </Link>
       </div>
     </div>
   );
