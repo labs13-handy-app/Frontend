@@ -13,8 +13,8 @@ export const getProjects = projects => dispatch => {
   //   .then(res => dispatch({type: GET_PROJECTS_SUCCESS, payload: res.data}))
   //   .catch(e => dispatch({type: GET_PROJECTS_FAILURE, payload: e.message}));
 
-  //   // return axiosWithAuth()
-  //   //   .get('https://handy-app-api.herokuapp.com/projects')
-  //   //   .then(res => dispatch({type: GET_PROJECTS_SUCCESS, payload: res.data}))
-  //   //   .catch(e => dispatch({type: GET_PROJECTS_FAILURE, payload: e.message}));
+  return axiosWithAuth()
+    .get('https://handy-app-api.herokuapp.com/projects')
+    .then(res => dispatch({type: GET_PROJECTS_SUCCESS, payload: res.data}))
+    .catch(e => dispatch({type: GET_PROJECTS_FAILURE, payload: e.message}));
 };
