@@ -72,20 +72,25 @@
 
   }
 
-  form{
+  .bid-div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .add-form{
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items:center;
   }
 
-  input{
-    width:40%;
+  .bid-input{
+    width:180%;
     height:50px;
     margin-bottom:10px;
   }
 
-  button{
+  .bid-button{
     width: 20%;
   height: 46px;
   /* padding: 0px 60px; */
@@ -103,5 +108,8 @@
   outline: none;
   cursor: pointer;
   margin-bottom:10px;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
   }
   

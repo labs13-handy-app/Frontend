@@ -21,16 +21,17 @@ class AddNewBid extends Component {
   
      render() {
       return (
-        <div>
-          <form>
-            <input type='number' onChange={this.handleChanges} placeholder='price' name='price' value={this.state.price}
+        <div className='bid-div' >
+          <form className='add-form'>
+            <input className='bid-input' type='number' onChange={this.handleChanges} placeholder='price' name='price' value={this.state.price}
             />
-            <input type='text' onChange={this.handleChanges} value={this.state.time} placeholder='hours'name='time' 
+            <input className='bid-input' type='text' onChange={this.handleChanges} value={this.state.time} placeholder='hours'name='time' 
             />
-            <input type='text'onChange={this.handleChanges} value={this.state.materials_included} placeholder='materials_included'name='materials_included'
+            <input className='bid-input' type='text'onChange={this.handleChanges} value={this.state.materials_included} placeholder='materials_included'name='materials_included'
             />
-             <button onClick={() => this.props.addBid(this.state)}>Submit Bid</button>
+             
           </form>
+          <button className='bid-button' onClick={() => this.props.addBid(this.state)}>Submit Bid</button>
         </div>
       );
     }
