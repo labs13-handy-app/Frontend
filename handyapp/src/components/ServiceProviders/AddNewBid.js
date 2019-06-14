@@ -6,8 +6,8 @@ class AddNewBid extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        contractor_id: props.contractor_id,
-        project_id: props.user_id,
+        contractor_id: props.user_id,
+        project_id: props.project_id,
         price:'',
         time:'',
         materials_included:''
