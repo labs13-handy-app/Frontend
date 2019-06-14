@@ -11,9 +11,10 @@ class SubmitBid extends Component {
       this.props.getProjectById(id);
       this.props.getToken();
     }
+    
   
     render() {
-      if (this.props.projects.bids === undefined) {
+      if (this.props.projects && this.props.user === undefined) {
         return (
           <>
             <h4>Loading...</h4>
@@ -21,7 +22,6 @@ class SubmitBid extends Component {
         );
       } else {
       console.log(this.props.projects)
-      console.log(this.props.projects.bids)
       return (
         <div className="project-container">
         <div className='Project'>
@@ -47,9 +47,10 @@ class SubmitBid extends Component {
   
 
 
-  const mapStateToProps = ({getProjectByIdReducer}, props) => {
+  const mapStateToProps = ({getProjectByIdReducer,usersReducer}, props) => {
     return {
       projects: getProjectByIdReducer.projects,
+      user: usersReducer.token
     };
   };
 export default connect(mapStateToProps,{getProjectById,getToken})(SubmitBid);

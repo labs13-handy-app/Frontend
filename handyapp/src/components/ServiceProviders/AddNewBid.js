@@ -30,7 +30,7 @@ class AddNewBid extends Component {
             <input type='text'onChange={this.handleChanges} value={this.state.materials_included} placeholder='materials_included'name='materials_included'
             />
           </form>
-          <button onClick={() => this.props.addFeedback(this.state)}>Submit Feedback</button>
+          <button onClick={() => this.props.addBid(this.state)}>Submit Feedback</button>
         </div>
       );
     }
