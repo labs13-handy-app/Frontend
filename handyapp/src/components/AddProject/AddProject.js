@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addProject, addProjectPics } from '../../actions';
-import axios from 'axios';
-=======
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Dropzone from 'react-dropzone-uploader';
@@ -12,7 +6,6 @@ import axiosWithAuth from '../../utils/AxiosAuthFD';
 
 import 'react-dropzone-uploader/dist/styles.css';
 import './AddProject.css';
->>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
 
 class AddProject extends Component {
   constructor(props) {

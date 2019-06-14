@@ -22,11 +22,8 @@
     "prop-types": "^15.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-<<<<<<< HEAD
     "react-dropzone": "^10.1.5",
-=======
     "react-dropzone-uploader": "^2.10.0",
->>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
     "react-loader-spinner": "^2.3.0",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.1",
