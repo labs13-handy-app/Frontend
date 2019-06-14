@@ -3,18 +3,6 @@ import { connect } from 'react-redux';
 import { addFeedback } from '../../actions';
 
 class AddFeedbackForm extends Component {
-<<<<<<< HEAD
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      description: '',
-      reviewer_name: '',
-      contractor_id: props.id,
-      recommend: '',
-      rating: ''
-    };
-=======
     constructor(props) {
       super(props);
       this.state = {
@@ -50,8 +38,7 @@ class AddFeedbackForm extends Component {
           <button onClick={() => this.props.addFeedback(this.state)}>Submit Feedback</button>
         </div>
       );
-    }
->>>>>>> 229cb793ab420a91f2bd9d19920c126c13d2f6ee
+    
   }
 
   handleChanges = e => {
