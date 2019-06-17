@@ -1,79 +1,93 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getToken, onBoarding} from '../../actions';
+import {getToken as getUser, onBoarding as editUser} from '../../actions';
 
 class Onboarding extends Component {
   state = {
-    user: {
-      account_type: ''
-    }
+    user: '',
+    account_type: ''
   };
+
   componentWillMount() {
-    this.props.getToken();
+    this.props.getUser();
   }
 
-  onSubmit = e => {
-    e.preventDefault();
+  componentDidMount() {}
+
+  handleHomeOwner = async () => {
+    await this.setState({
+      user: this.props.user,
+      account_type: 'homeowner'
+    });
+
+    console.log(this.state.account_type);
+
     const editedUser = {
-      ...this.props.user,
-      account_type: this.state.user.account_type
+      ...this.state.user,
+      account_type: this.state.account_type
     };
 
-    this.props.onBoarding(editedUser.id, editedUser);
-
-    console.log(editedUser);
+    await this.props.editUser(editedUser.id, editedUser);
 
     if (editedUser.account_type === 'homeowner') {
       this.props.history.push('/homeowner-onboarding');
-    } else if (editedUser.account_type === 'contractor') {
-      this.props.history.push('/contractor-onboarding');
-    } else {
-      this.props.history.push('/onboarding');
     }
   };
+
+  handleContractor = async () => {
+    this.setState({
+      user: this.props.user,
+      account_type: 'contractor'
+    });
+
+    console.log(this.state.account_type);
+
+    const editedUser = {
+      ...this.state.user,
+      account_type: this.state.account_type
+    };
+
+    await this.props.editUser(editedUser.id, editedUser);
+
+    if (editedUser.account_type === 'contractor') {
+      this.props.history.push('/contractor-onboarding');
+    }
+  };
+
   render() {
-    console.log(this.props.user);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
+    console.log(this.state);
     return (
       <div className="Onboarding">
         <div className="accounts">
           <h2>Welcome to Handyapp</h2>
           <p>Do you want to use the app as a:</p>
-          <button
-            onClick={() => this.setState({user: {account_type: 'homeowner'}})}
-            className="homeowner-btn"
-          >
+          <button onClick={this.handleHomeOwner} className="homeowner-btn">
             <div className="homeowner">
               <h4>Homeowner</h4>
             </div>
           </button>
           <p>Or</p>
-          <button
-            onClick={() => this.setState({user: {account_type: 'contractor'}})}
-            className="contractor-btn"
-          >
+          <button onClick={this.handleContractor} className="contractor-btn">
             <div className="contractor">
               <h4>Contractor</h4>
             </div>
           </button>
-          <form onSubmit={this.onSubmit}>
-            <button>Submit</button>
-          </form>
         </div>
       </div>
     );
   }
 }
 
-const mapStatToProps = ({tokenReducer}, props) => {
+const mapStateToProps = ({tokenReducer}, props) => {
   return {
     user: tokenReducer.token
   };
 };
 
 export default connect(
-  mapStatToProps,
-  {getToken, onBoarding}
+  mapStateToProps,
+  {getUser, editUser}
 )(Onboarding);

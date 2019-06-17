@@ -15,6 +15,6 @@ export const addProject = project => dispatch => {
 
   // return axiosWithAuth()
   //   .post('http://localhost:5000/projects', project)
-  //   .then(res => dispatch({type: ADD_PROJECT_SUCCESS, payload: res.body}))
+  //   .then(res => dispatch({type: ADD_PROJECT_SUCCESS, payload: res.data}))
   //   .catch(err => dispatch({type: ADD_PROJECT_FAILURE, payload: err.message}));
 };

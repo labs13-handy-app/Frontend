@@ -18,7 +18,7 @@ import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 import Stripe from './components/Stripe/Stripe';
-import SubmitBid from './components/ServiceProviders/SubmitBid'
+import SubmitBid from './components/ServiceProviders/SubmitBid';
 
 import './App.css';
 
@@ -73,7 +73,10 @@ class App extends React.Component {
               path="/contractor-onboarding"
               component={ContractorForm}
             />
-            <Route path="/dashboard-homeowner" component={HomeOwnerDashboard} />
+            <Route
+              path="/dashboard-homeowner"
+              render={props => <HomeOwnerDashboard {...props} />}
+            />
             <Route
               path="/dashboard-contractor"
               component={ContractorDashboard}

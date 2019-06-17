@@ -17,10 +17,9 @@ class AddProject extends Component {
         homeowner_id: this.props.user
           ? this.props.user.id
           : this.props.match.params.id,
-        materials_included: 'no'
-      },
-      thumbnail: null,
-      images: []
+        materials_included: 'no',
+        images: []
+      }
     };
   }
 
@@ -35,80 +34,39 @@ class AddProject extends Component {
     }));
   };
 
-  onFileChange = e => {
-    // e.persist();
-    // this.setState({
-    //   thumbnail: e.target.files[0]
-    // });
-  };
-
   onSubmit = async e => {
     e.preventDefault();
-    let response = null;
 
-    if (this.state.thumbnail !== null) {
-      const data = new FormData();
-      data.append('thumbnail', this.state.thumbnail.file);
-      data.append('title', this.state.project.title);
-      data.append('description', this.state.project.description);
-      data.append('homeowner_id', this.state.project.homeowner_id);
-      response = await axiosWithAuth().post(
-        'https://handy-app-api.herokuapp.com/projects',
-        data
-      );
+    await this.props.addProject(this.state.project);
 
-      // response = await axiosWithAuth().post(
-      //   'http://localhost:5000/projects',
-      //   data
-      // );
-
-      setTimeout(async () => {
-        // Get the id of the newly created project.
-        const {id} = await response.data.foundProject;
-        console.log(id);
-        const images = this.state.images.map(image => image.file);
-        console.log(images);
-        if (id) {
-          // Send the images to the project_images table in the database.
-          const imagesData = new FormData();
-          imagesData.append('images', images);
-          // const result = await axiosWithAuth().post(
-          //   `http://localhost:5000/projects/${id}/images`,
-          //   imagesData
-          // );
-          const result = await axiosWithAuth().post(
-            `https://handy-app-api.herokuapp.com/projects/${id}/images`,
-            imagesData
-          );
-          // Redirect User to the project listing page.
-          this.props.history.push(
-            `/dashboard-homeowner/users/${this.props.match.params.id}/projects`
-          );
-        }
-      }, 100);
-    } else {
-      this.props.addProject(this.state.project);
-    }
+    this.props.history.push(
+      `/dashboard-homeowner/users/${this.props.match.params.id}/projects/`
+    );
   };
 
-  getUploadParams = () => {
-    return {url: 'https://httpbin.org/post'};
+  showWidget = widget => {
+    widget.open();
   };
 
-  handleChangeStatus = ({meta}, status) => {
-    console.log(status, meta);
-  };
-
-  handleSubmit = (files, allFiles) => {
-    this.setState({
-      thumbnail: files[0],
-      images: [...files]
-    });
-    // console.log(files.map(f => f.meta));
-    // allFiles.forEach(f => f.remove());
-    console.log(this.state.images);
-  };
   render() {
+    let widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: 'sandhu',
+        uploadPreset: 'clyrl6ow',
+        tags: ['app']
+      },
+      (error, result) => {
+        let {secure_url} = result.info;
+        if (!error && result && result.event === 'success') {
+          this.setState(prevState => ({
+            project: {
+              ...prevState.project,
+              images: [...this.state.project.images, secure_url]
+            }
+          }));
+        }
+      }
+    );
     return (
       <>
         <h2>Add Project</h2>
@@ -136,18 +94,22 @@ class AddProject extends Component {
                 />
               </div>
               <div className="form-item">
-                <label htmlFor="add-image">Add image(s)</label>
-                <Dropzone
-                  getUploadParams={this.getUploadParams}
-                  onChangeStatus={this.handleChangeStatus}
-                  onSubmit={this.handleSubmit}
-                  styles={{dropzone: {minHeight: 200, maxHeight: 250}}}
-                />
+                {/* <label htmlFor="add-image">Add image(s)</label> */}
+                <button
+                  onClick={e => {
+                    e.preventDefault();
+                    this.showWidget(widget);
+                  }}
+                >
+                  Upload Images
+                </button>
               </div>
             </div>
+
             <button className="add-project" onSubmit={this.onSubmit}>
               Submit
             </button>
+            <div className="photo-form-container" />
           </form>
         </div>
       </>

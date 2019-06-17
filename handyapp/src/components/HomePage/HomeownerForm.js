@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {onBoarding, getToken} from '../../actions';
-// Here and Below matrial ui styles 
-import { makeStyles } from '@material-ui/styles';
+// Here and Below matrial ui styles
+import {makeStyles} from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
-
 
 // const useStyles = makeStyles({
 //   root: {
@@ -26,32 +25,29 @@ import Button from '@material-ui/core/Button';
 class HomeownerForm extends Component {
   state = {
     user: {
-      id: '',
       first_name: '',
       last_name: '',
       nickname: '',
       email: '',
       phone_number: '',
-      address: '',
-      account_type: 'homeowner'
+      address: ''
     }
   };
 
   componentWillMount() {
     this.props.getToken();
     const {user} = this.props;
+
     if (user) {
       this.setState({
         user: {
           id: user.id,
           first_name: user.nickname,
           last_name: '',
-          isBoarded: false,
           nickname: user.nickname,
           email: user.email,
           phone_number: '',
-          address: '',
-          account_type: user.account_type
+          address: ''
         }
       });
     }
@@ -74,19 +70,14 @@ class HomeownerForm extends Component {
       ...this.state.user,
       isBoarded: true
     };
+
     this.props.onBoarding(user.id, user);
 
-    this.setState({
-      user: {
-        first_name: '',
-        last_name: '',
-        email: '',
-        phone_number: '',
-        address: ''
-      }
-    });
+    console.log(this.props);
 
-    this.props.history.push('/dashboard-homeowner');
+    if (this.props.user && this.props.user.account_type === 'homeowner') {
+      this.props.history.push('/dashboard-homeowner');
+    }
   };
 
   render() {
@@ -154,9 +145,10 @@ class HomeownerForm extends Component {
   }
 }
 
-const mapStateToProps = ({tokenReducer}, props) => {
+const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => {
   return {
-    user: tokenReducer.token
+    user: tokenReducer.token,
+    editedUser: onBoardingReducer.user
   };
 };
 

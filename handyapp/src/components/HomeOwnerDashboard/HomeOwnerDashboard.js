@@ -17,7 +17,6 @@ class HomeOwnerDashboard extends Component {
     this.props.getUser();
   }
   render() {
-    console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
