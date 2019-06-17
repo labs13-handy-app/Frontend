@@ -2,8 +2,14 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {onBoarding, getToken} from '../../actions';
 // Here and Below matrial ui styles
-import {makeStyles} from '@material-ui/styles';
+// import {makeStyles} from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
 
 // const useStyles = makeStyles({
 //   root: {
@@ -21,6 +27,15 @@ import Button from '@material-ui/core/Button';
 //   const classes = useStyles();
 //   return <Button className={classes.root}>Hook</Button>;
 // }
+
+
+// const styles = theme => ({
+//   '@global': {
+//     body: {
+//       backgroundColor: 
+//     }
+//   },
+// });
 
 class HomeownerForm extends Component {
   state = {
