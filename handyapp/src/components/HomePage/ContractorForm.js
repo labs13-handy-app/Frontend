@@ -54,15 +54,15 @@ class ContractorForm extends Component {
     }));
   };
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
 
     const user = {
       ...this.state.user,
       isBoarded: true
     };
-    this.props.onBoarding(user.id, user);
-    console.log(user.id);
+
+    await this.props.onBoarding(user.id, user);
 
     // this.setState({
     //   user: {

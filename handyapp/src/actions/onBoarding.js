@@ -11,7 +11,7 @@ export const onBoarding = (id, user) => dispatch => {
   });
 
   // Comment to work locally
-  // axiosWithAuth()
+  // return axiosWithAuth()
   //   .put(`http://localhost:5000/users/${id}`, user)
   //   .then(res => {
   //     dispatch({

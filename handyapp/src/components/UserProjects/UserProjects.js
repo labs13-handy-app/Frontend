@@ -8,7 +8,7 @@ import Loader from 'react-loader-spinner';
 import './UserProjects.css';
 
 class UserProjects extends Component {
-  componentDidMount() {
+  componentWillMount() {
     const {user} = this.props;
     this.props.getUserProjects(user.id);
   }
@@ -17,17 +17,36 @@ class UserProjects extends Component {
     if (!localStorage.token) {
       this.props.history.push('/');
     }
-    if (!this.props.userProjects.projects) {
+
+    if (this.props.userProjects.user) {
+      const {projects} = this.props.userProjects.user;
+
+      return projects.map(({id, title, description, images, bids}) => {
+        const thumbnail = images[0];
+        return (
+          <UserProject
+            key={id}
+            id={id}
+            title={title}
+            description={description}
+            images={images}
+            thumbnail={thumbnail}
+            bids={bids}
+          />
+        );
+      });
+    } else if (
+      this.props.userProjects &&
+      this.props.userProjects.user &&
+      this.props.userProjects.user.projects &&
+      this.props.userProjects.user.projects.length < 0
+    ) {
       return (
         <div className="project-container empty">
           <Loader type="Oval" color="#4c5b48" height="100" width="100" />
         </div>
       );
-    }
-    if (
-      this.props.userProjects.projects &&
-      this.props.userProjects.projects.length === 0
-    ) {
+    } else {
       return (
         <div className="project-container">
           <h2>My Projects </h2>
@@ -47,25 +66,6 @@ class UserProjects extends Component {
         </div>
       );
     }
-    return (
-      <div className="project-container">
-        <h2>My Projects </h2>
-        {this.props.userProjects.projects &&
-          this.props.userProjects.projects.length > 0 &&
-          this.props.userProjects.projects.map(project => {
-            return (
-              <UserProject
-                title={project.title}
-                key={project.id}
-                thumbnail={project.thumbnail}
-                description={project.description}
-                materials_included={project.materials_included}
-                id={project.id}
-              />
-            );
-          })}
-      </div>
-    );
   }
 }
 

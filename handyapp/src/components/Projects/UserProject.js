@@ -1,6 +1,6 @@
 import React from 'react';
 import placeholder from '../../img/Placeholder-image.png';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 import './UserProject.css';
 
@@ -9,10 +9,14 @@ const UserProject = props => {
   if (!localStorage.token) {
     props.history.push('/');
   }
+
   return (
     <div className="Project">
       <div className="project-image">
-        <img src={props.thumbnail ? props.thumbnail : placeholder} alt="" />
+        <img
+          src={props.thumbnail ? props.thumbnail.image : placeholder}
+          alt=""
+        />
       </div>
       <div className="project-content">
         <div className="project-info">
@@ -24,8 +28,12 @@ const UserProject = props => {
               : 'No materials included'}
           </p>
           <p>
-            <Link to={`/project/${props.id}`} >
-            <i className="fas fa-gavel" />view Bids
+            <Link to={`/project/${props.id}`}>
+              <i className="fas fa-gavel" />
+              {props.bids && props.bids.length > 0
+                ? `${props.bids.length + 1} Bids `
+                : `0 `}
+              view Bids
             </Link>
           </p>
         </div>

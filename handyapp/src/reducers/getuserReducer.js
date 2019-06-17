@@ -1,36 +1,32 @@
-import {
-  GET_USERS_START,
-  GET_USERS_SUCCESS,
-  GET_USERS_FAILURE
-} from '../actions';
+import {GET_USER_START, GET_USER_SUCCESS, GET_USER_FAILURE} from '../actions';
 
 const initialState = {
   getUser: false,
-  users: [],
+  user: [],
   error: null
 };
 
-export const usersReducer = (state = initialState, action) => {
+export const getUserReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USERS_START:
+    case GET_USER_START:
       return {
         ...state,
         getUser: true,
-        users: [],
+        user: [],
         error: null
       };
-    case GET_USERS_SUCCESS:
+    case GET_USER_SUCCESS:
       return {
         ...state,
         getUser: false,
-        users: action.payload,
+        user: action.payload,
         error: null
       };
-    case GET_USERS_FAILURE:
+    case GET_USER_FAILURE:
       return {
         ...state,
         getUser: false,
-        users: [],
+        user: [],
         error: action.payload
       };
     default:

@@ -11,9 +11,9 @@ export {
   PAYMENT_CONNECTION_START,
   PAYMENT_CONNECTION_SUCCESS,
   PAYMENT_CONNECTION_FAILURE,
-  GET_USERS_START,
-  GET_USERS_SUCCESS,
-  GET_USERS_FAILURE,
+  GET_USER_START,
+  GET_USER_SUCCESS,
+  GET_USER_FAILURE,
   ONBOARDING_START,
   ONBOARDING_SUCCESS,
   ONBOARDING_FAILURE,
@@ -35,8 +35,8 @@ export {
   GET_USER_PROJECTS_START,
   GET_USER_PROJECTS_SUCCESS,
   GET_USER_PROJECTS_FAILURE,
-  GET_FEEDBACK_BY_CONTRACTOR_ID_START, 
-  GET_FEEDBACK_BY_CONTRACTOR_ID_SUCCESS, 
+  GET_FEEDBACK_BY_CONTRACTOR_ID_START,
+  GET_FEEDBACK_BY_CONTRACTOR_ID_SUCCESS,
   GET_FEEDBACK_BY_CONTRACTOR_ID_FAILURE,
   EDIT_PROJECT_START,
   EDIT_PROJECT_SUCCESS,
@@ -46,12 +46,14 @@ export {
   ADD_PROFILE_PIC_FAILURE,
   ADD_PROJECT_PICS_START,
   ADD_PROJECT_PICS_SUCCESS,
-  ADD_PROJECT_PICS_FAILURE
-  
+  ADD_PROJECT_PICS_FAILURE,
+  GET_PROJECT_IMAGES_START,
+  GET_PROJECT_IMAGES_SUCCESS,
+  GET_PROJECT_IMAGES_FAILURE
 } from './types';
 
 export {getToken} from './getToken';
-export {getUsers} from './getUsers';
+export {getUser} from './getUser';
 export {addProject} from './addProject';
 export {deleteProject} from './deleteProject';
 export {paymentConnection} from './paymentConnection';
@@ -63,6 +65,7 @@ export {getProjectById} from './getProjectById';
 export {getUserProjects} from './getUserProjects';
 export {addFeedback} from './addFeedback';
 export {getFeedbackByContractorId} from './getFeedbackByContractorId';
-export{editProject} from './editProject';
-export {addProfilePic} from './addProfilePic'
-export {addProjectPics} from './addProjectPics'
+export {editProject} from './editProject';
+export {addProfilePic} from './addProfilePic';
+export {addProjectPics} from './addProjectPics';
+export {getProjectImages} from './getProjectImages';

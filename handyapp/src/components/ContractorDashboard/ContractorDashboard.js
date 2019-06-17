@@ -31,7 +31,7 @@ class ContractorDashboard extends Component {
     if (this.props.user.account_type === 'homeowner') {
       this.props.history.push('/dashboard-homeowner');
     } else if (this.props.user.account_type === null) {
-      // this.props.history.push('/onboarding');
+      this.props.history.push('/onboarding');
     }
     return (
       <div className="Dashboard">
