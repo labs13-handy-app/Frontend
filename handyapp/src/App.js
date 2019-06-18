@@ -64,39 +64,42 @@ class App extends React.Component {
               }}
             />
 
-            <div className="container">
-              <Route
-                path="/onboarding"
-                render={props => <Onboarding {...props} />}
-              />
-              <Route path="/homeowner-onboarding" component={HomeownerForm} />
-              <Route
-                exact
-                path="/contractor-onboarding"
-                component={ContractorForm}
-              />
-              <Route
-                path="/dashboard-homeowner"
-                render={props => <HomeOwnerDashboard {...props} />}
-              />
-              <Route
-                path="/dashboard-contractor"
-                component={ContractorDashboard}
-              />
-              <Route path="/projects" component={Projects} />
-              <Route path="/bids" component={Bids} />
-              <Route path="/addbid" component={AddBid} />
-              <Route exact path="/project/:id" component={ProjectsById} />
-              <Route
-                exact
-                path="/contractor/:id"
-                component={ServiceProviderFeedback}
-              />
+            {/* <div className="container"> */}
+            <Route
+              path="/onboarding"
+              render={props => <Onboarding {...props} />}
+            />
+            <Route path="/homeowner-onboarding" component={HomeownerForm} />
+            <Route
+              exact
+              path="/contractor-onboarding"
+              component={ContractorForm}
+            />
+            <Route
+              path="/dashboard-homeowner"
+              render={props => <HomeOwnerDashboard {...props} />}
+            />
+            <Route
+              path="/dashboard-contractor"
+              component={ContractorDashboard}
+            />
+            <Route path="/projects" component={Projects} />
+            <Route path="/bids" component={Bids} />
+            <Route path="/addbid" component={AddBid} />
+            <Route exact path="/project/:id" component={ProjectsById} />
+            <Route
+              exact
+              path="/contractor/:id"
+              component={ServiceProviderFeedback}
+            />
 
-              <Route exact path="/checkout" component={Stripe} />
-              <Route exact path="/add-bid/:id" component={SubmitBid} />
-              <Route path="*" component={NotFound} />
-            </div>
+            <Route exact path="/checkout" component={Stripe} />
+            <Route exact path="/add-bid/:id" component={SubmitBid} />
+            {/* Using "*" as a value of the path parameter to get a non-greedy matching.
+              It needs to be declared at the very bottom of your routes configuration,
+              so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
+            <Route path="*" component={NotFound} />
+            {/* </div> */}
           </Switch>
         </div>
       </div>
