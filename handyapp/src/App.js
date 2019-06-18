@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter, Route} from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 import NavBar from './components/LandingPage/NavBar';
 import Callback from './components/Callback/Callback';
@@ -13,20 +13,20 @@ import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fab} from '@fortawesome/free-brands-svg-icons';
-import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
-
+import NotFound from './components/NotFound/NotFound';
 import './App.css';
 
 library.add(fab, faCheckSquare);
 
 const auth = new Auth();
 
-const handleAuthentication = ({location}) => {
+const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -44,7 +44,7 @@ class App extends React.Component {
   };
 
   render() {
-    const {isAuthenticated} = auth;
+    const { isAuthenticated } = auth;
     return (
       <div className="App">
         <NavBar
@@ -53,16 +53,18 @@ class App extends React.Component {
           logout={this.logout}
         />
         <div>
-          <Route exact path="/" render={props => <Landing {...props} />} />
-          <Route
-            exact
-            path="/callback"
-            render={props => {
-              handleAuthentication(props);
-              return <Callback {...props} />;
-            }}
-          />
-          <div className="container">
+          <Switch>
+            <Route exact path="/" render={props => <Landing {...props} />} />
+            <Route
+              exact
+              path="/callback"
+              render={props => {
+                handleAuthentication(props);
+                return <Callback {...props} />;
+              }}
+            />
+
+            {/* <div className="container"> */}
             <Route
               path="/onboarding"
               render={props => <Onboarding {...props} />}
@@ -93,7 +95,12 @@ class App extends React.Component {
 
             <Route exact path="/checkout" component={Stripe} />
             <Route exact path="/add-bid/:id" component={SubmitBid} />
-          </div>
+            {/* Using "*" as a value of the path parameter to get a non-greedy matching.
+              It needs to be declared at the very bottom of your routes configuration,
+              so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
+            <Route path="*" component={NotFound} />
+            {/* </div> */}
+          </Switch>
         </div>
       </div>
     );

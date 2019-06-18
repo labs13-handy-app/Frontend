@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, withTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 
@@ -29,13 +29,13 @@ import Container from '@material-ui/core/Container';
 // }
 
 
-// const styles = theme => ({
-//   '@global': {
-//     body: {
-//       backgroundColor: 
-//     }
-//   },
-// });
+const styles = theme => ({
+  '@global': {
+    body: {
+      backgroundColor: withTheme
+    }
+  },
+});
 
 class HomeownerForm extends Component {
   state = {
@@ -101,6 +101,8 @@ class HomeownerForm extends Component {
       this.props.history.push('/');
     }
     return (
+      // matrail ui portion 
+      <Container component="main" maxWidth="xs">
       <form onSubmit={this.onSubmit} id="user-onboarding">
         <div>
           <label htmlFor="first_name">First Name</label>
@@ -156,6 +158,9 @@ class HomeownerForm extends Component {
         <button type="submit">Submit</button>
         <button type="upload">Upload Picture</button>
       </form>
+      </Container>
+      // End of container
+
     );
   }
 }
@@ -171,3 +176,5 @@ export default connect(
   mapStateToProps,
   {onBoarding, getToken}
 )(HomeownerForm);
+
+
