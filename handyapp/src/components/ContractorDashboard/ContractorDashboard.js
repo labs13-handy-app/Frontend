@@ -15,9 +15,11 @@ class ContractorDashboard extends Component {
   }
   componentDidMount() {
     this.props.getUser();
+    !localStorage.account_type && localStorage.account_type !== 'contractor'
+      ? localStorage.setItem('account_type', 'contractor')
+      : null;
   }
   render() {
-    console.log(this.props.user);
     if (!localStorage.token) {
       this.props.history.push('/');
     }

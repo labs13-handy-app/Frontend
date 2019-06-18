@@ -15,6 +15,9 @@ class HomeOwnerDashboard extends Component {
   }
   componentDidMount() {
     this.props.getUser();
+    !localStorage.account_type && localStorage.account_type !== 'homeowner'
+      ? localStorage.setItem('account_type', 'homeowner')
+      : null;
   }
   render() {
     if (!localStorage.token) {
