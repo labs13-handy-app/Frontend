@@ -46,13 +46,13 @@ class App extends React.Component {
   render() {
     const {isAuthenticated} = auth;
     return (
-      <div className="App container">
+      <div className="App">
         <NavBar
           isAuthenticated={isAuthenticated}
           login={this.login}
           logout={this.logout}
         />
-        <div>
+        <div className="container">
           <Switch>
             <Route exact path="/" render={props => <Landing {...props} />} />
             <Route
