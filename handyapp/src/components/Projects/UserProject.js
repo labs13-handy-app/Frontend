@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import './UserProject.css';
 
 const UserProject = props => {
-  console.log(props);
   if (!localStorage.token) {
     props.history.push('/');
   }
@@ -28,12 +27,14 @@ const UserProject = props => {
               : 'No materials included'}
           </p>
           <p>
-            <Link to={`/project/${props.id}`}>
-              <i className="fas fa-gavel" />
+            <i className="fas fa-gavel" />
+            <span>
               {props.bids && props.bids.length > 0
                 ? `${props.bids.length + 1} Bids `
-                : `0 `}
-              view Bids
+                : `0 Bids `}
+            </span>
+            <Link className="view-bids" to={`/project/${props.id}`}>
+              View Bids
             </Link>
           </p>
         </div>

@@ -30,6 +30,7 @@
 
 .UserCard .user-info .active-user {
   margin-bottom: 20px;
+  border-radius: 50px;
 }
 
 .UserCard .username {
