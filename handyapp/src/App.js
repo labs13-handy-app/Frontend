@@ -98,7 +98,7 @@ class App extends React.Component {
             {/* Using "*" as a value of the path parameter to get a non-greedy matching.
               It needs to be declared at the very bottom of your routes configuration,
               so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
-            <Route exact path="*" component={NotFound} />
+            <Route exact path="/*" component={NotFound} />
             {/* </div> */}
           </div>
         </Switch>
