@@ -180,16 +180,15 @@ class HomeownerForm extends Component {
             />
           </div>
 
-          <button type="submit">Submit</button>
-          <button
-            type="file"
+          <h4>Upload profile picture</h4>
+          <input
             onClick={() => {
               this.showWidget(widget);
             }}
-            type="upload"
-          >
-            Upload Picture
-          </button>
+            type="file"
+            accept="image/*"
+          />
+          <button type="submit">Submit</button>
         </form>
       </Container>
       // End of container

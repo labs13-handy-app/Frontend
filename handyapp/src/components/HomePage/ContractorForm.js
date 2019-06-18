@@ -202,7 +202,7 @@ class ContractorForm extends Component {
           />
         </div>
 
-        <h4>Upload Picture</h4>
+        <h4>Upload profile picture</h4>
         <input
           onClick={() => {
             this.showWidget(widget);
