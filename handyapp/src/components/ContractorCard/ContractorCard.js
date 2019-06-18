@@ -44,6 +44,15 @@ class ContractorCard extends Component {
               Available Projects
               <i className="fas fa-chevron-right" />
             </NavLink>
+            <a
+              href='https://dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_FC1yU4l4i7xldVGX8RcFaMBh5ipi5GBq&scope=read_write'
+              className="tab-button"
+            >
+              Connect Stripe
+              <i className="fas fa-chevron-right" />
+            </a>
+          </div>
+          <div>
           </div>
         </div>
       </div>
