@@ -62,6 +62,8 @@ class ContractorForm extends Component {
       isBoarded: true
     };
 
+    localStorage.setItem('account_type', 'contractor');
+
     await this.props.onBoarding(user.id, user);
 
     // this.setState({

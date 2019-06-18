@@ -88,8 +88,10 @@ const Landing = props => {
   function handleStepChange(step) {
     setActiveStep(step);
   }
-  if (localStorage.token) {
-    props.history.push(`/dashboard`);
+  if (localStorage.token && localStorage.account_type === 'homeowner') {
+    props.history.push(`/dashboard-homeowner`);
+  } else if (localStorage.token && localStorage.account_type === 'contractor') {
+    props.history.push(`/dashboard-contractor`);
   }
   return (
     <>
