@@ -1,18 +1,18 @@
 .Project {
   max-width: 90%;
-  height: 326px;
+  height: 244px !important;
   display: flex;
   justify-content: space-between;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 12px 20px rgba(128, 128, 128, 0.28);
+  /* box-shadow: 0 12px 20px rgba(128, 128, 128, 0.28); */
   /* border: 1px solid #e2e2e2; */
   margin-bottom: 34px;
 }
 
 .Project .project-image {
-  width: 448px;
-  height: 326px;
+  width: 366px !important;
+  height: 244px !important;
   background: url('../../img/Placeholder-image.png') no-repeat center
     center/cover;
   border-radius: 4px 0 0 4px;
@@ -27,7 +27,7 @@
 
 .Project .project-content {
   width: 70%;
-  padding: 54px 44px;
+  padding: 25px 44px !important;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -38,7 +38,7 @@
 }
 
 .Project .project-content .project-info h2 {
-  font-size: 28px;
+  font-size: 24px !important;
   color: #000;
   font-weight: 700;
 }
@@ -53,4 +53,11 @@
   color: #686868;
   font-weight: 300;
   line-height: 1.5;
+}
+
+.view-bids {
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #538f40;
 }

@@ -21,20 +21,26 @@ class UserProjects extends Component {
     if (this.props.userProjects.user) {
       const {projects} = this.props.userProjects.user;
 
-      return projects.map(({id, title, description, images, bids}) => {
-        const thumbnail = images[0];
-        return (
-          <UserProject
-            key={id}
-            id={id}
-            title={title}
-            description={description}
-            images={images}
-            thumbnail={thumbnail}
-            bids={bids}
-          />
-        );
-      });
+      return (
+        <div className="project-container">
+          <h2>My Projects </h2>
+
+          {projects.map(({id, title, description, images, bids}) => {
+            const thumbnail = images[0];
+            return (
+              <UserProject
+                key={id}
+                id={id}
+                title={title}
+                description={description}
+                images={images}
+                thumbnail={thumbnail}
+                bids={bids}
+              />
+            );
+          })}
+        </div>
+      );
     } else if (
       this.props.userProjects &&
       this.props.userProjects.user &&

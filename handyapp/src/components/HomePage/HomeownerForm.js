@@ -88,7 +88,7 @@ class HomeownerForm extends Component {
 
     this.props.onBoarding(user.id, user);
 
-    console.log(this.props);
+    console.log(this.props.user);
 
     if (this.props.user && this.props.user.account_type === 'homeowner') {
       this.props.history.push('/dashboard-homeowner');
