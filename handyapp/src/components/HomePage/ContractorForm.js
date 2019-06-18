@@ -12,7 +12,10 @@ class ContractorForm extends Component {
       isBoarded: false,
       nickname: '',
       phone_number: '',
-      account_type: 'homeowner',
+      account_type:
+        this.pros.user && this.props.user.account_type
+          ? this.props.user.account_type
+          : '',
       address: '',
       skills: '',
       licenses: '',
