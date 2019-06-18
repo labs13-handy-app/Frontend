@@ -24,9 +24,11 @@ class ContractorDashboard extends Component {
       localStorage.setItem('account_type', 'contractor');
     }
 
-    if (!localStorage.token) {
-      this.props.history.push('/');
-    }
+    if (localStorage.token && localStorage.account_type === 'homeowner')
+      this.props.history.push('/dashboard-homeowner');
+
+    if (!localStorage.token) this.props.history.push('/');
+
     if (this.props.user === '') {
       return (
         <div className="centered">

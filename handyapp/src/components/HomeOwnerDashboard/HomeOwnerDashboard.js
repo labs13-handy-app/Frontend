@@ -18,14 +18,17 @@ class HomeOwnerDashboard extends Component {
   }
   render() {
     if (
+      !localStorage.token &&
       !localStorage.account_type &&
       localStorage.account_type !== 'homeowner'
     ) {
       localStorage.setItem('account_type', 'homeowner');
     }
-    if (!localStorage.token) {
-      this.props.history.push('/');
-    }
+    if (localStorage.token && localStorage.account_type === 'contractor')
+      this.props.history.push('/dashboard-contractor');
+
+    if (!localStorage.token) this.props.history.push('/');
+
     if (this.props.user === '') {
       return (
         <div className="centered">
