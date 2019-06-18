@@ -17,7 +17,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
-import Stripe from './components/Stripe/Stripe';
+// import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
 import NotFound from './components/NotFound/NotFound';
 import './App.css';
@@ -52,9 +52,9 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <div className="container">
-          <Switch>
-            <Route exact path="/" render={props => <Landing {...props} />} />
+        <Switch>
+          <Route exact path="/" render={props => <Landing {...props} />} />
+          <div className="container">
             <Route
               exact
               path="/callback"
@@ -93,15 +93,15 @@ class App extends React.Component {
               component={ServiceProviderFeedback}
             />
 
-            <Route exact path="/checkout" component={Stripe} />
+            {/* <Route exact path="/checkout" component={Stripe} /> */}
             <Route exact path="/add-bid/:id" component={SubmitBid} />
             {/* Using "*" as a value of the path parameter to get a non-greedy matching.
               It needs to be declared at the very bottom of your routes configuration,
               so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
-            <Route path="*" component={NotFound} />
+            <Route exact path="/*" component={NotFound} />
             {/* </div> */}
-          </Switch>
-        </div>
+          </div>
+        </Switch>
       </div>
     );
   }

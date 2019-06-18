@@ -17,25 +17,26 @@ const errorPayment = data => {
 };
 
 const onToken = (amount, description) => token =>
-  axiosWithAuth()
-    .post('https://handy-app-api.herokuapp.com/api/checkout/new-customer', {
+axiosWithAuth()
+.post('https://handy-app-api.herokuapp.com/api/checkout/new-customer',
+    {
       description,
       source: token,
       currency: CURRENCY,
-      amount: 500
+      amount: fromEuroToCent(amount)
     })
     .then(successPayment)
     .catch(errorPayment);
 
-const Checkout = ({name, description, amount}) => (
+const Checkout = ({ name, description, amount }) =>
   <StripeCheckout
     name={name}
     description={description}
-    amount={500}
+    amount={fromEuroToCent(amount)}
     token={onToken(amount, description)}
     currency={CURRENCY}
-    stripeKey="pk_test_WrFQYte9DKhuIhdOUaiKxcW100UafZVNWY"
+    stripeKey='pk_test_WrFQYte9DKhuIhdOUaiKxcW100UafZVNWY'
   />
-);
+
 
 export default Checkout;

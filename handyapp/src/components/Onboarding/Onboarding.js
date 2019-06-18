@@ -20,6 +20,8 @@ class Onboarding extends Component {
       account_type: 'homeowner'
     });
 
+    localStorage.setItem('account_type', 'homeowner');
+
     console.log(this.state.account_type);
 
     const editedUser = {
@@ -29,9 +31,8 @@ class Onboarding extends Component {
 
     await this.props.editUser(editedUser.id, editedUser);
 
-    if (editedUser.account_type === 'homeowner') {
+    if (localStorage.account_type === 'homeowner')
       this.props.history.push('/homeowner-onboarding');
-    }
   };
 
   handleContractor = async () => {
@@ -40,7 +41,7 @@ class Onboarding extends Component {
       account_type: 'contractor'
     });
 
-    console.log(this.state.account_type);
+    localStorage.setItem('account_type', 'contractor');
 
     const editedUser = {
       ...this.state.user,
@@ -49,9 +50,8 @@ class Onboarding extends Component {
 
     await this.props.editUser(editedUser.id, editedUser);
 
-    if (editedUser.account_type === 'contractor') {
+    if (localStorage.account_type === 'contractor')
       this.props.history.push('/contractor-onboarding');
-    }
   };
 
   render() {

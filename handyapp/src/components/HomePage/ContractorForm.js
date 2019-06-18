@@ -12,7 +12,10 @@ class ContractorForm extends Component {
       isBoarded: false,
       nickname: '',
       phone_number: '',
-      account_type: 'homeowner',
+      account_type:
+        this.props.user && this.props.user.account_type
+          ? this.props.user.account_type
+          : '',
       address: '',
       skills: '',
       licenses: '',
@@ -62,6 +65,8 @@ class ContractorForm extends Component {
       isBoarded: true
     };
 
+    localStorage.setItem('account_type', 'contractor');
+
     await this.props.onBoarding(user.id, user);
 
     // this.setState({
@@ -76,11 +81,37 @@ class ContractorForm extends Component {
     //     experience: ''
     //   }
     // });
+    if (localStorage.token && localStorage.account_type === 'contractor')
+      this.props.history.push('/dashboard-contractor');
+  };
 
-    this.props.history.push('/dashboard-contractor');
+  showWidget = widget => {
+    widget.open();
   };
 
   render() {
+    let widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: 'sandhu',
+        uploadPreset: 'clyrl6ow',
+        tags: ['app']
+      },
+      (error, result) => {
+        let {secure_url} = result.info;
+        if (!error && result && result.event === 'success') {
+          this.setState({
+            avatar: secure_url
+          });
+
+          // const newUser = {
+          //   ...this.props.user,
+          //   avatar: this.state.avatar
+          // };
+
+          // this.props.onBoarding(this.props.user.id, newUser);
+        }
+      }
+    );
     if (!localStorage.token) {
       this.props.history.push('/');
     }
@@ -171,8 +202,15 @@ class ContractorForm extends Component {
           />
         </div>
 
+        <h4>Upload profile picture</h4>
+        <input
+          onClick={() => {
+            this.showWidget(widget);
+          }}
+          type="file"
+          accept="image/*"
+        />
         <button type="submit">Submit</button>
-        <button type="upload">Upload Picture</button>
       </form>
     );
   }
