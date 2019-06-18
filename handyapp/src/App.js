@@ -95,7 +95,7 @@ class App extends React.Component {
 
               <Route exact path="/checkout" component={Stripe} />
               <Route exact path="/add-bid/:id" component={SubmitBid} />
-              <Route exact path="/*" component={NotFound} />
+              <Route path="*" component={NotFound} />
             </div>
           </Switch>
         </div>
