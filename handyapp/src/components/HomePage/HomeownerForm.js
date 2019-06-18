@@ -7,9 +7,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withStyles, withTheme } from '@material-ui/core/styles';
+import {withStyles, withTheme} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
 
 // const useStyles = makeStyles({
 //   root: {
@@ -28,13 +27,12 @@ import Container from '@material-ui/core/Container';
 //   return <Button className={classes.root}>Hook</Button>;
 // }
 
-
 const styles = theme => ({
   '@global': {
     body: {
       backgroundColor: withTheme
     }
-  },
+  }
 });
 
 class HomeownerForm extends Component {
@@ -88,7 +86,7 @@ class HomeownerForm extends Component {
 
     this.props.onBoarding(user.id, user);
 
-    console.log(this.props.user);
+    localStorage.setItem('account_type', 'homeowner');
 
     if (this.props.user && this.props.user.account_type === 'homeowner') {
       this.props.history.push('/dashboard-homeowner');
@@ -96,71 +94,69 @@ class HomeownerForm extends Component {
   };
 
   render() {
-    console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
     return (
-      // matrail ui portion 
+      // matrail ui portion
       <Container component="main" maxWidth="xs">
-      <form onSubmit={this.onSubmit} id="user-onboarding">
-        <div>
-          <label htmlFor="first_name">First Name</label>
-          <input
-            onChange={this.onChange}
-            id="first_name"
-            type="text"
-            value={this.state.user.first_name}
-            placeholder="Enter first name"
-          />
-        </div>
-        <div>
-          <label htmlFor="last_name">Last Name</label>
-          <input
-            onChange={this.onChange}
-            id="last_name"
-            type="text"
-            value={this.state.user.last_name}
-            placeholder="Enter last name"
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={this.onChange}
-            id="email"
-            type="email"
-            value={this.state.user.email}
-            placeholder="Enter email"
-          />
-        </div>
-        <div>
-          <label htmlFor="phone_number">Phone Number</label>
-          <input
-            onChange={this.onChange}
-            id="phone_number"
-            type="tel"
-            value={this.state.user.phone_number}
-            placeholder="Enter phone number"
-          />
-        </div>
-        <div>
-          <label htmlFor="address">Address</label>
-          <input
-            onChange={this.onChange}
-            id="address"
-            value={this.state.user.address}
-            type="text"
-            placeholder="Enter address"
-          />
-        </div>
+        <form onSubmit={this.onSubmit} id="user-onboarding">
+          <div>
+            <label htmlFor="first_name">First Name</label>
+            <input
+              onChange={this.onChange}
+              id="first_name"
+              type="text"
+              value={this.state.user.first_name}
+              placeholder="Enter first name"
+            />
+          </div>
+          <div>
+            <label htmlFor="last_name">Last Name</label>
+            <input
+              onChange={this.onChange}
+              id="last_name"
+              type="text"
+              value={this.state.user.last_name}
+              placeholder="Enter last name"
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              onChange={this.onChange}
+              id="email"
+              type="email"
+              value={this.state.user.email}
+              placeholder="Enter email"
+            />
+          </div>
+          <div>
+            <label htmlFor="phone_number">Phone Number</label>
+            <input
+              onChange={this.onChange}
+              id="phone_number"
+              type="tel"
+              value={this.state.user.phone_number}
+              placeholder="Enter phone number"
+            />
+          </div>
+          <div>
+            <label htmlFor="address">Address</label>
+            <input
+              onChange={this.onChange}
+              id="address"
+              value={this.state.user.address}
+              type="text"
+              placeholder="Enter address"
+            />
+          </div>
 
-        <button type="submit">Submit</button>
-        <button type="upload">Upload Picture</button>
-      </form>
+          <button type="submit">Submit</button>
+          <button type="upload">Upload Picture</button>
+        </form>
       </Container>
       // End of container
-
     );
   }
 }
@@ -176,5 +172,3 @@ export default connect(
   mapStateToProps,
   {onBoarding, getToken}
 )(HomeownerForm);
-
-
