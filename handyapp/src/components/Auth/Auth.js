@@ -151,6 +151,7 @@ class Auth {
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('token');
+    localStorage.removeItem('account_type');
 
     this.auth0.logout({
       returnTo: window.location.origin
