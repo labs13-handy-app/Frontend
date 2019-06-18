@@ -13,7 +13,7 @@ class ContractorForm extends Component {
       nickname: '',
       phone_number: '',
       account_type:
-        this.pros.user && this.props.user.account_type
+        this.props.user && this.props.user.account_type
           ? this.props.user.account_type
           : '',
       address: '',
