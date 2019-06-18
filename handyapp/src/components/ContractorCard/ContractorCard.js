@@ -16,12 +16,13 @@ class ContractorCard extends Component {
   };
 
   render() {
-    const {user} = this.props;
-    if (!user.first_name) {
-      return (
-        <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
-      );
-    }
+    // const {user} = this.props;
+    // if (!user.first_name) {
+    //   return (
+    //     <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
+    //   );
+    // }
+    console.log(this.props);
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: 'sandhu',
