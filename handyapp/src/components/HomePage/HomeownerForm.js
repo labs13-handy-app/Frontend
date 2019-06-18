@@ -44,7 +44,8 @@ class HomeownerForm extends Component {
       email: '',
       phone_number: '',
       address: ''
-    }
+    },
+    avatar: ''
   };
 
   componentWillMount() {
@@ -81,6 +82,7 @@ class HomeownerForm extends Component {
     e.preventDefault();
     const user = {
       ...this.state.user,
+      avatar: this.state.avatar,
       isBoarded: true
     };
 
@@ -88,12 +90,38 @@ class HomeownerForm extends Component {
 
     localStorage.setItem('account_type', 'homeowner');
 
-    if (this.props.user && this.props.user.account_type === 'homeowner') {
+    if (localStorage.token && localStorage.account_type === 'homeowner')
       this.props.history.push('/dashboard-homeowner');
-    }
+  };
+
+  showWidget = widget => {
+    widget.open();
   };
 
   render() {
+    let widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: 'sandhu',
+        uploadPreset: 'clyrl6ow',
+        tags: ['app']
+      },
+      (error, result) => {
+        let {secure_url} = result.info;
+        if (!error && result && result.event === 'success') {
+          this.setState({
+            avatar: secure_url
+          });
+
+          // const newUser = {
+          //   ...this.props.user,
+          //   avatar: this.state.avatar
+          // };
+
+          // this.props.onBoarding(this.props.user.id, newUser);
+        }
+      }
+    );
+
     if (!localStorage.token) {
       this.props.history.push('/');
     }
@@ -153,7 +181,15 @@ class HomeownerForm extends Component {
           </div>
 
           <button type="submit">Submit</button>
-          <button type="upload">Upload Picture</button>
+          <button
+            type="file"
+            onClick={() => {
+              this.showWidget(widget);
+            }}
+            type="upload"
+          >
+            Upload Picture
+          </button>
         </form>
       </Container>
       // End of container

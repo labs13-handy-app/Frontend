@@ -97,8 +97,7 @@ class AddProject extends Component {
                 <h4>Upload Images</h4>
                 <input
                   type="file"
-                  onClick={e => {
-                    e.preventDefault();
+                  onClick={() => {
                     this.showWidget(widget);
                   }}
                   accept="image/*"
