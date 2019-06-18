@@ -17,9 +17,12 @@ class HomeOwnerDashboard extends Component {
     this.props.getUser();
   }
   render() {
-    !localStorage.account_type && localStorage.account_type !== 'homeowner'
-      ? localStorage.setItem('account_type', 'homeowner')
-      : '';
+    if (
+      !localStorage.account_type &&
+      localStorage.account_type !== 'homeowner'
+    ) {
+      localStorage.setItem('account_type', 'homeowner');
+    }
     if (!localStorage.token) {
       this.props.history.push('/');
     }
