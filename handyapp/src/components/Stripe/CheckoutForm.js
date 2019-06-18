@@ -17,10 +17,8 @@ const errorPayment = data => {
 };
 
 const onToken = (amount, description) => token =>
-  // axiosWithAuth()
-  // .post('https://handy-app-api.herokuapp.com/api/checkout/new-customer',
   axiosWithAuth()
-    .post('http://localhost:5000/api/checkout/charge', {
+    .post('https://handy-app-api.herokuapp.com/api/checkout/new-customer', {
       description,
       source: token,
       currency: CURRENCY,
