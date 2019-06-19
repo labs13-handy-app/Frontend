@@ -17,11 +17,11 @@ export default () => (
 
             <p className="trust">TRUST</p>
             <div className="star-icons">
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
             </div>
             <div className="s4__in-out-alert">
               <h3>Lucille R. Brown</h3>
@@ -38,11 +38,11 @@ export default () => (
             <div>
               <p className="trust">TRUST</p>
               <div className="star-icons">
-                <i class="fas fa-star" />
-                <i class="fas fa-star" />
-                <i class="fas fa-star" />
-                <i class="fas fa-star" />
-                <i class="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
               </div>
             </div>
             <div className="s4__in-out-alert">
@@ -60,11 +60,11 @@ export default () => (
             />
             <p className="trust">TRUST</p>
             <div className="star-icons">
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
             </div>
             <div className="s4__in-out-alert">
               <h3>Robert Johnson</h3>
@@ -80,11 +80,11 @@ export default () => (
             />
             <p className="trust">TRUST</p>
             <div className="star-icons">
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
-              <i class="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
             </div>
             <div className="s4__in-out-alert">
               <h3>Maria Hernandez</h3>
