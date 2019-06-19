@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import Task from '../../../img/Task.svg';
 
 export default () => {
   return (
@@ -15,7 +16,8 @@ export default () => {
               src="https://bootstrapmade.com/demo/themes/eStartup/img/svg/cloud.svg"
               alt=""
             />
-            <h3>Describe Your Task</h3>
+            <img className="s1-avatar" src={Task} alt="" />
+            <h3>Post Your Task</h3>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry

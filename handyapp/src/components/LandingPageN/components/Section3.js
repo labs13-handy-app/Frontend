@@ -1,20 +1,20 @@
 import React from 'react';
 
 export default () => (
-  <section className="s5">
+  <section className="s3">
     <div className="overlay" />
-    <div className="outter-circle" />
+    <div className="outer-circle" />
     <div className="inner-circle">
-      <i class="fas fa-play" />
-      <i class="fas fa-play hide-play" />
+      <i className="fas fa-play" />
+      <i className="fas fa-play hide-play" />
     </div>
     <style>
       {`
-        .s5 {
+        .s3 {
             font-size: 16px;
             margin-top: 10em;
             height: 55vh;
-            background-image: url(https://bootstrapmade.com/demo/themes/eStartup/img/video-bg.jpg);
+            background-image: url(https://images.pexels.com/photos/164357/pexels-photo-164357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
             background-position: center;
             position: relative;
             display: flex;
@@ -28,7 +28,7 @@ export default () => (
             background-color: black;
             opacity: .8;
         }
-        .outter-circle {
+        .outer-circle {
             position: absolute;
             height: 100px;
             width: 100px;

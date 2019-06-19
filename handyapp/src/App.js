@@ -5,6 +5,7 @@ import Auth from './components/Auth/Auth';
 import NavigationBar from './components/LandingPageN/components/NavigationBar';
 import Callback from './components/Callback/Callback';
 //import Landing from './components/LandingPage/Landing';
+import LandingPage from './components/LandingPageN/LandingPage';
 import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
@@ -21,7 +22,7 @@ import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeed
 // import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
 import NotFound from './components/NotFound/NotFound';
-import LandingPage from './components/LandingPageN/LandingPage';
+
 import './App.css';
 
 library.add(fab, faCheckSquare);
