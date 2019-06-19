@@ -1,0 +1,49 @@
+.Onboarding {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 120px;
+  font-size: 18px;
+}
+
+.Onboarding h2 {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.Onboarding h2 span {
+  color: #71c55d;
+}
+
+.Onboarding .accounts .choose {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.Onboarding .accounts .choose button {
+  width: 325px;
+  height: 325px;
+  border-radius: 50%;
+  border: 0;
+  background: #e3f0e0;
+}
+
+.Onboarding .accounts .choose .homeowner {
+  text-align: center;
+}
+
+.Onboarding .accounts .choose .homeowner p {
+  font-size: 38px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.Onboarding .accounts .choose .contractor {
+  text-align: center;
+}
+
+.Onboarding .accounts .choose .contractor p {
+  font-size: 38px;
+  margin-top: 20px;
+  font-weight: 700;
+}

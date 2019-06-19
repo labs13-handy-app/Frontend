@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
-import { Container, Nav, NavItem, NavLink } from 'reactstrap';
+import React, {Component} from 'react';
+import {Container, Nav, NavItem, NavLink} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 class MobileMenu extends Component {
-  state = { isOpen: false };
+  constructor(props) {
+    super(props);
+    this.state = {isOpen: false};
+  }
 
-  toggle = () => this.setState({ isOpen: !this.state.isOpen });
+  toggle = () => this.setState({isOpen: !this.state.isOpen});
 
   render() {
-    // -------Mobile--------
+    console.log(this.props);
     return (
       <div className="mobile-wrapper">
         <div className="mobile-menu">
@@ -121,7 +124,7 @@ class MobileMenu extends Component {
   }
 }
 
-export default class extends Component {
+export default class NavigationBar extends Component {
   dropNav = React.createRef();
 
   hamButton = React.createRef();
@@ -182,6 +185,7 @@ export default class extends Component {
     window.removeEventListener('scroll', this.fixedNav);
   }
   render() {
+    console.log(this.props);
     return (
       // -------Desktop--------
       <div className="app-wrapper">
