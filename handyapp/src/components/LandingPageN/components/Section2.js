@@ -9,7 +9,7 @@ export default () => (
       </div>
       <Row className="s2__box-wrapper">
         <Col md="6" lg="3" className="s2__box-item">
-          <i className="fabs fas fa-tools icons"></i>
+          <i className="fabs fas fa-tools icons" />
           <h3>Plumbing</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -17,7 +17,7 @@ export default () => (
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-        <i className="fabs fas fa-broom icons"></i>
+          <i className="fabs fas fa-broom icons" />
           <h3>Cleaning</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -25,7 +25,7 @@ export default () => (
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-        <i className="fabs fas fa-hard-hat icons"></i>
+          <i className="fabs fas fa-hard-hat icons" />
           <h3>Construction</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -33,7 +33,7 @@ export default () => (
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-        <i className="fabs fas fa-tshirt icons"></i>
+          <i className="fabs fas fa-tshirt icons" />
           <h3>Laundry</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -41,7 +41,7 @@ export default () => (
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-        <i className="fabs fas fa-paint-roller icons"></i>
+          <i className="fabs fas fa-paint-roller icons" />
           <h3>Painting</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -49,7 +49,7 @@ export default () => (
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-        <i className="fabs fas fa-seedling icons"></i>
+          <i className="fabs fas fa-seedling icons" />
           <h3>Gardening</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -57,7 +57,7 @@ export default () => (
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-        <i className="fabs fas fa-plug icons"></i>
+          <i className="fabs fas fa-plug icons" />
           <h3>Electrical</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -65,7 +65,7 @@ export default () => (
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-        <i className="fabs fas fa-truck-loading icons"></i>
+          <i className="fabs fas fa-truck-loading icons" />
           <h3>Delivery</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting

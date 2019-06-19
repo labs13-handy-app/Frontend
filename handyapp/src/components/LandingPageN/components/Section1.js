@@ -21,7 +21,7 @@ export default () => {
             </p>
           </Col>
           <Col md="6" lg="4" className="text-center s1-advice">
-        <img className="s1-avatar" src={Choice} alt="" />
+            <img className="s1-avatar" src={Choice} alt="" />
             <h3>Choose Your Tasker</h3>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -29,7 +29,7 @@ export default () => {
             </p>
           </Col>
           <Col md="6" lg="4" className="text-center s1-advice">
-          <img className="s1-avatar" src={Done} alt="" />
+            <img className="s1-avatar" src={Done} alt="" />
             <h3>Get It Done</h3>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting

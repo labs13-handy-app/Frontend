@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Route, Switch } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 //import NavBar from './components/LandingPage/NavBar';
 import NavigationBar from './components/LandingPageN/components/NavigationBar';
@@ -21,7 +21,7 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 // import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
-import NotFound from './components/NotFound/NotFound';
+// import NotFound from './components/NotFound/NotFound';
 
 import './App.css';
 
@@ -60,57 +60,54 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
-        <Switch>
-          {/* <Route exact path="/" render={props => <Landing {...props} />} /> */}
-          <Route exact path="/" render={props => <LandingPage {...props} />} />
-          <div className="container">
-            <Route
-              exact
-              path="/callback"
-              render={props => {
-                handleAuthentication(props);
-                return <Callback {...props} />;
-              }}
-            />
+        {/* <Switch> */}
+        {/* <Route exact path="/" render={props => <Landing {...props} />} /> */}
+        <Route exact path="/" render={props => <LandingPage {...props} />} />
+        <div className="container">
+          <Route
+            exact
+            path="/callback"
+            render={props => {
+              handleAuthentication(props);
+              return <Callback {...props} />;
+            }}
+          />
 
-            {/* <div className="container"> */}
-            <Route
-              path="/onboarding"
-              render={props => <Onboarding {...props} />}
-            />
-            <Route path="/homeowner-onboarding" component={HomeownerForm} />
-            <Route
-              exact
-              path="/contractor-onboarding"
-              component={ContractorForm}
-            />
-            <Route
-              path="/dashboard-homeowner"
-              render={props => <HomeOwnerDashboard {...props} />}
-            />
-            <Route
-              path="/dashboard-contractor"
-              component={ContractorDashboard}
-            />
-            <Route path="/projects" component={Projects} />
-            <Route path="/bids" component={Bids} />
-            <Route path="/addbid" component={AddBid} />
-            <Route exact path="/project/:id" component={ProjectsById} />
-            <Route
-              exact
-              path="/contractor/:id"
-              component={ServiceProviderFeedback}
-            />
+          {/* <div className="container"> */}
+          <Route
+            path="/onboarding"
+            render={props => <Onboarding {...props} />}
+          />
+          <Route path="/homeowner-onboarding" component={HomeownerForm} />
+          <Route
+            exact
+            path="/contractor-onboarding"
+            component={ContractorForm}
+          />
+          <Route
+            path="/dashboard-homeowner"
+            render={props => <HomeOwnerDashboard {...props} />}
+          />
+          <Route path="/dashboard-contractor" component={ContractorDashboard} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/bids" component={Bids} />
+          <Route path="/addbid" component={AddBid} />
+          <Route exact path="/project/:id" component={ProjectsById} />
+          <Route
+            exact
+            path="/contractor/:id"
+            component={ServiceProviderFeedback}
+          />
 
-            {/* <Route exact path="/checkout" component={Stripe} /> */}
-            <Route exact path="/add-bid/:id" component={SubmitBid} />
-            {/* Using "*" as a value of the path parameter to get a non-greedy matching.
+          {/* <Route exact path="/checkout" component={Stripe} /> */}
+          <Route exact path="/add-bid/:id" component={SubmitBid} />
+          {/* Using "*" as a value of the path parameter to get a non-greedy matching.
               It needs to be declared at the very bottom of your routes configuration,
               so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
-            <Route exact path="*" component={NotFound} />
-            {/* </div> */}
-          </div>
-        </Switch>
+          {/* <Route exact path="*" component={NotFound} /> */}
+          {/* </div> */}
+        </div>
+        {/* </Switch> */}
       </div>
     );
   }

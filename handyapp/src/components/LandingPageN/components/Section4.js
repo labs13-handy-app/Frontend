@@ -15,8 +15,6 @@ export default () => (
               alt=""
             />
             <div className="s4__in-out-alert">
-             
-
               <h3>Lucille R. Brown</h3>
               <h3>San Francisco, CA</h3>
             </div>
@@ -29,8 +27,6 @@ export default () => (
               alt=""
             />
             <div className="s4__in-out-alert">
-           
-
               <h3>James Smith</h3>
               <h3>NYC, NY</h3>
             </div>
@@ -44,8 +40,6 @@ export default () => (
               alt=""
             />
             <div className="s4__in-out-alert">
-             
-
               <h3>Robert Johnson</h3>
               <h3>Chicago, IL</h3>
             </div>
@@ -58,8 +52,6 @@ export default () => (
               alt=""
             />
             <div className="s4__in-out-alert">
-            
-
               <h3>Maria Hernandez</h3>
               <h3>NYC, NY</h3>
             </div>
