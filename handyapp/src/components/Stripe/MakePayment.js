@@ -12,7 +12,7 @@ class MakePayment extends React.Component {
 
  newPayment = payment => {
     axiosWithAuth()
-    .post('http://localhost:5000/api/checkout/charge',payment)
+    .post('https://handy-app-api.herokuapp.com/api/checkout/charge',payment)
     .then(res => {
         console.log(res.data)
     })
