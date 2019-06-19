@@ -163,7 +163,15 @@ class HomeownerForm extends Component {
                         Submit
                     </Button>
 
-                    <Button type="upload">Upload Picture</Button>
+                    <Button 
+                    
+                    type="upload"
+                    variant="contained"
+                    className={classes.upload}
+
+                    >
+                        Upload Pictures
+                        </Button>
 
                     {/* <Button
               onClick={() => this.props.addFeedback(this.state)}
