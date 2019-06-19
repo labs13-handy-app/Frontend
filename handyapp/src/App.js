@@ -1,9 +1,10 @@
 import React from 'react';
-import {withRouter, Route, Switch} from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
-import NavBar from './components/LandingPage/NavBar';
+//import NavBar from './components/LandingPage/NavBar';
+import NavigationBar from './components/LandingPageN/components/NavigationBar';
 import Callback from './components/Callback/Callback';
-import Landing from './components/LandingPage/Landing';
+//import Landing from './components/LandingPage/Landing';
 import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
 import HomeownerForm from './components/HomePage/HomeownerForm';
@@ -13,20 +14,21 @@ import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fab} from '@fortawesome/free-brands-svg-icons';
-import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 // import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
 import NotFound from './components/NotFound/NotFound';
+import LandingPage from './components/LandingPageN/LandingPage';
 import './App.css';
 
 library.add(fab, faCheckSquare);
 
 const auth = new Auth();
 
-const handleAuthentication = ({location}) => {
+const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -44,16 +46,22 @@ class App extends React.Component {
   };
 
   render() {
-    const {isAuthenticated} = auth;
+    const { isAuthenticated } = auth;
     return (
       <div className="App">
-        <NavBar
+        {/* <NavBar
+          isAuthenticated={isAuthenticated}
+          login={this.login}
+          logout={this.logout}
+        /> */}
+        <NavigationBar
           isAuthenticated={isAuthenticated}
           login={this.login}
           logout={this.logout}
         />
         <Switch>
-          <Route exact path="/" render={props => <Landing {...props} />} />
+          {/* <Route exact path="/" render={props => <Landing {...props} />} /> */}
+          <Route exact path="/" render={props => <LandingPage {...props} />} />
           <div className="container">
             <Route
               exact
@@ -98,7 +106,7 @@ class App extends React.Component {
             {/* Using "*" as a value of the path parameter to get a non-greedy matching.
               It needs to be declared at the very bottom of your routes configuration,
               so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
-            <Route path="*" component={NotFound} />
+            <Route exact path="*" component={NotFound} />
             {/* </div> */}
           </div>
         </Switch>
