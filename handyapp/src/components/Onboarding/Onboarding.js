@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getToken as getUser, onBoarding as editUser} from '../../actions';
 
+import Homeowner from '../../img/Homeowner-btn.svg';
+import Contractor from '../../img/Contractor-btn.svg';
+
+import './Onboarding.css';
+
 class Onboarding extends Component {
   state = {
     user: '',
@@ -20,6 +25,8 @@ class Onboarding extends Component {
       account_type: 'homeowner'
     });
 
+    localStorage.setItem('account_type', 'homeowner');
+
     console.log(this.state.account_type);
 
     const editedUser = {
@@ -29,9 +36,8 @@ class Onboarding extends Component {
 
     await this.props.editUser(editedUser.id, editedUser);
 
-    if (editedUser.account_type === 'homeowner') {
+    if (localStorage.account_type === 'homeowner')
       this.props.history.push('/homeowner-onboarding');
-    }
   };
 
   handleContractor = async () => {
@@ -40,7 +46,7 @@ class Onboarding extends Component {
       account_type: 'contractor'
     });
 
-    console.log(this.state.account_type);
+    localStorage.setItem('account_type', 'contractor');
 
     const editedUser = {
       ...this.state.user,
@@ -49,9 +55,8 @@ class Onboarding extends Component {
 
     await this.props.editUser(editedUser.id, editedUser);
 
-    if (editedUser.account_type === 'contractor') {
+    if (localStorage.account_type === 'contractor')
       this.props.history.push('/contractor-onboarding');
-    }
   };
 
   render() {
@@ -62,19 +67,27 @@ class Onboarding extends Component {
     return (
       <div className="Onboarding">
         <div className="accounts">
-          <h2>Welcome to Handyapp</h2>
-          <p>Do you want to use the app as a:</p>
-          <button onClick={this.handleHomeOwner} className="homeowner-btn">
+          <h2>
+            Welcome to <span>Handyapp</span>
+          </h2>
+          <p>Choose your account type:</p>
+          <div className="choose">
             <div className="homeowner">
-              <h4>Homeowner</h4>
+              <button onClick={this.handleHomeOwner} className="homeowner-btn">
+                <img src={Homeowner} alt="homeowner-btn" />
+              </button>
+              <p>Homeowner</p>
             </div>
-          </button>
-          <p>Or</p>
-          <button onClick={this.handleContractor} className="contractor-btn">
             <div className="contractor">
-              <h4>Contractor</h4>
+              <button
+                onClick={this.handleContractor}
+                className="contractor-btn"
+              >
+                <img src={Contractor} alt="contractor-btn" />
+              </button>
+              <p>Contractor</p>
             </div>
-          </button>
+          </div>
         </div>
       </div>
     );
