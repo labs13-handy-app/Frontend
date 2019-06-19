@@ -9,6 +9,7 @@ class MobileMenu extends Component {
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
+    // -------Mobile--------
     return (
       <div className="mobile-wrapper">
         <div className="mobile-menu">
@@ -27,18 +28,14 @@ class MobileMenu extends Component {
           {/* When the User is not logged in. */}
           {!localStorage.token && (
             <NavItem className="nav-item-m">
-              <NavLink onClick={this.props.login}>
-                login
-              </NavLink>
+              <NavLink onClick={this.props.login}>login</NavLink>
             </NavItem>
           )}
           {/* ================================================================= */}
           {/*  When the User is logged in */}
           {localStorage.token && (
             <NavItem className="nav-item-m">
-              <NavLink onClick={this.props.logout}>
-                logout
-              </NavLink>
+              <NavLink onClick={this.props.logout}>logout</NavLink>
             </NavItem>
           )}
         </Nav>
@@ -131,7 +128,7 @@ export default class extends Component {
 
   over = () => {
     this.dropNav.current.style.display = 'block';
-    this.opacityTiemOut = setTimeout(() => {
+    this.opacityTimeOut = setTimeout(() => {
       this.dropNav.current.style.opacity = '1';
     });
   };
@@ -186,10 +183,15 @@ export default class extends Component {
   }
   render() {
     return (
+      // -------Desktop--------
       <div className="app-wrapper">
         <div className="navi-menu">
           <Container>
-            <MobileMenu hideNav={this.hideNav} />
+            <MobileMenu
+              hideNav={this.hideNav}
+              logout={this.props.logout}
+              login={this.props.login}
+            />
 
             <Nav className="nav-n">
               <NavItem className="nav-item-n logo">
@@ -213,7 +215,7 @@ export default class extends Component {
               {/* ================================================================= */}
               {/*  When the User is logged in */}
               {localStorage.token && (
-                <NavItem className="nav-item-m">
+                <NavItem className="nav-item-n">
                   <NavLink onClick={this.props.logout}>logout</NavLink>
                 </NavItem>
               )}
@@ -253,6 +255,7 @@ export default class extends Component {
             width: 100%;
             z-index: 4;
             box-shadow: #e1dfdf 1px 1px 11px;
+            
           }
           .nav-n {
             align-items: center;

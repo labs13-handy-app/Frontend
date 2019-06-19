@@ -8,10 +8,9 @@ const Header = () => {
         {/* <h2>Welcome to handyApp</h2> */}
         <h3>Find the people with the skills you need...</h3>
         <img className="header-img" src={HeaderImage} alt="" />
+
         <div className="intro-button">
-          <div className="intro-button">
-            <a href="#/">Get Started</a>
-          </div>
+          <a href="#/">GET STARTED</a>
         </div>
       </div>
 
@@ -49,8 +48,8 @@ const Header = () => {
         .intro-logo h3 {
           font-size: 1rem;
           font-weight: 500;
-          color: var(--gray-color-1);
-          // color: var(--brand-color);
+          //color: var(--gray-color-1);
+          color: var(--brand-color);
           margin-bottom: 3em;
         }
 
@@ -76,14 +75,22 @@ const Header = () => {
         .intro-button a {
           padding: 0.65em 2.6em;
           border-radius: 20px;
-          color: var(--brand-color);
-          border: 1.8px solid var(--brand-color);
-          background: white;
-          transition: all 0.5s;
-        }
-        .intro-button a:hover {
+          // color: var(--brand-color);
+          // border: 1.8px solid var(--brand-color);
+          // background: white;
+          //transition: all 0.5s;
           background-color: var(--brand-color);
           color: white;
+          // border: 1px solid red;
+          font-size: 1.2em;
+            font-weight: 500;
+        }
+        .intro-button a:hover {
+          // background-color: var(--brand-color);
+          // color: white;
+          color: var(--brand-color);
+          border: 1.8px solid var(--brand-color);
+         background: white;
         }
 
         .company-icons {

@@ -68,8 +68,6 @@ export default () => (
             transform: scale(10);
             opacity: 0;
         }
-        
-
         @keyframes alert {
             from {
                 transform: scale(1);
@@ -77,11 +75,8 @@ export default () => (
             to {
                 border: none;
                 transform: scale(1.5);
-            }
-            
-        }
-        
-        
+            }  
+        } 
         `}
     </style>
   </section>

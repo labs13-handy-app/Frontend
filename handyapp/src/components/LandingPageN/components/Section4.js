@@ -5,7 +5,7 @@ export default () => (
   <section className="s4">
     <Container>
       <div className="s4__titles">
-        <h1>Real People, Real Tasks</h1>
+        <h1>Meet some Taskers!</h1>
       </div>
       <Row>
         <Col md="6" lg="3">
@@ -14,6 +14,15 @@ export default () => (
               src="https://images.pexels.com/photos/209719/pexels-photo-209719.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
+
+            <p className="trust">TRUST</p>
+            <div className="star-icons">
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+            </div>
             <div className="s4__in-out-alert">
               <h3>Lucille R. Brown</h3>
               <h3>San Francisco, CA</h3>
@@ -26,6 +35,16 @@ export default () => (
               src="https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
+            <div>
+              <p className="trust">TRUST</p>
+              <div className="star-icons">
+                <i class="fas fa-star" />
+                <i class="fas fa-star" />
+                <i class="fas fa-star" />
+                <i class="fas fa-star" />
+                <i class="fas fa-star" />
+              </div>
+            </div>
             <div className="s4__in-out-alert">
               <h3>James Smith</h3>
               <h3>NYC, NY</h3>
@@ -39,6 +58,14 @@ export default () => (
               src="https://images.pexels.com/photos/1078879/pexels-photo-1078879.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
+            <p className="trust">TRUST</p>
+            <div className="star-icons">
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+            </div>
             <div className="s4__in-out-alert">
               <h3>Robert Johnson</h3>
               <h3>Chicago, IL</h3>
@@ -51,6 +78,14 @@ export default () => (
               src="https://images.pexels.com/photos/209234/pexels-photo-209234.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
+            <p className="trust">TRUST</p>
+            <div className="star-icons">
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+              <i class="fas fa-star" />
+            </div>
             <div className="s4__in-out-alert">
               <h3>Maria Hernandez</h3>
               <h3>NYC, NY</h3>
@@ -91,6 +126,7 @@ export default () => (
             
             .s4__frame img {
                 width: 100%;
+             
             }
             .s4__frame:hover>.s4__in-out-alert {
                 transform: translateY(0);
@@ -140,6 +176,22 @@ export default () => (
                 text-transform: uppercase;
                 letter-spacing: 2px;
             }
+            .star-icons {
+              font-size: .75em;
+              text-align: center;
+              color: #FED253;
+
+  
+          }
+        
+        .trust {
+          margin-top: 1em;
+          text-align: center;
+                line-height: 1.3;
+                color: #545252;
+                font-size: 0.8em;
+      }
+         
             
             
         `}</style>
