@@ -1,9 +1,5 @@
 import axiosWithAuth from '../utils/AxiosAuth';
-import {
-  ADD_BID_START,
-  ADD_BID_SUCCESS,
-  ADD_BID_FAILURE
-} from '../actions';
+import {ADD_BID_START, ADD_BID_SUCCESS, ADD_BID_FAILURE} from '../actions';
 
 export const addBid = bid => dispatch => {
   dispatch({type: ADD_BID_START});

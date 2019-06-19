@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import logo from '../../img/logo.png';
+import logo from '../../img/logo2.svg';
 
 const styles = theme => ({
   root: {
