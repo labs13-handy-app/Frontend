@@ -13,20 +13,6 @@ const Header = () => {
             <a href="#/">Get Started</a>
           </div>
         </div>
-        {/* <div className="company-icons">
-          <span className="company-icons__item">
-            <i className="fab fa-apple" />
-            app store
-          </span>
-          <span className="company-icons__item">
-            <i className="fab fa-google-play" />
-            google play
-          </span>
-          <span className="company-icons__item">
-            <i className="fab fa-windows" />
-            windows
-          </span>
-        </div> */}
       </div>
 
       <style>{`
