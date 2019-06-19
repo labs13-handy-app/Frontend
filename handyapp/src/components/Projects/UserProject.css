@@ -1,6 +1,6 @@
 .Project {
   max-width: 90%;
-  height: 244px !important;
+  height: 244px;
   display: flex;
   justify-content: space-between;
   background: #fff;
@@ -11,8 +11,8 @@
 }
 
 .Project .project-image {
-  width: 366px !important;
-  height: 244px !important;
+  width: 366px;
+  height: 244px;
   background: url('../../img/Placeholder-image.png') no-repeat center
     center/cover;
   border-radius: 4px 0 0 4px;
@@ -27,7 +27,7 @@
 
 .Project .project-content {
   width: 70%;
-  padding: 25px 44px !important;
+  padding: 25px 44px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -38,7 +38,7 @@
 }
 
 .Project .project-content .project-info h2 {
-  font-size: 24px !important;
+  font-size: 24px;
   color: #000;
   font-weight: 700;
 }

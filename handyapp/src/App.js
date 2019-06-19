@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Route } from 'react-router-dom';
+import {withRouter, Route} from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 //import NavBar from './components/LandingPage/NavBar';
 import NavigationBar from './components/LandingPageN/components/NavigationBar';
@@ -15,9 +15,9 @@ import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 // import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
@@ -29,7 +29,7 @@ library.add(fab, faCheckSquare);
 
 const auth = new Auth();
 
-const handleAuthentication = ({ location }) => {
+const handleAuthentication = ({location}) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -47,7 +47,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { isAuthenticated } = auth;
+    const {isAuthenticated} = auth;
     return (
       <div className="App">
         {/* <NavBar
@@ -56,6 +56,7 @@ class App extends React.Component {
           logout={this.logout}
         /> */}
         <NavigationBar
+          {...this.props}
           isAuthenticated={isAuthenticated}
           login={this.login}
           logout={this.logout}

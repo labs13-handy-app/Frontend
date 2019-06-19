@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {addProject, addProjectPics} from '../../actions';
 import axiosWithAuth from '../../utils/AxiosAuthFD';
 
-import 'react-dropzone-uploader/dist/styles.css';
 import './AddProject.css';
 
 class AddProject extends Component {

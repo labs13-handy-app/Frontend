@@ -22,6 +22,7 @@ class ContractorCard extends Component {
         <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
       );
     }
+    console.log(this.props);
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: 'sandhu',
@@ -49,7 +50,7 @@ class ContractorCard extends Component {
       }
     );
     return (
-      <div className="UserCard">
+      <div className="ContractorCard">
         <div className="user-info">
           <img
             src={user.avatar ? user.avatar : avatar}
