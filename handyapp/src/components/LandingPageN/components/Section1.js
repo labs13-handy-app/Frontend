@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import Task from '../../../img/Task.svg';
+import Post from '../../../img/Post.svg';
+import Choice from '../../../img/Choice.svg';
+import Done from '../../../img/Done.svg';
 
 export default () => {
   return (
@@ -11,12 +13,7 @@ export default () => {
             <h1>How It Works</h1>
           </Col>
           <Col md="6" lg="4" className="text-center s1-advice">
-            <img
-              className="s1-avatar"
-              src="https://bootstrapmade.com/demo/themes/eStartup/img/svg/cloud.svg"
-              alt=""
-            />
-            <img className="s1-avatar" src={Task} alt="" />
+            <img className="s1-avatar" src={Post} alt="" />
             <h3>Post Your Task</h3>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -24,11 +21,7 @@ export default () => {
             </p>
           </Col>
           <Col md="6" lg="4" className="text-center s1-advice">
-            <img
-              className="s1-avatar"
-              src="https://bootstrapmade.com/demo/themes/eStartup/img/svg/planet.svg"
-              alt=""
-            />
+        <img className="s1-avatar" src={Choice} alt="" />
             <h3>Choose Your Tasker</h3>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -36,11 +29,7 @@ export default () => {
             </p>
           </Col>
           <Col md="6" lg="4" className="text-center s1-advice">
-            <img
-              className="s1-avatar"
-              src="https://bootstrapmade.com/demo/themes/eStartup/img/svg/asteroid.svg"
-              alt=""
-            />
+          <img className="s1-avatar" src={Done} alt="" />
             <h3>Get It Done</h3>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -67,7 +56,9 @@ export default () => {
             margin-top: 1em;
         }
         .s1-avatar {
-            width: 60px;
+            width: 200px;
+            height: 200px;
+            // border: 1px solid red;
         }
         
         .s1-advice {
