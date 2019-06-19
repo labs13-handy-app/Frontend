@@ -22,6 +22,7 @@ import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeed
 import SubmitBid from './components/ServiceProviders/SubmitBid';
 import NotFound from './components/NotFound/NotFound';
 import LandingPage from './components/LandingPageN/LandingPage';
+
 import './App.css';
 
 library.add(fab, faCheckSquare);

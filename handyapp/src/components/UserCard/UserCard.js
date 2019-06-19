@@ -16,7 +16,6 @@ class UserCard extends Component {
   };
 
   render() {
-    console.log(this.props);
     const {token: user} = this.props;
     if (!user.first_name) {
       return (
