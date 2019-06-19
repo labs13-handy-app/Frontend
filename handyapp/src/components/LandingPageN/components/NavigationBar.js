@@ -4,11 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 class MobileMenu extends Component {
-  state = {isOpen: false};
+  constructor(props) {
+    super(props);
+    this.state = {isOpen: false};
+  }
 
   toggle = () => this.setState({isOpen: !this.state.isOpen});
 
   render() {
+    console.log(this.props);
     return (
       <div className="mobile-wrapper">
         <div className="mobile-menu">
@@ -27,18 +31,14 @@ class MobileMenu extends Component {
           {/* When the User is not logged in. */}
           {!localStorage.token && (
             <NavItem className="nav-item-m">
-              <NavLink onClick={this.props.login}>
-                login
-              </NavLink>
+              <NavLink onClick={this.props.login}>login</NavLink>
             </NavItem>
           )}
           {/* ================================================================= */}
           {/*  When the User is logged in */}
           {localStorage.token && (
             <NavItem className="nav-item-m">
-              <NavLink onClick={this.props.logout}>
-                logout
-              </NavLink>
+              <NavLink onClick={this.props.logout}>logout</NavLink>
             </NavItem>
           )}
         </Nav>
@@ -124,7 +124,7 @@ class MobileMenu extends Component {
   }
 }
 
-export default class extends Component {
+export default class NavigationBar extends Component {
   dropNav = React.createRef();
 
   hamButton = React.createRef();
@@ -190,7 +190,11 @@ export default class extends Component {
       <div className="app-wrapper">
         <div className="navi-menu">
           <Container>
-            <MobileMenu hideNav={this.hideNav} />
+            <MobileMenu
+              hideNav={this.hideNav}
+              logout={this.props.logout}
+              login={this.props.login}
+            />
 
             <Nav className="nav-n">
               <NavItem className="nav-item-n logo">
