@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Container, Nav, NavItem, NavLink } from 'reactstrap';
+import React, {Component} from 'react';
+import {Container, Nav, NavItem, NavLink} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 class MobileMenu extends Component {
-  state = { isOpen: false };
+  state = {isOpen: false};
 
-  toggle = () => this.setState({ isOpen: !this.state.isOpen });
+  toggle = () => this.setState({isOpen: !this.state.isOpen});
 
   render() {
     return (
@@ -185,6 +185,7 @@ export default class extends Component {
     window.removeEventListener('scroll', this.fixedNav);
   }
   render() {
+    console.log(this.props);
     return (
       <div className="app-wrapper">
         <div className="navi-menu">
@@ -197,7 +198,7 @@ export default class extends Component {
               </NavItem>
               <NavItem className="nav-item-n ham" onClick={this.showNav}>
                 <NavLink href="">
-                  <i class="fas fa-bars" />
+                  <i className="fas fa-bars" />
                 </NavLink>
               </NavItem>
               <NavItem className="nav-item-n">
@@ -213,7 +214,7 @@ export default class extends Component {
               {/* ================================================================= */}
               {/*  When the User is logged in */}
               {localStorage.token && (
-                <NavItem className="nav-item-m">
+                <NavItem className="nav-item-n">
                   <NavLink onClick={this.props.logout}>logout</NavLink>
                 </NavItem>
               )}

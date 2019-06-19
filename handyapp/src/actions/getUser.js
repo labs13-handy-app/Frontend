@@ -5,13 +5,13 @@ export const getUser = id => dispatch => {
   console.log(id);
   dispatch({type: GET_USER_START});
 
-  // return axiosWithAuth()
-  //   .get(`http://localhost:5000/users/${id}`)
-  //   .then(res => dispatch({type: GET_USER_SUCCESS, payload: res.data}))
-  //   .catch(e => dispatch({type: GET_USER_FAILURE, payload: e.message}));
-
   return axiosWithAuth()
-    .get(`https://handy-app-api.herokuapp.com/users/${id}`)
+    .get(`http://localhost:5000/users/${id}`)
     .then(res => dispatch({type: GET_USER_SUCCESS, payload: res.data}))
     .catch(e => dispatch({type: GET_USER_FAILURE, payload: e.message}));
+
+  // return axiosWithAuth()
+  //   .get(`https://handy-app-api.herokuapp.com/users/${id}`)
+  //   .then(res => dispatch({type: GET_USER_SUCCESS, payload: res.data}))
+  //   .catch(e => dispatch({type: GET_USER_FAILURE, payload: e.message}));
 };

@@ -5,8 +5,8 @@ export default () => (
     <div className="overlay" />
     <div className="outter-circle" />
     <div className="inner-circle">
-      <i class="fas fa-play" />
-      <i class="fas fa-play hide-play" />
+      <i className="fas fa-play" />
+      <i className="fas fa-play hide-play" />
     </div>
     <style>
       {`
