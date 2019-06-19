@@ -50,7 +50,7 @@ class ContractorCard extends Component {
       }
     );
     return (
-      <div className="UserCard">
+      <div className="ContractorCard">
         <div className="user-info">
           <img
             src={user.avatar ? user.avatar : avatar}

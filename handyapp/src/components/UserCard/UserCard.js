@@ -81,48 +81,48 @@ class UserCard extends Component {
             </NavLink>
           </div>
           <div className="tab">
-            <div className="icon">
+            {/* <div className="icon">
               <i className="fas fa-hard-hat" />
-            </div>
+            </div> */}
             <NavLink
               to="/dashboard-homeowner/contractor"
               className="tab-button"
             >
               Contractor
-              <i className="fas fa-chevron-right" />
+              {/* <i className="fas fa-chevron-right" /> */}
             </NavLink>
           </div>
           <div className="tab">
-            <div className="icon">
+            {/* <div className="icon">
               <i className="fas fa-toilet" />
-            </div>
+            </div> */}
             <NavLink to="/dashboard-homeowner/plumber" className="tab-button">
               Plumber
-              <i className="fas fa-chevron-right" />
+              {/* <i className="fas fa-chevron-right" /> */}
             </NavLink>
           </div>
           <div className="tab">
-            <div className="icon">
+            {/* <div className="icon">
               <i className="fas fa-bolt" />
-            </div>
+            </div> */}
             <NavLink
               to="/dashboard-homeowner/Electrician"
               className="tab-button"
             >
               Electrician
-              <i className="fas fa-chevron-right" />
+              {/* <i className="fas fa-chevron-right" /> */}
             </NavLink>
           </div>
           <div className="tab">
-            <div className="icon">
+            {/* <div className="icon">
               <i className="fas fa-clipboard-list" />
-            </div>
+            </div> */}
             <NavLink
               to={`/dashboard-homeowner/users/${user.id}/projects/`}
               className="tab-button"
             >
               My Projects
-              <i className="fas fa-chevron-right" />
+              {/* <i className="fas fa-chevron-right" /> */}
             </NavLink>
           </div>
         </div>
