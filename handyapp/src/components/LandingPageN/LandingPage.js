@@ -23,7 +23,7 @@ function LandingPage(props) {
       <Section3 />
       <Section4 />
       <Section5 />
-      <style global>{`
+      <style>{`
         .app-wrapper {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
             'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',

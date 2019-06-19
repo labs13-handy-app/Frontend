@@ -21,13 +21,13 @@ class MobileMenu extends Component {
         </div>
         <Nav vertical className={'mobile-nav'}>
           <NavItem className="nav-item-m">
-            <NavLink>home</NavLink>
+            <NavLink href="/">home</NavLink>
           </NavItem>
           {/* ================================================================= */}
           {/* When the User is not logged in. */}
           {!localStorage.token && (
             <NavItem className="nav-item-m">
-              <NavLink href="" onClick={this.props.login}>
+              <NavLink onClick={this.props.login}>
                 login
               </NavLink>
             </NavItem>
@@ -36,7 +36,7 @@ class MobileMenu extends Component {
           {/*  When the User is logged in */}
           {localStorage.token && (
             <NavItem className="nav-item-m">
-              <NavLink href="" onClick={this.props.logout}>
+              <NavLink onClick={this.props.logout}>
                 logout
               </NavLink>
             </NavItem>
@@ -218,12 +218,6 @@ export default class extends Component {
                   <NavLink onClick={this.props.logout}>logout</NavLink>
                 </NavItem>
               )}
-              <div
-                className="drop"
-                onMouseOver={this.over}
-                onMouseOut={this.out}
-                onTransitionEnd={this.onHide}
-              />
             </Nav>
           </Container>
           <style>{`
@@ -267,6 +261,8 @@ export default class extends Component {
           .nav-item-n {
             display: none;
             font-size: 14px;
+            cursor: pointer;
+            
           }
           .nav-item-n:not(.logo) {
             text-transform: capitalize;

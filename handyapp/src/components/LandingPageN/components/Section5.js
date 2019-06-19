@@ -2,7 +2,7 @@ import React from 'react';
 //import { Container, Row, Col, Form, FormGroup, Input, Button } from 'reactstrap'
 import { Container, Col, Form, FormGroup, Input, Button } from 'reactstrap';
 export default () => (
-  <section className="s9">
+  <section className="s5">
     <Container className="ref-pos">
       <Form>
         <FormGroup row className="m-0">
@@ -10,12 +10,12 @@ export default () => (
             <Input
               type="email"
               placeholder="Email address"
-              className="s9__email"
+              className="s5__email"
             />
           </Col>
           <Col md="3" className="p-0">
-            <Button className="s9__submit">
-              <i class="fas fa-location-arrow" /> Subscribe
+            <Button className="s5__submit">
+              <i className="fas fa-location-arrow" /> Subscribe
             </Button>
           </Col>
         </FormGroup>
@@ -28,10 +28,10 @@ export default () => (
     </Container>
     <style>
       {`
-        .s9 {
+        .s5{
             font-size: 16px;
             margin-top: 10em;
-            background-image: url(https://bootstrapmade.com/demo/themes/eStartup/img/newsletter-bg.jpg);
+            background-image: url(https://images.pexels.com/photos/280232/pexels-photo-280232.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260);
             padding: 3em 0;
             background-position: center;
             background-attachment: fixed;
@@ -39,11 +39,11 @@ export default () => (
             position: relative;
         }
         @media (min-width: 990px) {
-            .s9 {
+            .s5{
                 padding: 6em 0;
             }
         }
-        .s9:after {
+        .s5:after {
             content: '';
             position: absolute;
             top: 0;
@@ -52,44 +52,44 @@ export default () => (
             background-color: white;
             opacity: .4;
         }
-        .s9 .ref-pos {
+        .s5 .ref-pos {
             position: relative;
             z-index: 1;
         }
-        .s9 form {
+        .s5 form {
             margin: 0 auto;
         }
         @media (min-width: 768px) {
-            .s9 form {
+            .s5 form {
                 width: 65%;
             }
         }
-        .s9 form input, .s9 form button{
+        .s5 form input, .s5 form button{
             height: 60px;
             border-radius: 0;
         }
-        .s9__email {
+        .s5__email {
             text-align: center;
             font-size: .8em;
             margin-bottom: 2em;
         }
         
-        .s9__email:focus {
+        .s5__email:focus {
             outline: 1px solid hsl(120, 53%, 77%);
             box-shadow: none;
             border-color: transparent;
         }
-        .s9__submit {
+        .s5__submit {
             font-size: .8em;
             width: 100%;
             background-color: hsl(120, 50%, 58%);
             border: none;
         }
         
-        .s9__submit:hover {
+        .s5__submit:hover {
             background-color: hsl(122, 39%, 49%);
         }
-        .s9__submit i {
+        .s5__submit i {
             margin-right: .5em;
         }
         .social-icons {

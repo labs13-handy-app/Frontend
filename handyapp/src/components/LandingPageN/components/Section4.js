@@ -2,81 +2,57 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 export default () => (
-  <section className="s6">
+  <section className="s4">
     <Container>
-      <div className="s6__titles">
+      <div className="s4__titles">
         <h1>Real People, Real Tasks</h1>
       </div>
       <Row>
         <Col md="6" lg="3">
-          <div className="s6__frame">
+          <div className="s4__frame">
             <img
               src="https://images.pexels.com/photos/209719/pexels-photo-209719.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
-            <div className="s6__in-out-alert">
-              {/* <div className="s6__social-icons">
-                <i className="fab fa-facebook-f" />
-                <i className="fab fa-twitter" />
-                <i class="fab fa-linkedin-in" />
-              </div> */}
-
-              <h3>kimberly tran</h3>
+            <div className="s4__in-out-alert">
+              <h3>Lucille R. Brown</h3>
               <h3>San Francisco, CA</h3>
             </div>
           </div>
         </Col>
         <Col md="6" lg="3">
-          <div className="s6__frame">
+          <div className="s4__frame">
             <img
               src="https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
-            <div className="s6__in-out-alert">
-              {/* <div className="s6__social-icons">
-                <i className="fab fa-facebook-f" />
-                <i className="fab fa-twitter" />
-                <i class="fab fa-linkedin-in" />
-              </div> */}
-
-              <h3>kimberly tran</h3>
+            <div className="s4__in-out-alert">
+              <h3>James Smith</h3>
               <h3>NYC, NY</h3>
             </div>
           </div>
         </Col>
 
         <Col md="6" lg="3">
-          <div className="s6__frame">
+          <div className="s4__frame">
             <img
               src="https://images.pexels.com/photos/1078879/pexels-photo-1078879.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
-            <div className="s6__in-out-alert">
-              {/* <div className="s6__social-icons">
-                <i className="fab fa-facebook-f" />
-                <i className="fab fa-twitter" />
-                <i class="fab fa-linkedin-in" />
-              </div> */}
-
-              <h3>kimberly tran</h3>
+            <div className="s4__in-out-alert">
+              <h3>Robert Johnson</h3>
               <h3>Chicago, IL</h3>
             </div>
           </div>
         </Col>
         <Col md="6" lg="3">
-          <div className="s6__frame">
+          <div className="s4__frame">
             <img
               src="https://images.pexels.com/photos/209234/pexels-photo-209234.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt=""
             />
-            <div className="s6__in-out-alert">
-              {/* <div className="s6__social-icons">
-                <i className="fab fa-facebook-f" />
-                <i className="fab fa-twitter" />
-                <i class="fab fa-linkedin-in" />
-              </div> */}
-
-              <h3>kimberly tran</h3>
+            <div className="s4__in-out-alert">
+              <h3>Maria Hernandez</h3>
               <h3>NYC, NY</h3>
             </div>
           </div>
@@ -84,28 +60,28 @@ export default () => (
       </Row>
     </Container>
     <style>{`
-          .s6 {
+          .s4 {
               font-size: 16px;
               margin-top: 10em;
           }
-          .s6__titles {
+          .s4__titles {
               margin-bottom: 4em;
               text-align: center;
           }
 
-        .s6__titles h1 {
+        .s4__titles h1 {
               font-size: 3em;
               margin-bottom: .8em;
               font-weight: 100;
               text-transform: capitalize;
               letter-spacing: 2px;
           }
-            .s6__titles h4 {
+            .s4__titles h4 {
                 font-size: .9em;
                 font-weight: 100;
                 color: dimgray;
             }
-            .s6__frame {
+            .s4__frame {
                 position: relative;
                 height: 255px;
                 margin-bottom: 3em;
@@ -113,13 +89,13 @@ export default () => (
                 box-shadow: #615d5da1 0px 3px 10px;
             }
             
-            .s6__frame img {
+            .s4__frame img {
                 width: 100%;
             }
-            .s6__frame:hover>.s6__in-out-alert {
+            .s4__frame:hover>.s4__in-out-alert {
                 transform: translateY(0);
             }
-            .s6__in-out-alert {
+            .s4__in-out-alert {
                 position: absolute;
                 display: flex;
                 padding: 2em 0;
@@ -133,32 +109,32 @@ export default () => (
                 transition: all .5s;
                 transform: translateY(100%);
             }
-            .s6__social-icons {
+            .s4__social-icons {
                 font-size: .55em;
                 color: #636567;
                 margin-bottom: 2em;
             }
-            .s6__social-icons > i:not(.fa-linkedin-in) {
+            .s4__social-icons > i:not(.fa-linkedin-in) {
                 margin-right: 2em;
             }
-            .s6__social-icons > i:hover {
+            .s4__social-icons > i:hover {
                 cursor: pointer;
                 color: var(--brand-color);
             }
             
             
 
-            .s6__in-out-alert > h3 {
+            .s4__in-out-alert > h3 {
                 margin: 0;
                 line-height: 1.3;
             }
-            .s6__in-out-alert > h3:first-of-type {
+            .s4__in-out-alert > h3:first-of-type {
                 font-size: 1em;
                 font-weight: 400;
                 letter-spacing: 1.6px;
                 color: #545252;
             }
-            .s6__in-out-alert > h3:last-child {
+            .s4__in-out-alert > h3:last-child {
                 font-size: .65em;
                 font-weight: 700;
                 text-transform: uppercase;
