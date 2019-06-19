@@ -213,7 +213,7 @@ export default class extends Component {
               {/* ================================================================= */}
               {/*  When the User is logged in */}
               {localStorage.token && (
-                <NavItem className="nav-item-m">
+                <NavItem className="nav-item-n">
                   <NavLink onClick={this.props.logout}>logout</NavLink>
                 </NavItem>
               )}
