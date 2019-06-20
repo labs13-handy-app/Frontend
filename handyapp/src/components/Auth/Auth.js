@@ -66,7 +66,8 @@ class Auth {
 
     // Comment to work locally
     axiosWithAuth()
-      .post('https://handy-app-api.herokuapp.com/register', user)
+      // .post('https://handy-app-api.herokuapp.com/register', user)
+      .post('http://localhost:5000/register', user)
       .then(res => {
         console.log(res.data);
         if (

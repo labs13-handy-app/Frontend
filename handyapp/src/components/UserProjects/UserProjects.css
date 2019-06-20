@@ -57,10 +57,10 @@
   height: 60px;
   padding: 7px;
   border-radius: 50px;
-  background: #538f40;
+  background: #e2eadf;
   font-size: 13px;
   font-weight: 700;
-  color: #fff;
+  color: #538f40;
   text-decoration: none;
   border: none;
   transition: all 0.2s;
@@ -71,4 +71,5 @@
 
 .project-container .action-button:hover {
   background: #66895c;
+  color: #fff;
 }

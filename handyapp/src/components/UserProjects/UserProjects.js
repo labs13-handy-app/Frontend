@@ -14,28 +14,28 @@ class UserProjects extends Component {
   }
 
   render() {
+    console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
 
-    if (this.props.userProjects.user) {
-      const {projects} = this.props.userProjects.user;
+    if (this.props.userProjects && this.props.userProjects.projects) {
+      const {projects} = this.props.userProjects;
 
       return (
         <div className="project-container">
           <h2>My Projects </h2>
 
-          {projects.map(({id, title, description, images, bids}) => {
-            const thumbnail = images[0];
+          {projects.map(p => {
             return (
               <UserProject
-                key={id}
-                id={id}
-                title={title}
-                description={description}
-                images={images}
-                thumbnail={thumbnail}
-                bids={bids}
+                key={p.id}
+                id={p.id}
+                title={p.title}
+                description={p.description}
+                images={p.images ? p.images : ''}
+                thumbnail={p.images ? p.images[0] : ''}
+                bids={p.bids}
               />
             );
           })}
@@ -43,9 +43,8 @@ class UserProjects extends Component {
       );
     } else if (
       this.props.userProjects &&
-      this.props.userProjects.user &&
-      this.props.userProjects.user.projects &&
-      this.props.userProjects.user.projects.length < 0
+      this.props.userProjects.projects &&
+      this.props.userProjects.projects.length < 0
     ) {
       return (
         <div className="project-container empty">
