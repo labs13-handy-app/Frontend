@@ -20,7 +20,8 @@ class ContractorForm extends Component {
       skills: '',
       licenses: '',
       experience: ''
-    }
+    },
+    avatar: ''
   };
 
   componentWillMount() {
@@ -65,22 +66,12 @@ class ContractorForm extends Component {
       isBoarded: true
     };
 
+    user.avatar = this.state.avatar;
+
     localStorage.setItem('account_type', 'contractor');
 
     await this.props.onBoarding(user.id, user);
 
-    // this.setState({
-    //   user: {
-    //     first_name: '',
-    //     last_name: '',
-    //     email: '',
-    //     phone_number: '',
-    //     address: '',
-    //     skills: '',
-    //     licenses: '',
-    //     experience: ''
-    //   }
-    // });
     if (localStorage.token && localStorage.account_type === 'contractor')
       this.props.history.push('/dashboard-contractor');
   };
@@ -92,8 +83,8 @@ class ContractorForm extends Component {
   render() {
     let widget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'sandhu',
-        uploadPreset: 'clyrl6ow',
+        cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
+        uploadPreset: `${process.env.REACT_APP_CLOUDINARY_PRESET}`,
         tags: ['app']
       },
       (error, result) => {
@@ -102,13 +93,6 @@ class ContractorForm extends Component {
           this.setState({
             avatar: secure_url
           });
-
-          // const newUser = {
-          //   ...this.props.user,
-          //   avatar: this.state.avatar
-          // };
-
-          // this.props.onBoarding(this.props.user.id, newUser);
         }
       }
     );

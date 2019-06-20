@@ -9,7 +9,7 @@ export const deleteProject = id => dispatch => {
   dispatch({type: DELETE_PROJECT_START});
 
   return axiosWithAuth()
-    .delete(`https://handy-app-api.herokuapp.com/projects/${id}`)
+    .delete(`${process.env.REACT_APP_API_URL}/projects/${id}`)
     .then(res => dispatch({type: DELETE_PROJECT_SUCCESS, payload: id}))
     .catch(err =>
       dispatch({type: DELETE_PROJECT_FAILURE, payload: err.message})

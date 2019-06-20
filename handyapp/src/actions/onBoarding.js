@@ -11,24 +11,8 @@ export const onBoarding = (id, user) => dispatch => {
   });
 
   // Comment to work locally
-  // return axiosWithAuth()
-  //   .put(`http://localhost:5000/users/${id}`, user)
-  //   .then(res => {
-  //     dispatch({
-  //       type: ONBOARDING_SUCCESS,
-  //       payload: res.data
-  //     });
-  //   })
-  //   .catch(err =>
-  //     dispatch({
-  //       type: ONBOARDING_FAILURE,
-  //       payload: err.message
-  //     })
-  //   );
-
-  /* Uncomment to work locally   */
-  axiosWithAuth()
-    .put(`https://handy-app-api.herokuapp.com/users/${id}`, user)
+  return axiosWithAuth()
+    .put(`${process.env.REACT_APP_API_URL}/users/${id}`, user)
     .then(res => {
       dispatch({
         type: ONBOARDING_SUCCESS,
