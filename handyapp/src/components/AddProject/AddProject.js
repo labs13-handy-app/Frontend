@@ -66,7 +66,7 @@ class AddProject extends Component {
       }
     );
     return (
-      <>
+      <div className="Add">
         <h2>Add Project</h2>
         <div className="AddProject">
           <form onSubmit={this.onSubmit}>
@@ -117,7 +117,7 @@ class AddProject extends Component {
             </div>
           </form>
         </div>
-      </>
+      </div>
     );
   }
 }

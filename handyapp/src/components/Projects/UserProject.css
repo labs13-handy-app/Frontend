@@ -1,61 +1,79 @@
-.Project {
+.UserProject {
   max-width: 90%;
-  height: 244px;
+  /* height: 244px; */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
   background: #fff;
   border-radius: 4px;
   /* box-shadow: 0 12px 20px rgba(128, 128, 128, 0.28); */
   /* border: 1px solid #e2e2e2; */
   margin-bottom: 34px;
+  box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54);
 }
 
-.Project .project-image {
-  width: 366px;
-  height: 244px;
+.UserProject .user-project-image {
+  width: 100%;
+  /* height: 244px; */
   background: url('../../img/Placeholder-image.png') no-repeat center
     center/cover;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 4px 0 0;
 }
 
-.Project .project-image img {
+.UserProject .user-project-image img {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 4px 0 0;
 }
 
-.Project .project-content {
-  width: 70%;
-  padding: 25px 44px;
+.UserProject .user-project-content {
+  width: 100%;
+  padding: 22px 55px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.Project .project-content .project-info {
-  color: #464646;
-}
-
-.Project .project-content .project-info h2 {
+.UserProject .user-project-content h2 {
+  margin: 0;
   font-size: 24px;
-  color: #000;
+  color: #464646;
   font-weight: 700;
+  margin-bottom: 16px;
 }
-
-.Project .project-content .project-info i {
-  margin-right: 13px;
-}
-
-.Project .project-content .description {
+.UserProject .user-project-content .info {
   width: 100%;
-  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.UserProject .user-project-content .info i {
+  margin-right: 6px;
+  color: #71a261;
+}
+
+.UserProject .user-project-content .info p {
+  font-size: 14px;
+  margin: 0;
+  margin-right: 60px;
+}
+
+.UserProject .user-project-content .user-description {
+  width: 100%;
   color: #686868;
   font-weight: 300;
   line-height: 1.5;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.view-bids {
+.UserProject .user-project-content .user-description p {
+  font-size: 16px;
+  margin: 0;
+}
+.user-view-bids {
   margin-left: 10px;
   text-decoration: none;
   font-weight: 700;
