@@ -49,7 +49,10 @@ export {
   ADD_PROJECT_PICS_FAILURE,
   GET_PROJECT_IMAGES_START,
   GET_PROJECT_IMAGES_SUCCESS,
-  GET_PROJECT_IMAGES_FAILURE
+  GET_PROJECT_IMAGES_FAILURE,
+  PAYMENT_TRANSFER_START,
+  PAYMENT_TRANSFER_SUCCESS,
+  PAYMENT_TRANSFER_FAILURE
 } from './types';
 
 export {getToken} from './getToken';
@@ -69,3 +72,4 @@ export {editProject} from './editProject';
 export {addProfilePic} from './addProfilePic';
 export {addProjectPics} from './addProjectPics';
 export {getProjectImages} from './getProjectImages';
+export {paymentTransfer} from './paymentTransfer'
