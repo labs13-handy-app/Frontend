@@ -10,16 +10,16 @@ const UserProject = props => {
   }
 
   return (
-    <div className="Project">
-      <div className="project-image">
+    <div className="UserProject">
+      <div className="user-project-image">
         <img
           src={props.thumbnail ? props.thumbnail.image : placeholder}
           alt=""
         />
       </div>
-      <div className="project-content">
-        <div className="project-info">
-          <h2>{props.title}</h2>
+      <div className="user-project-content">
+        <h2>{props.title}</h2>
+        <div className="info">
           <p>
             <i className="fas fa-tools" />
             {props.materials_included === 'yes'
@@ -33,12 +33,15 @@ const UserProject = props => {
                 ? `${props.bids.length + 1} Bids `
                 : `0 Bids `}
             </span>
-            <Link className="view-bids" to={`/project/${props.id}`}>
-              View Bids
-            </Link>
+            {props.bids && props.bids.length > 0 && (
+              <Link className="user-view-bids" to={`/project/${props.id}`}>
+                View Bids
+              </Link>
+            )}
           </p>
         </div>
-        <div className="description">
+
+        <div className="user-description">
           <p>{props.description} </p>
         </div>
       </div>
