@@ -37,7 +37,7 @@ class ContractorForm extends Component {
           nickname: user.nickname,
           email: user.email,
           phone_number: '',
-          account_type: user.account_type,
+          account_type: localStorage.account_type,
           address: '',
           skills: '',
           licenses: '',

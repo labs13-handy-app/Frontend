@@ -53,7 +53,7 @@ class Onboarding extends Component {
       account_type: this.state.account_type
     };
 
-    await this.props.editUser(editedUser.id, editedUser);
+    await this.props.editUser(this.props.user.id, editedUser);
 
     if (localStorage.account_type === 'contractor')
       this.props.history.push('/contractor-onboarding');
