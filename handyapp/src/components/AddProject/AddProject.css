@@ -8,8 +8,11 @@
   border-radius: 4px;
 }
 
-h2 {
+.Add {
   margin-top: 70px;
+}
+
+.Add h2 {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 24px;
@@ -112,4 +115,9 @@ h2 {
   height: 42px;
   text-decoration: none;
   outline: none;
+  transition: all 0.3s;
+}
+
+.AddProject form .upload:hover {
+  box-shadow: 0 5px 10px rgba(145, 145, 145, 0.54);
 }
