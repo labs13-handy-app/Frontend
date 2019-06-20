@@ -22,7 +22,8 @@ import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeed
 // import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
 // import NotFound from './components/NotFound/NotFound';
-import MakePayment from './components/Stripe/MakePayment';
+import MakePayment from './components/Stripe/MakePayment'
+import StripeCallback from './components/Callback/StripeCallback';
 
 import './App.css';
 
@@ -101,7 +102,8 @@ class App extends React.Component {
             path="/contractor/:id"
             component={ServiceProviderFeedback}
           />
-          <Route exact path="/makepayment" component={MakePayment} />
+          <Route exact path='/makepayment' component={MakePayment} />
+          <Route path ='/stripecallback' component={StripeCallback} />
 
           {/* <Route exact path="/checkout" component={Stripe} /> */}
           <Route exact path="/add-bid/:id" component={SubmitBid} />
