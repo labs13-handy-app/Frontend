@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addProject, addProjectPics} from '../../actions';
-import axiosWithAuth from '../../utils/AxiosAuthFD';
+import upload from '../../img/Upload-images.svg';
 
 import './AddProject.css';
 
@@ -91,23 +91,30 @@ class AddProject extends Component {
                   placeholder="Enter description"
                 />
               </div>
-              <div className="form-item">
-                {/* <label htmlFor="add-image">Add image(s)</label> */}
-                <h4>Upload Images</h4>
-                <input
-                  type="file"
-                  onClick={() => {
-                    this.showWidget(widget);
-                  }}
-                  accept="image/*"
-                />
+
+              <div className="control">
+                <div className="form-upload">
+                  {/* <label htmlFor="add-image">Add image(s)</label> */}
+                  <div className="add-photos">
+                    <button
+                      className="upload"
+                      type="file"
+                      onClick={e => {
+                        e.preventDefault();
+                        this.showWidget(widget);
+                      }}
+                      accept="image/*"
+                    >
+                      <img src={upload} alt="camera" />
+                    </button>
+                    <p>Upload Images</p>
+                  </div>
+                </div>
+                <button className="add-project" onSubmit={this.onSubmit}>
+                  Submit
+                </button>
               </div>
             </div>
-
-            <button className="add-project" onSubmit={this.onSubmit}>
-              Submit
-            </button>
-            <div className="photo-form-container" />
           </form>
         </div>
       </>
