@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   connected: false,
+  code:null,
   error: null
 };
 
@@ -14,19 +15,22 @@ export const connectionReducer = (state = initialState, action) => {
     case PAYMENT_CONNECTION_START:
       return {
         ...state,
-        connected: true,
+        connected: false,
+        code:[],
         error: null
       };
     case PAYMENT_CONNECTION_SUCCESS:
       return {
         ...state,
-        connected: false,
+        connected: true,
+        code:action.payload,
         error: null
       };
     case PAYMENT_CONNECTION_FAILURE:
       return {
         ...state,
         connected: false,
+        code:null,
         error: action.payload
       };
     default:
