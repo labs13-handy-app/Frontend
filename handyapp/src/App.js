@@ -50,6 +50,7 @@ class App extends React.Component {
 
   render() {
     const {isAuthenticated} = auth;
+    console.log(process.env);
     return (
       <div className="App">
         {/* <NavBar
