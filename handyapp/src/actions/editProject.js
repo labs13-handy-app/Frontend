@@ -9,9 +9,7 @@ export const editProject = id => project => dispatch => {
   dispatch({type: EDIT_PROJECT_START});
 
   return axiosWithAuth()
-    .put(`https://handy-app-api.herokuapp.com/projects/${id}`, project)
+    .put(`${process.env.REACT_APP_API_URL}/projects/${id}`, project)
     .then(res => dispatch({type: EDIT_PROJECT_SUCCESS, payload: id}))
-    .catch(err =>
-      dispatch({type: EDIT_PROJECT_FAILURE, payload: err.message})
-    );
+    .catch(err => dispatch({type: EDIT_PROJECT_FAILURE, payload: err.message}));
 };

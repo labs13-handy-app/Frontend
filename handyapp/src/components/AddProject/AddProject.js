@@ -49,8 +49,8 @@ class AddProject extends Component {
   render() {
     let widget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'sandhu',
-        uploadPreset: 'clyrl6ow',
+        cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
+        uploadPreset: `${process.env.REACT_APP_CLOUDINARY_PRESET}`,
         tags: ['app']
       },
       (error, result) => {
