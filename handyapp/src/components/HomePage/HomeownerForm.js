@@ -4,10 +4,10 @@ import {onBoarding, getToken} from '../../actions';
 // Here and Below matrial ui styles
 // import {makeStyles} from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
-// import TextField from '@material-ui/core/TextField';
-// import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
-import {withStyles, withTheme} from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import {withStyles, } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {compose} from 'recompose';
 
@@ -125,16 +125,30 @@ class HomeownerForm extends Component {
       // matrail ui portion
       <Container component="main" maxWidth="xs">
         <form onSubmit={this.onSubmit} id="user-onboarding">
-          <div>
-            <label htmlFor="first_name">First Name</label>
+          {/* <div> */}
+            {/* <label htmlFor="first_name">First Name</label>
             <input
               onChange={this.onChange}
               id="first_name"
               type="text"
               value={this.state.user.first_name}
               placeholder="Enter first name"
-            />
-          </div>
+            /> */}
+          {/* </div> */}
+          <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                onChange={this.onChange}
+                label="First Name"
+                  id="first_name"
+                  value={this.state.user.first_name}
+                  variant="outlined"
+                  required
+                  fullWidth
+                  autoFocus
+                />
+              </Grid>
+              </Grid>
           <div>
             <label htmlFor="last_name">Last Name</label>
             <input
