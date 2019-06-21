@@ -24,8 +24,8 @@ class UserCard extends Component {
     }
     let widget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'sandhu',
-        uploadPreset: 'clyrl6ow',
+        cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
+        uploadPreset: `${process.env.REACT_APP_CLOUDINARY_PRESET}`,
         tags: ['app']
       },
       async (error, result) => {
@@ -75,54 +75,26 @@ class UserCard extends Component {
           </button>
         </div>
         <div className="tabs">
-          <div className="tab-top">
+          <div className="tab">
             <NavLink to={`/dashboard-homeowner/users/${user.id}/add-project`}>
-              <button className="action-button">Add Project</button>
+              Add Project
             </NavLink>
           </div>
           <div className="tab">
-            {/* <div className="icon">
-              <i className="fas fa-hard-hat" />
-            </div> */}
             <NavLink
-              to="/dashboard-homeowner/contractor"
+              to="/dashboard-homeowner/edit-profile"
               className="tab-button"
             >
-              Contractor
-              {/* <i className="fas fa-chevron-right" /> */}
+              Edit Profile
             </NavLink>
           </div>
+
           <div className="tab">
-            {/* <div className="icon">
-              <i className="fas fa-toilet" />
-            </div> */}
-            <NavLink to="/dashboard-homeowner/plumber" className="tab-button">
-              Plumber
-              {/* <i className="fas fa-chevron-right" /> */}
-            </NavLink>
-          </div>
-          <div className="tab">
-            {/* <div className="icon">
-              <i className="fas fa-bolt" />
-            </div> */}
-            <NavLink
-              to="/dashboard-homeowner/Electrician"
-              className="tab-button"
-            >
-              Electrician
-              {/* <i className="fas fa-chevron-right" /> */}
-            </NavLink>
-          </div>
-          <div className="tab">
-            {/* <div className="icon">
-              <i className="fas fa-clipboard-list" />
-            </div> */}
             <NavLink
               to={`/dashboard-homeowner/users/${user.id}/projects/`}
               className="tab-button"
             >
               My Projects
-              {/* <i className="fas fa-chevron-right" /> */}
             </NavLink>
           </div>
         </div>
