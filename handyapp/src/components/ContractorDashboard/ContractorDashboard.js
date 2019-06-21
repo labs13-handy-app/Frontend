@@ -17,6 +17,10 @@ class ContractorDashboard extends Component {
     this.props.getUser();
   }
   render() {
+    if (!localStorage.isBoarded) {
+      this.props.history.push('/contractor-onboarding');
+      // window.location.reload()
+    }
     if (
       !localStorage.account_type &&
       localStorage.account_type !== 'contractor'
