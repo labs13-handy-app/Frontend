@@ -82,7 +82,7 @@ class UserCard extends Component {
           </div>
           <div className="tab">
             <NavLink
-              to="/dashboard-homeowner/edit-profile"
+              to={`/dashboard-homeowner/users/${user.id}/edit-profile`}
               className="tab-button"
             >
               Edit Profile
