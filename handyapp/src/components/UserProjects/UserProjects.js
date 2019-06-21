@@ -19,8 +19,8 @@ class UserProjects extends Component {
       this.props.history.push('/');
     }
 
-    if (this.props.userProjects && this.props.userProjects.projects) {
-      const {projects} = this.props.userProjects;
+    if (this.props.userProjects && this.props.userProjects.user) {
+      const {projects} = this.props.userProjects.user;
 
       return (
         <div className="project-container">
