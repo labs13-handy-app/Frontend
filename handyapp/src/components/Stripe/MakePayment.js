@@ -13,7 +13,7 @@ class MakePayment extends React.Component {
     axiosWithAuth()
       .post(`${process.env.REACT_APP_API_URL}/api/checkout/charge`, payment)
       .then(res => {
-        console.log(res.data);
+        this.props.history.push('./dashboard-homeowner');
       })
       .catch(err => console.log(err.message));
   };
