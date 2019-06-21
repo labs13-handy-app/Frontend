@@ -13,7 +13,6 @@ class MobileMenu extends Component {
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
-    console.log(this.props);
     return (
       <div className="mobile-wrapper">
         <div className="mobile-menu">
@@ -187,7 +186,6 @@ export default class NavigationBar extends Component {
     window.removeEventListener('scroll', this.fixedNav);
   }
   render() {
-    console.log(this.props);
     return (
       // -------Desktop--------
       <div className="app-wrapper">

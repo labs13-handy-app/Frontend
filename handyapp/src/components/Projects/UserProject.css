@@ -14,7 +14,7 @@
 
 .UserProject .user-project-image {
   width: 100%;
-  /* height: 244px; */
+  height: 218px;
   background: url('../../img/Placeholder-image.png') no-repeat center
     center/cover;
   border-radius: 4px 4px 0 0;
@@ -24,6 +24,7 @@
   width: 100%;
   height: 100%;
   border: none;
+  object-fit: cover;
   border-radius: 4px 4px 0 0;
 }
 
