@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Nav, NavItem, NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
-import Logo from '../../../img/Logo.png';
+import Logo from '../../../img/logo.png';
 
 class MobileMenu extends Component {
   constructor(props) {
