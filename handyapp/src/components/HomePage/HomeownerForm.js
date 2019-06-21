@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { onBoarding, getToken } from '../../actions';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {onBoarding, getToken} from '../../actions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { compose } from 'recompose';
+import {compose} from 'recompose';
 
 const styles = theme => ({
   paper: {
@@ -58,7 +58,7 @@ class HomeownerForm extends Component {
 
   componentWillMount() {
     this.props.getToken();
-    const { user } = this.props;
+    const {user} = this.props;
 
     if (user) {
       this.setState({
@@ -124,7 +124,7 @@ class HomeownerForm extends Component {
         tags: ['app']
       },
       (error, result) => {
-        let { secure_url } = result.info;
+        let {secure_url} = result.info;
         if (!error && result && result.event === 'success') {
           this.setState({
             avatar: secure_url
@@ -133,7 +133,7 @@ class HomeownerForm extends Component {
       }
     );
 
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     console.log(this.props);
     if (!localStorage.token) {
@@ -247,7 +247,7 @@ class HomeownerForm extends Component {
   }
 }
 
-const mapStateToProps = ({ tokenReducer, onBoardingReducer }, props) => {
+const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => {
   return {
     user: tokenReducer.token,
     editedUser: onBoardingReducer.user
@@ -256,7 +256,7 @@ const mapStateToProps = ({ tokenReducer, onBoardingReducer }, props) => {
 
 export default connect(
   mapStateToProps,
-  { onBoarding, getToken }
+  {onBoarding, getToken}
 )(compose(withStyles(styles))(HomeownerForm));
 
 /// Good Code below

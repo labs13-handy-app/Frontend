@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import CheckoutForm from '../Stripe/CheckoutForm';
 
 const BidsForProject = props => {
@@ -12,7 +12,7 @@ const BidsForProject = props => {
       <p>Hours:{props.bid.time}</p>
       <p>Materials included? {props.bid.materials_included}</p>
       <div className="buttons">
-        <CheckoutForm amount={props.bid.price} />
+        <CheckoutForm amount={props.bid.price} {...props} />
         <Link to={`/contractor/${props.bid.contractor_id}`}>
           <button>View Contractor</button>
         </Link>

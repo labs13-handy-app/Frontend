@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import UserProject from '../Projects/UserProject';
-import {getUserProjects} from '../../actions';
+import {getUserProjects, deleteProject} from '../../actions';
 import Loader from 'react-loader-spinner';
 
 import './UserProjects.css';
@@ -12,6 +12,13 @@ class UserProjects extends Component {
     const {user} = this.props;
     this.props.getUserProjects(user.id);
   }
+
+  onDelete = id => {
+    this.props.deleteProject(id);
+    setTimeout(() => {
+      this.props.getUserProjects(this.props.user.id);
+    }, 400);
+  };
 
   render() {
     if (!localStorage.token) {
@@ -35,6 +42,7 @@ class UserProjects extends Component {
                 images={p.images ? p.images : ''}
                 thumbnail={p.images ? p.images[0] : ''}
                 bids={p.bids}
+                onDelete={this.onDelete}
               />
             );
           })}
@@ -80,5 +88,5 @@ const mapStateToProps = ({getUserProjectsReducer}, props) => {
 };
 export default connect(
   mapStateToProps,
-  {getUserProjects}
+  {getUserProjects, deleteProject}
 )(UserProjects);

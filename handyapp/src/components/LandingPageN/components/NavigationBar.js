@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Container, Nav, NavItem, NavLink } from 'reactstrap';
+import React, {Component} from 'react';
+import {Container, Nav, NavItem, NavLink} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Logo from '../../../img/logo.png';
@@ -7,10 +7,10 @@ import Logo from '../../../img/logo.png';
 class MobileMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = {isOpen: false};
   }
 
-  toggle = () => this.setState({ isOpen: !this.state.isOpen });
+  toggle = () => this.setState({isOpen: !this.state.isOpen});
 
   render() {
     return (
@@ -200,17 +200,17 @@ export default class NavigationBar extends Component {
             <Nav className="nav-n">
               <NavItem className="nav-item-n logo">
                 {/* <NavLink href="/">handyApp</NavLink> */}
-                <NavLink href="/">
+                <NavLink to="/">
                   <img src={Logo} alt="logo" />
                 </NavLink>
               </NavItem>
               <NavItem className="nav-item-n ham" onClick={this.showNav}>
-                <NavLink href="">
+                <NavLink to="">
                   <i className="fas fa-bars" />
                 </NavLink>
               </NavItem>
               <NavItem className="nav-item-n">
-                <NavLink href="/">home</NavLink>
+                <NavLink to="/">home</NavLink>
               </NavItem>
               {/* ================================================================= */}
               {/* When the User is not logged in. */}

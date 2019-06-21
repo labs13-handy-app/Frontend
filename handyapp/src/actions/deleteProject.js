@@ -1,4 +1,6 @@
 import axiosWithAuth from '../utils/AxiosAuth';
+import {getUserProjects} from '../actions';
+
 import {
   DELETE_PROJECT_START,
   DELETE_PROJECT_SUCCESS,
@@ -10,7 +12,7 @@ export const deleteProject = id => dispatch => {
 
   return axiosWithAuth()
     .delete(`${process.env.REACT_APP_API_URL}/projects/${id}`)
-    .then(res => dispatch({type: DELETE_PROJECT_SUCCESS, payload: id}))
+    .then(res => dispatch({type: DELETE_PROJECT_SUCCESS, payload: res.data}))
     .catch(err =>
       dispatch({type: DELETE_PROJECT_FAILURE, payload: err.message})
     );
