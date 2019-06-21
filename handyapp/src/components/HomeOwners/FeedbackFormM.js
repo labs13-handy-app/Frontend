@@ -11,9 +11,9 @@ import { addFeedback } from '../../actions';
 
 const styles = theme => ({
   '@global': {
-    body: {
-      backgroundColor: theme.palette.common.white
-    }
+    // body: {
+    //   backgroundColor: theme.palette.common.red
+    // }
   },
   paper: {
     marginTop: theme.spacing(8),
@@ -21,13 +21,34 @@ const styles = theme => ({
     flexDirection: 'column',
     alignItems: 'center'
   },
-
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#70C55D',
+    color: '#FFFFFF',
+    fontWeight: 600,
+    borderRadius: '20px',
+    padding: '0.65em 2.6em',
+    transition: 'all 0.5s',
+    '&:hover': {
+      backgroundColor: '#FFFFFF',
+      color: '#70C55D',
+      border: '1px solid #70C55D'
+    }
+  },
+  textfield: {
+    // border: '1px solid red',
+    // backgroundColor: '#ECF5EB'
+    // color: '#FFFFFF'
+  },
+  '&focus': {
+    // backgroundColor: '#70C55D'
+  },
+  '&label': {
+    // color: 'red !important'
   }
 });
 
@@ -51,14 +72,18 @@ class FeedbackFormM extends Component {
     const { classes } = this.props;
 
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Feedback
+          <Typography variant="h6" gutterBottom>
+            Feedback Form
+          </Typography>
+          <Typography variant="caption" display="block" gutterBottom>
+            We would love to hear your thoughts, concerns or problems with
+            anything so we can improve!
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} className={classes.textfield}>
                 <TextField
                   onChange={this.handleChanges}
                   label="Title"
@@ -70,8 +95,10 @@ class FeedbackFormM extends Component {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
+                  multiline
+                  rows="4"
                   onChange={this.handleChanges}
                   label="Description"
                   name="description"
@@ -82,10 +109,10 @@ class FeedbackFormM extends Component {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   onChange={this.handleChanges}
-                  label="Your Name"
+                  label="Name"
                   name="reviewer_name"
                   value={this.state.reviewer_name}
                   variant="outlined"
@@ -95,7 +122,7 @@ class FeedbackFormM extends Component {
                 />
               </Grid>
 
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   onChange={this.handleChanges}
                   label="Rating"
@@ -103,36 +130,33 @@ class FeedbackFormM extends Component {
                   value={this.state.rating}
                   type="number"
                   variant="outlined"
-                  required
                   fullWidth
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} lg={6}>
+              <Grid item xs={12}>
                 <TextField
+                  type="text"
                   onChange={this.handleChanges}
                   label="Would you recommend?"
                   name="recommend"
                   value={this.state.recommend}
                   variant="outlined"
-                  required
                   fullWidth
                   autoFocus
                 />
               </Grid>
             </Grid>
-         
           </form>
           <Button
-              onClick={() => this.props.addFeedback(this.state)}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Submit
-            </Button>
+            onClick={() => this.props.addFeedback(this.state)}
+            type="submit"
+            variant="contained"
+            size="large"
+            className={classes.submit}
+          >
+            Submit
+          </Button>
         </div>
       </Container>
     );

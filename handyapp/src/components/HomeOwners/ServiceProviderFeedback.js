@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Feedback from './Feedback';
 import {getFeedbackByContractorId} from '../../actions';
-import AddFeedbackForm from './AddFeedbackForm';
+//import AddFeedbackForm from './AddFeedbackForm';
 import FeedbackFormM from './FeedbackFormM';
 
 import './ServiceProviderFeedback.css'
