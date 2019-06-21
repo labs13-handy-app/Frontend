@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter, Route} from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 //import NavBar from './components/LandingPage/NavBar';
 import NavigationBar from './components/LandingPageN/components/NavigationBar';
@@ -15,16 +15,16 @@ import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fab} from '@fortawesome/free-brands-svg-icons';
-import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 // import Stripe from './components/Stripe/Stripe';
 import SubmitBid from './components/ServiceProviders/SubmitBid';
 // import NotFound from './components/NotFound/NotFound';
-import MakePayment from './components/Stripe/MakePayment'
+import MakePayment from './components/Stripe/MakePayment';
 import StripeCallback from './components/Callback/StripeCallback';
-import StripeTransfer from './components/Stripe/StripeTransfer'
+import StripeTransfer from './components/Stripe/StripeTransfer';
 
 import './App.css';
 
@@ -32,7 +32,7 @@ library.add(fab, faCheckSquare);
 
 const auth = new Auth();
 
-const handleAuthentication = ({location}) => {
+const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -51,7 +51,7 @@ class App extends React.Component {
 
   render() {
     const {isAuthenticated} = auth;
-    console.log(process.env);
+
     return (
       <div className="App">
         {/* <NavBar
@@ -103,9 +103,9 @@ class App extends React.Component {
             path="/contractor/:id"
             component={ServiceProviderFeedback}
           />
-          <Route exact path='/makepayment' component={MakePayment} />
-          <Route path ='/stripecallback' component={StripeCallback} />
-          <Route path='/transfer' component={StripeTransfer} />
+          <Route exact path="/makepayment" component={MakePayment} />
+          <Route path="/stripecallback" component={StripeCallback} />
+          <Route path="/transfer" component={StripeTransfer} />
 
           {/* <Route exact path="/checkout" component={Stripe} /> */}
           <Route exact path="/add-bid/:id" component={SubmitBid} />

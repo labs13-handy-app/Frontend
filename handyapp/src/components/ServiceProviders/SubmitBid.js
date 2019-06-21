@@ -33,9 +33,11 @@ class SubmitBid extends Component {
         <div className="project-content">
           <h2>{this.props.projects.title}</h2>
           
-         <p>Description: {this.props.projects.description}</p>
+         <p>Description: </p>
+         <p>{this.props.projects.description}</p>
          
-         <p>Materials Included? {this.props.projects.materials_included}</p>
+         <p>Materials Included? </p>
+         <p>{this.props.projects.materials_included}</p>
          <div>
           </div>
           </div>

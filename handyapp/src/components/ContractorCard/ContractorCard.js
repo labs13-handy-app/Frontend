@@ -16,13 +16,14 @@ class ContractorCard extends Component {
   };
 
   render() {
+    // console.log(this.props);
     const {user} = this.props;
-    if (!user.first_name) {
+    if (!user) {
       return (
         <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
       );
     }
-    console.log(this.props);
+    
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
@@ -49,6 +50,7 @@ class ContractorCard extends Component {
         }
       }
     );
+    console.log(this.props);
     return (
       <div className="ContractorCard">
         <div className="user-info">
@@ -89,15 +91,15 @@ class ContractorCard extends Component {
           </div>
           <div className="tab">
             <div className="icon">
-              <i class="fab fa-stripe-s" />
+              <i className="fab fa-stripe-s" />
             </div>
-            <NavLink
+            <a
               href="https://dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_FC1yU4l4i7xldVGX8RcFaMBh5ipi5GBq&scope=read_write"
               className="tab-button"
             >
               Connect Stripe
               <i className="fas fa-chevron-right" />
-            </NavLink>
+            </a>
           </div>
           <div />
         </div>
@@ -107,8 +109,8 @@ class ContractorCard extends Component {
 }
 
 const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => ({
-  token: tokenReducer.token,
-  user: onBoardingReducer.user
+user: tokenReducer.token,
+  // user: onBoardingReducer.user
 });
 
 export default connect(
