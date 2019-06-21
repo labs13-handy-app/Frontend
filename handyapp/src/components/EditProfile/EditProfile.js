@@ -25,6 +25,7 @@ class EditProfile extends Component {
     e.persist();
     this.setState(prevState => ({
       user: {
+        ...prevState.user,
         [e.target.id]: e.target.value
       }
     }));
@@ -33,6 +34,12 @@ class EditProfile extends Component {
   onSubmit = e => {
     e.preventDefault();
     console.log(this.state.user);
+
+    this.props.editUser(this.props.user.id, this.state.user);
+    this.props.history.push(
+      `/dashboard-homeowner/users/${this.props.user.id}/projects`
+    );
+    window.location.reload();
   };
 
   render() {
