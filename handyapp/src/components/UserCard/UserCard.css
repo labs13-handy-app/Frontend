@@ -20,6 +20,7 @@
   padding-right: 50px; */
   text-align: center;
 }
+
 .UserCard h4 {
   padding: 0;
   margin: 0;
@@ -29,6 +30,9 @@
 .UserCard .user-info .active-user {
   margin-bottom: 20px;
   border-radius: 50px;
+}
+.UserCard .user-info img {
+  object-fit: cover;
 }
 
 .UserCard .username {

@@ -1,6 +1,7 @@
 import React from 'react';
 import placeholder from '../../img/Placeholder-image.png';
 import {Link} from 'react-router-dom';
+import {Carousel, CarouselItem} from 'reactstrap';
 
 import './UserProject.css';
 
