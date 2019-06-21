@@ -149,7 +149,7 @@ class FeedbackFormM extends Component {
             </Grid>
           </form>
           <Button
-            onClick={() => this.props.addFeedback(this.state)}
+            onClick={() => this.props.addFeedback(this.state,window.location.reload())}
             type="submit"
             variant="contained"
             size="large"
