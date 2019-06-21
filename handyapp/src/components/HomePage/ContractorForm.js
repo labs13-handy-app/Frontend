@@ -237,7 +237,7 @@ import TextField from '@material-ui/core/TextField';
 //import FormControlLabel from '@material-ui/core/FormControlLabel';
 //import Checkbox from '@material-ui/core/Checkbox';
 //import Link from '@material-ui/core/Link';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+//import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 //import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -269,7 +269,18 @@ const styles = theme => ({
     // border: '1px solid red'
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#70C55D',
+    color: '#FFFFFF',
+    fontWeight: 600,
+    borderRadius: '20px',
+    //padding: '0.65em 2.6em',
+    transition: 'all 0.5s',
+    '&:hover': {
+      backgroundColor: '#FFFFFF',
+      color: '#70C55D',
+      border: '1.8px solid #70C55D'
+    }
   },
   rightIcon: {
     marginLeft: theme.spacing(1)
@@ -515,9 +526,8 @@ class ContractorForm extends Component {
             </Grid>
             <Button
               type="submit"
-              fullWidth
               variant="contained"
-              color="primary"
+              size="large"
               className={classes.button}
             >
               Next
