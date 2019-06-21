@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import UserCard from '../UserCard/UserCard';
+//import UserCardM from '../UserCard/UserCardM';
 import AddProject from '../AddProject/AddProject';
+//import AddProjectM from '../AddProject/AddProjectM';
 import UserProjects from '../UserProjects/UserProjects';
 import EditProfile from '../EditProfile/EditProfile';
 import {getToken as getUser} from '../../actions';
@@ -44,11 +46,13 @@ class HomeOwnerDashboard extends Component {
       <div className="Dashboard">
         <div className="side-panel">
           <UserCard user={this.props.user} />
+          {/* <UserCardM user={this.props.user} /> */}
         </div>
         <div className="main-panel">
           <Route
             path="/dashboard-homeowner/users/:id/add-project"
             render={props => <AddProject {...props} user={this.props.user} />}
+            //render={props => <AddProjectM {...props} user={this.props.user} />}
           />
           <Route
             path="/dashboard-homeowner/users/:id/edit-profile"

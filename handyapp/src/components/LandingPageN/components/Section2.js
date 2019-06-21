@@ -138,9 +138,11 @@ export default () => (
       line-height: 100px;
       cursor: pointer;
       // border: 1px solid red;
+      // background: #4D8AF0;
   }
   i.fabs:hover {
       background-color: hsl(120, 27%, 56%);
+      // background: #4D8AF0;
   }
   i.fabs + i.fabs {
       margin-left: 1em;

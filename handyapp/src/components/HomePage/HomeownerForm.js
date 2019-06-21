@@ -1,36 +1,46 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {onBoarding, getToken} from '../../actions';
-// Here and Below matrial ui styles
-// import {makeStyles} from '@material-ui/styles';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { onBoarding, getToken } from '../../actions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import {withStyles, } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {compose} from 'recompose';
-
-// const useStyles = makeStyles({
-//   root: {
-//     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-//     border: 0,
-//     borderRadius: 3,
-//     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-//     color: 'white',
-//     height: 48,
-//     padding: '0 30px',
-//   },
-// });
-
-// export default function HomeownerForms() {
-//   const classes = useStyles();
-//   return <Button className={classes.root}>Hook</Button>;
-// }
+import { compose } from 'recompose';
 
 const styles = theme => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3)
+  },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#70C55D',
+    color: '#FFFFFF',
+    fontWeight: 600,
+    borderRadius: '20px',
+    transition: 'all 0.5s',
+    '&:hover': {
+      backgroundColor: '#FFFFFF',
+      color: '#70C55D',
+      border: '1px solid #70C55D'
+    }
+  },
+  rightIcon: {
+    marginLeft: theme.spacing(1)
+  },
+  button: {
+    // marginTop: theme.spacing(3),
+    // marginLeft: theme.spacing(1)
   }
 });
 
@@ -48,7 +58,7 @@ class HomeownerForm extends Component {
 
   componentWillMount() {
     this.props.getToken();
-    const {user} = this.props;
+    const { user } = this.props;
 
     if (user) {
       this.setState({
@@ -59,7 +69,11 @@ class HomeownerForm extends Component {
           nickname: user.nickname,
           email: user.email,
           phone_number: '',
-          address: ''
+          address: '',
+          account_type:
+            this.props.user && this.props.user.account_type
+              ? this.props.user.account_type
+              : ''
         },
         avatar: ''
       });
@@ -77,7 +91,7 @@ class HomeownerForm extends Component {
     }));
   };
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
     const user = {
       ...this.state.user,
@@ -85,14 +99,17 @@ class HomeownerForm extends Component {
     };
 
     user.avatar = this.state.avatar;
+    localStorage.setItem('account_type', 'homeowner');
 
-    this.props.onBoarding(user.id, user);
+    await this.props.onBoarding(this.props.user.id, user);
 
     console.log(this.props.user);
 
-    if (this.props.user && this.props.user.account_type === 'homeowner') {
+    // if (this.props.user && this.props.user.account_type === 'homeowner') {
+    //   this.props.history.push('/dashboard-homeowner');
+    // }
+    if (localStorage.token && localStorage.account_type === 'contractor')
       this.props.history.push('/dashboard-homeowner');
-    }
   };
 
   showWidget = widget => {
@@ -107,7 +124,7 @@ class HomeownerForm extends Component {
         tags: ['app']
       },
       (error, result) => {
-        let {secure_url} = result.info;
+        let { secure_url } = result.info;
         if (!error && result && result.event === 'success') {
           this.setState({
             avatar: secure_url
@@ -115,112 +132,122 @@ class HomeownerForm extends Component {
         }
       }
     );
-    const {classes} = this.props;
+
+    const { classes } = this.props;
 
     console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
     return (
-      // matrail ui portion
-      <Container component="main" maxWidth="xs">
-        <form onSubmit={this.onSubmit} id="user-onboarding">
-          {/* <div> */}
-            {/* <label htmlFor="first_name">First Name</label>
-            <input
-              onChange={this.onChange}
-              id="first_name"
-              type="text"
-              value={this.state.user.first_name}
-              placeholder="Enter first name"
-            /> */}
-          {/* </div> */}
-          <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                onChange={this.onChange}
-                label="First Name"
-                  id="first_name"
-                  value={this.state.user.first_name}
-                  variant="outlined"
-                  required
-                  fullWidth
-                  autoFocus
-                />
-              </Grid>
-              </Grid>
-          <div>
-            <label htmlFor="last_name">Last Name</label>
-            <input
-              onChange={this.onChange}
-              id="last_name"
-              type="text"
-              value={this.state.user.last_name}
-              placeholder="Enter last name"
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={this.onChange}
-              id="email"
-              type="email"
-              value={this.state.user.email}
-              placeholder="Enter email"
-            />
-          </div>
-          <div>
-            <label htmlFor="phone_number">Phone Number</label>
-            <input
-              onChange={this.onChange}
-              id="phone_number"
-              type="tel"
-              value={this.state.user.phone_number}
-              placeholder="Enter phone number"
-            />
-          </div>
-          <div>
-            <label htmlFor="address">Address</label>
-            <input
-              onChange={this.onChange}
-              id="address"
-              value={this.state.user.address}
-              type="text"
-              placeholder="Enter address"
-            />
-          </div>
-
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Submit
-          </Button>
-
-          <Button type="upload" variant="contained" className={classes.upload}>
-            Upload Pictures
-          </Button>
-
-          {/* <Button
-              onClick={() => this.props.addFeedback(this.state)}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
+      <>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <form
+              className={classes.form}
+              onSubmit={this.onSubmit}
+              id="user-onboarding"
+              noValidate
             >
-              Submit
-            </Button> */}
-        </form>
-      </Container>
-      // End of container
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    onChange={this.onChange}
+                    label="First Name"
+                    id="first_name"
+                    type="text"
+                    value={this.state.user.first_name}
+                    variant="outlined"
+                    required
+                    fullWidth
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    variant="outlined"
+                    fullWidth
+                    onChange={this.onChange}
+                    id="last_name"
+                    type="text"
+                    value={this.state.user.last_name}
+                    label="Last Name"
+                    autoComplete="last_name"
+                    required
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    onChange={this.onChange}
+                    id="email"
+                    type="email"
+                    value={this.state.user.email}
+                    label="Email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    onChange={this.onChange}
+                    id="phone_number"
+                    type="number"
+                    value={this.state.user.phone_number}
+                    label="Phone Number"
+                    autoComplete="phone_number"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    onChange={this.onChange}
+                    id="address"
+                    value={this.state.user.address}
+                    type="text"
+                    label="Address"
+                    autoComplete="address"
+                  />
+                </Grid>
+                <Grid item xs={12} lg={6}>
+                  <Typography variant="button" display="block" gutterBottom>
+                    Upload Pictures
+                  </Typography>
+                  <input
+                    onClick={() => {
+                      this.showWidget(widget);
+                    }}
+                    type="file"
+                    accept="image/*"
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                fullWidth
+                type="submit"
+                variant="contained"
+                size="large"
+                className={classes.submit}
+              >
+                Submit
+              </Button>
+            </form>
+          </div>
+          <Box mt={10} />
+        </Container>
+      </>
     );
   }
 }
 
-const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => {
+const mapStateToProps = ({ tokenReducer, onBoardingReducer }, props) => {
   return {
     user: tokenReducer.token,
     editedUser: onBoardingReducer.user
@@ -229,7 +256,7 @@ const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => {
 
 export default connect(
   mapStateToProps,
-  {onBoarding, getToken}
+  { onBoarding, getToken }
 )(compose(withStyles(styles))(HomeownerForm));
 
 /// Good Code below
