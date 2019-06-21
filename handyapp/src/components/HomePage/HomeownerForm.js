@@ -108,7 +108,7 @@ class HomeownerForm extends Component {
     // if (this.props.user && this.props.user.account_type === 'homeowner') {
     //   this.props.history.push('/dashboard-homeowner');
     // }
-    if (localStorage.token && localStorage.account_type === 'contractor')
+    if (localStorage.token && localStorage.account_type === 'homeowner')
       this.props.history.push('/dashboard-homeowner');
   };
 
