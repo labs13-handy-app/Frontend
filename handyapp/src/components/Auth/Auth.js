@@ -84,10 +84,12 @@ class Auth {
         ) {
           if (res.data.account_type === 'homeowner') {
             // navigate to the homeowner dashboard route
-            history.replace('/dashboard-homeowner');
+            history.replace(
+              `/dashboard-homeowner/users/${res.data.id}/projects/`
+            );
           } else {
             // navigate to the contractor dashboard route
-            history.replace('/dashboard-contractor');
+            history.replace(`/dashboard-contractor/projects/`);
           }
         } else {
           this.login();

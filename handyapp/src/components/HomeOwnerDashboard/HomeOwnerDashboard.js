@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import UserCard from '../UserCard/UserCard';
 import AddProject from '../AddProject/AddProject';
 import UserProjects from '../UserProjects/UserProjects';
+import EditProfile from '../EditProfile/EditProfile';
 import {getToken as getUser} from '../../actions';
 import Loader from 'react-loader-spinner';
 
@@ -48,6 +49,10 @@ class HomeOwnerDashboard extends Component {
           <Route
             path="/dashboard-homeowner/users/:id/add-project"
             render={props => <AddProject {...props} user={this.props.user} />}
+          />
+          <Route
+            path="/dashboard-homeowner/users/:id/edit-profile"
+            render={props => <EditProfile {...props} user={this.props.user} />}
           />
           <Route
             render={props => <UserProjects {...props} user={this.props.user} />}
