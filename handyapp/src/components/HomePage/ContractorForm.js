@@ -111,6 +111,7 @@ class ContractorForm extends Component {
     user.avatar = this.state.avatar;
 
     localStorage.setItem('account_type', 'contractor');
+    localStorage.setItem('isBoarded', 'true');
 
     await this.props.onBoarding(this.props.user.id, user);
 
