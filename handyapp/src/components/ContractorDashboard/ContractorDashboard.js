@@ -18,12 +18,8 @@ class ContractorDashboard extends Component {
   }
   render() {
     if (!localStorage.isBoarded) {
-<<<<<<< HEAD
-      this.props.history.push('/onboarding-contractor');
-=======
       this.props.history.push('/contractor-onboarding');
       // window.location.reload()
->>>>>>> master
     }
     if (
       !localStorage.account_type &&
