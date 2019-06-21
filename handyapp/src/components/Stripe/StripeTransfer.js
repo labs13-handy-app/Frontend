@@ -2,9 +2,7 @@ import React from 'react';
 import axiosWithAuth from '../../utils/AxiosAuth';
 import {getToken} from '../../actions';
 import {connect} from 'react-redux';
-import Payment from './Payment';
-import{getToken} from '../../actions'
-
+import Transfer from './Transfer';
 class StripeTransfer extends React.Component {
   componentDidMount() {
     this.props.getToken();

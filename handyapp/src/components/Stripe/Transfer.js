@@ -1,5 +1,6 @@
 import React from 'react';
-import{stripeTransfer} from '../../actions'
+import{paymentTransfer} from '../../actions'
+import {connect} from 'react-redux';
 
 
 class Transfer extends React.Component {
@@ -8,7 +9,8 @@ class Transfer extends React.Component {
         this.state={
             stripeEmail:props.user.email,
             stripe_id:props.user.payout_id,
-            stripeToken:'tok_visa',
+            // stripeToken:'tok_visa',
+            amount:500
             
         }
     }
@@ -17,13 +19,17 @@ class Transfer extends React.Component {
     render(){
         return(
             <div>
-            <button onClick={() => this.props.stripeTransfer(this.state)}>
+            <button onClick={() => this.props.paymentTransfer(this.state)}>
                     accept payment
             </button>
             </div>
         )
     }
 }
+const mapStateToProps = ({}, props) => {
+    return {
+    };
+  };
 
 export default connect(mapStateToProps,
-    {stripeTransfer})(Transfer)
+    {paymentTransfer})(Transfer)

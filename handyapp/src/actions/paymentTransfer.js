@@ -6,7 +6,7 @@ import {PAYMENT_TRANSFER_START,
 export const paymentTransfer = transfer => dispatch => {
     dispatch({type: PAYMENT_TRANSFER_START});
     return axiosWithAuth()
-      .post('https://handy-app-api.herokuapp.com/api/checkout/connect',transfer)
+      .post('https://handy-app-api.herokuapp.com/api/checkout/transfer',transfer)
       .then(res => {
         dispatch({type: PAYMENT_TRANSFER_SUCCESS, payload: res.data});
       })
