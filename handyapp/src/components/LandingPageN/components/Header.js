@@ -46,11 +46,13 @@ const Header = () => {
           }
         }
         .intro-logo h3 {
-          font-size: 1rem;
-          font-weight: 500;
+          font-size: 2rem;
+          font-weight: 300;
           //color: var(--gray-color-1);
           color: var(--brand-color);
-          margin-bottom: 3em;
+          // margin-bottom: 3em;
+          //border: 1px solid red;
+          margin-top: 1em;
         }
 
         .intro-logo img {

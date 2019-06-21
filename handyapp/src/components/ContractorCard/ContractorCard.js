@@ -25,8 +25,8 @@ class ContractorCard extends Component {
     console.log(this.props);
     let widget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'sandhu',
-        uploadPreset: 'clyrl6ow',
+        cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
+        uploadPreset: `${process.env.REACT_APP_CLOUDINARY_PRESET}`,
         tags: ['app']
       },
       async (error, result) => {

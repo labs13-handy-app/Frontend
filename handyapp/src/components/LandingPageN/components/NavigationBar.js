@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
-import {Container, Nav, NavItem, NavLink} from 'reactstrap';
+import React, { Component } from 'react';
+import { Container, Nav, NavItem, NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import Logo from '../../../img/Logo.png';
 
 class MobileMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {isOpen: false};
+    this.state = { isOpen: false };
   }
 
-  toggle = () => this.setState({isOpen: !this.state.isOpen});
+  toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
     console.log(this.props);
@@ -167,7 +168,8 @@ export default class NavigationBar extends Component {
     const navHeigth = parseInt(window.getComputedStyle(nav).height, 10);
     const scrollEl = document.scrollingElement;
     if (scrollEl.scrollTop > navHeigth) {
-      nav.style.position = 'fixed';
+      // nav.style.position = 'fixed';
+      nav.style.position = 'static';
       nav.classList.add('scroll-nav');
     } else {
       nav.style.position = 'static';
@@ -199,7 +201,10 @@ export default class NavigationBar extends Component {
 
             <Nav className="nav-n">
               <NavItem className="nav-item-n logo">
-                <NavLink href="/">handyApp</NavLink>
+                {/* <NavLink href="/">handyApp</NavLink> */}
+                <NavLink href="/">
+                  <img src={Logo} alt="logo" />
+                </NavLink>
               </NavItem>
               <NavItem className="nav-item-n ham" onClick={this.showNav}>
                 <NavLink href="">
@@ -234,6 +239,7 @@ export default class NavigationBar extends Component {
           --brand-color: #71c55d;
           --gray-color-1: #777;
           --gray-color-2: #555;
+          box-shadow: #e1dfdf 1px 0px 1px;
         }
         a {
           color: inherit;
@@ -266,7 +272,7 @@ export default class NavigationBar extends Component {
           }
           .nav-item-n {
             display: none;
-            font-size: 14px;
+            font-size: 18px;
             cursor: pointer;
             
           }
@@ -283,6 +289,7 @@ export default class NavigationBar extends Component {
           .logo {
             font-family: 'Philosopher', sans-serif;
             font-size: 2em;
+            
           }
           .logo:first-letter {
             color: var(--brand-color);
