@@ -17,7 +17,7 @@ class Payment extends React.Component {
         return(
             <div>
             <button onClick={() => this.props.newPayment(this.state)}>
-                Confrim Payment
+                Confirm Payment
             </button>
             </div>
         )

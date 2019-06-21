@@ -36,15 +36,19 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: '#FFFFFF',
       color: '#70C55D',
-      border: '1.8px solid #70C55D'
+      border: '1px solid #70C55D'
     }
   },
   textfield: {
-    // border: '1px solid  #70C55D',
+    // border: '1px solid red',
     // backgroundColor: '#ECF5EB'
+    // color: '#FFFFFF'
   },
   '&focus': {
     // backgroundColor: '#70C55D'
+  },
+  '&label': {
+    // color: 'red !important'
   }
 });
 
@@ -79,9 +83,8 @@ class FeedbackFormM extends Component {
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid item xs={12} className={classes.textfield}>
                 <TextField
-                  className={classes.textfield}
                   onChange={this.handleChanges}
                   label="Title"
                   name="title"
