@@ -46,8 +46,11 @@ class UserProject extends React.Component {
           <div className="user-description">
             <p>{this.props.description} </p>
           </div>
-          <button onClick={() => this.props.onDelete(this.props.id)}>
-            Delete
+          <button
+            className="delete"
+            onClick={() => this.props.onDelete(this.props.id)}
+          >
+            <i className="far fa-trash-alt" />
           </button>
         </div>
       </div>
