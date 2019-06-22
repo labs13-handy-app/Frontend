@@ -24,41 +24,19 @@ class UserProjects extends Component {
     if (!localStorage.token) {
       this.props.history.push('/');
     }
-
-    if (this.props.userProjects && this.props.userProjects.user) {
-      const {projects} = this.props.userProjects.user;
-
-      return (
-        <div className="project-container">
-          <h2>My Projects </h2>
-
-          {projects.map(p => {
-            return (
-              <UserProject
-                key={p.id}
-                id={p.id}
-                title={p.title}
-                description={p.description}
-                images={p.images ? p.images : ''}
-                thumbnail={p.images ? p.images[0] : ''}
-                bids={p.bids}
-                onDelete={this.onDelete}
-              />
-            );
-          })}
-        </div>
-      );
-    } else if (
-      this.props.userProjects &&
-      this.props.userProjects.projects &&
-      this.props.userProjects.projects.length < 0
-    ) {
+    if (!this.props.userProjects) {
       return (
         <div className="project-container empty">
           <Loader type="Oval" color="#4c5b48" height="100" width="100" />
         </div>
       );
-    } else {
+    }
+    if (
+      this.props.userProjects &&
+      this.props.userProjects.user &&
+      this.props.userProjects.user.projects &&
+      this.props.userProjects.user.projects.length === 0
+    ) {
       return (
         <div className="project-container">
           <h2>My Projects </h2>
@@ -78,6 +56,30 @@ class UserProjects extends Component {
         </div>
       );
     }
+
+    return (
+      <div className="project-container">
+        <h2>My Projects </h2>
+
+        {this.props.userProjects &&
+          this.props.userProjects.user &&
+          this.props.userProjects.user.projects &&
+          this.props.userProjects.user.projects.map(p => {
+            return (
+              <UserProject
+                key={p.id}
+                id={p.id}
+                title={p.title}
+                description={p.description}
+                images={p.images ? p.images : ''}
+                thumbnail={p.images ? p.images[0] : ''}
+                bids={p.bids}
+                onDelete={this.onDelete}
+              />
+            );
+          })}
+      </div>
+    );
   }
 }
 

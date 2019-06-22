@@ -93,23 +93,26 @@ class HomeownerForm extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
+    const account_type = localStorage.getItem('account_type');
     const user = {
       ...this.state.user,
+      account_type,
       isBoarded: true
     };
 
     user.avatar = this.state.avatar;
     localStorage.setItem('account_type', 'homeowner');
+    localStorage.setItem('firstName', user.first_name);
 
     await this.props.onBoarding(this.props.user.id, user);
-
-    console.log(this.props.user);
 
     // if (this.props.user && this.props.user.account_type === 'homeowner') {
     //   this.props.history.push('/dashboard-homeowner');
     // }
-    if (localStorage.token && localStorage.account_type === 'homeowner')
-      this.props.history.push('/dashboard-homeowner');
+    if (localStorage.token && localStorage.account_type === 'homeowner') {
+      const id = localStorage.getItem('userID');
+      this.props.history.push(`/dashboard-homeowner/users/${id}/projects`);
+    }
   };
 
   showWidget = widget => {

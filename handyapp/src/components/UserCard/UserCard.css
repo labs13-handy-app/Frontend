@@ -2,6 +2,8 @@
   width: 100%;
   /* height: 526px; */
   border-radius: 4px;
+  /* box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54); */
+  /* border: 1px solid #e2e2e2; */
   /* background: #fff; */
   font-size: 15px;
   color: #333;
@@ -31,6 +33,7 @@
   margin-bottom: 20px;
   border-radius: 50px;
 }
+
 .UserCard .user-info img {
   object-fit: cover;
 }
@@ -103,7 +106,6 @@
 .UserCard .tabs .tab {
   width: 100%;
   height: 58px;
-  padding: 20px 28px;
   text-align: center;
   /* border-bottom: 1px solid #f0f0f0; */
   /* display: flex;
@@ -124,21 +126,35 @@
 .UserCard .tabs .tab a.active {
   width: 100%;
   height: 46px;
-  padding: 12px 60px;
+  padding: 12px 40px;
   border-radius: 25px;
-  background: #e2eadf;
+  background: #538f40;
   font-size: 16px;
-  font-weight: 700;
-  color: #538f40;
+  font-weight: 500;
+  color: #f7f7f7;
   text-decoration: none;
   border: none;
-  transition: all 0.2s;
+  transition: all 0.3s;
   text-align: center;
   vertical-align: middle;
   outline: none;
   cursor: pointer;
 }
 
+.UserCard .tabs .tab a:hover {
+  color: #538f40;
+}
+
+.UserCard .tabs .tab a.active:hover {
+  background: #538f40;
+  color: #f7f7f7;
+}
+
 .UserCard .tabs .tab:nth-child(5) {
   border-bottom: none;
+}
+
+.UserCard .user-handle {
+  color: #13171276;
+  font-weight: 700;
 }

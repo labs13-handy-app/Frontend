@@ -1,5 +1,5 @@
 .project-container {
-  margin-top: 70px;
+  margin-top: 100px;
   width: 100%;
 }
 
@@ -19,6 +19,7 @@
 
 .project-container .message {
   font-size: 18px;
+  opacity: 0.8;
 }
 
 .content {
@@ -70,6 +71,7 @@
 }
 
 .project-container .action-button:hover {
-  background: #66895c;
+  transform: scale(1.1);
+  background: #538f40;
   color: #fff;
 }
