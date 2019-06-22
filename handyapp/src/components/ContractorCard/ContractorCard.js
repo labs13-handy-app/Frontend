@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import jsConvert from 'js-convert-case';
 import avatar from '../../img/default-avatar.png';
 import {getToken, onBoarding} from '../../actions';
 import Loader from 'react-loader-spinner';
@@ -23,7 +24,7 @@ class ContractorCard extends Component {
         <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
       );
     }
-    
+
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
@@ -54,18 +55,6 @@ class ContractorCard extends Component {
     return (
       <div className="ContractorCard">
         <div className="user-info">
-          <img
-            src={user.avatar ? user.avatar : avatar}
-            alt=""
-            className="active-user"
-            width="95px"
-            height="95px"
-          />
-          {user && (
-            <h4 className="username">
-              {user.first_name} {user.last_name}
-            </h4>
-          )}
           <button
             onClick={e => {
               e.preventDefault();
@@ -73,32 +62,48 @@ class ContractorCard extends Component {
             }}
             className="edit-photo"
           >
-            Edit Photo
+            <img
+              src={user.avatar ? user.avatar : avatar}
+              alt=""
+              className="active-user"
+              width="95px"
+              height="95px"
+            />
           </button>
+          {user && (
+            <>
+              <h4 className="username">
+                {jsConvert.toHeaderCase(user.first_name)} {user.last_name}
+              </h4>
+              <p className="contractor-handle">
+                @{user.first_name.toLowerCase()}
+              </p>
+            </>
+          )}
         </div>
         <div className="tabs">
           <div className="tab">
-            <div className="icon">
-              <i className="fas fa-clipboard-list" />
-            </div>
             <NavLink
               to={`/dashboard-contractor/projects`}
               className="tab-button"
             >
               Available Projects
-              <i className="fas fa-chevron-right" />
             </NavLink>
           </div>
           <div className="tab">
-            <div className="icon">
-              <i className="fab fa-stripe-s" />
-            </div>
+            <NavLink
+              to={`/dashboard-contractor/users/${user.id}/edit-profile`}
+              className="tab-button"
+            >
+              Edit Profile
+            </NavLink>
+          </div>
+          <div className="tab">
             <a
               href="https://dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_FC1yU4l4i7xldVGX8RcFaMBh5ipi5GBq&scope=read_write"
               className="tab-button"
             >
               Connect Stripe
-              <i className="fas fa-chevron-right" />
             </a>
           </div>
           <div />
@@ -109,7 +114,7 @@ class ContractorCard extends Component {
 }
 
 const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => ({
-user: tokenReducer.token,
+  user: tokenReducer.token
   // user: onBoardingReducer.user
 });
 
