@@ -117,7 +117,7 @@ class EditProfile extends Component {
                   id="phone"
                   format="(###) ###-####"
                   mask="_"
-                  placeholder="0000000000"
+                  placeholder="(000) 000-0000"
                   value={phone}
                 />
               </div>

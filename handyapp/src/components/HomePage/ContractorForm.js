@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { onBoarding, getToken } from '../../actions';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import jsConvert from 'js-convert-case';
+import {onBoarding, getToken} from '../../actions';
 //import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,9 +11,9 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 //import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { compose } from 'recompose';
+import {compose} from 'recompose';
 
 const styles = theme => ({
   paper: {
@@ -48,16 +49,10 @@ const styles = theme => ({
 class ContractorForm extends Component {
   state = {
     user: {
-      id: '',
       first_name: '',
       last_name: '',
-      isBoarded: false,
       nickname: '',
       phone_number: '',
-      account_type:
-        this.props.user && this.props.user.account_type
-          ? this.props.user.account_type
-          : '',
       address: '',
       skills: '',
       licenses: '',
@@ -68,22 +63,26 @@ class ContractorForm extends Component {
 
   componentWillMount() {
     this.props.getToken();
-    const { user } = this.props;
+    const {user} = this.props;
+
+    // user.account_type = localStorage.account_type;
+
     if (user) {
       this.setState({
         user: {
-          id: user.id,
-          first_name: user.nickname,
-          last_name: '',
-          isBoarded: false,
-          nickname: user.nickname,
-          email: user.email,
-          phone_number: '',
-          account_type: localStorage.account_type,
-          address: '',
-          skills: '',
-          licenses: '',
-          experience: ''
+          first_name: user.nickname
+            ? jsConvert.toHeaderCase(user.nickname)
+            : '',
+          last_name: user.last_name
+            ? jsConvert.toHeaderCase(user.last_name)
+            : '',
+          nickname: user.nickname ? user.nickname : '',
+          email: user.email ? user.email : '',
+          phone_number: user.phone_number ? user.phone_number : '',
+          address: user.address ? user.address : '',
+          skills: user.skills ? user.skills : '',
+          licenses: user.licenses ? user.licenses : '',
+          experience: user.experience ? user.experience : ''
         }
       });
     }
@@ -102,9 +101,11 @@ class ContractorForm extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
-
+    const account_type = localStorage.account_type;
     const user = {
       ...this.state.user,
+      id: this.props.user.id,
+      account_type,
       isBoarded: true
     };
 
@@ -131,7 +132,7 @@ class ContractorForm extends Component {
         tags: ['app']
       },
       (error, result) => {
-        let { secure_url } = result.info;
+        let {secure_url} = result.info;
         if (!error && result && result.event === 'success') {
           this.setState({
             avatar: secure_url
@@ -143,7 +144,7 @@ class ContractorForm extends Component {
       this.props.history.push('/');
     }
 
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     return (
       <Container component="main" maxWidth="sm">
@@ -164,6 +165,7 @@ class ContractorForm extends Component {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  onChange={this.onChange}
                   id="first_name"
                   type="text"
                   value={this.state.user.first_name}
@@ -295,7 +297,7 @@ class ContractorForm extends Component {
   }
 }
 
-const mapStateToProps = ({ tokenReducer }, props) => {
+const mapStateToProps = ({tokenReducer}, props) => {
   return {
     user: tokenReducer.token
   };
@@ -303,7 +305,7 @@ const mapStateToProps = ({ tokenReducer }, props) => {
 
 export default connect(
   mapStateToProps,
-  { onBoarding, getToken }
+  {onBoarding, getToken}
 )(compose(withStyles(styles))(ContractorForm));
 
 // import React, {Component} from 'react';

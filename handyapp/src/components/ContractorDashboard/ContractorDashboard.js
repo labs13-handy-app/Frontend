@@ -17,33 +17,15 @@ class ContractorDashboard extends Component {
     this.props.getUser();
   }
   render() {
-    if (
-      this.props.user &&
-      this.props.user.account_type === 'contractor' &&
-      !localStorage.isBoarded
-    ) {
+    console.log(this.props.user);
+    if (!localStorage.token) this.props.history.push('/');
+    if (this.props.user.isBoarded === false) {
       this.props.history.push('/contractor-onboarding');
-      // window.location.reload()
+      window.location.reload();
     }
-    if (
-      (localStorage.token &&
-        this.props.user &&
-        this.props.user.account_type === null) ||
-      this.props.user.account_type === ''
-    )
-      this.props.history.push('/onboarding');
-
-    // if (
-    //   !localStorage.account_type &&
-    //   localStorage.account_type !== 'contractor'
-    // ) {
-    //   localStorage.setItem('account_type', 'contractor');
-    // }
 
     if (localStorage.token && localStorage.account_type === 'homeowner')
       this.props.history.push('/dashboard-homeowner');
-
-    if (!localStorage.token) this.props.history.push('/');
 
     if (this.props.user === '') {
       return (
@@ -52,11 +34,7 @@ class ContractorDashboard extends Component {
         </div>
       );
     }
-    if (this.props.user.account_type === 'homeowner') {
-      this.props.history.push('/dashboard-homeowner');
-    } else if (this.props.user.account_type === null) {
-      this.props.history.push('/onboarding');
-    }
+
     return (
       <div className="Dashboard">
         <div className="side-panel">
