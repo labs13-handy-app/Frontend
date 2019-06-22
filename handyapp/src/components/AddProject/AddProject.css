@@ -9,7 +9,7 @@
 }
 
 .Add {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 
 .Add h2 {
@@ -35,6 +35,8 @@
   font-size: 14px;
   margin-bottom: 8px;
   padding: 0px;
+  color: #71a261;
+  font-weight: 500;
 }
 
 .AddProject form .form-items .form-item input {
@@ -48,7 +50,7 @@
 }
 
 .AddProject form .form-items .form-item input:focus {
-  border-bottom: 2px solid #71a261;
+  border-bottom: 1px solid #71a261;
   outline: none;
 }
 
@@ -68,7 +70,7 @@
 }
 
 .AddProject form .form-items .form-item textarea:focus {
-  border: 2px solid #71a261;
+  border: 1px solid #71a261;
   outline: none;
 }
 

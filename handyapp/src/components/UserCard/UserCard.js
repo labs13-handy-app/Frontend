@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
+import jsConvert from 'js-convert-case';
 import {getToken, onBoarding} from '../../actions';
 import avatar from '../../img/default-avatar.png';
 
@@ -11,17 +12,19 @@ class UserCard extends Component {
   state = {
     avatar: ''
   };
+
   showWidget = widget => {
     widget.open();
   };
 
   render() {
-    const {token: user} = this.props;
-    if (!user.first_name) {
+    if (!this.props.token) {
       return (
         <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
       );
     }
+    const {token: user} = this.props;
+
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
@@ -51,19 +54,6 @@ class UserCard extends Component {
     return (
       <div className="UserCard">
         <div className="user-info">
-          <img
-            src={user.avatar ? user.avatar : avatar}
-            alt=""
-            className="active-user"
-            width="95px"
-            height="95px"
-          />
-          {user && (
-            <h4 className="username">
-              {user.first_name} {user.last_name}
-            </h4>
-          )}
-
           <button
             onClick={e => {
               e.preventDefault();
@@ -71,8 +61,22 @@ class UserCard extends Component {
             }}
             className="edit-photo"
           >
-            Edit Photo
+            <img
+              src={user.avatar ? user.avatar : avatar}
+              alt=""
+              className="active-user"
+              width="95px"
+              height="95px"
+            />
           </button>
+          {user && (
+            <>
+              <h4 className="username">
+                {jsConvert.toHeaderCase(user.first_name)} {user.last_name}
+              </h4>
+              <p className="user-handle">@{user.first_name.toLowerCase()}</p>
+            </>
+          )}
         </div>
         <div className="tabs">
           <div className="tab">
@@ -82,19 +86,18 @@ class UserCard extends Component {
           </div>
           <div className="tab">
             <NavLink
-              to={`/dashboard-homeowner/users/${user.id}/edit-profile`}
-              className="tab-button"
-            >
-              Edit Profile
-            </NavLink>
-          </div>
-
-          <div className="tab">
-            <NavLink
               to={`/dashboard-homeowner/users/${user.id}/projects/`}
               className="tab-button"
             >
               My Projects
+            </NavLink>
+          </div>
+          <div className="tab">
+            <NavLink
+              to={`/dashboard-homeowner/users/${user.id}/edit-profile`}
+              className="tab-button"
+            >
+              Edit Profile
             </NavLink>
           </div>
         </div>

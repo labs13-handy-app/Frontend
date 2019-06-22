@@ -17,17 +17,28 @@ class ContractorDashboard extends Component {
     this.props.getUser();
   }
   render() {
-    if (!localStorage.isBoarded) {
+    if (
+      this.props.user &&
+      this.props.user.account_type === 'contractor' &&
+      !localStorage.isBoarded
+    ) {
       this.props.history.push('/contractor-onboarding');
       // window.location.reload()
     }
-
     if (
-      !localStorage.account_type &&
-      localStorage.account_type !== 'contractor'
-    ) {
-      localStorage.setItem('account_type', 'contractor');
-    }
+      (localStorage.token &&
+        this.props.user &&
+        this.props.user.account_type === null) ||
+      this.props.user.account_type === ''
+    )
+      this.props.history.push('/onboarding');
+
+    // if (
+    //   !localStorage.account_type &&
+    //   localStorage.account_type !== 'contractor'
+    // ) {
+    //   localStorage.setItem('account_type', 'contractor');
+    // }
 
     if (localStorage.token && localStorage.account_type === 'homeowner')
       this.props.history.push('/dashboard-homeowner');

@@ -27,6 +27,7 @@ class UserProject extends React.Component {
           >
             {this.state.images.map(image => (
               <GalleryImage
+                key={image}
                 className="carousel"
                 objectFit="cover"
                 src={image}

@@ -11,9 +11,10 @@ import 'bootstrap/dist/js/bootstrap.js';
 
 function LandingPage(props) {
   if (localStorage.token && localStorage.account_type === 'homeowner') {
-    props.history.push(`/dashboard-homeowner`);
+    const id = localStorage.get('userID');
+    props.history.push(`/dashboard-homeowner/users/${id}/projects`);
   } else if (localStorage.token && localStorage.account_type === 'contractor') {
-    props.history.push(`/dashboard-contractor`);
+    props.history.push(`/dashboard-contractor/projects`);
   }
   return (
     <div className="app-wrapper">

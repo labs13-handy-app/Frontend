@@ -84,10 +84,13 @@ class Auth {
         ) {
           if (res.data.account_type === 'homeowner') {
             // navigate to the homeowner dashboard route
+            localStorage.setItem('userID', res.data.id);
+            localStorage.setItem('firstName', res.data.first_name);
             history.replace(
               `/dashboard-homeowner/users/${res.data.id}/projects/`
             );
           } else {
+            localStorage.setItem('userID', res.data.id);
             // navigate to the contractor dashboard route
             history.replace(`/dashboard-contractor/projects/`);
           }
@@ -122,6 +125,8 @@ class Auth {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('token');
     localStorage.removeItem('account_type');
+    localStorage.removeItem('userID');
+    localStorage.removeItem('firstName');
 
     this.auth0.logout({
       returnTo: window.location.origin
