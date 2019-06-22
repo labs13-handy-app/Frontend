@@ -120,12 +120,6 @@ class EditProfile extends Component {
                   placeholder="0000000000"
                   value={phone}
                 />
-                {/* <input
-                  type="text"
-                  onChange={this.onChange}
-                  
-                  id="phone"
-                /> */}
               </div>
               <div className="form-footer">
                 <div className="user-form-item">
