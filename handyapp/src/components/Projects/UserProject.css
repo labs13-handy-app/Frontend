@@ -82,14 +82,20 @@
 }
 
 .delete {
+  background: #e2eadf;
+  border-radius: 50%;
   border: 0;
-  color: #46613d7e;
+  color: #538f40;
   outline: none;
-  text-align: start;
-  padding: 0;
-  transition: all 0.3s;
+  /* text-align: start; */
+  width: 42px;
+  height: 42px;
+  transition: all 0.2s;
 }
 .delete:hover {
-  color: #538f40;
-  transform: scale(1.2);
+  transform: scale(1.1);
+}
+
+.UserProject button {
+  outline: none;
 }
