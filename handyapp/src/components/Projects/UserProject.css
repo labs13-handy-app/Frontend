@@ -80,3 +80,22 @@
   font-weight: 700;
   color: #538f40;
 }
+
+.delete {
+  background: #e2eadf;
+  border-radius: 50%;
+  border: 0;
+  color: #538f40;
+  outline: none;
+  /* text-align: start; */
+  width: 42px;
+  height: 42px;
+  transition: all 0.2s;
+}
+.delete:hover {
+  transform: scale(1.1);
+}
+
+.UserProject button {
+  outline: none;
+}
