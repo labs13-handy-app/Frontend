@@ -2,12 +2,12 @@
   width: 100%;
   /* height: 526px; */
   border-radius: 4px;
-  background: #fff;
+  /* background: #fff; */
   /* border: 1px solid #e2e2e2; */
   font-size: 15px;
   color: #333;
   font-weight: 600;
-  box-shadow: 0 12px 20px rgba(128, 128, 128, 0.28);
+  /* box-shadow: 0 12px 20px rgba(128, 128, 128, 0.28); */
   margin-top: 60px;
   padding: 20px;
   padding-bottom: 0;
@@ -15,7 +15,7 @@
 }
 
 .ContractorCard .user-info {
-  border-bottom: 1px solid #f0f0f0;
+  /* border-bottom: 1px solid #f0f0f0; */
   padding-top: 37px;
   padding-bottom: 16px;
   /* padding-left: 50px;
@@ -63,7 +63,7 @@
 .ContractorCard .tabs .tab-top {
   width: 100%;
   height: 70px;
-  border-bottom: 1px solid #f0f0f0;
+  /* border-bottom: 1px solid #f0f0f0; */
   padding: 12px 28px;
   text-align: center;
 }
@@ -99,18 +99,12 @@
 .ContractorCard .tabs .tab {
   width: 100%;
   height: 58px;
-  padding: 20px 28px;
-  text-align: left;
-  border-bottom: 1px solid #f0f0f0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  /* border-bottom: 1px solid #f0f0f0; */
 }
 
 .ContractorCard .tabs .tab .tab-button {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   text-decoration: none;
   color: #373737;
@@ -118,11 +112,28 @@
 }
 
 .ContractorCard .tabs .tab a.active {
-  font-weight: 700;
-  color: #0e2113;
-  opacity: 0.8;
+  width: 100%;
+  height: 46px;
+  padding: 12px 40px;
+  border-radius: 25px;
+  background: #538f40;
+  font-size: 16px;
+  font-weight: 500;
+  color: #f7f7f7;
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
 }
 
 .ContractorCard .tabs .tab:nth-child(5) {
   border-bottom: none;
+}
+
+.ContractorCard .contractor-handle {
+  color: #13171276;
+  font-weight: 700;
 }
