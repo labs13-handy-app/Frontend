@@ -9,7 +9,7 @@
 }
 
 .Add {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 
 .Add h2 {
@@ -35,6 +35,8 @@
   font-size: 14px;
   margin-bottom: 8px;
   padding: 0px;
+  color: #71a261;
+  font-weight: 500;
 }
 
 .AddProject form .form-items .form-item input {
@@ -48,12 +50,54 @@
 }
 
 .AddProject form .form-items .form-item input:focus {
-  border-bottom: 2px solid #71a261;
+  border-bottom: 1px solid #71a261;
   outline: none;
 }
 
 .AddProject form .form-items .form-item input::placeholder {
   color: #c1c1c1;
+}
+
+.AddProject form .form-items .core-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.AddProject form .form-items .core-info .radio .form-item-radio label {
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding: 0px;
+  color: #71a261;
+  font-weight: 500;
+}
+
+.AddProject form .form-items .core-info .radio {
+  width: 20%;
+}
+
+.AddProject form .form-items .core-info .radio .checks {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.AddProject form input[type='radio'] {
+  margin-right: 12px;
+  /* border: 1px solid #e2e2e2 !important; */
+  border: 0 !important;
+}
+
+.AddProject form .form-items .core-info .radio .checks .form-item-check label {
+  color: rgb(79, 79, 79);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.AddProject form .form-items .core-info .budget {
+  width: 48%;
 }
 
 .AddProject form .form-items .form-item textarea {
@@ -68,7 +112,7 @@
 }
 
 .AddProject form .form-items .form-item textarea:focus {
-  border: 2px solid #71a261;
+  border: 1px solid #71a261;
   outline: none;
 }
 
@@ -119,5 +163,5 @@
 }
 
 .AddProject form .upload:hover {
-  box-shadow: 0 5px 10px rgba(145, 145, 145, 0.54);
+  transform: scale(1.1);
 }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import UserProject from '../Projects/UserProject';
-import {getUserProjects} from '../../actions';
+import {getUserProjects, deleteProject} from '../../actions';
 import Loader from 'react-loader-spinner';
 
 import './UserProjects.css';
@@ -13,44 +13,30 @@ class UserProjects extends Component {
     this.props.getUserProjects(user.id);
   }
 
+  onDelete = id => {
+    this.props.deleteProject(id);
+    setTimeout(() => {
+      this.props.getUserProjects(this.props.user.id);
+    }, 400);
+  };
+
   render() {
     if (!localStorage.token) {
       this.props.history.push('/');
     }
-
-    if (this.props.userProjects && this.props.userProjects.user) {
-      const {projects} = this.props.userProjects.user;
-
-      return (
-        <div className="project-container">
-          <h2>My Projects </h2>
-
-          {projects.map(p => {
-            return (
-              <UserProject
-                key={p.id}
-                id={p.id}
-                title={p.title}
-                description={p.description}
-                images={p.images ? p.images : ''}
-                thumbnail={p.images ? p.images[0] : ''}
-                bids={p.bids}
-              />
-            );
-          })}
-        </div>
-      );
-    } else if (
-      this.props.userProjects &&
-      this.props.userProjects.projects &&
-      this.props.userProjects.projects.length < 0
-    ) {
+    if (!this.props.userProjects) {
       return (
         <div className="project-container empty">
           <Loader type="Oval" color="#4c5b48" height="100" width="100" />
         </div>
       );
-    } else {
+    }
+    if (
+      this.props.userProjects &&
+      this.props.userProjects.user &&
+      this.props.userProjects.user.projects &&
+      this.props.userProjects.user.projects.length === 0
+    ) {
       return (
         <div className="project-container">
           <h2>My Projects </h2>
@@ -70,6 +56,31 @@ class UserProjects extends Component {
         </div>
       );
     }
+
+    return (
+      <div className="project-container">
+        <h2>My Projects </h2>
+
+        {this.props.userProjects &&
+          this.props.userProjects.user &&
+          this.props.userProjects.user.projects &&
+          this.props.userProjects.user.projects.map(p => {
+            return (
+              <UserProject
+                key={p.id}
+                id={p.id}
+                title={p.title}
+                description={p.description}
+                images={p.images ? p.images : ''}
+                thumbnail={p.images ? p.images[0] : ''}
+                bids={p.bids}
+                materials_included={p.materials_included}
+                onDelete={this.onDelete}
+              />
+            );
+          })}
+      </div>
+    );
   }
 }
 
@@ -80,5 +91,5 @@ const mapStateToProps = ({getUserProjectsReducer}, props) => {
 };
 export default connect(
   mapStateToProps,
-  {getUserProjects}
+  {getUserProjects, deleteProject}
 )(UserProjects);

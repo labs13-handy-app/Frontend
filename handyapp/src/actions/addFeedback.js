@@ -5,11 +5,13 @@ import {
   ADD_FEEDBACK_FAILURE
 } from '../actions';
 
-export const addFeedback = feedback => dispatch => {
+export const addFeedback = (feedback, history) => dispatch => {
   dispatch({type: ADD_FEEDBACK_START});
 
   return axiosWithAuth()
     .post(`${process.env.REACT_APP_API_URL}/feedback`, feedback)
-    .then(res => dispatch({type: ADD_FEEDBACK_SUCCESS, payload: res.body}))
+    .then(res => { window.location.reload()
+      dispatch({type: ADD_FEEDBACK_SUCCESS, payload: res.body})
+})
     .catch(err => dispatch({type: ADD_FEEDBACK_FAILURE, payload: err.message}));
 };

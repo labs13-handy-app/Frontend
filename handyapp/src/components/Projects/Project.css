@@ -1,4 +1,4 @@
-.UserProject {
+.ContractorProject {
   max-width: 90%;
   /* height: 244px; */
   display: flex;
@@ -12,7 +12,7 @@
   box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54);
 }
 
-.UserProject .user-project-image {
+.ContractorProject .contractor-project-image {
   width: 100%;
   height: 218px;
   background: url('../../img/Placeholder-image.png') no-repeat center
@@ -22,7 +22,7 @@
   position: relative;
 }
 
-.UserProject .user-project-image img {
+.ContractorProject .contractor-project-image img {
   width: 100%;
   height: 100%;
   border: none;
@@ -31,11 +31,11 @@
   border-radius: 4px 4px 0 0;
 }
 
-.UserProject .user-project-image:hover img {
+.ContractorProject .contractor-project-image:hover img {
   filter: brightness(60%);
 }
 
-.UserProject .user-project-image p {
+.ContractorProject .contractor-project-image p {
   z-index: 0;
   width: 100%;
   position: absolute;
@@ -46,7 +46,7 @@
   text-transform: uppercase;
 }
 
-.UserProject .user-project-image:hover p {
+.ContractorProject .contractor-project-image:hover p {
   z-index: 1;
   width: 100%;
   text-align: center;
@@ -55,11 +55,11 @@
   opacity: 1;
 }
 
-.UserProject .user-project-image .user-image-label {
+.ContractorProject .contractor-project-image .image-label {
   top: 50%;
 }
 
-.UserProject .user-project-content {
+.ContractorProject .contractor-project-content {
   width: 100%;
   padding: 22px 55px;
   display: flex;
@@ -68,31 +68,42 @@
   align-items: flex-start;
 }
 
-.UserProject .user-project-content h2 {
+.ContractorProject .contractor-project-content h2 {
   margin: 0;
   font-size: 24px;
   color: #464646;
   font-weight: 700;
   margin-bottom: 16px;
 }
-.UserProject .user-project-content .info {
+
+.ContractorProject .contractor-project-content .c-info {
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
 
-.UserProject .user-project-content .info i {
+.ContractorProject .posted-by {
+  font-size: 14px;
+}
+
+.ContractorProject .posted-by .project-username {
+  font-size: 14px;
+  font-weight: 700;
+  color: #252924;
+}
+
+.ContractorProject .contractor-project-content .c-info i {
   margin-right: 6px;
   color: #71a261;
 }
 
-.UserProject .user-project-content .info p {
+.ContractorProject .contractor-project-content .c-info p {
   font-size: 14px;
   margin: 0;
   margin-right: 60px;
 }
 
-.UserProject .user-project-content .user-description {
+.ContractorProject .contractor-project-content .contractor-description {
   width: 100%;
   color: #686868;
   font-weight: 300;
@@ -101,33 +112,24 @@
   margin-bottom: 20px;
 }
 
-.UserProject .user-project-content .user-description p {
+.ContractorProject .contractor-project-content .contractor-description p {
   font-size: 16px;
   margin: 0;
 }
-.user-view-bids {
-  margin-left: 10px;
-  text-decoration: none;
-  font-weight: 700;
-  color: #538f40;
-}
 
-.delete {
-  background: #e2eadf;
-  border-radius: 50%;
+.ContractorProject .timestamp {
+  font-size: 13px;
+  color: #8d9b88;
+  font-weight: 500;
+}
+.ContractorProject .image-modal {
+  width: 100%;
   border: 0;
-  color: #538f40;
-  outline: none;
-  /* text-align: start; */
-  width: 42px;
-  height: 42px;
-  transition: all 0.2s;
-}
-.delete:hover {
-  transform: scale(1.1);
+  background: none;
+  padding: 0;
 }
 
-.UserProject .user-project-footer {
+.ContractorProject .contractor-project-footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -135,24 +137,27 @@
   margin-top: 10px;
 }
 
-.UserProject button {
+.ContractorProject button {
   outline: none;
 }
 
-.UserProject .timestamp {
-  font-size: 13px;
-  color: #8d9b88;
-  font-weight: 500;
-}
-.UserProject .image-modal {
-  width: 100%;
+.place-bid {
+  background: #71a261;
+  border-radius: 4px;
+  padding: 10px 20px;
   border: 0;
-  background: none;
-  padding: 0;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
 }
 
-.UserProject .image-modal img {
-  width: 100%;
+.place-bid i {
+  margin-right: 8px;
+}
+
+.place-bid:hover {
+  background: #538f40;
+  font-weight: 500;
+  transform: scale(1.1);
 }
 
 .ReactModal__Content--after-open {

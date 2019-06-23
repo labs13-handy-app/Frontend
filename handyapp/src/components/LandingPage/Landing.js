@@ -89,7 +89,8 @@ const Landing = props => {
     setActiveStep(step);
   }
   if (localStorage.token && localStorage.account_type === 'homeowner') {
-    props.history.push(`/dashboard-homeowner`);
+    const id = localStorage.getItem('userID');
+    props.history.push(`/dashboard-homeowner/users/${id}/projects`);
   } else if (localStorage.token && localStorage.account_type === 'contractor') {
     props.history.push(`/dashboard-contractor`);
   }

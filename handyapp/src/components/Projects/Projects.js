@@ -31,15 +31,18 @@ class Projects extends Component {
               if (project.isActive === 1 || project.isActive === true) {
                 return (
                   <Project
-                    title={project.name}
+                    title={project.title}
                     key={project.id}
                     description={project.description}
                     homeowner_id={project.homeowner_id}
                     materials_included={project.materials_included}
-                    first_name={project.name}
+                    first_name={project.first_name}
                     last_name={project.last_name}
-                    thumbnail={project.thumbnail}
+                    thumbnail={project.images[0]}
+                    images={project.images}
                     id={project.id}
+                    avatar={project.avatar}
+                    timestamp={project.created_at}
                   />
                 );
               } else if (project.isActive === 0 || project.isActive === false) {

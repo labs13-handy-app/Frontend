@@ -41,7 +41,7 @@ class Onboarding extends Component {
   };
 
   handleContractor = async () => {
-    this.setState({
+    await this.setState({
       user: this.props.user,
       account_type: 'contractor'
     });
@@ -53,7 +53,7 @@ class Onboarding extends Component {
       account_type: this.state.account_type
     };
 
-    await this.props.editUser(this.props.user.id, editedUser);
+    await this.props.editUser(editedUser.id, editedUser);
 
     if (localStorage.account_type === 'contractor')
       this.props.history.push('/contractor-onboarding');
