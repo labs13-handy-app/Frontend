@@ -1,7 +1,7 @@
 import React from 'react';
-import placeholder from '../../img/Placeholder-image.png';
 import {Link} from 'react-router-dom';
-import {Gallery, GalleryImage} from 'react-gesture-gallery';
+import Lightbox from 'react-image-lightbox';
+import placeholder from '../../img/Placeholder-image.png';
 
 import './Project.css';
 
@@ -10,7 +10,8 @@ class Project extends React.Component {
     super(props);
     this.state = {
       images: this.props.images ? this.props.images.map(image => image) : '',
-      index: 0
+      index: 0,
+      isOpen: false
     };
   }
 
@@ -20,23 +21,48 @@ class Project extends React.Component {
     }
     return (
       <div className="ContractorProject">
-        <div className="contractor-project-image">
-          <Gallery
-            index={this.state.index}
-            onRequestChange={i => {
-              this.setState({index: i});
-            }}
-          >
-            {this.state.images.map(image => (
-              <GalleryImage
-                key={image}
-                className="carousel"
-                objectFit="cover"
-                src={image}
-              />
-            ))}
-          </Gallery>
-        </div>
+        <button
+          className="image-modal"
+          onClick={() => {
+            this.state.images.length > 0 ? this.setState({isOpen: true}) : null;
+          }}
+        >
+          <div className="contractor-project-image">
+            <img
+              src={this.state.images ? this.state.images[0] : placeholder}
+              alt={this.state.images.length > 0 ? 'project-images' : ''}
+            />
+          </div>
+        </button>
+        {this.state.isOpen && (
+          <Lightbox
+            mainSrc={this.state.images[this.state.index]}
+            nextSrc={
+              this.state.images[
+                (this.state.index + 1) % this.state.images.length
+              ]
+            }
+            prevSrc={
+              this.state.images[
+                (this.state.index + this.state.images.length - 1) %
+                  this.state.images.length
+              ]
+            }
+            onCloseRequest={() => this.setState({isOpen: false})}
+            onMovePrevRequest={() =>
+              this.setState({
+                index:
+                  (this.state.index + this.state.images.length - 1) %
+                  this.state.images.length
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                index: (this.state.index + 1) % this.state.images.length
+              })
+            }
+          />
+        )}
         <div className="contractor-project-content">
           <div className="contractor-project-info">
             <h2>{this.props.title}</h2>
