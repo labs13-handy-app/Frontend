@@ -15,25 +15,22 @@ export default () => {
           <Col md="6" lg="4" className="text-center s1-advice">
             <img className="s1-avatar" src={Post} alt="" />
             <h3>Post Your Task</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry
-            </p>
+            <p>Tell us what you need done, when and where it works for you.</p>
           </Col>
           <Col md="6" lg="4" className="text-center s1-advice">
             <img className="s1-avatar" src={Choice} alt="" />
             <h3>Choose Your Tasker</h3>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry
+              Browse trusted Taskers by skills and reviews. Select the right
+              person for the job.
             </p>
           </Col>
           <Col md="6" lg="4" className="text-center s1-advice">
             <img className="s1-avatar" src={Done} alt="" />
             <h3>Get It Done</h3>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry
+              Your Tasker arrives and gets the job done. Pay securely and leave
+              a review.
             </p>
           </Col>
         </Row>
@@ -75,7 +72,7 @@ export default () => {
         }
         .s1-advice p {
             margin-top: 2em;
-            font-size: .95em;
+            font-size: 1em;
             line-height: 2;
             color: dimgray;
         }

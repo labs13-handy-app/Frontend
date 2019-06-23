@@ -32,7 +32,7 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: '#FFFFFF',
       color: '#70C55D',
-      border: '1px solid #70C55D'
+      // border: '1px solid #70C55D'
     }
   },
   rightIcon: {

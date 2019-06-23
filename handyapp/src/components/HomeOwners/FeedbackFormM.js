@@ -74,7 +74,7 @@ class FeedbackFormM extends Component {
     return (
       <Container component="main" maxWidth="sm">
         <div className={classes.paper}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="button" display="block" gutterBottom>
             Feedback Form
           </Typography>
           <Typography variant="caption" display="block" gutterBottom>

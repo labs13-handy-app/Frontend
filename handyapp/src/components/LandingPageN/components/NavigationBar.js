@@ -167,8 +167,8 @@ export default class NavigationBar extends Component {
     const navHeigth = parseInt(window.getComputedStyle(nav).height, 10);
     const scrollEl = document.scrollingElement;
     if (scrollEl.scrollTop > navHeigth) {
-      // nav.style.position = 'fixed';
-      nav.style.position = 'static';
+      nav.style.position = 'fixed';
+      // nav.style.position = 'static';
       nav.classList.add('scroll-nav');
     } else {
       nav.style.position = 'static';

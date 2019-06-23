@@ -37,7 +37,7 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: '#FFFFFF',
       color: '#70C55D',
-      border: '1px solid #70C55D'
+      // border: '1px solid #70C55D'
     }
   },
   rightIcon: {
@@ -152,7 +152,7 @@ class ContractorForm extends Component {
           {/* <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar> */}
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="button" display="block" gutterBottom>
             Complete your profile
           </Typography>
           <form
