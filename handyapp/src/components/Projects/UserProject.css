@@ -18,14 +18,45 @@
   background: url('../../img/Placeholder-image.png') no-repeat center
     center/cover;
   border-radius: 4px 4px 0 0;
+  display: inline-block;
+  position: relative;
 }
 
 .UserProject .user-project-image img {
   width: 100%;
   height: 100%;
   border: none;
+  object-position: top;
   object-fit: cover;
   border-radius: 4px 4px 0 0;
+}
+
+.UserProject .user-project-image:hover img {
+  filter: brightness(60%);
+}
+
+.UserProject .user-project-image p {
+  z-index: 0;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  transition: all 0.3s;
+  opacity: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.UserProject .user-project-image:hover p {
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.UserProject .user-project-image .user-image-label {
+  top: 50%;
 }
 
 .UserProject .user-project-content {

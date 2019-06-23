@@ -1,5 +1,4 @@
 import React from 'react';
-import {Gallery, GalleryImage} from 'react-gesture-gallery';
 import {Link} from 'react-router-dom';
 import Lightbox from 'react-image-lightbox';
 import moment from 'moment';
@@ -19,35 +18,32 @@ class UserProject extends React.Component {
       isOpen: false
     };
   }
+
+  handleModal = () => {
+    if (this.state.images.length > 0) {
+      this.setState({isOpen: true});
+    }
+  };
   render() {
     return (
       <div className="UserProject">
-        <button
-          className="image-modal"
-          onClick={() => this.setState({isOpen: true})}
-        >
-          <div className="user-project-image">
-            <img
-              src={this.state.images ? this.state.images[0] : placeholder}
-              alt="project-images"
-            />
-            {/* <Gallery
-              index={this.state.index}
-              onRequestChange={i => {
-                this.setState({index: i});
-              }}
-            >
-              {this.state.images.map(image => (
-                <GalleryImage
-                  key={image}
-                  className="carousel"
-                  objectFit="cover"
-                  src={image}
-                />
-              ))}
-            </Gallery> */}
-          </div>
-        </button>
+        {this.state.images.length > 0 && (
+          <button className="image-modal" onClick={this.handleModal}>
+            <div className="user-project-image">
+              <img
+                src={
+                  this.state.images.length > 0
+                    ? this.state.images[0]
+                    : placeholder
+                }
+                alt={this.state.images.length > 0 ? 'project-images' : ''}
+              />
+              {this.state.images.length > 0 && (
+                <p className="user-image-label">View More</p>
+              )}
+            </div>
+          </button>
+        )}
         {this.state.isOpen && (
           <Lightbox
             mainSrc={this.state.images[this.state.index]}
