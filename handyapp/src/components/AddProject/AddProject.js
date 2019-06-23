@@ -16,6 +16,7 @@ class AddProject extends Component {
           ? this.props.user.id
           : this.props.match.params.id,
         materials_included: 'no',
+        budget: '',
         images: []
       }
     };
@@ -32,8 +33,20 @@ class AddProject extends Component {
     }));
   };
 
+  handleRadioChange = e => {
+    e.persist();
+    this.setState(prevState => ({
+      project: {
+        ...prevState.project,
+        materials_included: e.target.value
+      }
+    }));
+  };
+
   onSubmit = async e => {
     e.preventDefault();
+
+    console.log(this.state.project);
 
     await this.props.addProject(this.state.project);
 
@@ -81,6 +94,59 @@ class AddProject extends Component {
                   placeholder="Enter title"
                 />
               </div>
+
+              <div className="core-info">
+                <div className="radio">
+                  <div className="form-item-radio">
+                    <label>Materials Provided?</label>
+                  </div>
+                  <div className="checks">
+                    <div className="form-item-check">
+                      <label htmlFor="yes">
+                        <input
+                          className="box"
+                          onChange={this.handleRadioChange}
+                          checked={
+                            this.state.project.materials_included === 'yes'
+                          }
+                          type="radio"
+                          id="yes"
+                          value="yes"
+                        />
+                        Yes
+                      </label>
+                    </div>
+                    <div className="form-item-check">
+                      <label htmlFor="no">
+                        <input
+                          className="box"
+                          onChange={this.handleRadioChange}
+                          checked={
+                            this.state.project.materials_included === 'no'
+                          }
+                          type="radio"
+                          id="no"
+                          value="no"
+                        />
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="budget">
+                  <div className="form-item">
+                    <label htmlFor="title">Budget</label>
+                    <input
+                      onChange={this.onInputChange}
+                      type="text"
+                      id="budget"
+                      value={this.state.project.budget}
+                      placeholder="$0"
+                    />
+                  </div>
+                </div>
+              </div>
+
               <div className="form-item">
                 <label htmlFor="description">Description</label>
                 <textarea

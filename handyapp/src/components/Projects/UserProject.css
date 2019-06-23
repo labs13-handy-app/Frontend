@@ -96,6 +96,38 @@
   transform: scale(1.1);
 }
 
+.UserProject .user-project-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
+}
+
 .UserProject button {
   outline: none;
+}
+
+.UserProject .timestamp {
+  font-size: 13px;
+  color: #8d9b88;
+  font-weight: 500;
+}
+.UserProject .image-modal {
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.UserProject .image-modal img {
+  width: 100%;
+}
+
+.ReactModal__Content--after-open {
+  background-color: rgba(0, 0, 0, 0.489) !important;
+}
+
+.ril__toolbar {
+  display: none;
 }

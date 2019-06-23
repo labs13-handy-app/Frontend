@@ -74,6 +74,7 @@ class UserProjects extends Component {
                 images={p.images ? p.images : ''}
                 thumbnail={p.images ? p.images[0] : ''}
                 bids={p.bids}
+                materials_included={p.materials_included}
                 onDelete={this.onDelete}
               />
             );
