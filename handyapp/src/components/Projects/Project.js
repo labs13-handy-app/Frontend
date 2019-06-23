@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Lightbox from 'react-image-lightbox';
+import moment from 'moment';
 import placeholder from '../../img/Placeholder-image.png';
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 
 import './Project.css';
 
@@ -15,25 +17,35 @@ class Project extends React.Component {
     };
   }
 
+  handleModal = () => {
+    if (this.state.images.length > 0) {
+      this.setState({isOpen: true});
+    }
+  };
+
   render() {
     if (!localStorage.token) {
       this.props.history.push('/');
     }
     return (
       <div className="ContractorProject">
-        <button
-          className="image-modal"
-          onClick={() => {
-            this.state.images.length > 0 ? this.setState({isOpen: true}) : null;
-          }}
-        >
-          <div className="contractor-project-image">
-            <img
-              src={this.state.images ? this.state.images[0] : placeholder}
-              alt={this.state.images.length > 0 ? 'project-images' : ''}
-            />
-          </div>
-        </button>
+        {this.state.images.length > 0 && (
+          <button className="image-modal" onClick={this.handleModal}>
+            <div className="contractor-project-image">
+              <img
+                src={
+                  this.state.images.length > 0
+                    ? this.state.images[0]
+                    : placeholder
+                }
+                alt={this.state.images.length > 0 ? 'project-images' : ''}
+              />
+              {this.state.images.length > 0 && (
+                <p className="image-label">View More</p>
+              )}
+            </div>
+          </button>
+        )}
         {this.state.isOpen && (
           <Lightbox
             mainSrc={this.state.images[this.state.index]}
@@ -66,13 +78,25 @@ class Project extends React.Component {
         <div className="contractor-project-content">
           <div className="contractor-project-info">
             <h2>{this.props.title}</h2>
+            <p className="posted-by">
+              Posted By{' '}
+              <span className="project-username">
+                {this.props.first_name} {this.props.last_name}
+              </span>
+            </p>
             <div className="c-info">
-              <p>
-                <i className="fas fa-tools" />
-                {this.props.materials_included === 'yes'
-                  ? 'Materials Included'
-                  : 'No materials included'}
-              </p>
+              {this.props.materials_included === 'yes' ? (
+                <p>
+                  <i class="fas fa-hammer" />
+                  Materials Included
+                </p>
+              ) : (
+                <p>
+                  <i className="fas fa-tools" />
+                  No materials included
+                </p>
+              )}
+
               <p>
                 <i className="fas fa-gavel" />
                 <span>
@@ -86,12 +110,20 @@ class Project extends React.Component {
             <div className="contractor-description">
               <p>{this.props.description} </p>
             </div>
-            <Link to={`/add-bid/${this.props.id}`}>
-              <button className="place-bid">
-                <i className="fas fa-plus" />
-                Place Bid
-              </button>
-            </Link>
+            <div className="contractor-project-footer">
+              <Link to={`/add-bid/${this.props.id}`}>
+                <button className="place-bid">
+                  <i className="fas fa-plus" />
+                  Place Bid
+                </button>
+              </Link>
+              <p className="timestamp">
+                {moment(
+                  `${this.props.timestamp.slice(0, 10)}`,
+                  'YYYYMMDD'
+                ).fromNow()}
+              </p>
+            </div>
           </div>
         </div>
       </div>
