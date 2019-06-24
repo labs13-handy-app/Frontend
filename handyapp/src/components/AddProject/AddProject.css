@@ -152,6 +152,10 @@
   background: #328210;
 }
 
+.AddProject form .add-project:focus {
+  outline: none;
+}
+
 .disable {
   height: 50px;
   width: 180px;
@@ -163,6 +167,11 @@
   font-weight: 500;
   opacity: 0.3;
   cursor: not-allowed !important;
+  outline: none;
+}
+
+.disable:focus {
+  outline: none;
 }
 
 .AddProject form .control {

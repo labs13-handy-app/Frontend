@@ -63,10 +63,12 @@ class AddProject extends Component {
     console.log(this.state.project);
 
     await this.props.addProject(this.state.project);
+    const {description, title, budget, category} = this.state;
 
-    this.props.history.push(
-      `/dashboard-homeowner/users/${this.props.match.params.id}/projects/`
-    );
+    if (description && title && budget && category)
+      return this.props.history.push(
+        `/dashboard-homeowner/users/${this.props.match.params.id}/projects/`
+      );
   };
 
   showWidget = widget => {
