@@ -60,7 +60,6 @@ class UserProjects extends Component {
     return (
       <div className="project-container">
         <h2>My Projects </h2>
-
         {this.props.userProjects &&
           this.props.userProjects.user &&
           this.props.userProjects.user.projects &&
@@ -75,6 +74,7 @@ class UserProjects extends Component {
                 thumbnail={p.images ? p.images[0] : ''}
                 bids={p.bids}
                 materials_included={p.materials_included}
+                category={p.category}
                 onDelete={this.onDelete}
               />
             );
@@ -86,7 +86,8 @@ class UserProjects extends Component {
 
 const mapStateToProps = ({getUserProjectsReducer}, props) => {
   return {
-    userProjects: getUserProjectsReducer.projects
+    userProjects: getUserProjectsReducer.projects,
+    isGetting: getUserProjectsReducer.isGetting
   };
 };
 export default connect(

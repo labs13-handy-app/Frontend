@@ -79,15 +79,17 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  align-items: baseline;
 }
 
 .UserProject .user-project-content .info i {
   margin-right: 6px;
-  color: #71a261;
+  color: #3f9b16;
 }
 
 .UserProject .user-project-content .info p {
   font-size: 14px;
+  font-weight: 300;
   margin: 0;
   margin-right: 60px;
 }
@@ -106,17 +108,40 @@
   margin: 0;
 }
 .user-view-bids {
-  margin-left: 10px;
   text-decoration: none;
-  font-weight: 700;
-  color: #538f40;
+  color: #020c1d;
+  font-size: 14px;
+}
+
+a.user-view-bids:hover {
+  text-decoration: none;
+
+  color: #020c1d;
+}
+
+.user-view-bids i {
+  background: #e2eadf;
+  border-radius: 50%;
+  border: 0;
+  color: #3f9b16;
+  outline: none;
+  /* text-align: start; */
+  /* width: 42px;
+  height: 42px; */
+  padding: 13px;
+  transition: all 0.2s;
+  margin-right: 8px;
+}
+
+.user-view-bids i:hover {
+  transform: scale(1.1);
 }
 
 .delete {
   background: #e2eadf;
   border-radius: 50%;
   border: 0;
-  color: #538f40;
+  color: #3f9b16;
   outline: none;
   /* text-align: start; */
   width: 42px;
@@ -153,6 +178,10 @@
 
 .UserProject .image-modal img {
   width: 100%;
+}
+
+.UserProject .user-project-category {
+  font-size: 14px;
 }
 
 .ReactModal__Content--after-open {

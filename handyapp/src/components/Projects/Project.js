@@ -87,7 +87,7 @@ class Project extends React.Component {
             <div className="c-info">
               {this.props.materials_included === 'yes' ? (
                 <p>
-                  <i class="fas fa-hammer" />
+                  <i className="fas fa-hammer" />
                   Materials Included
                 </p>
               ) : (

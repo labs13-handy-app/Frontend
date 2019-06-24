@@ -48,7 +48,7 @@
 .UserCard .edit-photo {
   background: none;
   border: 0;
-  color: #538f40;
+  color: #3f9b16;
   cursor: pointer;
   outline: none;
   font-weight: 300;
@@ -58,7 +58,7 @@
 }
 
 .UserCard .edit-photo:hover {
-  color: #538f40;
+  color: #3f9b16;
   text-decoration: underline;
   font-weight: 600;
 }
@@ -84,7 +84,7 @@
   background: #e2eadf;
   font-size: 16px;
   font-weight: 700;
-  color: #538f40;
+  color: #3f9b16;
   text-decoration: none;
   border: none;
   transition: all 0.2s;
@@ -100,7 +100,7 @@
 }
 
 .UserCard .tabs .tab-top .action-button:hover {
-  background: #66895c;
+  background: #3f9b16;
 }
 
 .UserCard .tabs .tab {
@@ -128,7 +128,7 @@
   height: 46px;
   padding: 12px 40px;
   border-radius: 25px;
-  background: #538f40;
+  background: #3f9b16;
   font-size: 16px;
   font-weight: 500;
   color: #f7f7f7;
@@ -142,11 +142,11 @@
 }
 
 .UserCard .tabs .tab a:hover {
-  color: #538f40;
+  color: #3f9b16;
 }
 
 .UserCard .tabs .tab a.active:hover {
-  background: #538f40;
+  background: #3f9b16;
   color: #f7f7f7;
 }
 

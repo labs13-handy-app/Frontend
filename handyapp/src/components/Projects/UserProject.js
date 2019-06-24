@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import Loader from 'react-loader-spinner';
 import Lightbox from 'react-image-lightbox';
 import moment from 'moment';
 import placeholder from '../../img/Placeholder-image.png';
@@ -39,7 +41,7 @@ class UserProject extends React.Component {
                 alt={this.state.images.length > 0 ? 'project-images' : ''}
               />
               {this.state.images.length > 0 && (
-                <p className="user-image-label">View More</p>
+                <p className="user-image-label">View Photos</p>
               )}
             </div>
           </button>
@@ -78,7 +80,7 @@ class UserProject extends React.Component {
           <div className="info">
             {this.props.materials_included === 'yes' ? (
               <p>
-                <i class="fas fa-hammer" />
+                <i className="fas fa-hammer" />
                 Materials Included
               </p>
             ) : (
@@ -95,26 +97,35 @@ class UserProject extends React.Component {
                   ? `${this.props.bids.length + 1} Bids `
                   : `No Bid`}
               </span>
-              {this.props.bids && this.props.bids.length > 0 && (
-                <Link
-                  className="user-view-bids"
-                  to={`/project/${this.props.id}`}
-                >
-                  View Bids
-                </Link>
-              )}
+            </p>
+            <p className="user-project-category">
+              <i className="fas fa-hard-hat" />
+              {this.props.category}
             </p>
           </div>
           <div className="user-description">
             <p>{this.props.description} </p>
           </div>
           <div className="user-project-footer">
+            {this.props.bids && this.props.bids.length > 0 && (
+              <Link className="user-view-bids" to={`/project/${this.props.id}`}>
+                <i className="far fa-eye" />
+                View Bids
+              </Link>
+            )}
             <button
               className="delete"
-              onClick={() => this.props.onDelete(this.props.id)}
+              onClick={() => {
+                this.props.onDelete(this.props.id);
+              }}
             >
               <i className="far fa-trash-alt" />
             </button>
+            {this.props.isDeleting ? (
+              <Loader type="Oval" color="#3f9b16" height="24" width="24" />
+            ) : (
+              ''
+            )}
             <p className="timestamp">
               {moment()
                 .startOf('hour')
@@ -127,4 +138,13 @@ class UserProject extends React.Component {
   }
 }
 
-export default UserProject;
+const mapStateToProps = ({getUserProjectsReducer}, props) => {
+  return {
+    isDeleting: getUserProjectsReducer.isDeleting
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(UserProject);
