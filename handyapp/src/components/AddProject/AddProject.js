@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addProject, addProjectPics} from '../../actions';
+import Loader from 'react-loader-spinner';
+import {addProject, getServices} from '../../actions';
 import upload from '../../img/Upload-images.svg';
+import Select from 'react-select';
 
 import './AddProject.css';
 
@@ -16,10 +18,22 @@ class AddProject extends Component {
           ? this.props.user.id
           : this.props.match.params.id,
         materials_included: 'no',
+        category: '',
         budget: '',
         images: []
       }
     };
+  }
+
+  componentDidMount() {
+    this.props.getServices();
+
+    this.setState(prevState => ({
+      project: {
+        ...prevState.project,
+        categories: this.props.services.map(service => service.name)
+      }
+    }));
   }
 
   onInputChange = e => {
@@ -49,17 +63,35 @@ class AddProject extends Component {
     console.log(this.state.project);
 
     await this.props.addProject(this.state.project);
+    const {description, title, budget, category} = this.state;
 
-    this.props.history.push(
-      `/dashboard-homeowner/users/${this.props.match.params.id}/projects/`
-    );
+    if (description && title && budget && category)
+      return this.props.history.push(
+        `/dashboard-homeowner/users/${this.props.match.params.id}/projects/`
+      );
   };
 
   showWidget = widget => {
     widget.open();
   };
 
+  onSelectChange = async ({value: category}) => {
+    await this.setState(prevState => ({
+      project: {
+        ...prevState.project,
+        category
+      }
+    }));
+  };
+
   render() {
+    const {services} = this.props;
+    const options = services.map(service => {
+      const label = service.name;
+      const value = service.name;
+      return {value, label};
+    });
+
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
@@ -87,6 +119,7 @@ class AddProject extends Component {
               <div className="form-item">
                 <label htmlFor="title">What do you need to get done?</label>
                 <input
+                  required
                   onChange={this.onInputChange}
                   type="text"
                   id="title"
@@ -98,7 +131,7 @@ class AddProject extends Component {
               <div className="core-info">
                 <div className="radio">
                   <div className="form-item-radio">
-                    <label>Materials Provided?</label>
+                    <label>Are you providing the Materials?</label>
                   </div>
                   <div className="checks">
                     <div className="form-item-check">
@@ -137,6 +170,7 @@ class AddProject extends Component {
                   <div className="form-item">
                     <label htmlFor="title">Budget</label>
                     <input
+                      required
                       onChange={this.onInputChange}
                       type="text"
                       id="budget"
@@ -148,19 +182,46 @@ class AddProject extends Component {
               </div>
 
               <div className="form-item">
-                <label htmlFor="description">What are the details?</label>
+                <label htmlFor="category">
+                  Select a categorie for your project
+                </label>
+                <Select
+                  onChange={this.onSelectChange}
+                  options={options}
+                  id="category"
+                  value={this.state.project.category}
+                  theme={theme => ({
+                    ...theme,
+                    borderRadius: 4,
+                    height: 20,
+                    padding: 4,
+                    colors: {
+                      ...theme.colors,
+                      primary25: '#3e9b1624',
+                      primary: '#3f9b16'
+                    }
+                  })}
+                />
+              </div>
+
+              <div className="form-item">
+                <label htmlFor="description">Description</label>
                 <textarea
+                  required
                   onChange={this.onInputChange}
                   type="text"
                   id="description"
                   value={this.state.project.description}
-                  placeholder="Be as specific as you can about what needs to be done"
+                  placeholder="Enter description"
+                  maxLength={255}
                 />
+                <p className="character-counter">
+                  {this.state.project.description.length}/255
+                </p>
               </div>
 
               <div className="control">
                 <div className="form-upload">
-                  {/* <label htmlFor="add-image">Add image(s)</label> */}
                   <div className="add-photos">
                     <button
                       className="upload"
@@ -176,8 +237,22 @@ class AddProject extends Component {
                     <p>Upload Images</p>
                   </div>
                 </div>
-                <button className="add-project" onSubmit={this.onSubmit}>
-                  Submit
+                <button
+                  className={
+                    this.state.project.title.length > 0 &&
+                    this.state.project.category.length > 0 &&
+                    this.state.project.budget.length > 0 &&
+                    this.state.project.description.length > 0
+                      ? 'add-project'
+                      : 'disable'
+                  }
+                  onSubmit={this.onSubmit}
+                >
+                  {this.props.started ? (
+                    <Loader type="Oval" color="#fff" height="24" width="24" />
+                  ) : (
+                    'Submit'
+                  )}
                 </button>
               </div>
             </div>
@@ -188,7 +263,14 @@ class AddProject extends Component {
   }
 }
 
+const mapStateToProps = ({servicesReducer, addProjectReducer}, props) => {
+  return {
+    services: servicesReducer.services,
+    started: addProjectReducer.started
+  };
+};
+
 export default connect(
-  null,
-  {addProject, addProjectPics}
+  mapStateToProps,
+  {addProject, getServices}
 )(AddProject);

@@ -43,6 +43,7 @@ class Projects extends Component {
                     id={project.id}
                     avatar={project.avatar}
                     timestamp={project.created_at}
+                    bids={project.bids}
                   />
                 );
               } else if (project.isActive === 0 || project.isActive === false) {

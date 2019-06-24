@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import jsConvert from 'js-convert-case';
 import NumberFormat from 'react-number-format';
+import Loader from 'react-loader-spinner';
 import {getToken, onBoarding as editUser} from '../../actions';
 
 import './EditProfile.css';
@@ -74,21 +75,21 @@ class EditProfile extends Component {
             <div className="user-form-content">
               <div className="name">
                 <div className="user-form-item first-name">
-                  <label htmlFor="first-name">First Name</label>
+                  <label htmlFor="first_name">First Name</label>
                   <input
                     type="text"
                     onChange={this.onChange}
                     value={jsConvert.toHeaderCase(first_name)}
-                    id="first-name"
+                    id="first_name"
                   />
                 </div>
                 <div className="user-form-item last-name">
-                  <label htmlFor="last-name">Last Name</label>
+                  <label htmlFor="last_name">Last Name</label>
                   <input
                     type="text"
                     onChange={this.onChange}
                     value={last_name}
-                    id="last-name"
+                    id="last_name"
                   />
                 </div>
               </div>
@@ -138,7 +139,11 @@ class EditProfile extends Component {
                   </div>
                 </div>
                 <button className="edit-profile" type="submit">
-                  Submit
+                  {this.props.started ? (
+                    <Loader type="Oval" color="#FFF" height="24" width="24" />
+                  ) : (
+                    'Submit'
+                  )}
                 </button>
               </div>
             </div>
@@ -149,9 +154,10 @@ class EditProfile extends Component {
   }
 }
 
-const mapStateToProps = ({tokenReducer}, props) => {
+const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => {
   return {
-    user: tokenReducer.token
+    user: tokenReducer.token,
+    started: onBoardingReducer.started
   };
 };
 

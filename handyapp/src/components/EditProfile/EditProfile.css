@@ -47,7 +47,7 @@
   font-size: 14px;
   margin-bottom: 8px;
   padding: 0px;
-  color: #71a261;
+  color: #3f9b16;
   font-weight: 500;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .EditProfile form .user-form-content .user-form-item input:focus {
-  border-bottom: 1px solid #71a261;
+  border-bottom: 1px solid #3f9b16;
   outline: none;
 }
 
@@ -78,7 +78,7 @@
 
 .EditProfile form .profile-image {
   background: #e2eadf;
-  color: #538f40;
+  color: #3f9b16;
   border-radius: 25px;
   border: 0;
   width: 42px;
@@ -99,16 +99,17 @@
   width: 180px;
   border: 0;
   border-radius: 4px;
-  background: #71a261;
+  background: #3f9b16;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
   /* box-shadow: 0 12px 20px rgba(105, 118, 107, 0.28); */
   transition: all 0.2s ease-in-out;
+  outline: none;
 }
 
 .EditProfile form .edit-profile:hover {
-  background: #66895c;
+  background: #328210;
 }
 
 .EditProfile form .form-footer {
