@@ -237,7 +237,7 @@ export default class NavigationBar extends Component {
           --brand-color: #71c55d;
           --gray-color-1: #777;
           --gray-color-2: #555;
-          box-shadow: #e1dfdf 1px 0px 1px;
+          box-shadow: #e1dfdf 1px 1px 11px;
         }
         a {
           color: inherit;

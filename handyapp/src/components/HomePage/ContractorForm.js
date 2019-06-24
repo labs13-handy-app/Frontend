@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import jsConvert from 'js-convert-case';
-import { onBoarding, getToken } from '../../actions';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { withStyles } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,10 +13,9 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Person from '@material-ui/icons/Person';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { compose } from 'recompose';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+import { onBoarding, getToken } from '../../actions';
 
 const styles = theme => ({
   layout: {
@@ -53,7 +54,6 @@ const styles = theme => ({
       backgroundColor: '#FFFFFF',
       color: '#70C55D'
     }
-
   },
   avatar: {
     margin: theme.spacing(1),
@@ -209,7 +209,7 @@ class ContractorForm extends Component {
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <TextField
-                     margin="normal"
+                      margin="normal"
                       fullWidth
                       onChange={this.onChange}
                       id="last_name"
@@ -222,7 +222,7 @@ class ContractorForm extends Component {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                     margin="normal"
+                      margin="normal"
                       required
                       fullWidth
                       onChange={this.onChange}
@@ -235,7 +235,7 @@ class ContractorForm extends Component {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                    margin="normal"
+                      margin="normal"
                       required
                       fullWidth
                       onChange={this.onChange}
@@ -261,7 +261,7 @@ class ContractorForm extends Component {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                     margin="normal"
+                      margin="normal"
                       fullWidth
                       onChange={this.onChange}
                       id="skills"
@@ -287,7 +287,7 @@ class ContractorForm extends Component {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                    margin="normal"
+                      margin="normal"
                       required
                       fullWidth
                       onChange={this.onChange}
@@ -299,7 +299,7 @@ class ContractorForm extends Component {
                     />
                   </Grid>
                   <Grid item xs={12} lg={6}>
-                    <Typography variant="body2">
+                    <Typography variant="button" display="block" gutterBottom>
                       Upload profile picture
                     </Typography>
                     <input
@@ -312,6 +312,7 @@ class ContractorForm extends Component {
                   </Grid>
                 </Grid>
                 <Button
+                  fullWidth
                   color="primary"
                   type="submit"
                   variant="contained"
