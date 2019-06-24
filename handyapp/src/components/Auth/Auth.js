@@ -127,6 +127,8 @@ class Auth {
     localStorage.removeItem('account_type');
     localStorage.removeItem('userID');
     localStorage.removeItem('firstName');
+    localStorage.removeItem('isBoarded');
+    localStorage.clear();
 
     this.auth0.logout({
       returnTo: window.location.origin
