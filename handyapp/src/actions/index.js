@@ -55,7 +55,10 @@ export {
   PAYMENT_TRANSFER_FAILURE,
   GET_SERVICES_START,
   GET_SERVICES_SUCCESS,
-  GET_SERVICES_FAILURE
+  GET_SERVICES_FAILURE, 
+  DELETE_BID_START,
+  DELETE_BID_SUCCESS,
+  DELETE_BID_FAILURE,
 } from './types';
 
 export {getToken} from './getToken';
@@ -77,3 +80,4 @@ export {addProjectPics} from './addProjectPics';
 export {getProjectImages} from './getProjectImages';
 export {paymentTransfer} from './paymentTransfer';
 export {getServices} from './getServices';
+export {deleteBid} from './deleteBid'
