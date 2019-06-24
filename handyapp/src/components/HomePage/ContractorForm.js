@@ -1,49 +1,76 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import jsConvert from 'js-convert-case';
-import {onBoarding, getToken} from '../../actions';
-//import Avatar from '@material-ui/core/Avatar';
+import { onBoarding, getToken } from '../../actions';
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-//import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-//import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Person from '@material-ui/icons/Person';
 import Typography from '@material-ui/core/Typography';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {compose} from 'recompose';
+import { compose } from 'recompose';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const styles = theme => ({
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: 600,
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }
+  },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+      padding: theme.spacing(3)
+    }
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3)
-    // border: '1px solid red'
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
     backgroundColor: '#70C55D',
     color: '#FFFFFF',
     fontWeight: 600,
-    borderRadius: '20px',
-    //padding: '0.65em 2.6em',
-    transition: 'all 0.5s',
+    marginTop: theme.spacing(3),
     '&:hover': {
       backgroundColor: '#FFFFFF',
-      color: '#70C55D',
-      // border: '1px solid #70C55D'
+      color: '#70C55D'
+    }
+
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: '#70C55D'
+  }
+});
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#70C55D'
+    },
+    secondary: {
+      main: '#B8E2AE'
     }
   },
-  rightIcon: {
-    marginLeft: theme.spacing(1)
-  }
+  typography: { useNextVariants: true }
 });
 
 class ContractorForm extends Component {
@@ -63,7 +90,7 @@ class ContractorForm extends Component {
 
   componentWillMount() {
     this.props.getToken();
-    const {user} = this.props;
+    const { user } = this.props;
 
     // user.account_type = localStorage.account_type;
 
@@ -132,7 +159,7 @@ class ContractorForm extends Component {
         tags: ['app']
       },
       (error, result) => {
-        let {secure_url} = result.info;
+        let { secure_url } = result.info;
         if (!error && result && result.event === 'success') {
           this.setState({
             avatar: secure_url
@@ -144,160 +171,166 @@ class ContractorForm extends Component {
       this.props.history.push('/');
     }
 
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
-      <Container component="main" maxWidth="sm">
-        <CssBaseline />
-        <div className={classes.paper}>
-          {/* <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar> */}
-          <Typography variant="button" display="block" gutterBottom>
-            Complete your profile
-          </Typography>
-          <form
-            className={classes.form}
-            onSubmit={this.onSubmit}
-            id="user-onboarding"
-            noValidate
-          >
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  onChange={this.onChange}
-                  id="first_name"
-                  type="text"
-                  value={this.state.user.first_name}
-                  variant="outlined"
-                  fullWidth
-                  label="First Name"
-                  autoComplete="first_name"
-                  autoFocus
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  onChange={this.onChange}
-                  id="last_name"
-                  type="text"
-                  value={this.state.user.last_name}
-                  label="Last Name"
-                  autoComplete="last_name"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  onChange={this.onChange}
-                  id="email"
-                  type="email"
-                  value={this.state.user.email}
-                  label="Email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  onChange={this.onChange}
-                  id="phone_number"
-                  type="number"
-                  value={this.state.user.phone_number}
-                  label="Phone Number"
-                  autoComplete="phone_number"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  onChange={this.onChange}
-                  id="address"
-                  value={this.state.user.address}
-                  type="text"
-                  label="Address"
-                  autoComplete="address"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  onChange={this.onChange}
-                  id="skills"
-                  value={this.state.user.skills}
-                  type="text"
-                  label="Skills"
-                  autoComplete="skills"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  onChange={this.onChange}
-                  id="experience"
-                  value={this.state.user.experience}
-                  type="number"
-                  label="Years of experience"
-                  autoComplete="experience"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  onChange={this.onChange}
-                  id="licenses"
-                  value={this.state.user.licenses}
-                  type="text"
-                  label="License"
-                  autoComplete="licenses"
-                />
-              </Grid>
-              <Grid item xs={12} lg={6}>
-                <Typography variant="button" display="block" gutterBottom>
-                  Upload profile picture
-                </Typography>
-                <input
-                  onClick={() => {
-                    this.showWidget(widget);
-                  }}
-                  type="file"
-                  accept="image/*"
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              variant="contained"
-              size="large"
-              className={classes.submit}
-            >
-              Next
-            </Button>
-          </form>
-        </div>
+      <MuiThemeProvider theme={theme}>
+        <Container component="main" maxWidth="sm">
+          <CssBaseline />
+
+          <main className={classes.layout}>
+            <Paper className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <Person />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Complete your profile
+              </Typography>
+              <form
+                className={classes.form}
+                onSubmit={this.onSubmit}
+                id="user-onboarding"
+                noValidate
+              >
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      onChange={this.onChange}
+                      id="first_name"
+                      type="text"
+                      value={this.state.user.first_name}
+                      fullWidth
+                      label="First Name"
+                      autoComplete="first_name"
+                      margin="normal"
+                      autoFocus
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                     margin="normal"
+                      fullWidth
+                      onChange={this.onChange}
+                      id="last_name"
+                      type="text"
+                      value={this.state.user.last_name}
+                      label="Last Name"
+                      autoComplete="last_name"
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                     margin="normal"
+                      required
+                      fullWidth
+                      onChange={this.onChange}
+                      id="email"
+                      type="email"
+                      value={this.state.user.email}
+                      label="Email"
+                      autoComplete="email"
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                    margin="normal"
+                      required
+                      fullWidth
+                      onChange={this.onChange}
+                      id="phone_number"
+                      type="number"
+                      value={this.state.user.phone_number}
+                      label="Phone Number"
+                      autoComplete="phone_number"
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      onChange={this.onChange}
+                      id="address"
+                      value={this.state.user.address}
+                      type="text"
+                      label="Address"
+                      autoComplete="address"
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                     margin="normal"
+                      fullWidth
+                      onChange={this.onChange}
+                      id="skills"
+                      value={this.state.user.skills}
+                      type="text"
+                      label="Skills"
+                      autoComplete="skills"
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      margin="normal"
+                      fullWidth
+                      onChange={this.onChange}
+                      id="experience"
+                      value={this.state.user.experience}
+                      type="number"
+                      label="Years of experience"
+                      autoComplete="experience"
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                    margin="normal"
+                      required
+                      fullWidth
+                      onChange={this.onChange}
+                      id="licenses"
+                      value={this.state.user.licenses}
+                      type="text"
+                      label="License"
+                      autoComplete="licenses"
+                    />
+                  </Grid>
+                  <Grid item xs={12} lg={6}>
+                    <Typography variant="body2">
+                      Upload profile picture
+                    </Typography>
+                    <input
+                      onClick={() => {
+                        this.showWidget(widget);
+                      }}
+                      type="file"
+                      accept="image/*"
+                    />
+                  </Grid>
+                </Grid>
+                <Button
+                  color="primary"
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  className={classes.submit}
+                >
+                  Next
+                </Button>
+              </form>
+            </Paper>
+          </main>
+        </Container>
         <Box mt={10} />
-      </Container>
+      </MuiThemeProvider>
     );
   }
 }
 
-const mapStateToProps = ({tokenReducer}, props) => {
+const mapStateToProps = ({ tokenReducer }, props) => {
   return {
     user: tokenReducer.token
   };
@@ -305,8 +338,12 @@ const mapStateToProps = ({tokenReducer}, props) => {
 
 export default connect(
   mapStateToProps,
-  {onBoarding, getToken}
+  { onBoarding, getToken }
 )(compose(withStyles(styles))(ContractorForm));
+// export default connect(
+//   mapStateToProps,
+//   {onBoarding, getToken}
+// )(ContractorForm)
 
 // import React, {Component} from 'react';
 // import {connect} from 'react-redux';
