@@ -10,11 +10,6 @@ import { connect } from 'react-redux';
 import { addFeedback } from '../../actions';
 
 const styles = theme => ({
-  '@global': {
-    // body: {
-    //   backgroundColor: theme.palette.common.red
-    // }
-  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -149,7 +144,9 @@ class FeedbackFormM extends Component {
             </Grid>
           </form>
           <Button
-            onClick={() => this.props.addFeedback(this.state,window.location.reload())}
+            onClick={() =>
+              this.props.addFeedback(this.state, window.location.reload())
+            }
             type="submit"
             variant="contained"
             size="large"

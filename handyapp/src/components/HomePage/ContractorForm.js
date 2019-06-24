@@ -341,11 +341,7 @@ export default connect(
   mapStateToProps,
   { onBoarding, getToken }
 )(compose(withStyles(styles))(ContractorForm));
-// export default connect(
-//   mapStateToProps,
-//   {onBoarding, getToken}
-// )(ContractorForm)
-
+// ---------------//
 // import React, {Component} from 'react';
 // import {connect} from 'react-redux';
 // import {onBoarding, getToken} from '../../actions';
