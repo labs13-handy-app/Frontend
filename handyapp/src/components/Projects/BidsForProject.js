@@ -16,6 +16,7 @@ const BidsForProject = props => {
         <Link to={`/contractor/${props.bid.contractor_id}`}>
           <button>View Contractor</button>
         </Link>
+        <button onClick={() => props.deleteBid(props.bid.id)}>Reject Bid</button>
       </div>
     </div>
   );
