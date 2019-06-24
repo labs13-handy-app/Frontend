@@ -24,6 +24,7 @@ class Project extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }
@@ -102,8 +103,12 @@ class Project extends React.Component {
                 <span>
                   {this.props.bids && this.props.bids.length > 0
                     ? `${this.props.bids.length + 1} Bids `
-                    : `0 Bids `}
+                    : `Be the first to bid!`}
                 </span>
+              </p>
+              <p className="contractor-project-category">
+                <i className="fas fa-hard-hat" />
+                {this.props.category}
               </p>
             </div>
 

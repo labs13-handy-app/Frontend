@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import jsConvert from 'js-convert-case';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { withStyles } from '@material-ui/core/styles';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {connect} from 'react-redux';
+import {compose} from 'recompose';
+import {withStyles} from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,7 +15,7 @@ import Person from '@material-ui/icons/Person';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-import { onBoarding, getToken } from '../../actions';
+import {onBoarding, getToken} from '../../actions';
 
 const styles = theme => ({
   layout: {
@@ -70,7 +70,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: { useNextVariants: true }
+  typography: {useNextVariants: true}
 });
 
 class ContractorForm extends Component {
@@ -90,7 +90,7 @@ class ContractorForm extends Component {
 
   componentWillMount() {
     this.props.getToken();
-    const { user } = this.props;
+    const {user} = this.props;
 
     // user.account_type = localStorage.account_type;
 
@@ -126,7 +126,7 @@ class ContractorForm extends Component {
     }));
   };
 
-  onSubmit = async e => {
+  onSubmit = e => {
     e.preventDefault();
     const account_type = localStorage.account_type;
     const user = {
@@ -140,11 +140,12 @@ class ContractorForm extends Component {
 
     localStorage.setItem('account_type', 'contractor');
     localStorage.setItem('isBoarded', 'true');
+    console.log(user);
 
-    await this.props.onBoarding(this.props.user.id, user);
+    this.props.onBoarding(this.props.user.id, user);
 
     if (localStorage.token && localStorage.account_type === 'contractor')
-      this.props.history.push('/dashboard-contractor');
+      this.props.history.push('/dashboard-contractor/projects');
   };
 
   showWidget = widget => {
@@ -159,7 +160,7 @@ class ContractorForm extends Component {
         tags: ['app']
       },
       (error, result) => {
-        let { secure_url } = result.info;
+        let {secure_url} = result.info;
         if (!error && result && result.event === 'success') {
           this.setState({
             avatar: secure_url
@@ -171,7 +172,7 @@ class ContractorForm extends Component {
       this.props.history.push('/');
     }
 
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -331,7 +332,7 @@ class ContractorForm extends Component {
   }
 }
 
-const mapStateToProps = ({ tokenReducer }, props) => {
+const mapStateToProps = ({tokenReducer}, props) => {
   return {
     user: tokenReducer.token
   };
@@ -339,7 +340,7 @@ const mapStateToProps = ({ tokenReducer }, props) => {
 
 export default connect(
   mapStateToProps,
-  { onBoarding, getToken }
+  {onBoarding, getToken}
 )(compose(withStyles(styles))(ContractorForm));
 // ---------------//
 // import React, {Component} from 'react';
