@@ -180,7 +180,6 @@ class AddProject extends Component {
               </div>
 
               <div className="form-item">
-<<<<<<< HEAD
                 <label htmlFor="category">
                   Select a categorie for your project
                 </label>
@@ -205,21 +204,14 @@ class AddProject extends Component {
 
               <div className="form-item">
                 <label htmlFor="description">Description</label>
-=======
-                <label htmlFor="description">What are the details?</label>
->>>>>>> master
                 <textarea
                   required
                   onChange={this.onInputChange}
                   type="text"
                   id="description"
                   value={this.state.project.description}
-<<<<<<< HEAD
                   placeholder="Enter description"
                   maxLength={255}
-=======
-                  placeholder="Be as specific as you can about what needs to be done"
->>>>>>> master
                 />
                 <p className="character-counter">
                   {this.state.project.description.length}/255
