@@ -12,64 +12,69 @@ export default () => (
           <i className="fabs fas fa-tools icons" />
           <h3>Plumbing</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            When you have a plumbing issue that needs professional attention,
+            look no further than HandyApp.
           </p>
         </Col>
+
         <Col md="6" lg="3" className="s2__box-item">
-          <i className="fabs fas fa-broom icons" />
-          <h3>Cleaning</h3>
+          <i className="fabs fas fa-paint-roller icons" />
+          <h3>Painting</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            We connect you to a network of qualified and reliable Painting
+            Professionals (Interior and Exterior Painters).
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
           <i className="fabs fas fa-hard-hat icons" />
           <h3>Construction</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Need something built? We can help with carpentry and construction
+            work.
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
           <i className="fabs fas fa-tshirt icons" />
           <h3>Laundry</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Laundry basket overflowing? We can wash, dry, fold, iron, and even
+            pick-up dry cleaning.
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
-          <i className="fabs fas fa-paint-roller icons" />
-          <h3>Painting</h3>
+          <i className="fabs fas fa-broom icons" />
+          <h3>Cleaning</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            If you’re in need of home cleaning, apartment cleaning, or a maid
+            service, we’re simply the best, most convenient home cleaning
+            service out there.
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
           <i className="fabs fas fa-seedling icons" />
           <h3>Gardening</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Need someone to help you with mowing the lawn or throwing away last
+            year's holiday lawn decorations? We can clean up your yard and
+            remove any yard waste or rubbish.
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
           <i className="fabs fas fa-plug icons" />
           <h3>Electrical</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Why run the risk of making an electrical problem even more
+            complicated when you can book a professional electrician to take
+            care of those faulty outlets or run a wire to that new lighting
+            fixture?
           </p>
         </Col>
         <Col md="6" lg="3" className="s2__box-item">
           <i className="fabs fas fa-truck-loading icons" />
           <h3>Delivery</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Need something delivered across town? We'll safely transport
+            anything from couches to documents to take-out food.
           </p>
         </Col>
       </Row>

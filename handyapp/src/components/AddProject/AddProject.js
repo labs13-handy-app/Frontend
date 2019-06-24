@@ -110,19 +110,19 @@ class AddProject extends Component {
     );
     return (
       <div className="Add">
-        <h2>Add Project</h2>
+        <h2>Post a Project</h2>
         <div className="AddProject">
           <form onSubmit={this.onSubmit}>
             <div className="form-items">
               <div className="form-item">
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">What do you need to get done?</label>
                 <input
                   required
                   onChange={this.onInputChange}
                   type="text"
                   id="title"
                   value={this.state.project.title}
-                  placeholder="Enter title"
+                  placeholder="This'll be the title of your task - e.g. Help move my sofa"
                 />
               </div>
 
@@ -180,6 +180,7 @@ class AddProject extends Component {
               </div>
 
               <div className="form-item">
+<<<<<<< HEAD
                 <label htmlFor="category">
                   Select a categorie for your project
                 </label>
@@ -204,14 +205,21 @@ class AddProject extends Component {
 
               <div className="form-item">
                 <label htmlFor="description">Description</label>
+=======
+                <label htmlFor="description">What are the details?</label>
+>>>>>>> master
                 <textarea
                   required
                   onChange={this.onInputChange}
                   type="text"
                   id="description"
                   value={this.state.project.description}
+<<<<<<< HEAD
                   placeholder="Enter description"
                   maxLength={255}
+=======
+                  placeholder="Be as specific as you can about what needs to be done"
+>>>>>>> master
                 />
                 <p className="character-counter">
                   {this.state.project.description.length}/255
