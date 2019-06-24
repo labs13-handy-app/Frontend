@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { compose } from 'recompose';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {withStyles} from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {compose} from 'recompose';
 import Avatar from '@material-ui/core/Avatar';
 import Build from '@material-ui/icons/Build';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
-import { getToken as getUser, onBoarding as editUser } from '../../actions';
+import {getToken as getUser, onBoarding as editUser} from '../../actions';
 
 const styles = theme => ({
   root: {
@@ -56,7 +56,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: { useNextVariants: true }
+  typography: {useNextVariants: true}
 });
 
 class Onboarding extends Component {
@@ -86,6 +86,8 @@ class Onboarding extends Component {
       account_type: this.state.account_type
     };
 
+    console.log(editedUser);
+
     await this.props.editUser(editedUser.id, editedUser);
 
     if (localStorage.account_type === 'homeowner')
@@ -104,7 +106,7 @@ class Onboarding extends Component {
       ...this.state.user,
       account_type: this.state.account_type
     };
-
+    console.log(editedUser);
     await this.props.editUser(editedUser.id, editedUser);
 
     if (localStorage.account_type === 'contractor')
@@ -117,7 +119,7 @@ class Onboarding extends Component {
     }
     console.log(this.state);
 
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -160,7 +162,7 @@ class Onboarding extends Component {
   }
 }
 
-const mapStateToProps = ({ tokenReducer }, props) => {
+const mapStateToProps = ({tokenReducer}, props) => {
   return {
     user: tokenReducer.token
   };
@@ -168,7 +170,7 @@ const mapStateToProps = ({ tokenReducer }, props) => {
 
 export default connect(
   mapStateToProps,
-  { getUser, editUser }
+  {getUser, editUser}
 )(compose(withStyles(styles))(Onboarding));
 
 //---------------------------------//
