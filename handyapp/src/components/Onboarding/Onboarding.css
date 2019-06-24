@@ -47,6 +47,12 @@
   align-items: center;
   padding-top: 92px;
   margin-bottom: 60px;
+  transition: all 0.2s;
+}
+
+.Onboarding .accounts .choose button:hover {
+  border: 2px solid #3f9b16;
+  outline: none;
 }
 
 .Onboarding .accounts .choose button:focus {
