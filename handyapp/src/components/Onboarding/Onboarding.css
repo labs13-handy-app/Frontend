@@ -6,7 +6,7 @@
 }
 
 .Onboarding h2 {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
 }
 
@@ -15,17 +15,43 @@
 }
 
 .Onboarding .accounts .choose {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
 }
 
 .Onboarding .accounts .choose button {
-  width: 325px;
-  height: 325px;
-  border-radius: 50%;
+  width: 547px;
+  height: 603px;
+  border-radius: 4px;
   border: 0;
-  background: #e3f0e0;
+  background: #fff;
+  margin-right: 100px;
+  box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54);
+  outline: none;
+}
+
+.homeowner-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 94px;
+}
+
+.contractor-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 92px;
+  margin-bottom: 60px;
+}
+
+.Onboarding .accounts .choose button:focus {
+  border: 2px solid #3f9b16;
+  outline: none;
 }
 
 .Onboarding .accounts .choose .homeowner {
@@ -33,9 +59,11 @@
 }
 
 .Onboarding .accounts .choose .homeowner p {
-  font-size: 38px;
-  margin-top: 20px;
+  font-size: 22px;
+  margin-top: 42px;
   font-weight: 700;
+  text-transform: uppercase;
+  color: #1f221c;
 }
 
 .Onboarding .accounts .choose .contractor {
@@ -43,7 +71,9 @@
 }
 
 .Onboarding .accounts .choose .contractor p {
-  font-size: 38px;
+  font-size: 22px;
   margin-top: 20px;
   font-weight: 700;
+  text-transform: uppercase;
+  color: #1f221c;
 }
