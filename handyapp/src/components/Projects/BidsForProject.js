@@ -87,8 +87,8 @@ export default function MediaCard(props) {
               <Button size="small" color="primary">
                 View Contractor
               </Button>
-              <Button size='small' color='primary' onClick={() => props.deleteBid(props.bid.id)}>Reject Bid</Button>
             </Link>
+            <Button size='small' color='primary' onClick={() => props.deleteBid(props.bid.id)}>Reject Bid</Button>
           </CardActions>
         </Card>
         <Box mt={5} />
