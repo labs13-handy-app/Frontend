@@ -4,6 +4,7 @@ import {getToken} from '../../actions';
 import {connect} from 'react-redux';
 import Payment from './Payment';
 
+
 class MakePayment extends React.Component {
   componentDidMount() {
     this.props.getToken();
