@@ -106,11 +106,11 @@ class Project extends React.Component {
                     : `Be the first to bid!`}
                 </span>
               </p>
+              <p className="contractor-project-category">
+                <i className="fas fa-hard-hat" />
+                {this.props.category}
+              </p>
             </div>
-            <p className="user-project-category">
-              <i className="fas fa-hard-hat" />
-              {this.props.category}
-            </p>
 
             <div className="contractor-description">
               <p>{this.props.description} </p>

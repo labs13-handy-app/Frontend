@@ -80,6 +80,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  align-items: baseline;
 }
 
 .ContractorProject .posted-by {
@@ -158,6 +159,10 @@
   background: #538f40;
   font-weight: 500;
   transform: scale(1.1);
+}
+
+.ContractorProject .contractor-project-category {
+  font-size: 14px;
 }
 
 .ReactModal__Content--after-open {
