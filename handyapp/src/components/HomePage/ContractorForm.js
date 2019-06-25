@@ -14,8 +14,13 @@ import Box from '@material-ui/core/Box';
 import Person from '@material-ui/icons/Person';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-import {onBoarding, getToken} from '../../actions';
+import {onBoarding, getToken, getServices} from '../../actions';
 
 const styles = theme => ({
   layout: {
@@ -76,6 +81,7 @@ const theme = createMuiTheme({
 class ContractorForm extends Component {
   state = {
     user: {
+      id: null,
       first_name: '',
       last_name: '',
       nickname: '',
@@ -83,12 +89,14 @@ class ContractorForm extends Component {
       address: '',
       skills: '',
       licenses: '',
-      experience: ''
+      experience: '',
+      account_type: ''
     },
     avatar: ''
   };
 
   componentWillMount() {
+    this.props.getServices();
     this.props.getToken();
     const {user} = this.props;
 
@@ -97,6 +105,7 @@ class ContractorForm extends Component {
     if (user) {
       this.setState({
         user: {
+          id: user.id,
           first_name: user.nickname
             ? jsConvert.toHeaderCase(user.nickname)
             : '',
@@ -109,11 +118,20 @@ class ContractorForm extends Component {
           address: user.address ? user.address : '',
           skills: user.skills ? user.skills : '',
           licenses: user.licenses ? user.licenses : '',
-          experience: user.experience ? user.experience : ''
-        }
+          experience: user.experience ? user.experience : '',
+          account_type:
+            this.props.user && this.props.user.account_type
+              ? this.props.user.account_type
+              : ''
+        },
+        avatar: ''
       });
     }
   }
+
+  // componentDidMount() {
+  //   this.props.getServices();
+  // }
 
   onChange = e => {
     e.persist();
@@ -126,12 +144,22 @@ class ContractorForm extends Component {
     }));
   };
 
-  onSubmit = e => {
+  onSelectChange = e => {
+    e.persist();
+
+    this.setState(prevState => ({
+      user: {
+        ...prevState.user,
+        [e.target.name]: e.target.value
+      }
+    }));
+  };
+
+  onSubmit = async e => {
     e.preventDefault();
-    const account_type = localStorage.account_type;
+    const account_type = localStorage.getItem('account_type');
     const user = {
       ...this.state.user,
-      id: this.props.user.id,
       account_type,
       isBoarded: true
     };
@@ -140,9 +168,8 @@ class ContractorForm extends Component {
 
     localStorage.setItem('account_type', 'contractor');
     localStorage.setItem('isBoarded', 'true');
-    console.log(user);
 
-    this.props.onBoarding(this.props.user.id, user);
+    await this.props.onBoarding(this.props.user.id, user);
 
     if (localStorage.token && localStorage.account_type === 'contractor')
       this.props.history.push('/dashboard-contractor/projects');
@@ -261,17 +288,34 @@ class ContractorForm extends Component {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <TextField
+                    <FormControl
+                      required
+                      className={classes.formControl}
                       margin="normal"
                       fullWidth
-                      onChange={this.onChange}
-                      id="skills"
-                      value={this.state.user.skills}
-                      type="text"
-                      label="Skills"
-                      autoComplete="skills"
-                      required
-                    />
+                    >
+                      <InputLabel htmlFor="skills-required">
+                        Contractor Category
+                      </InputLabel>
+                      <Select
+                        value={this.state.user.skills}
+                        onChange={this.onSelectChange}
+                        name="skills"
+                        inputProps={{
+                          id: 'skills-required'
+                        }}
+                        className={classes.selectEmpty}
+                      >
+                        {this.props.skills &&
+                          this.props.skills.map(({id, name}) => {
+                            return (
+                              <MenuItem key={id} value={name}>
+                                {name}
+                              </MenuItem>
+                            );
+                          })}
+                      </Select>
+                    </FormControl>
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
@@ -332,15 +376,16 @@ class ContractorForm extends Component {
   }
 }
 
-const mapStateToProps = ({tokenReducer}, props) => {
+const mapStateToProps = ({tokenReducer, servicesReducer}, props) => {
   return {
-    user: tokenReducer.token
+    user: tokenReducer.token,
+    skills: servicesReducer.services
   };
 };
 
 export default connect(
   mapStateToProps,
-  {onBoarding, getToken}
+  {onBoarding, getToken, getServices}
 )(compose(withStyles(styles))(ContractorForm));
 // ---------------//
 // import React, {Component} from 'react';
