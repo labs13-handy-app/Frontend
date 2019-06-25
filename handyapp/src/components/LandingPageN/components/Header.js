@@ -109,6 +109,7 @@ const Header = () => {
         .header-img {
           width: 668px;
           height: 398px;
+          margin-bottom: 3em;
      
           // border: 1px solid red;
         }
