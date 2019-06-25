@@ -219,9 +219,7 @@ class ContractorEditProfile extends Component {
                     margin="normal"
                     fullWidth
                   >
-                    <label htmlFor="skills-required">
-                      Contractor Category*
-                    </label>
+                    <label htmlFor="skills-required">Contractor Category</label>
                     <Select
                       value={skills}
                       onChange={this.onSelectChange}

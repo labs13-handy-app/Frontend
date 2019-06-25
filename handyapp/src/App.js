@@ -28,7 +28,6 @@ import StripeTransfer from './components/Stripe/StripeTransfer';
 import Footer from './components/Footer/Footer';
 
 import './App.css';
-import Footer from './components/Footer/Footer';
 
 library.add(fab, faCheckSquare);
 
