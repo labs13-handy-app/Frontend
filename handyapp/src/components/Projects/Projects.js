@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Project from './Project';
 import {getProjects} from '../../actions';
+import Loader from 'react-loader-spinner';
 
 class Projects extends Component {
   componentDidMount() {
@@ -9,25 +10,35 @@ class Projects extends Component {
   }
 
   render() {
-    console.log(this.props);
+    const {skills: skill} = this.props.user;
+    const projects = this.props.projects.filter(project => {
+      return project.category === skill;
+    });
+    console.log(projects);
+
     if (!localStorage.token) {
       this.props.history.push('/');
     }
-    if (this.props.projects && this.props.projects.length === 0) {
+    if (this.props.started && !this.props.projects) {
       return (
-        <>
-          <h2>Available Projects</h2>
-          <h4>Loading...</h4>
-        </>
+        <div className="project-container empty">
+          <Loader type="Oval" color="#4c5b48" height="100" width="100" />
+        </div>
       );
     } else {
       return (
         <div className="project-container">
           <h2>Available Projects </h2>
-          {console.log(this.props.projects)}
-          {this.props.projects &&
-            this.props.projects.length > 0 &&
-            this.props.projects.map(project => {
+          {projects && projects.length === 0 && (
+            <div className="content">
+              <h4 className="middle">
+                No project fits your skill at the moment!
+              </h4>
+              <p className="message">Please check back later</p>
+            </div>
+          )}
+          {projects.length > 0 &&
+            projects.map(project => {
               if (project.isActive === 1 || project.isActive === true) {
                 return (
                   <Project
@@ -59,7 +70,8 @@ class Projects extends Component {
 
 const mapStateToProps = ({getProjectsReducer}, props) => {
   return {
-    projects: getProjectsReducer.projects
+    projects: getProjectsReducer.projects,
+    started: getProjectsReducer.started
   };
 };
 export default connect(
