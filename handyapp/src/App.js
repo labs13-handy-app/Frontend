@@ -108,7 +108,7 @@ class App extends React.Component {
           <Route path="/transfer" component={StripeTransfer} />
           
           
-          {/* <Route exact path ="/home" component={Footer}/>  */}
+          <Route exact path ="/home" component={Footer}/> 
           
           
           
