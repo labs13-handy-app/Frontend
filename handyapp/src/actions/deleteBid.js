@@ -11,7 +11,8 @@ export const deleteBid = id => dispatch => {
 
   return axiosWithAuth()
     .delete(`${process.env.REACT_APP_API_URL}/bids/${id}`)
-    .then(res => dispatch({type: DELETE_BID_SUCCESS, payload: res.data}))
+    .then(res => { 
+      dispatch({type: DELETE_BID_SUCCESS, payload: res.data})})
     .catch(err =>
       dispatch({type: DELETE_BID_FAILURE, payload: err.message})
     );
