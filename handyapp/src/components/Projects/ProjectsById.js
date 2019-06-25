@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import BidsForProject from './BidsForProject';
-import {getProjectById} from '../../actions'
+import {getProjectById, deleteBid} from '../../actions'
 
 import './ProjectsById.css';
 
@@ -40,7 +40,7 @@ class ProjectsById extends Component {
            <h2>Bids:</h2>
            <div className='bid-container'>
            {this.props.projects.bids.map(bid => (
-             <BidsForProject bid={bid} key={bid.id} />
+             <BidsForProject bid={bid} key={bid.id} deleteBid={this.props.deleteBid} />
            ))}
          </div>
         </div>
@@ -56,4 +56,4 @@ class ProjectsById extends Component {
       projects: getProjectByIdReducer.projects,
     };
   };
-export default connect(mapStateToProps,{getProjectById})(ProjectsById);
+export default connect(mapStateToProps,{getProjectById,deleteBid})(ProjectsById);

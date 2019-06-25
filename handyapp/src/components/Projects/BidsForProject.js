@@ -75,6 +75,9 @@ export default function MediaCard(props) {
               <Typography gutterBottom variant="h5" component="h2">
                 Contractor: {props.bid.first_name} {props.bid.last_name}
               </Typography>
+              <Typography>
+                Price: ${props.bid.price}
+              </Typography>
               <Typography>Hours: {props.bid.time}</Typography>
               <Typography>
                 Materials included? {props.bid.materials_included}
@@ -88,6 +91,7 @@ export default function MediaCard(props) {
                 View Contractor
               </Button>
             </Link>
+            <Button size='small' color='primary' onClick={() => props.deleteBid(props.bid.id)}>Reject Bid</Button>
           </CardActions>
         </Card>
         <Box mt={5} />

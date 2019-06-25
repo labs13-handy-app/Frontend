@@ -19,6 +19,7 @@ import {addProjectPicsReducer} from './addProjectPicsReducer';
 import {getProjectImagesReducer} from './getProjectImagesReducer';
 import {paymentTransferReducer} from './paymentTransferReducer';
 import {servicesReducer} from './servicesReducers';
+import {deleteBidReducer} from './deleteBidReducer'
 
 export default combineReducers({
   tokenReducer,
@@ -40,5 +41,6 @@ export default combineReducers({
   addProjectPicsReducer,
   getProjectImagesReducer,
   paymentTransferReducer,
-  servicesReducer
+  servicesReducer,
+  deleteBidReducer
 });

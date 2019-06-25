@@ -106,7 +106,12 @@ class App extends React.Component {
           <Route exact path="/makepayment" component={MakePayment} />
           <Route path="/stripecallback" component={StripeCallback} />
           <Route path="/transfer" component={StripeTransfer} />
-
+          
+          
+          {/* <Route exact path ="/home" component={Footer}/>  */}
+          
+          
+          
           {/* <Route exact path="/checkout" component={Stripe} /> */}
           <Route exact path="/add-bid/:id" component={SubmitBid} />
           {/* Using "*" as a value of the path parameter to get a non-greedy matching.

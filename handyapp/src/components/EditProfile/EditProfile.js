@@ -15,7 +15,7 @@ class EditProfile extends Component {
         first_name: this.props.user ? this.props.user.first_name : '',
         last_name: this.props.user ? this.props.user.last_name : '',
         address: this.props.user ? this.props.user.address : '',
-        phone: this.props.user ? this.props.user.phone_number : '',
+        phone_number: this.props.user ? this.props.user.phone_number : '',
         email: this.props.user ? this.props.user.email : '',
         avatar: this.props.user ? this.props.user.avatar : ''
       }
@@ -65,7 +65,13 @@ class EditProfile extends Component {
         }
       }
     );
-    const {first_name, last_name, address, phone, email} = this.state.user;
+    const {
+      first_name,
+      last_name,
+      address,
+      phone_number,
+      email
+    } = this.state.user;
 
     return (
       <div className="Edit">
@@ -112,14 +118,14 @@ class EditProfile extends Component {
                 />
               </div>
               <div className="user-form-item">
-                <label htmlFor="phone">Phone</label>
+                <label htmlFor="phone_number">Phone</label>
                 <NumberFormat
                   onChange={this.onChange}
-                  id="phone"
+                  id="phone_number"
                   format="(###) ###-####"
                   mask="_"
                   placeholder="(000) 000-0000"
-                  value={phone}
+                  value={phone_number}
                 />
               </div>
               <div className="form-footer">
