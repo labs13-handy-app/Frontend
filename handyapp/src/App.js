@@ -25,11 +25,8 @@ import SubmitBid from './components/ServiceProviders/SubmitBid';
 import MakePayment from './components/Stripe/MakePayment';
 import StripeCallback from './components/Callback/StripeCallback';
 import StripeTransfer from './components/Stripe/StripeTransfer';
-<<<<<<< HEAD
 import Footer from './components/Footer/Footer';
 
-=======
->>>>>>> master
 import './App.css';
 import Footer from './components/Footer/Footer';
 
@@ -111,17 +108,9 @@ class App extends React.Component {
           <Route exact path="/makepayment" component={MakePayment} />
           <Route path="/stripecallback" component={StripeCallback} />
           <Route path="/transfer" component={StripeTransfer} />
-<<<<<<< HEAD
 
-          <Route exact path="/home" component={Footer} />
+          <Footer />
 
-=======
-          
-          
-          <Footer/>
-          
-          
->>>>>>> master
           {/* <Route exact path="/checkout" component={Stripe} /> */}
           <Route exact path="/add-bid/:id" component={SubmitBid} />
           {/* Using "*" as a value of the path parameter to get a non-greedy matching.
