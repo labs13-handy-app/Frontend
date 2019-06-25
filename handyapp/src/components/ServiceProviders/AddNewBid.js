@@ -140,7 +140,7 @@ class AddNewBid extends Component {
               variant="contained"
               size="large"
               className={classes.submit}
-              onClick={() => this.props.addBid(this.state)}
+              onClick={() => this.props.addBid(this.state,alert(`The bid has been successfully added, Thank you!`),window.location.reload())}
             >
               Submit
             </Button>
