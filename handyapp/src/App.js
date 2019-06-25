@@ -25,8 +25,8 @@ import NotFound from './components/NotFound/NotFound';
 import MakePayment from './components/Stripe/MakePayment';
 import StripeCallback from './components/Callback/StripeCallback';
 import StripeTransfer from './components/Stripe/StripeTransfer';
-
 import './App.css';
+import Footer from './components/Footer/Footer';
 
 library.add(fab, faCheckSquare);
 
@@ -109,6 +109,7 @@ class App extends React.Component {
           <Route path="/transfer" component={StripeTransfer} />
           
           
+          <Footer/>
           
           
           {/* <Route exact path="/checkout" component={Stripe} /> */}
