@@ -8,11 +8,11 @@ import Link from '@material-ui/core/Link';
 function Footers() {
   return (
     <Typography variant="body2" color="textSecondary">
-      {'This is a footer section '}
-      <Link color="inherit" href="https://lambdaschool.com/">
+      {'Thank You for Visiting Our Handy Application! '}
+      {/* <Link color="inherit" href="http://localhost:3000/">
         Link here
-      </Link>
-      {' demo.'}
+      </Link> */}
+      {/* {' demo.'} */}
     </Typography>
   );
 }
@@ -51,7 +51,7 @@ export default function Footer() {
       </Container> */}
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1">My sticky footer can be found here.</Typography>
+          <Typography variant="body1">Copyright © 2019 HandyApp Inc.</Typography>
           <Footers />
         </Container>
       </footer>
