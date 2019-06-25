@@ -182,7 +182,7 @@ class AddProject extends Component {
 
               <div className="form-item">
                 <label htmlFor="category">
-                  Select a categorie for your project
+                  Select a category for your project
                 </label>
                 <Select
                   onChange={this.onSelectChange}
@@ -204,14 +204,14 @@ class AddProject extends Component {
               </div>
 
               <div className="form-item">
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">What are the details?</label>
                 <textarea
                   required
                   onChange={this.onInputChange}
                   type="text"
                   id="description"
                   value={this.state.project.description}
-                  placeholder="Enter description"
+                  placeholder="Be as specific as you can about what needs to be done"
                   maxLength={255}
                 />
                 <p className="character-counter">

@@ -37,8 +37,7 @@ const styles = theme => ({
     fontWeight: 600,
     marginTop: theme.spacing(3),
     '&:hover': {
-      backgroundColor: '#FFFFFF',
-      color: '#70C55D'
+      backgroundColor: 'hsl(120, 27%, 56%)'
     }
   },
 });
