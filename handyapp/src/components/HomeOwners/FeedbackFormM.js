@@ -101,7 +101,7 @@ class FeedbackFormM extends Component {
                       margin="normal"
                       required
                       fullWidth
-                      autoFocus
+                      
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -115,7 +115,7 @@ class FeedbackFormM extends Component {
                       margin="normal"
                       required
                       fullWidth
-                      autoFocus
+                      
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -127,7 +127,7 @@ class FeedbackFormM extends Component {
                       margin="normal"
                       required
                       fullWidth
-                      autoFocus
+                      
                     />
                   </Grid>
 
@@ -140,7 +140,7 @@ class FeedbackFormM extends Component {
                       type="number"
                       margin="normal"
                       fullWidth
-                      autoFocus
+                      
                       required
                     />
                   </Grid>
@@ -153,7 +153,6 @@ class FeedbackFormM extends Component {
                       value={this.state.recommend}
                       margin="normal"
                       fullWidth
-                      autoFocus
                       required
                     />
                   </Grid>
