@@ -6,6 +6,8 @@ import Projects from '../Projects/Projects';
 import ContractorEditProfile from '../ContractorEditProfile/ContractorEditProfile';
 import {getToken as getUser} from '../../actions';
 import Loader from 'react-loader-spinner';
+import {ModalContainer, ModalRoute} from 'react-router-modal';
+import AddNewBid from '../ServiceProviders/AddNewBid';
 
 import './ContractorDashboard.css';
 
@@ -40,9 +42,15 @@ class ContractorDashboard extends Component {
         </div>
         <div className="main-panel">
           <Route
-            render={props => <Projects {...props} user={this.props.user} />}
+            render={props => <Projects {...props} />}
             path={`/dashboard-contractor/projects`}
           />
+          <ModalRoute
+            path="/dashboard-contractor/projects/add-bid/:id"
+            parentPath="/dashboard-contractor/projects"
+          >
+            <AddNewBid {...this.props} />
+          </ModalRoute>
           <div className="main-panel">
             <Route
               render={props => (
@@ -54,6 +62,7 @@ class ContractorDashboard extends Component {
             />
           </div>
         </div>
+        <ModalContainer />
       </div>
     );
   }

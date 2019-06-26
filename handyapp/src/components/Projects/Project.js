@@ -117,9 +117,9 @@ class Project extends React.Component {
             </div>
             <div className="contractor-project-footer">
               <NavLink
-                to={`/add-bid/${this.props.id}?contractor_id=${
-                  this.props.contractor_id
-                }`}
+                to={`/dashboard-contractor/projects/add-bid/${
+                  this.props.id
+                }?contractor_id=${this.props.contractor_id}`}
               >
                 <button className="place-bid">
                   <i className="fas fa-plus" />

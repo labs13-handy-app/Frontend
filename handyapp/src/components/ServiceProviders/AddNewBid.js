@@ -61,7 +61,7 @@ class AddNewBid extends Component {
     super(props);
     this.state = {
       contractor_id: parseInt(this.props.location.search.slice(15)),
-      project_id: parseInt(this.props.location.pathname.slice(9)),
+      project_id: parseInt(this.props.location.pathname.slice(39)),
       price: '',
       time: '',
       materials_included: ''
@@ -79,6 +79,7 @@ class AddNewBid extends Component {
       alert(`The bid has been successfully added, Thank you!`)
     );
     this.props.history.push('/dashboard-contractor/projects');
+    window.location.reload();
   };
 
   render() {
