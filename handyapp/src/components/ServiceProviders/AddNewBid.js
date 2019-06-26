@@ -106,6 +106,7 @@ class AddNewBid extends Component {
                         value={this.state.price}
                         type="number"
                         label="Price"
+                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -118,6 +119,7 @@ class AddNewBid extends Component {
                         value={this.state.time}
                         label="Hours"
                         fullWidth
+                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -130,6 +132,7 @@ class AddNewBid extends Component {
                         margin="normal"
                         required
                         fullWidth
+                        required
                       />
                     </Grid>
                   </Grid>
