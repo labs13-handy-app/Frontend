@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Project from './Project';
-import {getProjects} from '../../actions';
+import {getProjects, getToken as getUser} from '../../actions';
 import Loader from 'react-loader-spinner';
 
 class Projects extends Component {
-  componentDidMount() {
+  componentWillMount() {
+    // this.props.getUser();
     this.props.getProjects();
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props.user);
     const {skills: skill} = this.props.user;
     const projects = this.props.projects.filter(project => {
       return project.category === skill;
@@ -71,13 +72,14 @@ class Projects extends Component {
   }
 }
 
-const mapStateToProps = ({getProjectsReducer}, props) => {
+const mapStateToProps = ({getProjectsReducer, tokenReducer}, props) => {
   return {
     projects: getProjectsReducer.projects,
-    started: getProjectsReducer.started
+    started: getProjectsReducer.started,
+    user: tokenReducer.token
   };
 };
 export default connect(
   mapStateToProps,
-  {getProjects}
+  {getProjects, getUser}
 )(Projects);

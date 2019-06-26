@@ -26,8 +26,6 @@ import MakePayment from './components/Stripe/MakePayment';
 import StripeCallback from './components/Callback/StripeCallback';
 import StripeTransfer from './components/Stripe/StripeTransfer';
 import Footer from './components/Footer/Footer';
-import {ModalContainer, ModalRoute} from 'react-router-modal';
-import AddNewBid from './components/ServiceProviders/AddNewBid';
 
 import './App.css';
 
@@ -130,10 +128,13 @@ class App extends React.Component {
               path="/dashboard-contractor"
               component={ContractorDashboard}
             />
-            <Route path="/projects" component={Projects} />
+
+            <Route exact path="/projects" component={Projects} />
             <Route path="/bids" component={Bids} />
             <Route path="/addbid" component={AddBid} />
+
             <Route exact path="/project/:id" component={ProjectsById} />
+
             <Route
               exact
               path="/contractor/:id"
@@ -150,19 +151,14 @@ class App extends React.Component {
               so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
             {/* <Route exact path="*" component={NotFound} /> */}
             {/* </div> */}
-            <ModalRoute
-              path="/add-bid/:id"
-              parentPath="/dashboard-contractor/projects"
-            >
-              <AddNewBid {...this.props} />
-            </ModalRoute>
+
             {/* </div> */}
             {/* </Switch> */}
 
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
-        <ModalContainer />
+
         <Footer />
       </div>
     );
