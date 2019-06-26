@@ -10,7 +10,7 @@ class Transfer extends React.Component {
             stripeEmail:props.user.email,
             stripe_id:props.user.payout_id,
             // stripeToken:'tok_visa',
-            amount:500
+            amount:12000
             
         }
     }
@@ -19,8 +19,8 @@ class Transfer extends React.Component {
     render(){
         return(
             <div>
-                <p>Your Balance ${this.props.user.balance / 100} </p>
-            <button onClick={() => this.props.paymentTransfer(this.state)}>
+                {/* <p>Your Balance ${this.props.user.balance / 100} </p> */}
+            <button onClick={() => this.props.paymentTransfer(this.state,alert(`The Payout of $ ${this.state.amount/100} has been processed thank you!`))}>
                     Cash Out
             </button>
             </div>
