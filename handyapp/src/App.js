@@ -20,12 +20,14 @@ import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 // import Stripe from './components/Stripe/Stripe';
-import SubmitBid from './components/ServiceProviders/SubmitBid';
+// import SubmitBid from './components/ServiceProviders/SubmitBid';
 // import NotFound from './components/NotFound/NotFound';
 import MakePayment from './components/Stripe/MakePayment';
 import StripeCallback from './components/Callback/StripeCallback';
 import StripeTransfer from './components/Stripe/StripeTransfer';
 import Footer from './components/Footer/Footer';
+import {ModalContainer, ModalRoute} from 'react-router-modal';
+import AddNewBid from './components/ServiceProviders/AddNewBid';
 
 import './App.css';
 
@@ -111,14 +113,22 @@ class App extends React.Component {
           <Footer />
 
           {/* <Route exact path="/checkout" component={Stripe} /> */}
-          <Route exact path="/add-bid/:id" component={SubmitBid} />
+
           {/* Using "*" as a value of the path parameter to get a non-greedy matching.
               It needs to be declared at the very bottom of your routes configuration,
               so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
           {/* <Route exact path="*" component={NotFound} /> */}
           {/* </div> */}
+          <ModalRoute
+            path="/add-bid/:id"
+            parentPath="/dashboard-contractor/projects"
+          >
+            <AddNewBid {...this.props} />
+          </ModalRoute>
         </div>
         {/* </Switch> */}
+
+        <ModalContainer />
       </div>
     );
   }

@@ -10,6 +10,7 @@ class Projects extends Component {
   }
 
   render() {
+    console.log(this.props);
     const {skills: skill} = this.props.user;
     const projects = this.props.projects.filter(project => {
       return project.category === skill;
@@ -56,6 +57,8 @@ class Projects extends Component {
                     timestamp={project.created_at}
                     bids={project.bids}
                     category={project.category}
+                    contractor_id={this.props.user.id}
+                    {...this.props}
                   />
                 );
               } else if (project.isActive === 0 || project.isActive === false) {
