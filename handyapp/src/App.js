@@ -159,10 +159,10 @@ class App extends React.Component {
             {/* </div> */}
             {/* </Switch> */}
 
-            <ModalContainer />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
+        <ModalContainer />
         <Footer />
       </div>
     );
