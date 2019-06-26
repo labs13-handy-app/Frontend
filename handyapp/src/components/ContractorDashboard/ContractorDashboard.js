@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import ContractorCard from '../ContractorCard/ContractorCard';
 import Projects from '../Projects/Projects';
-// import UserProjects from '../UserProjects/UserProjects';
+import ContractorEditProfile from '../ContractorEditProfile/ContractorEditProfile';
 import {getToken as getUser} from '../../actions';
 import Loader from 'react-loader-spinner';
 
@@ -17,7 +17,6 @@ class ContractorDashboard extends Component {
     this.props.getUser();
   }
   render() {
-    console.log(this.props.user);
     if (!localStorage.token) this.props.history.push('/');
     if (this.props.user.isBoarded === false) {
       this.props.history.push('/contractor-onboarding');
@@ -34,7 +33,6 @@ class ContractorDashboard extends Component {
         </div>
       );
     }
-
     return (
       <div className="Dashboard">
         <div className="side-panel">
@@ -45,6 +43,16 @@ class ContractorDashboard extends Component {
             render={props => <Projects {...props} user={this.props.user} />}
             path={`/dashboard-contractor/projects`}
           />
+          <div className="main-panel">
+            <Route
+              render={props => (
+                <ContractorEditProfile {...props} user={this.props.user} />
+              )}
+              path={`/dashboard-contractor/users/${
+                this.props.user.id
+              }/edit-profile`}
+            />
+          </div>
         </div>
       </div>
     );

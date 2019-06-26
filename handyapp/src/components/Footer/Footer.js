@@ -9,8 +9,8 @@ function Footers() {
   return (
     <Typography variant="body2" color="textSecondary">
       {'This is a footer section '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material UI Test
+      <Link color="inherit" href="https://lambdaschool.com/">
+        Link here
       </Link>
       {' demo.'}
     </Typography>
