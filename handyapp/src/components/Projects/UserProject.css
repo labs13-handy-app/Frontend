@@ -84,7 +84,7 @@
 
 .UserProject .user-project-content .info i {
   margin-right: 6px;
-  color: #3f9b16;
+  color: #70c55d;
 }
 
 .UserProject .user-project-content .info p {
@@ -123,7 +123,7 @@ a.user-view-bids:hover {
   background: #e2eadf;
   border-radius: 50%;
   border: 0;
-  color: #3f9b16;
+  color: #70c55d;
   outline: none;
   /* text-align: start; */
   /* width: 42px;
@@ -141,7 +141,7 @@ a.user-view-bids:hover {
   background: #e2eadf;
   border-radius: 50%;
   border: 0;
-  color: #3f9b16;
+  color: #70c55d;
   outline: none;
   /* text-align: start; */
   width: 42px;

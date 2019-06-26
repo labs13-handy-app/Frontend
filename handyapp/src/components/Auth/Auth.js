@@ -69,18 +69,14 @@ class Auth {
       .post(`${process.env.REACT_APP_API_URL}/register`, user)
       .then(res => {
         if (
-          (res.data.flag && res.data.flag === 0) ||
-          res.data.flag === false ||
-          ((res.data && res.data.isBoarded === false) ||
-            res.data.isBoarded === 0)
+          (res.data.isBoarded && res.data.isBoarded === 0) ||
+          res.data.isBoarded === false
         ) {
           // navigate to the onboarding route
           history.replace('/onboarding');
         } else if (
-          (res.data.flag && res.data.flag === 1) ||
-          res.data.flag === true ||
-          ((res.data && res.data.isBoarded === true) ||
-            res.data.isBoarded === 1)
+          (res.data.isBoarded && res.data.isBoarded === 1) ||
+          res.data.isBoarded === true
         ) {
           if (res.data.account_type === 'homeowner') {
             // navigate to the homeowner dashboard route
@@ -89,13 +85,14 @@ class Auth {
             history.replace(
               `/dashboard-homeowner/users/${res.data.id}/projects/`
             );
-          } else {
+          } else if (res.data.account_type === 'contractor') {
             localStorage.setItem('userID', res.data.id);
+            localStorage.setItem('firstName', res.data.first_name);
             // navigate to the contractor dashboard route
             history.replace(`/dashboard-contractor/projects/`);
           }
         } else {
-          this.login();
+          history.replace('/onboarding');
         }
       })
       .catch(err => console.log(err.message));

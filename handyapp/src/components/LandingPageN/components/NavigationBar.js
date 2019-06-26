@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Container, Nav, NavItem, NavLink} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
-import Logo from '../../../img/logo.png';
+import Logo from '../../../img/newlogo.png';
 
 class MobileMenu extends Component {
   constructor(props) {
@@ -199,11 +199,13 @@ export default class NavigationBar extends Component {
 
             <Nav className="nav-n">
               <NavItem className="nav-item-n logo">
-                {/* <NavLink href="/">handyApp</NavLink> */}
+                {/* <NavLink href="/">handy</NavLink> */}
                 <NavLink to="/">
-                  <img src={Logo} alt="logo" />
+                  <img src={Logo} alt="logo" /> 
                 </NavLink>
+                
               </NavItem>
+              
               <NavItem className="nav-item-n ham" onClick={this.showNav}>
                 <NavLink to="">
                   <i className="fas fa-bars" />

@@ -95,7 +95,7 @@
 
 .ContractorProject .contractor-project-content .c-info i {
   margin-right: 6px;
-  color: #71a261;
+  color: #70c55d;
 }
 
 .ContractorProject .contractor-project-content .c-info p {
@@ -143,7 +143,7 @@
 }
 
 .place-bid {
-  background: #71a261;
+  background: #70c55d;
   border-radius: 4px;
   padding: 10px 20px;
   border: 0;
@@ -156,7 +156,7 @@
 }
 
 .place-bid:hover {
-  background: #538f40;
+  background: rgb(90, 181, 70);
   font-weight: 500;
   transform: scale(1.1);
 }

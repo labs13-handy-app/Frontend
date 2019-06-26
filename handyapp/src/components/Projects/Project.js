@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Lightbox from 'react-image-lightbox';
 import moment from 'moment';
 import placeholder from '../../img/Placeholder-image.png';
@@ -116,12 +116,16 @@ class Project extends React.Component {
               <p>{this.props.description} </p>
             </div>
             <div className="contractor-project-footer">
-              <Link to={`/add-bid/${this.props.id}`}>
+              <NavLink
+                to={`/dashboard-contractor/projects/add-bid/${
+                  this.props.id
+                }?contractor_id=${this.props.contractor_id}`}
+              >
                 <button className="place-bid">
                   <i className="fas fa-plus" />
                   Place Bid
                 </button>
-              </Link>
+              </NavLink>
               <p className="timestamp">
                 {moment(
                   `${this.props.timestamp.slice(0, 10)}`,
