@@ -68,7 +68,6 @@ class Auth {
     axiosWithAuth()
       .post(`${process.env.REACT_APP_API_URL}/register`, user)
       .then(res => {
-        console.log(res.data);
         if (
           (res.data.isBoarded && res.data.isBoarded === 0) ||
           res.data.isBoarded === false
@@ -88,6 +87,7 @@ class Auth {
             );
           } else if (res.data.account_type === 'contractor') {
             localStorage.setItem('userID', res.data.id);
+            localStorage.setItem('firstName', res.data.first_name);
             // navigate to the contractor dashboard route
             history.replace(`/dashboard-contractor/projects/`);
           }

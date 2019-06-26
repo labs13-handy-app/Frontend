@@ -100,7 +100,7 @@
 }
 
 .UserCard .tabs .tab-top .action-button:hover {
-  background: #3f9b16;
+  background: #70c55d;
 }
 
 .UserCard .tabs .tab {
@@ -128,7 +128,7 @@
   height: 46px;
   padding: 12px 40px;
   border-radius: 25px;
-  background: #3f9b16;
+  background: #70c55d;
   font-size: 16px;
   font-weight: 500;
   color: #f7f7f7;
@@ -142,11 +142,11 @@
 }
 
 .UserCard .tabs .tab a:hover {
-  color: #3f9b16;
+  color: rgb(90, 181, 70);
 }
 
 .UserCard .tabs .tab a.active:hover {
-  background: #3f9b16;
+  background: rgb(90, 181, 70);
   color: #f7f7f7;
 }
 
