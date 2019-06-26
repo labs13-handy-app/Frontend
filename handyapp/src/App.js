@@ -53,7 +53,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { isAuthenticated } = auth;
+    const {isAuthenticated} = auth;
 
     return (
       <div className="App">
@@ -111,59 +111,59 @@ class App extends React.Component {
             <Route path="/stripecallback" component={StripeCallback} />
             <Route path="/transfer" component={StripeTransfer} />
 
-          {/* <div className="container"> */}
-          <Route
-            path="/onboarding"
-            render={props => <Onboarding {...props} />}
-          />
-          <Route path="/homeowner-onboarding" component={HomeownerForm} />
-          <Route
-            exact
-            path="/contractor-onboarding"
-            component={ContractorForm}
-          />
-          <Route
-            path="/dashboard-homeowner"
-            render={props => <HomeOwnerDashboard {...props} />}
-          />
-          <Route path="/dashboard-contractor" component={ContractorDashboard} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/bids" component={Bids} />
-          <Route path="/addbid" component={AddBid} />
-          <Route exact path="/project/:id" component={ProjectsById} />
-          <Route
-            exact
-            path="/contractor/:id"
-            component={ServiceProviderFeedback}
-          />
-          <Route exact path="/makepayment" component={MakePayment} />
-          <Route path="/stripecallback" component={StripeCallback} />
-          <Route path="/transfer" component={StripeTransfer} />
+            {/* <div className="container"> */}
+            <Route
+              path="/onboarding"
+              render={props => <Onboarding {...props} />}
+            />
+            <Route path="/homeowner-onboarding" component={HomeownerForm} />
+            <Route
+              exact
+              path="/contractor-onboarding"
+              component={ContractorForm}
+            />
+            <Route
+              path="/dashboard-homeowner"
+              render={props => <HomeOwnerDashboard {...props} />}
+            />
+            <Route
+              path="/dashboard-contractor"
+              component={ContractorDashboard}
+            />
+            <Route path="/projects" component={Projects} />
+            <Route path="/bids" component={Bids} />
+            <Route path="/addbid" component={AddBid} />
+            <Route exact path="/project/:id" component={ProjectsById} />
+            <Route
+              exact
+              path="/contractor/:id"
+              component={ServiceProviderFeedback}
+            />
+            <Route exact path="/makepayment" component={MakePayment} />
+            <Route path="/stripecallback" component={StripeCallback} />
+            <Route path="/transfer" component={StripeTransfer} />
 
-          {/* <Route exact path="/checkout" component={Stripe} /> */}
+            {/* <Route exact path="/checkout" component={Stripe} /> */}
 
-          {/* Using "*" as a value of the path parameter to get a non-greedy matching.
+            {/* Using "*" as a value of the path parameter to get a non-greedy matching.
               It needs to be declared at the very bottom of your routes configuration,
               so the <Route /> is only mounted if any of the routes' path declared above are not matched. */}
-<<<<<<< HEAD
-          {/* <Route exact path="*" component={NotFound} /> */}
-          {/* </div> */}
-          <ModalRoute
-            path="/add-bid/:id"
-            parentPath="/dashboard-contractor/projects"
-          >
-            <AddNewBid {...this.props} />
-          </ModalRoute>
-        </div>
-        {/* </Switch> */}
+            {/* <Route exact path="*" component={NotFound} /> */}
+            {/* </div> */}
+            <ModalRoute
+              path="/add-bid/:id"
+              parentPath="/dashboard-contractor/projects"
+            >
+              <AddNewBid {...this.props} />
+            </ModalRoute>
+            {/* </div> */}
+            {/* </Switch> */}
 
-        <ModalContainer />
-=======
+            <ModalContainer />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
         <Footer />
->>>>>>> master
       </div>
     );
   }
