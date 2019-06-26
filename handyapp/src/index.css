@@ -10,7 +10,7 @@ body {
   margin: 0 auto;
   /* max-width: 1200px; */
   /* font-family: 'Roboto', sans-serif; */
-  font-family: 'Asap', sans-serif;
+  font-family: 'Asap', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #fafafa;

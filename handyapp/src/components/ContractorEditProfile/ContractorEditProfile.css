@@ -1,0 +1,125 @@
+.ContractorEditProfile {
+  margin-top: 25px;
+  padding: 56px 63px;
+  /* height: 690px; */
+
+  background: #fff;
+  box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54);
+  border-radius: 4px;
+}
+
+.EditContractor {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.EditContractor h2 {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.ContractorEditProfile form .contractor-form-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ContractorEditProfile .contractor-form-content .name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ContractorEditProfile .contractor-form-content .name .first-name {
+  width: 48%;
+}
+.ContractorEditProfile .contractor-form-content .name .last-name {
+  width: 48%;
+}
+
+.ContractorEditProfile form .contractor-form-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.ContractorEditProfile form .contractor-form-item label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  padding: 0px;
+  color: #3f9b16;
+  font-weight: 500;
+}
+
+.ContractorEditProfile form .contractor-form-item input {
+  width: 100%;
+  height: 52px;
+  border: 0;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 8px;
+  font-size: 16px;
+  transition: all 0.5s;
+}
+
+.ContractorEditProfile form .contractor-form-item input:focus {
+  border-bottom: 1px solid #3f9b16;
+  outline: none;
+}
+
+.ContractorEditProfile form .contractor-form-item input::placeholder {
+  color: #c1c1c1;
+}
+
+.ContractorEditProfile form .photo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.ContractorEditProfile form ._profile-image {
+  background: #e2eadf;
+  color: #3f9b16;
+  border-radius: 25px;
+  border: 0;
+  width: 42px;
+  height: 42px;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.3s;
+  margin-right: 16px;
+  transition: all 0.3s;
+}
+
+.ContractorEditProfile form ._profile-image:hover {
+  transform: scale(1.1);
+}
+
+.ContractorEditProfile form .contractor-edit-profile {
+  height: 50px;
+  width: 180px;
+  border: 0;
+  border-radius: 4px;
+  background: #3f9b16;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  /* box-shadow: 0 12px 20px rgba(105, 118, 107, 0.28); */
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.ContractorEditProfile form .contractor-edit-profile:hover {
+  background: #328210;
+}
+
+.ContractorEditProfile form ._form-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ContractorEditProfile form ._form-footer .contractor-form-item {
+  margin-bottom: 0;
+  /* margin-top: 20px; */
+}
