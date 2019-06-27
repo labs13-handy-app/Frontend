@@ -193,7 +193,9 @@ class Onboarding extends Component {
     this.props.getUser();
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props);
+  }
 
   handleHomeOwner = async () => {
     await this.setState({
@@ -236,6 +238,8 @@ class Onboarding extends Component {
   };
 
   render() {
+    localStorage.setItem('userID', this.props.user.id);
+    // console.log(this.props);
     if (!localStorage.token) {
       this.props.history.push('/');
     }

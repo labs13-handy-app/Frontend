@@ -67,12 +67,15 @@ class Auth {
     // Comment to work locally
     axiosWithAuth()
       .post(`${process.env.REACT_APP_API_URL}/register`, user)
-      .then(res => {
+      .then(async res => {
+        console.log(res.data);
+
         if (
           (res.data.isBoarded && res.data.isBoarded === 0) ||
           res.data.isBoarded === false
         ) {
           // navigate to the onboarding route
+          await localStorage.setItem('userID', res.data.id);
           history.replace('/onboarding');
         } else if (
           (res.data.isBoarded && res.data.isBoarded === 1) ||

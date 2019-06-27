@@ -178,6 +178,7 @@ class ContractorForm extends Component {
   };
 
   render() {
+    console.log(this.props);
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
