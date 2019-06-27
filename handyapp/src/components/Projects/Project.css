@@ -12,6 +12,12 @@
   box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54);
 }
 
+@media (max-width: 800px) {
+  .ContractorProject {
+    max-width: 100%;
+  }
+}
+
 .ContractorProject .contractor-project-image {
   width: 100%;
   height: 218px;
@@ -68,6 +74,30 @@
   align-items: flex-start;
 }
 
+@media (max-width: 1024px) {
+  .ContractorProject .contractor-project-content {
+    padding: 22px 5%;
+  }
+}
+
+@media (max-width: 900px) {
+  .ContractorProject .contractor-project-content {
+    padding: 22px 5%;
+  }
+}
+
+@media (max-width: 800px) {
+  .ContractorProject .contractor-project-content {
+    padding: 22px 5%;
+  }
+}
+
+@media (max-width: 688px) {
+  .ContractorProject .contractor-project-content {
+    padding: 22px 5%;
+  }
+}
+
 .ContractorProject .contractor-project-content h2 {
   margin: 0;
   font-size: 24px;
@@ -102,6 +132,18 @@
   font-size: 14px;
   margin: 0;
   margin-right: 60px;
+}
+
+@media (max-width: 688px) {
+  .ContractorProject .contractor-project-content .c-info p {
+    margin-right: 16px !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .ContractorProject .contractor-project-content .c-info p {
+    margin-right: 14px !important;
+  }
 }
 
 .ContractorProject .contractor-project-content .contractor-description {

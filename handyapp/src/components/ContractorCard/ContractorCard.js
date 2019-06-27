@@ -5,7 +5,7 @@ import jsConvert from 'js-convert-case';
 import avatar from '../../img/default-avatar.png';
 import {getToken, onBoarding} from '../../actions';
 import Loader from 'react-loader-spinner';
-import Transfer from '../Stripe/Transfer'
+import Transfer from '../Stripe/Transfer';
 
 import './ContractorCard.css';
 
@@ -88,7 +88,7 @@ class ContractorCard extends Component {
               to={`/dashboard-contractor/projects`}
               className="tab-button"
             >
-              Available Projects
+              <button>Available Projects</button>
             </NavLink>
           </div>
           <div className="tab">
@@ -96,21 +96,19 @@ class ContractorCard extends Component {
               to={`/dashboard-contractor/users/${user.id}/edit-profile`}
               className="tab-button"
             >
-              Edit Profile
+              <button>Edit Profile</button>
             </NavLink>
           </div>
           <div className="tab">
-             {!user.payout_id && (
-            <a
-              href="https://dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_FC1yU4l4i7xldVGX8RcFaMBh5ipi5GBq&scope=read_write"
-              className="tab-button"
-            >
-              Connect Stripe
-            </a>
-             )}
-             {user.payout_id&&(
-               <Transfer user={user} />
-             )}
+            {!user.payout_id && (
+              <a
+                href="https://dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_FC1yU4l4i7xldVGX8RcFaMBh5ipi5GBq&scope=read_write"
+                className="tab-button"
+              >
+                <button>Connect Stripe</button>
+              </a>
+            )}
+            {user.payout_id && <Transfer user={user} />}
           </div>
           <div />
         </div>
