@@ -6,7 +6,7 @@ import {paymentConnection} from '../../actions';
 class StripeCallback extends Component {
   componentDidMount() {
     const getCode = new URLSearchParams(window.location.search);
-    this.props.paymentConnection(getCode.get('code'), this.props.history)
+    this.props.paymentConnection(getCode.get('code'), this.props.history, alert('Your account has been added, thank you!'))
   }
 
   render() {
