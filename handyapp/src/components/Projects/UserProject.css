@@ -92,6 +92,12 @@
   }
 }
 
+@media (max-width: 688px) {
+  .UserProject .user-project-content {
+    padding: 22px 5%;
+  }
+}
+
 .UserProject .user-project-content h2 {
   margin: 0;
   font-size: 24px;
@@ -118,6 +124,12 @@
   font-weight: 300;
   margin: 0;
   margin-right: 60px;
+}
+
+@media (max-width: 600px) {
+  .UserProject .user-project-content .info p {
+    margin-right: 40px !important;
+  }
 }
 
 .UserProject .user-project-content .user-description {

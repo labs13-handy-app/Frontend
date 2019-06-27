@@ -6,6 +6,20 @@
   align-items: flex-start;
 }
 
+@media (max-width: 688px) {
+  .Dashboard {
+    margin: 0;
+    margin-top: 20px;
+    width: 100%;
+    height: 87vh;
+    flex-direction: column;
+    justify-content: start !important;
+    align-items: flex-start;
+    /* border: 1px solid red; */
+    padding: 0;
+  }
+}
+
 /* @media (max-width: 800px) {
   .Dashboard {
     justify-content: flex-start;
@@ -22,7 +36,6 @@
     min-width: 25% !important;
     margin-right: 5px !important;
     padding: 0;
-    height: 89vh;
   }
 }
 
@@ -39,8 +52,20 @@
   .Dashboard .side-panel {
     min-width: 25% !important;
     margin-right: 5px !important;
-    padding: 0;
+    padding: 20px 0;
     height: 89vh;
+  }
+}
+
+@media (max-width: 688px) {
+  .Dashboard .side-panel {
+    width: 100% !important;
+    /* margin-right: 5px !important; */
+    padding: 0;
+    /* border: 1px solid green; */
+    height: 250px !important;
+    margin-right: 0 !important;
+    /* height: 89vh; */
   }
 }
 
@@ -73,6 +98,16 @@
   }
 }
 
+@media (max-width: 688px) {
+  .Dashboard .main-panel {
+    width: 95% !important;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 0 !important;
+    /* border: 1px solid red; */
+  }
+}
+
 .centered {
   width: 100%;
   height: 50vh;
@@ -89,12 +124,12 @@
 
 @media (max-width: 900px) {
   .Dashboard .main-panel .project-container {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 }
 
 @media (max-width: 800px) {
   .Dashboard .main-panel .project-container {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 }
