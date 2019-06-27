@@ -1,17 +1,44 @@
-.UserCard {
-  width: 100%;
-  /* height: 526px; */
-  border-radius: 4px;
-  /* box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54); */
-  /* border: 1px solid #e2e2e2; */
-  /* background: #fff; */
-  font-size: 15px;
-  color: #333;
-  font-weight: 600;
-  margin-top: 60px;
-  padding: 20px;
-  padding-bottom: 0;
-  font-weight: 300;
+@media (min-width: 1100px) {
+  .UserCard {
+    width: 100%;
+    /* height: 526px; */
+    border-radius: 4px;
+    /* box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54); */
+    /* border: 1px solid #e2e2e2; */
+    /* background: #fff; */
+    font-size: 15px;
+    color: #333;
+    font-weight: 600;
+    margin-top: 60px;
+    padding: 20px;
+    padding-bottom: 0;
+    font-weight: 300;
+  }
+}
+
+@media (max-width: 1024px) {
+  .UserCard {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .UserCard {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .UserCard {
+    width: 100%;
+    height: 89vh;
+    /* background: #70c55d; */
+    margin: 0;
+    border-radius: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+  }
 }
 
 .UserCard .user-info {
@@ -21,6 +48,30 @@
   /* padding-left: 50px;
   padding-right: 50px; */
   text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .UserCard .user-info {
+    padding: 0;
+    padding-top: 10px !important;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .UserCard .user-info {
+    padding: 0;
+    padding-top: 10px !important;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .UserCard .user-info {
+    padding: 0;
+    padding-top: 10px !important;
+    margin-bottom: 10px;
+  }
 }
 
 .UserCard h4 {
@@ -45,6 +96,12 @@
   margin-bottom: 8px;
 }
 
+@media (max-width: 800px) {
+  .UserCard .username {
+    font-size: 16px;
+  }
+}
+
 .UserCard .edit-photo {
   background: none;
   border: 0;
@@ -55,6 +112,19 @@
   font-size: 14px;
   transition: all 0.1s ease-in-out;
   margin-top: 20px;
+}
+
+/* @media (max-width: 800px) {
+  .UserCard .edit-photo {
+    display: none;
+  }
+} */
+
+@media (max-width: 800px) {
+  .UserCard .edit-photo img {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .UserCard .edit-photo:hover {
@@ -111,6 +181,12 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
+}
+
+@media (max-width: 800px) {
+  .UserCard .tabs .tab {
+    height: 40px;
+  }
 }
 
 .UserCard .tabs .tab .tab-button {
