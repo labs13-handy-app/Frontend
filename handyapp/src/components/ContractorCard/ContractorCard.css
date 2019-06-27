@@ -73,7 +73,7 @@
   height: 46px;
   /* padding: 0px 60px; */
   border-radius: 4px;
-  background: #538f40;
+  background: #70c55d;
   font-size: 16px;
   font-weight: 500;
   color: #fff;
@@ -93,7 +93,7 @@
 }
 
 .ContractorCard .tabs .tab-top .action-button:hover {
-  background: #66895c;
+  background: rgb(90, 181, 70);
 }
 
 .ContractorCard .tabs .tab {
@@ -116,7 +116,7 @@
   height: 46px;
   padding: 12px 40px;
   border-radius: 25px;
-  background: #538f40;
+  background: #70c55d;
   font-size: 16px;
   font-weight: 500;
   color: #f7f7f7;
@@ -127,6 +127,14 @@
   vertical-align: middle;
   outline: none;
   cursor: pointer;
+}
+
+.ContractorCard .tabs .tab a.active:hover {
+  color: #fff;
+}
+
+.ContractorCard .tabs .tab a:hover {
+  color: rgb(90, 181, 70);
 }
 
 .ContractorCard .tabs .tab:nth-child(5) {

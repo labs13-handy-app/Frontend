@@ -1,6 +1,5 @@
-.EditProfile {
+.ContractorEditProfile {
   margin-top: 25px;
-  margin-bottom: 40px;
   padding: 56px 63px;
   /* height: 690px; */
 
@@ -9,48 +8,43 @@
   border-radius: 4px;
 }
 
-.Edit {
-  margin-top: 100px;
+.EditContractor {
+  margin-top: 80px;
+  margin-bottom: 40px;
 }
 
-@media (max-width: 800px) {
-  .Edit {
-    margin-top: 30px;
-  }
-}
-
-.Edit h2 {
+.EditContractor h2 {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 24px;
   font-weight: 300;
 }
 
-.EditProfile form .user-form-content {
+.ContractorEditProfile form .contractor-form-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.EditProfile .user-form-content .name {
+.ContractorEditProfile .contractor-form-content .name {
   display: flex;
   justify-content: space-between;
 }
 
-.EditProfile .user-form-content .name .first-name {
+.ContractorEditProfile .contractor-form-content .name .first-name {
   width: 48%;
 }
-.EditProfile .user-form-content .name .last-name {
+.ContractorEditProfile .contractor-form-content .name .last-name {
   width: 48%;
 }
 
-.EditProfile form .user-form-content .user-form-item {
+.ContractorEditProfile form .contractor-form-item {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 }
 
-.EditProfile form .user-form-content .user-form-item label {
+.ContractorEditProfile form .contractor-form-item label {
   font-size: 14px;
   margin-bottom: 8px;
   padding: 0px;
@@ -58,7 +52,7 @@
   font-weight: 500;
 }
 
-.EditProfile form .user-form-content .user-form-item input {
+.ContractorEditProfile form .contractor-form-item input {
   width: 100%;
   height: 52px;
   border: 0;
@@ -68,22 +62,22 @@
   transition: all 0.5s;
 }
 
-.EditProfile form .user-form-content .user-form-item input:focus {
+.ContractorEditProfile form .contractor-form-item input:focus {
   border-bottom: 1px solid #70c55d;
   outline: none;
 }
 
-.EditProfile form .user-form-content .user-form-item input::placeholder {
+.ContractorEditProfile form .contractor-form-item input::placeholder {
   color: #c1c1c1;
 }
 
-.EditProfile form .photo {
+.ContractorEditProfile form .photo {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
 }
 
-.EditProfile form .profile-image {
+.ContractorEditProfile form ._profile-image {
   background: #e2eadf;
   color: #70c55d;
   border-radius: 25px;
@@ -97,11 +91,11 @@
   transition: all 0.3s;
 }
 
-.EditProfile form .profile-image:hover {
+.ContractorEditProfile form ._profile-image:hover {
   transform: scale(1.1);
 }
 
-.EditProfile form .edit-profile {
+.ContractorEditProfile form .contractor-edit-profile {
   height: 50px;
   width: 180px;
   border: 0;
@@ -115,16 +109,17 @@
   outline: none;
 }
 
-.EditProfile form .edit-profile:hover {
-  background: rgb(90, 181, 70);
+.ContractorEditProfile form .contractor-edit-profile:hover {
+  background: #70c55d;
 }
 
-.EditProfile form .form-footer {
+.ContractorEditProfile form ._form-footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.EditProfile form .form-footer .user-form-item {
+.ContractorEditProfile form ._form-footer .contractor-form-item {
   margin-bottom: 0;
+  /* margin-top: 20px; */
 }

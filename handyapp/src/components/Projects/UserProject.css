@@ -12,6 +12,12 @@
   box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54);
 }
 
+@media (max-width: 800px) {
+  .UserProject {
+    max-width: 100%;
+  }
+}
+
 .UserProject .user-project-image {
   width: 100%;
   height: 218px;
@@ -68,6 +74,24 @@
   align-items: flex-start;
 }
 
+@media (max-width: 1024px) {
+  .UserProject .user-project-content {
+    padding: 22px 5%;
+  }
+}
+
+@media (max-width: 900px) {
+  .UserProject .user-project-content {
+    padding: 22px 5%;
+  }
+}
+
+@media (max-width: 800px) {
+  .UserProject .user-project-content {
+    padding: 22px 5%;
+  }
+}
+
 .UserProject .user-project-content h2 {
   margin: 0;
   font-size: 24px;
@@ -75,16 +99,18 @@
   font-weight: 700;
   margin-bottom: 16px;
 }
+
 .UserProject .user-project-content .info {
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
 }
 
 .UserProject .user-project-content .info i {
   margin-right: 6px;
-  color: #3f9b16;
+  color: #70c55d;
 }
 
 .UserProject .user-project-content .info p {
@@ -123,7 +149,7 @@ a.user-view-bids:hover {
   background: #e2eadf;
   border-radius: 50%;
   border: 0;
-  color: #3f9b16;
+  color: #70c55d;
   outline: none;
   /* text-align: start; */
   /* width: 42px;
@@ -141,7 +167,7 @@ a.user-view-bids:hover {
   background: #e2eadf;
   border-radius: 50%;
   border: 0;
-  color: #3f9b16;
+  color: #70c55d;
   outline: none;
   /* text-align: start; */
   width: 42px;

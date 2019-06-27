@@ -3,6 +3,18 @@
   width: 100%;
 }
 
+@media (max-width: 1024px) {
+  .project-container {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 900px) {
+  .project-container {
+    margin-top: 25px;
+  }
+}
+
 .project-container h2 {
   font-size: 18px;
   font-weight: 300;

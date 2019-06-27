@@ -48,16 +48,20 @@ class HomeOwnerDashboard extends Component {
         </div>
         <div className="main-panel">
           <Route
-            path="/dashboard-homeowner/users/:id/add-project"
+            path={`/dashboard-homeowner/users/${
+              this.props.user.id
+            }/add-project`}
             render={props => <AddProject {...props} user={this.props.user} />}
           />
           <Route
-            path="/dashboard-homeowner/users/:id/edit-profile"
+            path={`/dashboard-homeowner/users/${
+              this.props.user.id
+            }/edit-profile`}
             render={props => <EditProfile {...props} user={this.props.user} />}
           />
           <Route
             render={props => <UserProjects {...props} user={this.props.user} />}
-            path={`/dashboard-homeowner/users/:id/projects/`}
+            path={`/dashboard-homeowner/users/${this.props.user.id}/projects`}
           />
         </div>
       </div>
