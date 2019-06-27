@@ -1,17 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {addBid} from '../../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addBid } from '../../actions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
-import {compose} from 'recompose';
+import { compose } from 'recompose';
 import Typography from '@material-ui/core/Typography';
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import 'react-router-modal/css/react-router-modal.css';
 
@@ -53,7 +52,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: {useNextVariants: true}
+  typography: { useNextVariants: true }
 });
 
 class AddNewBid extends Component {
@@ -69,7 +68,7 @@ class AddNewBid extends Component {
   }
 
   handleChanges = e => {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = async e => {
@@ -84,7 +83,7 @@ class AddNewBid extends Component {
 
   render() {
     console.log(this.props);
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
       <>
         <MuiThemeProvider theme={theme}>
@@ -107,7 +106,6 @@ class AddNewBid extends Component {
                         value={this.state.price}
                         type="number"
                         label="Price"
-                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -120,7 +118,6 @@ class AddNewBid extends Component {
                         value={this.state.time}
                         label="Hours"
                         fullWidth
-                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -133,7 +130,6 @@ class AddNewBid extends Component {
                         margin="normal"
                         required
                         fullWidth
-                        required
                       />
                     </Grid>
                   </Grid>
@@ -149,8 +145,15 @@ class AddNewBid extends Component {
                   Submit
                 </Button>
               </Paper>
+              <Typography
+                variant="caption"
+                display="block"
+                gutterBottom
+                align="right"
+              >
+                This popup can be closed by clicking outside the popup box!
+              </Typography>
             </main>
-            <Box mt={10} />
           </Container>
         </MuiThemeProvider>
       </>
@@ -159,11 +162,11 @@ class AddNewBid extends Component {
 }
 
 const mapStateToProps = state => {
-  return {bids: state.bids};
+  return { bids: state.bids };
 };
 
 //  export default connect(mapStateToProps,{ addBid})(AddNewBid);
 export default connect(
   mapStateToProps,
-  {addBid}
+  { addBid }
 )(compose(withStyles(styles))(AddNewBid));

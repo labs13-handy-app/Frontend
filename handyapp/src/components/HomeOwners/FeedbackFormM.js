@@ -106,8 +106,8 @@ class FeedbackFormM extends Component {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                      multiline
-                      rows="4"
+                      // multiline
+                      // rows="4"
                       onChange={this.handleChanges}
                       label="Description"
                       name="description"
