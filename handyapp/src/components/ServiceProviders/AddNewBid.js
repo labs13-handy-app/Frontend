@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
@@ -107,7 +106,6 @@ class AddNewBid extends Component {
                         value={this.state.price}
                         type="number"
                         label="Price"
-                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -120,7 +118,6 @@ class AddNewBid extends Component {
                         value={this.state.time}
                         label="Hours"
                         fullWidth
-                        required
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -133,7 +130,6 @@ class AddNewBid extends Component {
                         margin="normal"
                         required
                         fullWidth
-                        required
                       />
                     </Grid>
                   </Grid>
