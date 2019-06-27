@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Container, Nav, NavItem, NavLink} from 'reactstrap';
+import React, { Component } from 'react';
+import { Container, Nav, NavItem, NavLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Logo from '../../../img/newlogo.png';
@@ -7,10 +7,10 @@ import Logo from '../../../img/newlogo.png';
 class MobileMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {isOpen: false};
+    this.state = { isOpen: false };
   }
 
-  toggle = () => this.setState({isOpen: !this.state.isOpen});
+  toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
     return (
@@ -164,9 +164,9 @@ export default class NavigationBar extends Component {
   };
   fixedNav() {
     const nav = document.querySelector('.navi-menu');
-    const navHeigth = parseInt(window.getComputedStyle(nav).height, 10);
+    const navHeight = parseInt(window.getComputedStyle(nav).height, 10);
     const scrollEl = document.scrollingElement;
-    if (scrollEl.scrollTop > navHeigth) {
+    if (scrollEl.scrollTop > navHeight) {
       // nav.style.position = 'fixed';
       nav.style.position = 'static';
       nav.classList.add('scroll-nav');
@@ -188,7 +188,7 @@ export default class NavigationBar extends Component {
   render() {
     return (
       // -------Desktop--------
-      <div className="app-wrapper">
+      <div className="app-wrappers">
         <div className="navi-menu">
           <Container>
             <MobileMenu
@@ -201,11 +201,10 @@ export default class NavigationBar extends Component {
               <NavItem className="nav-item-n logo">
                 {/* <NavLink href="/">handy</NavLink> */}
                 <NavLink to="/">
-                  <img src={Logo} alt="logo" /> 
+                  <img src={Logo} alt="logo" />
                 </NavLink>
-                
               </NavItem>
-              
+
               <NavItem className="nav-item-n ham" onClick={this.showNav}>
                 <NavLink to="">
                   <i className="fas fa-bars" />
@@ -231,7 +230,7 @@ export default class NavigationBar extends Component {
             </Nav>
           </Container>
           <style>{`
-         .app-wrapper {
+         .app-wrappers {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
             'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
             'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -239,7 +238,8 @@ export default class NavigationBar extends Component {
           --brand-color: #71c55d;
           --gray-color-1: #777;
           --gray-color-2: #555;
-          box-shadow: #e1dfdf 1px 1px 11px;
+        // border: 1px solid red;
+        box-shadow: #e1dfdf 1px 1px 11px;
         }
         a {
           color: inherit;
@@ -264,11 +264,14 @@ export default class NavigationBar extends Component {
             background: white;
             width: 100%;
             z-index: 4;
-            box-shadow: #e1dfdf 1px 1px 11px;
+            // box-shadow: #e1dfdf 1px 1px 11px;
+            // border: 1px solid red;
+           
             
           }
           .nav-n {
             align-items: center;
+           
           }
           .nav-item-n {
             display: none;
