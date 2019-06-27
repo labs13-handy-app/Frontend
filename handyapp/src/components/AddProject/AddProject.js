@@ -63,6 +63,7 @@ class AddProject extends Component {
     console.log(this.state.project);
 
     await this.props.addProject(this.state.project);
+    // eslint-disable-next-line no-unused-vars
     const {description, title, budget, category} = this.state;
 
     this.props.history.push(
