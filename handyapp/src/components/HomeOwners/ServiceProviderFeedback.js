@@ -4,6 +4,7 @@ import Feedback from './Feedback';
 import {getFeedbackByContractorId} from '../../actions';
 //import AddFeedbackForm from './AddFeedbackForm';
 import FeedbackFormM from './FeedbackFormM';
+import Loader from 'react-loader-spinner';
 
 import './ServiceProviderFeedback.css'
 
@@ -19,7 +20,7 @@ class ServiceProviderFeedback extends Component {
     if (this.props.feedback.reviews === undefined) {
       return (
         <>
-          <h4>Loading...</h4>
+           <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
         </>
       );
     } else if(this.props.feedback.reviews=== null) {
@@ -36,13 +37,13 @@ class ServiceProviderFeedback extends Component {
       </div>
           <div className='project-content'>
           <div className='project-info'>
-          <h2>{this.props.feedback.first_name} {this.props.feedback.last_name}</h2>
+          <h2>Name: {this.props.feedback.first_name} {this.props.feedback.last_name}</h2>
           </div>
-          <h4>{this.props.feedback.address}</h4>
-          <h4>{this.props.feedback.phone_number}</h4>
-          <h4>{this.props.feedback.licenses}</h4>
-          <h4>{this.props.feedback.experience}</h4>
-          <h4>{this.props.feedback.skills}</h4>
+          <h4>Address: {this.props.feedback.address}</h4>
+          <h4>Phone number: {this.props.feedback.phone_number}</h4>
+          <h4>License: {this.props.feedback.licenses}</h4>
+          <h4>Years of experience: {this.props.feedback.experience}</h4>
+          <h4>Skill: {this.props.feedback.skills}</h4>
           </div>
           </div>
           <div className='bid-container'>
