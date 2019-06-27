@@ -4,6 +4,8 @@ import Project from './Project';
 import {getProjects, getToken as getUser} from '../../actions';
 import Loader from 'react-loader-spinner';
 
+import './Project.css';
+
 class Projects extends Component {
   componentWillMount() {
     // this.props.getUser();

@@ -8,9 +8,27 @@
   border-radius: 4px;
 }
 
+@media (max-width: 800px) {
+  .ContractorEditProfile {
+    width: 100%;
+  }
+}
+
 .EditContractor {
   margin-top: 80px;
   margin-bottom: 40px;
+}
+
+@media (max-width: 688px) {
+  .EditContractor {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .EditContractor {
+    margin-top: 30px;
+  }
 }
 
 .EditContractor h2 {
@@ -31,11 +49,30 @@
   justify-content: space-between;
 }
 
+@media (max-width: 688px) {
+  .ContractorEditProfile .contractor-form-content .name {
+    flex-direction: column;
+  }
+}
+
 .ContractorEditProfile .contractor-form-content .name .first-name {
   width: 48%;
 }
+
+@media (max-width: 688px) {
+  .ContractorEditProfile .contractor-form-content .name .first-name {
+    width: 100%;
+  }
+}
+
 .ContractorEditProfile .contractor-form-content .name .last-name {
   width: 48%;
+}
+
+@media (max-width: 688px) {
+  .ContractorEditProfile .contractor-form-content .name .last-name {
+    width: 100%;
+  }
 }
 
 .ContractorEditProfile form .contractor-form-item {
