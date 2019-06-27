@@ -81,7 +81,7 @@ class UserCard extends Component {
         <div className="tabs">
           <div className="tab">
             <NavLink to={`/dashboard-homeowner/users/${user.id}/add-project`}>
-              Add Project
+              <button>Add Project</button>
             </NavLink>
           </div>
           <div className="tab">
@@ -89,7 +89,7 @@ class UserCard extends Component {
               to={`/dashboard-homeowner/users/${user.id}/projects/`}
               className="tab-button"
             >
-              My Projects
+              <button>My Projects</button>
             </NavLink>
           </div>
           <div className="tab">
@@ -97,7 +97,7 @@ class UserCard extends Component {
               to={`/dashboard-homeowner/users/${user.id}/edit-profile`}
               className="tab-button"
             >
-              Edit Profile
+              <button>Edit Profile</button>
             </NavLink>
           </div>
         </div>

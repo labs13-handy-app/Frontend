@@ -13,6 +13,18 @@
   margin-top: 100px;
 }
 
+@media (max-width: 688px) {
+  .EditProfile {
+    width: 100%;
+  }
+}
+
+@media (max-width: 688px) {
+  .Edit {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 800px) {
   .Edit {
     margin-top: 30px;
@@ -37,11 +49,30 @@
   justify-content: space-between;
 }
 
+@media (max-width: 688px) {
+  .EditProfile .user-form-content .name {
+    flex-direction: column;
+  }
+}
+
 .EditProfile .user-form-content .name .first-name {
   width: 48%;
 }
+
+@media (max-width: 688px) {
+  .EditProfile .user-form-content .name .first-name {
+    width: 100%;
+  }
+}
+
 .EditProfile .user-form-content .name .last-name {
   width: 48%;
+}
+
+@media (max-width: 688px) {
+  .EditProfile .user-form-content .name .last-name {
+    width: 100%;
+  }
 }
 
 .EditProfile form .user-form-content .user-form-item {
