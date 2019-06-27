@@ -1,19 +1,20 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {onBoarding, getToken} from '../../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { onBoarding, getToken } from '../../actions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Box from '@material-ui/core/Box';
 import Person from '@material-ui/icons/Person';
 import Typography from '@material-ui/core/Typography';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {compose} from 'recompose';
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import { compose } from 'recompose';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const styles = theme => ({
   paper: {
@@ -45,6 +46,9 @@ const styles = theme => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: '#70C55D'
+  },
+  rightIcon: {
+    marginLeft: theme.spacing(1)
   }
 });
 
@@ -57,7 +61,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: {useNextVariants: true}
+  typography: { useNextVariants: true }
 });
 
 class HomeownerForm extends Component {
@@ -77,7 +81,7 @@ class HomeownerForm extends Component {
 
   componentWillMount() {
     this.props.getToken();
-    const {user} = this.props;
+    const { user } = this.props;
 
     if (user) {
       this.setState({
@@ -147,7 +151,7 @@ class HomeownerForm extends Component {
         tags: ['app']
       },
       (error, result) => {
-        let {secure_url} = result.info;
+        let { secure_url } = result.info;
         if (!error && result && result.event === 'success') {
           this.setState({
             avatar: secure_url
@@ -156,7 +160,7 @@ class HomeownerForm extends Component {
       }
     );
 
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     console.log(this.props);
     if (!localStorage.token) {
@@ -251,13 +255,25 @@ class HomeownerForm extends Component {
                       <Typography variant="button" display="block" gutterBottom>
                         Upload Pictures
                       </Typography>
-                      <input
+                      {/* <input
                         onClick={() => {
                           this.showWidget(widget);
                         }}
                         type="file"
                         accept="image/*"
-                      />
+                      /> */}
+                      <label
+                        htmlFor="contained-button-file"
+                        onClick={() => {
+                          this.showWidget(widget);
+                        }}
+                        accept="image/*"
+                      >
+                        <Button variant="contained" component="span">
+                          Upload
+                          <CloudUploadIcon className={classes.rightIcon} />
+                        </Button>
+                      </label>
                     </Grid>
                   </Grid>
                   <Button
@@ -280,7 +296,7 @@ class HomeownerForm extends Component {
   }
 }
 
-const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => {
+const mapStateToProps = ({ tokenReducer, onBoardingReducer }, props) => {
   return {
     user: tokenReducer.token,
     editedUser: onBoardingReducer.user
@@ -289,7 +305,7 @@ const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => {
 
 export default connect(
   mapStateToProps,
-  {onBoarding, getToken}
+  { onBoarding, getToken }
 )(compose(withStyles(styles))(HomeownerForm));
 
 /// Good Code below
