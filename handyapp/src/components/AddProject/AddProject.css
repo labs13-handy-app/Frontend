@@ -9,8 +9,21 @@
   border-radius: 4px;
 }
 
+@media (max-width: 800px) {
+  .AddProject {
+    padding: 8% 10%;
+    margin-top: 0 !important;
+  }
+}
+
 .Add {
   margin-top: 100px;
+}
+
+@media (max-width: 800px) {
+  .Add {
+    margin-top: 30px;
+  }
 }
 
 .Add h2 {
@@ -66,6 +79,12 @@
   align-items: flex-start;
 }
 
+@media (max-width: 800px) {
+  .AddProject form .form-items .core-info {
+    flex-direction: column;
+  }
+}
+
 .AddProject form .form-items .core-info .radio .form-item-radio label {
   font-size: 14px;
   margin-bottom: 16px;
@@ -76,6 +95,13 @@
 
 .AddProject form .form-items .core-info .radio {
   width: 35%;
+}
+
+@media (max-width: 800px) {
+  .AddProject form .form-items .core-info .radio {
+    width: 100%;
+    height: 80px;
+  }
 }
 
 .AddProject form .form-items .core-info .radio .checks {
@@ -114,6 +140,12 @@
 
 .AddProject form .form-items .core-info .budget {
   width: 48%;
+}
+
+@media (max-width: 800px) {
+  .AddProject form .form-items .core-info .budget {
+    width: 100%;
+  }
 }
 
 .AddProject form .form-items .form-item textarea {
