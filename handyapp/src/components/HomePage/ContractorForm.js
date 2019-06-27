@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import jsConvert from 'js-convert-case';
-import {connect} from 'react-redux';
-import {compose} from 'recompose';
-import {withStyles} from '@material-ui/core/styles';
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { withStyles } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -19,7 +20,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import {onBoarding, getToken, getServices} from '../../actions';
+import { onBoarding, getToken, getServices } from '../../actions';
 
 const styles = theme => ({
   layout: {
@@ -61,6 +62,9 @@ const styles = theme => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: '#70C55D'
+  },
+  rightIcon: {
+    marginLeft: theme.spacing(1)
   }
 });
 
@@ -73,7 +77,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: {useNextVariants: true}
+  typography: { useNextVariants: true }
 });
 
 class ContractorForm extends Component {
@@ -96,7 +100,7 @@ class ContractorForm extends Component {
   componentWillMount() {
     this.props.getServices();
     this.props.getToken();
-    const {user} = this.props;
+    const { user } = this.props;
 
     // user.account_type = localStorage.account_type;
 
@@ -186,7 +190,7 @@ class ContractorForm extends Component {
         tags: ['app']
       },
       (error, result) => {
-        let {secure_url} = result.info;
+        let { secure_url } = result.info;
         if (!error && result && result.event === 'success') {
           this.setState({
             avatar: secure_url
@@ -198,7 +202,7 @@ class ContractorForm extends Component {
       this.props.history.push('/');
     }
 
-    const {classes} = this.props;
+    const { classes } = this.props;
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -306,7 +310,7 @@ class ContractorForm extends Component {
                         className={classes.selectEmpty}
                       >
                         {this.props.skills &&
-                          this.props.skills.map(({id, name}) => {
+                          this.props.skills.map(({ id, name }) => {
                             return (
                               <MenuItem key={id} value={name}>
                                 {name}
@@ -346,13 +350,25 @@ class ContractorForm extends Component {
                     <Typography variant="button" display="block" gutterBottom>
                       Upload profile picture
                     </Typography>
-                    <input
+                    {/* <input
                       onClick={() => {
                         this.showWidget(widget);
                       }}
                       type="file"
                       accept="image/*"
-                    />
+                    /> */}
+                    <label
+                      htmlFor="contained-button-file"
+                      onClick={() => {
+                        this.showWidget(widget);
+                      }}
+                      accept="image/*"
+                    >
+                      <Button variant="contained" component="span">
+                        Upload
+                        <CloudUploadIcon className={classes.rightIcon} />
+                      </Button>
+                    </label>
                   </Grid>
                 </Grid>
                 <Button
@@ -375,7 +391,7 @@ class ContractorForm extends Component {
   }
 }
 
-const mapStateToProps = ({tokenReducer, servicesReducer}, props) => {
+const mapStateToProps = ({ tokenReducer, servicesReducer }, props) => {
   return {
     user: tokenReducer.token,
     skills: servicesReducer.services
@@ -384,7 +400,7 @@ const mapStateToProps = ({tokenReducer, servicesReducer}, props) => {
 
 export default connect(
   mapStateToProps,
-  {onBoarding, getToken, getServices}
+  { onBoarding, getToken, getServices }
 )(compose(withStyles(styles))(ContractorForm));
 // ---------------//
 // import React, {Component} from 'react';

@@ -33,6 +33,7 @@ function LandingPage(props) {
           --brand-color: #71c55d;
           --gray-color-1: #777;
           --gray-color-2: #555;
+          // box-shadow: none;
         }
         a {
           color: inherit;
@@ -50,6 +51,7 @@ function LandingPage(props) {
         @media (min-width: 1024px) {
           .jumbo-bg {
             background-attachment: fixed;
+            
           }
         }
       `}</style>

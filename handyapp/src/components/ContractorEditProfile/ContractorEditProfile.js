@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import jsConvert from 'js-convert-case';
 import NumberFormat from 'react-number-format';
 import Loader from 'react-loader-spinner';
 import Grid from '@material-ui/core/Grid';
-import InputLabel from '@material-ui/core/InputLabel';
+// import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {compose} from 'recompose';
-import {withStyles} from '@material-ui/core/styles';
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import { compose } from 'recompose';
+import { withStyles } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import {getToken, onBoarding as editUser, getServices} from '../../actions';
+import { getToken, onBoarding as editUser, getServices } from '../../actions';
 import './ContractorEditProfile.css';
 
 const styles = theme => ({
@@ -67,7 +67,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: {useNextVariants: true}
+  typography: { useNextVariants: true }
 });
 
 class ContractorEditProfile extends Component {
@@ -125,7 +125,7 @@ class ContractorEditProfile extends Component {
   };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: `${process.env.REACT_APP_CLOUDINARY_NAME}`,
@@ -133,7 +133,7 @@ class ContractorEditProfile extends Component {
         tags: ['app']
       },
       async (error, result) => {
-        let {secure_url} = result.info;
+        let { secure_url } = result.info;
         if (!error && result && result.event === 'success') {
           await this.setState(prevState => ({
             user: {
@@ -230,7 +230,7 @@ class ContractorEditProfile extends Component {
                       className={classes.selectEmpty}
                     >
                       {this.props.skills &&
-                        this.props.skills.map(({id, name}) => {
+                        this.props.skills.map(({ id, name }) => {
                           return (
                             <MenuItem key={id} value={name}>
                               {name}
@@ -291,7 +291,7 @@ class ContractorEditProfile extends Component {
   }
 }
 
-const mapStateToProps = ({servicesReducer}, props) => {
+const mapStateToProps = ({ servicesReducer }, props) => {
   return {
     skills: servicesReducer.services
   };
@@ -299,5 +299,5 @@ const mapStateToProps = ({servicesReducer}, props) => {
 
 export default connect(
   mapStateToProps,
-  {getToken, editUser, getServices}
+  { getToken, editUser, getServices }
 )(compose(withStyles(styles))(ContractorEditProfile));
