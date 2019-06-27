@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 import jsConvert from 'js-convert-case';
 import avatar from '../../img/default-avatar.png';
-import { getToken, onBoarding } from '../../actions';
+import {getToken, onBoarding} from '../../actions';
 import Loader from 'react-loader-spinner';
 import Transfer from '../Stripe/Transfer';
 
@@ -19,7 +19,7 @@ class ContractorCard extends Component {
 
   render() {
     // console.log(this.props);
-    const { user } = this.props;
+    const {user} = this.props;
     if (!user) {
       return (
         <Loader type="ThreeDots" color="#4c5b48" height="100" width="100" />
@@ -33,7 +33,7 @@ class ContractorCard extends Component {
         tags: ['app']
       },
       async (error, result) => {
-        let { secure_url } = result.info;
+        let {secure_url} = result.info;
         if (!error && result && result.event === 'success') {
           await this.setState({
             avatar: secure_url
@@ -45,7 +45,7 @@ class ContractorCard extends Component {
           };
 
           await this.props.onBoarding(user.id, newUser);
-          await this.setState({ avatar: '' });
+          await this.setState({avatar: ''});
           setTimeout(() => {
             window.location.reload();
           }, 1000);
@@ -105,11 +105,7 @@ class ContractorCard extends Component {
                 href="https://dashboard.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_FC1yU4l4i7xldVGX8RcFaMBh5ipi5GBq&scope=read_write"
                 className="tab-button"
               >
-<<<<<<< HEAD
                 <button>Connect Stripe</button>
-=======
-                Connect Stripe
->>>>>>> master
               </a>
             )}
             {user.payout_id && <Transfer user={user} />}
@@ -121,12 +117,12 @@ class ContractorCard extends Component {
   }
 }
 
-const mapStateToProps = ({ tokenReducer, onBoardingReducer }, props) => ({
+const mapStateToProps = ({tokenReducer, onBoardingReducer}, props) => ({
   user: tokenReducer.token
   // user: onBoardingReducer.user
 });
 
 export default connect(
   mapStateToProps,
-  { getToken, onBoarding }
+  {getToken, onBoarding}
 )(ContractorCard);
