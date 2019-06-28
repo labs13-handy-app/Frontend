@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom';
 import BidsForProject from './BidsForProject';
 import {getProjectById, deleteBid} from '../../actions';
 import Loader from 'react-loader-spinner';
-import {NavLink} from 'react-router-dom';
 
 import './ProjectsById.css';
 
@@ -26,23 +25,14 @@ class ProjectsById extends Component {
       console.log(this.props.projects.bids);
       return (
         <div className="project-container">
-<<<<<<< HEAD
           <div className="back">
             <NavLink
               to={`/dashboard-homeowner/users/${localStorage.userID}/projects`}
             >
-              <button>Back to Dashboard</button>
+              <button>Back to my dashboard</button>
             </NavLink>
           </div>
-=======
-          <div className='back'>
-            
-          <NavLink to={`/dashboard-homeowner/users/${localStorage.userID}/projects`}>
-            <button>Back to my dashboard</button>
-         </NavLink>
-         </div>
-        {/* <div className='Project'>
->>>>>>> master
+          {/* <div className='Project'>
           {/* <div className='Project'>
          <div className="project-image">
         <img src={this.props.thumbnail ? this.props.thumbnail : ''} alt="" />
