@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
-import { compose } from 'recompose';
-import { connect } from 'react-redux';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { addFeedback } from '../../actions';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {compose} from 'recompose';
+import {connect} from 'react-redux';
+import {addFeedback} from '../../actions';
+import Select from '@material-ui/core/Select';
+// '@material-ui/core/styles';
 
 const styles = theme => ({
   paper: {
@@ -52,7 +56,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: { useNextVariants: true }
+  typography: {useNextVariants: true}
 });
 
 class FeedbackFormM extends Component {
@@ -61,18 +65,26 @@ class FeedbackFormM extends Component {
     this.state = {
       title: '',
       description: '',
-      reviewer_name: '',
+      reviewer_name: localStorage.firstName,
       contractor_id: props.id,
       recommend: '',
       rating: ''
     };
   }
 
+  // componentDidMount() {
+  //   const first_name = localStorage.getItem('first_name');
+  //   this.setState({
+  //     reviewer_name: first_name
+  //   });
+  // }
+
   handleChanges = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({[e.target.name]: e.target.value});
   };
   render() {
-    const { classes } = this.props;
+    console.log(this.props);
+    const {classes} = this.props;
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -101,7 +113,6 @@ class FeedbackFormM extends Component {
                       margin="normal"
                       required
                       fullWidth
-                      
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -115,7 +126,6 @@ class FeedbackFormM extends Component {
                       margin="normal"
                       required
                       fullWidth
-                      
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -127,41 +137,73 @@ class FeedbackFormM extends Component {
                       margin="normal"
                       required
                       fullWidth
-                      
                     />
                   </Grid>
-
                   <Grid item xs={12}>
-                    <TextField
+                    <Box mt={3} />
+                    {/* <Select
                       onChange={this.handleChanges}
-                      label="Rating"
+                      label="Rating (out of 5)"
                       name="rating"
                       value={this.state.rating}
                       type="number"
                       margin="normal"
                       fullWidth
-                      
                       required
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      type="text"
+                    /> */}
+                    <InputLabel htmlFor="categories-required">
+                      Ratings*
+                    </InputLabel>
+                    <Select
+                      value={this.state.rating}
                       onChange={this.handleChanges}
-                      label="Would you recommend?"
-                      name="recommend"
-                      value={this.state.recommend}
-                      margin="normal"
+                      label="Rating (out of 5)"
+                      name="rating"
+                      type="number"
+                      // margin="normal"
                       fullWidth
                       required
-                    />
+                      className={classes.selectEmpty}
+                    >
+                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={2}>2</MenuItem>
+                      <MenuItem value={3}>3</MenuItem>
+                      <MenuItem value={4}>4</MenuItem>
+                      <MenuItem value={5}>5</MenuItem>
+                    </Select>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Box mt={3} />
+                    <InputLabel htmlFor="categories-required">
+                      Would you recommend?*
+                    </InputLabel>
+                    <Select
+                      onChange={this.handleChanges}
+                      name="recommend"
+                      value={this.state.recommend}
+                      // margin="normal"
+                      fullWidth
+                      required
+                      className={classes.selectEmpty}
+                    >
+                      <MenuItem value={'yes'}>Yes</MenuItem>
+                      <MenuItem value={'no'}>No</MenuItem>
+                    </Select>
                   </Grid>
                 </Grid>
               </form>
               <Button
-                onClick={() =>
-                  this.props.addFeedback(this.state, window.location.reload())
-                }
+                onClick={() => {
+                  this.props.addFeedback(
+                    this.state,
+                    alert('Feedback successfully added '),
+                    this.props.history.push(
+                      `/dashboard-homeowner/users/${
+                        localStorage.userID
+                      }/projects`
+                    )
+                  );
+                }}
                 fullWidth
                 type="submit"
                 variant="contained"
@@ -180,10 +222,10 @@ class FeedbackFormM extends Component {
   }
 }
 const mapStateToProps = state => {
-  return { feedback: state.feedback };
+  return {feedback: state.feedback};
 };
 
 export default connect(
   mapStateToProps,
-  { addFeedback }
+  {addFeedback}
 )(compose(withStyles(styles))(FeedbackFormM));
