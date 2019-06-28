@@ -56,11 +56,25 @@ class ServiceProviderFeedback extends Component {
                   {this.props.feedback.last_name}
                 </h4>
               </div>
-              <p>Address: {this.props.feedback.address}</p>
-              <p>Phone number: {this.props.feedback.phone_number}</p>
-              <p>License: {this.props.feedback.licenses}</p>
-              <p>Years of experience: {this.props.feedback.experience}</p>
-              <p>Skill: {this.props.feedback.skills}</p>
+              <p>
+                <i className="fas fa-map-marker-alt" />{' '}
+                {this.props.feedback.address}
+              </p>
+              <p>
+                <i className="fas fa-phone-alt" />{' '}
+                {this.props.feedback.phone_number}
+              </p>
+              <p>
+                <i className="fas fa-id-badge" /> {this.props.feedback.licenses}
+              </p>
+              <p>
+                <i className="fas fa-sign-language" />{' '}
+                {this.props.feedback.experience} years of experience
+              </p>
+              <p>
+                <i className="fas fa-hard-hat" />
+                {this.props.feedback.skills}
+              </p>
             </div>
           </div>
           <div className="bid-container">
