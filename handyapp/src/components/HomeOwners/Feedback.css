@@ -1,0 +1,33 @@
+.Feedback {
+  width: 100%;
+  background: #e2eadf68;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  .Feedback {
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .Feedback {
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}
+
+.no {
+  color: red;
+  opacity: 0.8;
+}
+
+.yes {
+  color: green;
+}
