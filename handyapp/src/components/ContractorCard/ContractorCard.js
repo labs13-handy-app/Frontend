@@ -79,8 +79,8 @@ class ContractorCard extends Component {
               <p className="contractor-handle">
                 @{user.first_name.toLowerCase()}
               </p>
-              <p> Service Professional
-              </p>
+              {/* <p> Service Professional
+              </p> */}
             </>
           )}
         </div>
