@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderImage from '../../../img/HeaderImage.svg';
 
-const Header = () => {
+const Header = props => {
   return (
     <header>
       <div className="intro-logo jumbo-bg">
@@ -10,7 +10,9 @@ const Header = () => {
         <img className="header-img" src={HeaderImage} alt="" />
 
         <div className="intro-button">
-          <a href="#/">GET STARTED</a>
+          <a onClick={props.login} href="#">
+            GET STARTED
+          </a>
         </div>
       </div>
 
