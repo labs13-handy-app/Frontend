@@ -1,10 +1,8 @@
 import React from 'react';
 import {withRouter, Route, Switch} from 'react-router-dom';
 import Auth from './components/Auth/Auth';
-//import NavBar from './components/LandingPage/NavBar';
 import NavigationBar from './components/LandingPageN/components/NavigationBar';
 import Callback from './components/Callback/Callback';
-//import Landing from './components/LandingPage/Landing';
 import LandingPage from './components/LandingPageN/LandingPage';
 import Onboarding from './components/Onboarding/Onboarding';
 import ContractorForm from './components/HomePage/ContractorForm';
@@ -103,7 +101,7 @@ class App extends React.Component {
             <Route
               exact
               path="/contractor/:id"
-              component={ServiceProviderFeedback}
+              render={props => <ServiceProviderFeedback {...props} />}
             />
             <Route exact path="/makepayment" component={MakePayment} />
             <Route path="/stripecallback" component={StripeCallback} />
@@ -159,7 +157,7 @@ class App extends React.Component {
           </Switch>
         </div>
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

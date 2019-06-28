@@ -1,8 +1,23 @@
 .Dashboard {
   width: 100%;
+  height: 89vh;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+}
+
+@media (max-width: 688px) {
+  .Dashboard {
+    margin: 0;
+    margin-top: 20px;
+    width: 100%;
+    height: 89vh;
+    flex-direction: column;
+    justify-content: start !important;
+    align-items: flex-start;
+    /* border: 1px solid red; */
+    padding: 0;
+  }
 }
 
 .Dashboard .side-panel {
@@ -10,9 +25,81 @@
   margin-right: 30px;
 }
 
+@media (max-width: 1024px) {
+  .Dashboard .side-panel {
+    min-width: 25% !important;
+    margin-right: 5px !important;
+    padding: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .Dashboard .side-panel {
+    min-width: 25% !important;
+    margin-right: 5px !important;
+    padding: 0;
+    height: 89vh;
+  }
+}
+
+@media (max-width: 800px) {
+  .Dashboard .side-panel {
+    min-width: 27% !important;
+    margin-right: 0 !important;
+    padding: 20px 0;
+    height: 89vh;
+  }
+}
+
+@media (max-width: 688px) {
+  .Dashboard .side-panel {
+    width: 100% !important;
+    /* margin-right: 5px !important; */
+    padding: 0;
+    /* border: 1px solid green; */
+    height: 250px !important;
+    margin-right: 0 !important;
+    /* height: 89vh; */
+  }
+}
+
 .Dashboard .main-panel {
   width: 80%;
   margin-top: 38px;
+}
+
+@media (max-width: 1024px) {
+  .Dashboard .main-panel {
+    width: 100%;
+    padding: 0 3%;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .Dashboard .main-panel {
+    width: 100%;
+    padding: 0 3%;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .Dashboard .main-panel {
+    width: 100%;
+    padding: 0 3%;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 688px) {
+  .Dashboard .main-panel {
+    width: 95% !important;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 0 !important;
+    /* border: 1px solid red; */
+  }
 }
 
 .centered {
@@ -21,4 +108,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .Dashboard .main-panel .project-container {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .Dashboard .main-panel .project-container {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .Dashboard .main-panel .project-container {
+    margin-top: 40px;
+  }
 }

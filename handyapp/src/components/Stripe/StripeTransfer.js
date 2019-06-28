@@ -1,14 +1,13 @@
 import React from 'react';
-import axiosWithAuth from '../../utils/AxiosAuth';
-import {getToken} from '../../actions';
-import {connect} from 'react-redux';
+// import axiosWithAuth from '../../utils/AxiosAuth';
+import { getToken } from '../../actions';
+import { connect } from 'react-redux';
 import Transfer from './Transfer';
 class StripeTransfer extends React.Component {
   componentDidMount() {
     this.props.getToken();
   }
 
-  
   render() {
     if (this.props.user.id === undefined) {
       console.log(this.props.user);
@@ -28,12 +27,12 @@ class StripeTransfer extends React.Component {
   }
 }
 
-const mapStateToProps = ({tokenReducer}, props) => {
+const mapStateToProps = ({ tokenReducer }, props) => {
   return {
     user: tokenReducer.token
   };
 };
 export default connect(
   mapStateToProps,
-  {getToken}
+  { getToken }
 )(StripeTransfer);
