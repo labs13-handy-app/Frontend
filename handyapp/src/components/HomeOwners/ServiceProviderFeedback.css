@@ -1,5 +1,5 @@
 .Project {
-  max-width: 90%;
+  width: 90%;
   height: 375px;
   display: flex;
   justify-content: space-between;
@@ -12,15 +12,37 @@
 .ContractorProfile {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   /* margin-bottom: 40px;
   margin-top: 40px; */
-  border: 1px solid #e2e2e2;
+
   margin: 40px auto;
-  padding: 40px 200px;
+  padding: 40px 0;
   border-radius: 4px;
   font-size: 16px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 12px 20px rgba(226, 226, 226, 0.54);
+}
+
+@media (max-width: 600px) {
+  .ContractorProfile {
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .ContractorProfile {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ContractorProfile {
+    width: 90%;
+  }
 }
 
 .ContractorProfile .ContractorImage {
@@ -29,7 +51,7 @@
   object-fit: cover;
   background: url('../../img/default-avatar.png') no-repeat center center/cover;
   border-radius: 50%;
-  margin-right: 100px;
+  margin-bottom: 30px;
 }
 
 .ContractorProfile .ContractorImage img {
@@ -93,6 +115,25 @@
   border-radius: 4px;
   color: #fff;
   font-size: 14px;
+  /* margin-left: px; */
+}
+
+@media (max-width: 600px) {
+  .back button {
+    margin-left: 5%;
+  }
+}
+
+/* @media (max-width: 800px) {
+  .back button {
+    margin-left: 5%;
+  }
+} */
+
+@media (max-width: 1024px) {
+  .back button {
+    margin-left: 5%;
+  }
 }
 
 .back button:hover {
