@@ -32,9 +32,9 @@
 // export default BidsForProject;
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom';
+import {makeStyles} from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -44,10 +44,18 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import CheckoutForm from '../Stripe/CheckoutForm';
 
+import './BidForProject.css';
+
 const useStyles = makeStyles({
   card: {
-    maxWidth: 500,
-    flexGrow: 1
+    width: '100%',
+    flexGrow: 1,
+    background: ' #fff',
+    boxShadow: '0 12px 20px rgba(128, 128, 128, 0.28)',
+    borderRadius: '4px',
+    padding: '30px',
+    marginBottom: '20px',
+    margin: '0 auto'
   }
 });
 
@@ -60,7 +68,7 @@ const theme = createMuiTheme({
       main: '#B8E2AE'
     }
   },
-  typography: { useNextVariants: true }
+  typography: {useNextVariants: true}
 });
 
 export default function MediaCard(props) {
@@ -72,15 +80,18 @@ export default function MediaCard(props) {
         <Card className={classes.card}>
           <CardActionArea>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                Contractor: {props.bid.first_name} {props.bid.last_name}
+              <Typography gutterBottom variant="h5">
+                {props.bid.first_name} {props.bid.last_name}
               </Typography>
               <Typography>
-                Price: ${props.bid.price}
+                <span className="BidLabel">Price: </span> ${props.bid.price}
               </Typography>
-              <Typography>Hours: {props.bid.time}</Typography>
               <Typography>
-                Materials included? {props.bid.materials_included}
+                <span className="BidLabel">Hours: </span> {props.bid.time}
+              </Typography>
+              <Typography>
+                <span className="BidLabel">Materials included? </span>
+                {props.bid.materials_included}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -91,7 +102,19 @@ export default function MediaCard(props) {
                 View Contractor
               </Button>
             </Link>
-            <Button size='small' color='primary' onClick={() => props.deleteBid(props.bid.id, alert('the bid has been rejected'), window.location.reload())}>Reject Bid</Button>
+            <Button
+              size="small"
+              color="primary"
+              onClick={() =>
+                props.deleteBid(
+                  props.bid.id,
+                  alert('the bid has been rejected'),
+                  window.location.reload()
+                )
+              }
+            >
+              Reject Bid
+            </Button>
           </CardActions>
         </Card>
         <Box mt={5} />
