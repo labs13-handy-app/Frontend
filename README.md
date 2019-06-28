@@ -71,26 +71,44 @@ Handy App allows homeowners to quickly and easily find home service professional
 - Redux-Logger
 - Redux-Thunk
 
-🚫 Why did you choose this framework?
 
--    point one
--    point two
--    point three
--    point four
+-    React and all dependencies that go with it were used to make a scalable single page application that loads and displays content in a reactive manner. With syntax and functionality better than alterntives such as Angular or Vue. 
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+-    Material UI was used to style and help make our application responsive. It's styles were cleaner and gave a better look than others such as react-strap and bootstrap.
+
+-    Redux was used as a state management tool. Making it so the DOM always had the correct content rendering at the correct time for seamless transtions between database calls. 
+
+-   Axios was used to make API calls. We chose it over the alternatives such as fetch because Axios has a built in ablity to translate JSON data into javascript objects. Making the data easier to work with on our React application.
+
 
 #### Front end deployed to Netlify
 
 #### [Back end] https://github.com/labs13-handy-app/Backend built using:
 
-#### 🚫 back end framework goes here
+- cloudinary
+- cors
+- cross-env
+- dotenv
+- express
+- express-jwt
+- helmet
+- jsonwebtoken
+- jwks-rsa
+- jwt-decode
+- knex
+- knex-cleaner
+- morgan
+- multer
+- pg
+- sqlite3
+- stripe
 
--    point one
--    point two
--    point three
+-    The Internal API was built using Express. Express allowed us to build a fully functional Node.js API with greater speed and functionality then some of the alternatives. 
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+-    Our Database was built using Knex. This allowed us to build our SQL queries in a safe and secure manner. It allowed us to migrate, seed, and maintain data with both Postgres while in production and sqlite3 while in development and testing.
+
+-    JSONWebToken was used to decode and help put users in our database based on the tokens sent from the front-end via auth0. This helped us build out our API as well as restrict our endpoints. 
+
 
 # APIs
 
