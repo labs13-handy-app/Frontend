@@ -30,15 +30,11 @@ class ServiceProviderFeedback extends Component {
       return (
         <div className="project-container">
           <div className="back">
-            <button>
-              <NavLink
-                to={`/dashboard-homeowner/users/${
-                  localStorage.userID
-                }/projects`}
-              >
-                Back to Dashboard
-              </NavLink>
-            </button>
+            <NavLink
+              to={`/dashboard-homeowner/users/${localStorage.userID}/projects`}
+            >
+              <button>Back to Dashboard</button>
+            </NavLink>
           </div>
           <div className="ContractorProfile">
             <div className="ContractorImage">
