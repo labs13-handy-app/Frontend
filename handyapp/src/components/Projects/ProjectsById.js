@@ -24,7 +24,21 @@ class ProjectsById extends Component {
       console.log(this.props.projects.bids);
       return (
         <div className="project-container">
-          <h2>Bids:</h2>
+          {/* <div className='Project'>
+         <div className="project-image">
+        <img src={this.props.thumbnail ? this.props.thumbnail : ''} alt="" />
+      </div>
+        <div className="project-content">
+          <h2>{this.props.projects.title}</h2>
+          
+         <p>Description: {this.props.projects.description}</p>
+         
+         <p>Materials Included? {this.props.projects.materials_included}</p>
+         <div>
+          </div>
+          </div>
+         </div> */}
+          <h2>List of bids for your project</h2>
           <div className="bid-container">
             {this.props.projects.bids.map(bid => (
               <BidsForProject

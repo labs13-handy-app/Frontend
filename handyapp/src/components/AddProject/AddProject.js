@@ -3,9 +3,75 @@ import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
 import {addProject, getServices} from '../../actions';
 import upload from '../../img/Upload-images.svg';
-import Select from 'react-select';
+// import Select from 'react-select';
+import Grid from '@material-ui/core/Grid';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
+import {compose} from 'recompose';
 
 import './AddProject.css';
+
+const styles = theme => ({
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: 600,
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }
+  },
+  paper: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+      padding: theme.spacing(3)
+    }
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3)
+  },
+  submit: {
+    backgroundColor: '#70C55D',
+    color: '#FFFFFF',
+    fontWeight: 600,
+    marginTop: theme.spacing(3),
+    '&:hover': {
+      backgroundColor: 'hsl(120, 27%, 56%)'
+    }
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: '#70C55D'
+  },
+  rightIcon: {
+    marginLeft: theme.spacing(1)
+  }
+});
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#70C55D'
+    },
+    secondary: {
+      main: '#B8E2AE'
+    }
+  },
+  typography: {useNextVariants: true}
+});
 
 class AddProject extends Component {
   constructor(props) {
@@ -74,11 +140,12 @@ class AddProject extends Component {
     widget.open();
   };
 
-  onSelectChange = async ({value: category}) => {
-    await this.setState(prevState => ({
+  onSelectChange = e => {
+    e.persist();
+    this.setState(prevState => ({
       project: {
         ...prevState.project,
-        category
+        [e.target.name]: e.target.value
       }
     }));
   };
@@ -109,6 +176,7 @@ class AddProject extends Component {
         }
       }
     );
+    const {classes} = this.props;
     return (
       <div className="Add">
         <h2>Post a Project</h2>
@@ -181,10 +249,42 @@ class AddProject extends Component {
               </div>
 
               <div className="form-item">
-                <label htmlFor="category">
+                {/* <label htmlFor="category">
                   Select a category for your project
-                </label>
-                <Select
+                </label> */}
+                <Grid item xs={12}>
+                  <FormControl
+                    required
+                    className={classes.formControl}
+                    margin="normal"
+                    fullWidth
+                  >
+                    <InputLabel htmlFor="categories-required">
+                      Contractor Category
+                    </InputLabel>
+                    <Select
+                      value={this.state.project.category}
+                      onChange={this.onSelectChange}
+                      name="category"
+                      inputProps={{
+                        id: 'categories-required'
+                      }}
+                      className={classes.selectEmpty}
+                    >
+                      {this.props.services &&
+                        this.props.services.map(({id, name}) => {
+                          return (
+                            <MenuItem key={id} value={name}>
+                              {name}
+                            </MenuItem>
+                          );
+                        })}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              </div>
+
+              {/* <Select
                   onChange={this.onSelectChange}
                   options={options}
                   id="category"
@@ -200,8 +300,7 @@ class AddProject extends Component {
                       primary: '#3f9b16'
                     }
                   })}
-                />
-              </div>
+                /> */}
 
               <div className="form-item">
                 <label htmlFor="description">What are the details?</label>
@@ -272,4 +371,4 @@ const mapStateToProps = ({servicesReducer, addProjectReducer}, props) => {
 export default connect(
   mapStateToProps,
   {addProject, getServices}
-)(AddProject);
+)(compose(withStyles(styles))(AddProject));

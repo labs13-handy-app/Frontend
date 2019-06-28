@@ -96,6 +96,10 @@
 
 .ContractorCard .user-info .active-user {
   margin-bottom: 20px;
+  object-fit: cover;
+  border-radius: 50px;
+  width: 94px;
+  height: 94px;
 }
 
 .ContractorCard .username {

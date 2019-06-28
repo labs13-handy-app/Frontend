@@ -1,16 +1,41 @@
 import React from 'react';
+import StarRatingComponent from 'react-star-rating-component';
 
-const Feedback = props => {
-  return (
-    <div className="Bid">
-      <p>Reviewer: {props.review.reviewer_name}</p>
-      <p>Title: {props.review.title}</p>
-      <p>Description: {props.review.description}</p>
-      <p>Rating: {props.review.rating}</p>
-      <p>Would recommend: {props.review.recommend}</p>
-    </div>
-  );
-};
+import './Feedback.css';
+
+class Feedback extends React.Component {
+  state = {
+    rating: this.props.review.rating ? this.props.review.rating : null
+  };
+  onStarClick = (nextValue, prevValue, name) => {
+    this.setState({rating: nextValue});
+  };
+  render() {
+    return (
+      <div className="Feedback">
+        <h5>{this.props.review.reviewer_name}</h5>
+        <StarRatingComponent
+          name="rate1"
+          starCount={5}
+          value={this.state.rating}
+          onStarClick={this.onStarClick}
+        />
+        <p>{this.props.review.description}</p>
+
+        {/* <p>Rating: {this.props.review.rating}</p> */}
+        <p
+          className={`recommend ${
+            this.props.review.recommend === 'yes' ? 'yes' : 'no'
+          }`}
+        >
+          {this.props.review.recommend === 'yes'
+            ? 'I would totally recommend this contractor'
+            : 'I would not recommend this contractor'}
+        </p>
+      </div>
+    );
+  }
+}
 
 export default Feedback;
 

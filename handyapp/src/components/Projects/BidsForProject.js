@@ -138,7 +138,7 @@ export default function BidsForProject(props) {
                 onClick={() =>
                   props.deleteBid(
                     props.bid.id,
-                    alert('the bid has been rejected'),
+                    alert('The bid has been rejected!'),
                     window.location.reload()
                   )
                 }

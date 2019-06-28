@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 import Feedback from './Feedback';
-import { getFeedbackByContractorId } from '../../actions';
+import {getFeedbackByContractorId} from '../../actions';
 //import AddFeedbackForm from './AddFeedbackForm';
 import FeedbackFormM from './FeedbackFormM';
 import Loader from 'react-loader-spinner';
@@ -16,6 +17,7 @@ class ServiceProviderFeedback extends Component {
   }
 
   render() {
+    console.log(this.props);
     if (this.props.feedback.reviews === undefined) {
       return (
         <>
@@ -25,11 +27,21 @@ class ServiceProviderFeedback extends Component {
     } else if (this.props.feedback.reviews === null) {
       return <h2>Problem getting Contractor at this time</h2>;
     } else {
-      console.log(this.props.feedback.reviews);
       return (
         <div className="project-container">
-          <div className="Project">
-            <div className="project-image">
+          <div className="back">
+            <button>
+              <NavLink
+                to={`/dashboard-homeowner/users/${
+                  localStorage.userID
+                }/projects`}
+              >
+                Back to Dashboard
+              </NavLink>
+            </button>
+          </div>
+          <div className="ContractorProfile">
+            <div className="ContractorImage">
               <img
                 src={
                   this.props.feedback.avatar ? this.props.feedback.avatar : ''
@@ -38,17 +50,31 @@ class ServiceProviderFeedback extends Component {
               />
             </div>
             <div className="project-content">
-              <div className="project-info">
-                <h2>
-                  Name: {this.props.feedback.first_name}{' '}
+              <div className="Contractor-info">
+                <h4>
+                  {this.props.feedback.first_name}{' '}
                   {this.props.feedback.last_name}
-                </h2>
+                </h4>
               </div>
-              <h4>Address: {this.props.feedback.address}</h4>
-              <h4>Phone number: {this.props.feedback.phone_number}</h4>
-              <h4>License: {this.props.feedback.licenses}</h4>
-              <h4>Years of experience: {this.props.feedback.experience}</h4>
-              <h4>Skill: {this.props.feedback.skills}</h4>
+              <p>
+                <i className="fas fa-map-marker-alt" />{' '}
+                {this.props.feedback.address}
+              </p>
+              <p>
+                <i className="fas fa-phone-alt" />{' '}
+                {this.props.feedback.phone_number}
+              </p>
+              <p>
+                <i className="fas fa-id-badge" /> {this.props.feedback.licenses}
+              </p>
+              <p>
+                <i className="fas fa-sign-language" />{' '}
+                {this.props.feedback.experience} years of experience
+              </p>
+              <p>
+                <i className="fas fa-hard-hat" />
+                {this.props.feedback.skills}
+              </p>
             </div>
           </div>
           <div className="bid-container">
@@ -58,19 +84,19 @@ class ServiceProviderFeedback extends Component {
           </div>
           {/* <AddFeedbackForm /> */}
           {/* Uncomment Material UI form<FeedbackFormM />  */}
-          <FeedbackFormM id={this.props.match.params.id} />
+          <FeedbackFormM id={this.props.match.params.id} {...this.props} />
         </div>
       );
     }
   }
 }
 
-const mapStateToProps = ({ getFeedbackByContractorIdReducer }, props) => {
+const mapStateToProps = ({getFeedbackByContractorIdReducer}, props) => {
   return {
     feedback: getFeedbackByContractorIdReducer.feedback
   };
 };
 export default connect(
   mapStateToProps,
-  { getFeedbackByContractorId }
+  {getFeedbackByContractorId}
 )(ServiceProviderFeedback);
