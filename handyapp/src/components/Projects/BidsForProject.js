@@ -61,8 +61,9 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 500,
+    // maxWidth: 900,
     flexGrow: 1
+    // border: '1px solid red'
   },
   submit: {
     backgroundColor: '#70C55D',
@@ -90,7 +91,7 @@ const useStyles = makeStyles({
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
+      // width: 600,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
@@ -112,13 +113,14 @@ export default function BidsForProject(props) {
                   Contractor: {props.bid.first_name} {props.bid.last_name}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  Price: ${props.bid.price}
+                  <b>Price: </b>$ {props.bid.price}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  Hours: {props.bid.time}
+                  <b>Hours: </b>
+                  {props.bid.time} hrs
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  Materials included? {props.bid.materials_included}
+                  <b>Materials included?</b> {props.bid.materials_included}
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -127,6 +129,7 @@ export default function BidsForProject(props) {
                 <Button
                   type="submit"
                   variant="contained"
+                  size="small"
                   className={classes.submit}
                 >
                   View Contractor
@@ -135,6 +138,7 @@ export default function BidsForProject(props) {
               <Button
                 color="primary"
                 variant="contained"
+                size="small"
                 onClick={() =>
                   props.deleteBid(
                     props.bid.id,
@@ -150,6 +154,7 @@ export default function BidsForProject(props) {
             <CardActions>
               <CheckoutForm amount={props.bid.price} {...props} />
             </CardActions>
+            <Box mt={2} />
           </Card>
         </main>
         <Box mt={2} />
