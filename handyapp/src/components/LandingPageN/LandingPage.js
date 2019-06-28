@@ -16,9 +16,10 @@ function LandingPage(props) {
   } else if (localStorage.token && localStorage.account_type === 'contractor') {
     props.history.push(`/dashboard-contractor/projects`);
   }
+
   return (
     <div className="app-wrapper">
-      <Header />
+      <Header login={props.login} logout={props.logout} />
       <Section1 />
       <Section2 />
       {/* <Section3 /> */}
