@@ -26,7 +26,8 @@ class ProjectsById extends Component {
       return (
         <div className="project-container">
           <div className='back'>
-          <NavLink to={`/dashboard-homeowner/users/${this.props.projects.homeowner_id}/projects`}>
+            
+          <NavLink to={`/dashboard-homeowner/users/${localStorage.userID}/projects`}>
             <button>Back to my dashboard</button>
          </NavLink>
          </div>
