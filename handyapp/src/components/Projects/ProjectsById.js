@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import BidsForProject from './BidsForProject';
 import {getProjectById, deleteBid} from '../../actions'
 import Loader from 'react-loader-spinner';
+import {NavLink} from 'react-router-dom';
 
 import './ProjectsById.css';
 
@@ -44,6 +45,9 @@ class ProjectsById extends Component {
              <BidsForProject bid={bid} key={bid.id} deleteBid={this.props.deleteBid} />
            ))}
          </div>
+         <NavLink to={`/dashboard-homeowner/users/${this.props.projects.homeowner_id}/projects`}>
+            <button>Back to my dashboard</button>
+         </NavLink>
         </div>
       );
     }
