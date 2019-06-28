@@ -316,3 +316,9 @@
   color: #13171276;
   font-weight: 700;
 }
+
+.transfer-btn{
+  border: none;
+  background: none;
+  outline: none;
+}

@@ -6,10 +6,10 @@ You can find the deployed project at [https://handyapp.netlify.com].
 
 ## Contributors
 
-
-|                                       [Guillaume Savy](https://github.com/guillsav)                                        |                                       [Tyler Foreman](https://github.com/tjforeman)                                        |                                       [Sharanjit Sandhu](https://github.com/sharanjitsandhu)                                            |                                       [Spencer Meredith](https://github.com/Spencer-M24)                                        |
+|                                       [Guillaume Savy](https://github.com/guillsav)                                        |                                       [Tyler Foreman](https://github.com/tjforeman)                                        |                                       [Sharanjit Sandhu](https://github.com/sharanjitsandhu)                                        |                                       [Spencer Meredith](https://github.com/Spencer-M24)                                        |                                       [Student 5](https://github.com/)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
+|              
+|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/guillsav))                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/tjforeman)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/sharanjitsandhu)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/Spencer-M24)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
@@ -28,102 +28,116 @@ You can find the deployed project at [https://handyapp.netlify.com].
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+ [Trello Board] https://trello.com/b/hLXT2CaQ/labs-13-handy-app
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+ [Product Canvas] https://docs.google.com/document/d/1LNHkSy6CoIkgM2C1SoIKxNyv6pDoZZJVjeMRSrfh7Qo/edit#heading=h.1jaf6eug9n0k
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
-
-🚫 Replace lorem ipsum with a description of your project
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ [UX Design files] https://invis.io/8FRGN9J6CK5
 
 
-### 4️⃣ Key Features
+Handy App allows homeowners to quickly and easily find home service professionals, (i.e: contractors, plumbers, electricians), to perform household repairs and maintenance
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
 
-## 1️⃣ Tech Stack
+###  Key Features
+
+-    The ablity for a Homeowner to add a project.
+-    The ablity for a Service Provider to see a list of projects related to their skills and place a bid
+-    The ability for a Homeowner to view a list of bids, and accept the one they like the best.
+-    The ablity for a Homeowner to pay via stripe, for the project.
+-    The ability for a Service Provider to collect payment via stripe connect. 
+
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+- Auth0
+- Axios
+- Cloudinary-React
+- Jquery
+- Js-Convert-Case
+- material-ui-core
+- material-ui-icons
+- material-ui-styles
+- Moment
+- React
+- React-Image-Lightbox
+- React-Loader-Spinner
+- React-Number-Format
+- React-Redux
+- React-Router
+- React-Router-Modal
+- React-Select
+- React-Stripe-Checkout
+- Redux
+- Redux-Logger
+- Redux-Thunk
 
-🚫 Why did you choose this framework?
 
--    point one
--    point two
--    point three
--    point four
+-    React and all dependencies that go with it were used to make a scalable single page application that loads and displays content in a reactive manner. With syntax and functionality better than alterntives such as Angular or Vue. 
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+-    Material UI was used to style and help make our application responsive. It's styles were cleaner and gave a better look than others such as react-strap and bootstrap.
 
-#### Front end deployed to `🚫insert service here`
+-    Redux was used as a state management tool. Making it so the DOM always had the correct content rendering at the correct time for seamless transtions between database calls. 
 
-#### [Back end](🚫link to back end repo here) built using:
+-   Axios was used to make API calls. We chose it over the alternatives such as fetch because Axios has a built in ablity to translate JSON data into javascript objects. Making the data easier to work with on our React application.
 
-#### 🚫 back end framework goes here
 
--    point one
--    point two
--    point three
+#### Front end deployed to Netlify
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#### [Back end] https://github.com/labs13-handy-app/Backend built using:
+
+- cloudinary
+- cors
+- cross-env
+- dotenv
+- express
+- express-jwt
+- helmet
+- jsonwebtoken
+- jwks-rsa
+- jwt-decode
+- knex
+- knex-cleaner
+- morgan
+- multer
+- pg
+- sqlite3
+- stripe
+
+-    The Internal API was built using Express. Express allowed us to build a fully functional Node.js API with greater speed and functionality then some of the alternatives. 
+
+-    Our Database was built using Knex. This allowed us to build our SQL queries in a safe and secure manner. It allowed us to migrate, seed, and maintain data with both Postgres while in production and sqlite3 while in development and testing.
+
+-    JSONWebToken was used to decode and help put users in our database based on the tokens sent from the front-end via auth0. This helped us build out our API as well as restrict our endpoints. 
+
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Auth0
 
-🚫Replace text below with a description of the API
+Auth0 provides authentication and authorization as a service, You can connect any application (written in any language or on any stack) to Auth0 and define the identity providers you want to use (how you want your users to log in). hook it up to your app. Now each time a user tries to authenticate, Auth0 will verify their identity and send the required information back to your app.
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+## Stripe & Stripe-Connect
 
-## 2️⃣ Payment API here
+Stripe is a technology company based in San Francisco, California. Its software allows individuals and businesses to make and receive payments over the Internet. Stripe provides the technical, fraud prevention, and banking infrastructure required to operate online payment systems.
 
-🚫Replace text below with a description of the API
+## Cloudinary
 
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+ Cloudinary provides a cloud-based image and video management solution. It enables users to upload, store manage, manipulate and deliver images and video for websites and apps
 
-## 3️⃣ Misc API here
 
-🚫Replace text below with a description of the API
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
+Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_AUTH0_CALLBACK_URL=http://localhost:3000/callback
+REACT_APP_AUTH0_DOMAIN=dev-t67d1inm.auth0.com
+REACT_APP_AUTH0_CLIENTID=C2qEif6X9XtPtOJEgwUbPLG3E3Tmgaro
+REACT_APP_CLOUDINARY_NAME=sandhu
+REACT_APP_CLOUDINARY_PRESET=clyrl6ow
+REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_test_WrFQYte9DKhuIhdOUaiKxcW100UafZVNWY
 
 # 5️⃣ Content Licenses
 
@@ -134,17 +148,12 @@ In order for the app to function correctly, the user must set up their own envir
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
 | rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
 
-# 4️⃣ Testing
-
-🚫Document what you used for testing and why
 
 # 4️⃣ Installation Instructions
 
 🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
 
 ## Other Scripts
-
-🚫replace these examples with your own
 
     * typecheck - runs the TypeScript compiler
     * build - creates a build of the application

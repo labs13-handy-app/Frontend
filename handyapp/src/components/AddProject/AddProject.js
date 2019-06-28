@@ -132,7 +132,7 @@ class AddProject extends Component {
     const {description, title, budget, category} = this.state;
 
     this.props.history.push(
-      `/dashboard-homeowner/users/${this.props.match.params.id}/projects/`
+      `/dashboard-homeowner/users/${localStorage.userID}/projects/`
     );
   };
 
