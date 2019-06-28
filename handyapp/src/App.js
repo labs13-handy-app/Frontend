@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Route, Switch } from 'react-router-dom';
+import {withRouter, Route, Switch} from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 import NavigationBar from './components/LandingPageN/components/NavigationBar';
 import Callback from './components/Callback/Callback';
@@ -13,9 +13,9 @@ import Projects from './components/Projects/Projects';
 import Bids from './components/Bids/Bids';
 import AddBid from './components/ServiceProviders/AddBid';
 import ProjectsById from './components/Projects/ProjectsById';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import {faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import ServiceProviderFeedback from './components/HomeOwners/ServiceProviderFeedback';
 // import Stripe from './components/Stripe/Stripe';
 // import SubmitBid from './components/ServiceProviders/SubmitBid';
@@ -31,7 +31,7 @@ library.add(fab, faCheckSquare);
 
 const auth = new Auth();
 
-const handleAuthentication = ({ location }) => {
+const handleAuthentication = ({location}) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
   }
@@ -49,7 +49,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { isAuthenticated } = auth;
+    const {isAuthenticated} = auth;
 
     return (
       <div className="App">
@@ -101,7 +101,7 @@ class App extends React.Component {
             <Route
               exact
               path="/contractor/:id"
-              component={ServiceProviderFeedback}
+              render={props => <ServiceProviderFeedback {...props} />}
             />
             <Route exact path="/makepayment" component={MakePayment} />
             <Route path="/stripecallback" component={StripeCallback} />
@@ -157,7 +157,7 @@ class App extends React.Component {
           </Switch>
         </div>
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

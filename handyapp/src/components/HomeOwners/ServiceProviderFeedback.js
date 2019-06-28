@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Feedback from './Feedback';
-import { getFeedbackByContractorId } from '../../actions';
+import {getFeedbackByContractorId} from '../../actions';
 //import AddFeedbackForm from './AddFeedbackForm';
 import FeedbackFormM from './FeedbackFormM';
 import Loader from 'react-loader-spinner';
@@ -58,19 +58,19 @@ class ServiceProviderFeedback extends Component {
           </div>
           {/* <AddFeedbackForm /> */}
           {/* Uncomment Material UI form<FeedbackFormM />  */}
-          <FeedbackFormM id={this.props.match.params.id} />
+          <FeedbackFormM id={this.props.match.params.id} {...this.props} />
         </div>
       );
     }
   }
 }
 
-const mapStateToProps = ({ getFeedbackByContractorIdReducer }, props) => {
+const mapStateToProps = ({getFeedbackByContractorIdReducer}, props) => {
   return {
     feedback: getFeedbackByContractorIdReducer.feedback
   };
 };
 export default connect(
   mapStateToProps,
-  { getFeedbackByContractorId }
+  {getFeedbackByContractorId}
 )(ServiceProviderFeedback);
