@@ -80,9 +80,9 @@ Handy App allows homeowners to quickly and easily find home service professional
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to Netlify
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end] https://github.com/labs13-handy-app/Backend built using:
 
 #### 🚫 back end framework goes here
 
@@ -94,52 +94,32 @@ Handy App allows homeowners to quickly and easily find home service professional
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Auth0
 
-🚫Replace text below with a description of the API
+Auth0 provides authentication and authorization as a service, You can connect any application (written in any language or on any stack) to Auth0 and define the identity providers you want to use (how you want your users to log in). hook it up to your app. Now each time a user tries to authenticate, Auth0 will verify their identity and send the required information back to your app.
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+## Stripe & Stripe-Connect
 
-## 2️⃣ Payment API here
+Stripe is a technology company based in San Francisco, California. Its software allows individuals and businesses to make and receive payments over the Internet. Stripe provides the technical, fraud prevention, and banking infrastructure required to operate online payment systems.
 
-🚫Replace text below with a description of the API
+## Cloudinary
 
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+ Cloudinary provides a cloud-based image and video management solution. It enables users to upload, store manage, manipulate and deliver images and video for websites and apps
 
-## 3️⃣ Misc API here
 
-🚫Replace text below with a description of the API
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
+Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_AUTH0_CALLBACK_URL=http://localhost:3000/callback
+REACT_APP_AUTH0_DOMAIN=dev-t67d1inm.auth0.com
+REACT_APP_AUTH0_CLIENTID=C2qEif6X9XtPtOJEgwUbPLG3E3Tmgaro
+REACT_APP_CLOUDINARY_NAME=sandhu
+REACT_APP_CLOUDINARY_PRESET=clyrl6ow
+REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_test_WrFQYte9DKhuIhdOUaiKxcW100UafZVNWY
 
 # 5️⃣ Content Licenses
 
@@ -150,17 +130,12 @@ In order for the app to function correctly, the user must set up their own envir
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
 | rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
 
-# 4️⃣ Testing
-
-🚫Document what you used for testing and why
 
 # 4️⃣ Installation Instructions
 
 🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
 
 ## Other Scripts
-
-🚫replace these examples with your own
 
     * typecheck - runs the TypeScript compiler
     * build - creates a build of the application
