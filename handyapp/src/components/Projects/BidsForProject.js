@@ -80,7 +80,7 @@ export default function MediaCard(props) {
         <Card className={classes.card}>
           <CardActionArea>
             <CardContent>
-              <Typography gutterBottom variant="h5">
+              <Typography gutterBottom variant="h6">
                 {props.bid.first_name} {props.bid.last_name}
               </Typography>
               <Typography>
