@@ -22,8 +22,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#70C55D',
     color: '#FFFFFF',
     fontWeight: 600,
-    marginTop: theme.spacing(3),
-    // border: '1px solid red',
     '&:hover': {
       backgroundColor: 'hsl(120, 27%, 56%)'
     }
@@ -68,6 +66,7 @@ const Checkout = ({ name, description, amount }) => {
           stripeKey={`${process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}`}
         >
           <Button
+            size="small"
             type="submit"
             variant="contained"
             className={classes.paymentbtn}

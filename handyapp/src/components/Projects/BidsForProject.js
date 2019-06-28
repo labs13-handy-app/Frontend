@@ -46,6 +46,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CheckoutForm from '../Stripe/CheckoutForm';
+// import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
@@ -61,7 +62,6 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   card: {
-    // maxWidth: 900,
     flexGrow: 1
     // border: '1px solid red'
   },
@@ -71,6 +71,15 @@ const useStyles = makeStyles({
     fontWeight: 600,
     '&:hover': {
       backgroundColor: 'hsl(120, 27%, 56%)'
+    }
+  },
+  declinebtn: {
+    backgroundColor: 'red',
+    color: '#FFFFFF',
+    fontWeight: 600,
+    border: '1px solid red',
+    '&:hover': {
+      backgroundColor: 'hsl(359, 63%, 56%)'
     }
   },
   paper: {
@@ -126,17 +135,14 @@ export default function BidsForProject(props) {
             </CardActionArea>
             <CardActions>
               <Link to={`/contractor/${props.bid.contractor_id}`}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  size="small"
-                  className={classes.submit}
-                >
+                <Button color="primary" type="submit">
                   View Contractor
                 </Button>
               </Link>
+            </CardActions>
+            <CardActions>
+              <CheckoutForm amount={props.bid.price} {...props} />
               <Button
-                color="primary"
                 variant="contained"
                 size="small"
                 onClick={() =>
@@ -146,18 +152,14 @@ export default function BidsForProject(props) {
                     window.location.reload()
                   )
                 }
-                className={classes.submit}
+                className={classes.declinebtn}
               >
                 Decline Bid
               </Button>
             </CardActions>
-            <CardActions>
-              <CheckoutForm amount={props.bid.price} {...props} />
-            </CardActions>
             <Box mt={2} />
           </Card>
         </main>
-        <Box mt={2} />
       </MuiThemeProvider>
     </>
   );

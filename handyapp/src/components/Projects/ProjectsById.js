@@ -75,7 +75,7 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+
 import { compose } from 'recompose';
 // import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
