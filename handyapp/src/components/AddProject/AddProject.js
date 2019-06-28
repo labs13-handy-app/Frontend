@@ -184,7 +184,7 @@ class AddProject extends Component {
           <form onSubmit={this.onSubmit}>
             <div className="form-items">
               <div className="form-item">
-                <label htmlFor="title">What do you need to get done?</label>
+                <label htmlFor="title">What do you need to get done? *</label>
                 <input
                   required
                   onChange={this.onInputChange}
@@ -198,7 +198,7 @@ class AddProject extends Component {
               <div className="core-info">
                 <div className="radio">
                   <div className="form-item-radio">
-                    <label>Are you providing the Materials?</label>
+                    <label>Are you providing the Materials? *</label>
                   </div>
                   <div className="checks">
                     <div className="form-item-check">
@@ -235,7 +235,7 @@ class AddProject extends Component {
                 </div>
                 <div className="budget">
                   <div className="form-item">
-                    <label htmlFor="title">Budget</label>
+                    <label htmlFor="title">Budget *</label>
                     <input
                       required
                       onChange={this.onInputChange}
@@ -303,7 +303,7 @@ class AddProject extends Component {
                 /> */}
 
               <div className="form-item">
-                <label htmlFor="description">What are the details?</label>
+                <label htmlFor="description">What are the details? *</label>
                 <textarea
                   required
                   onChange={this.onInputChange}
