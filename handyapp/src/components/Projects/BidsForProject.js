@@ -31,6 +31,8 @@
 
 // export default BidsForProject;
 
+//  *************
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -42,14 +44,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import CheckoutForm from '../Stripe/CheckoutForm';
-
-const useStyles = makeStyles({
-  card: {
-    maxWidth: 500,
-    flexGrow: 1
-  }
-});
 
 const theme = createMuiTheme({
   palette: {
@@ -63,38 +59,100 @@ const theme = createMuiTheme({
   typography: { useNextVariants: true }
 });
 
-export default function MediaCard(props) {
+const useStyles = makeStyles({
+  card: {
+    maxWidth: 500,
+    flexGrow: 1
+  },
+  submit: {
+    backgroundColor: '#70C55D',
+    color: '#FFFFFF',
+    fontWeight: 600,
+    '&:hover': {
+      backgroundColor: 'hsl(120, 27%, 56%)'
+    }
+  },
+  paper: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+      padding: theme.spacing(3)
+    }
+  },
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: 600,
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }
+  }
+});
+
+export default function BidsForProject(props) {
   const classes = useStyles();
 
   return (
     <>
       <MuiThemeProvider theme={theme}>
-        <Card className={classes.card}>
-          <CardActionArea>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                Contractor: {props.bid.first_name} {props.bid.last_name}
-              </Typography>
-              <Typography>
-                Price: ${props.bid.price}
-              </Typography>
-              <Typography>Hours: {props.bid.time}</Typography>
-              <Typography>
-                Materials included? {props.bid.materials_included}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <CheckoutForm amount={props.bid.price} {...props} />
-            <Link to={`/contractor/${props.bid.contractor_id}`}>
-              <Button size="small" color="primary">
-                View Contractor
+        <CssBaseline />
+        <main className={classes.layout}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardContent>
+                <Typography component="h5" variant="h5">
+                  Contractor: {props.bid.first_name} {props.bid.last_name}
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  Price: ${props.bid.price}
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  Hours: {props.bid.time}
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  Materials included? {props.bid.materials_included}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Link to={`/contractor/${props.bid.contractor_id}`}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  className={classes.submit}
+                >
+                  View Contractor
+                </Button>
+              </Link>
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={() =>
+                  props.deleteBid(
+                    props.bid.id,
+                    alert('the bid has been rejected'),
+                    window.location.reload()
+                  )
+                }
+                className={classes.submit}
+              >
+                Decline Bid
               </Button>
-            </Link>
-            <Button size='small' color='primary' onClick={() => props.deleteBid(props.bid.id, alert('the bid has been rejected'), window.location.reload())}>Reject Bid</Button>
-          </CardActions>
-        </Card>
-        <Box mt={5} />
+            </CardActions>
+            <CardActions>
+              <CheckoutForm amount={props.bid.price} {...props} />
+            </CardActions>
+          </Card>
+        </main>
+        <Box mt={2} />
       </MuiThemeProvider>
     </>
   );

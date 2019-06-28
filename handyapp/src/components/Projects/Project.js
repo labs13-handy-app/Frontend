@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Lightbox from 'react-image-lightbox';
 import moment from 'moment';
 import placeholder from '../../img/Placeholder-image.png';
@@ -19,7 +19,7 @@ class Project extends React.Component {
 
   handleModal = () => {
     if (this.state.images.length > 0) {
-      this.setState({isOpen: true});
+      this.setState({ isOpen: true });
     }
   };
 
@@ -61,7 +61,7 @@ class Project extends React.Component {
                   this.state.images.length
               ]
             }
-            onCloseRequest={() => this.setState({isOpen: false})}
+            onCloseRequest={() => this.setState({ isOpen: false })}
             onMovePrevRequest={() =>
               this.setState({
                 index:
