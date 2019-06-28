@@ -70,3 +70,39 @@
   box-shadow: 0 12px 20px rgba(128, 128, 128, 0.28);
   padding: 30px;
 }
+
+.back button {
+  margin-bottom: 20px;
+  background: #71c55d;
+  width: 150px;
+  height: 42px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  /* margin-left: px; */
+}
+
+@media (max-width: 600px) {
+  .back button {
+    margin-left: 5%;
+  }
+}
+
+/* @media (max-width: 800px) {
+  .back button {
+    margin-left: 5%;
+  }
+} */
+
+@media (max-width: 1024px) {
+  .back button {
+    margin-left: 5%;
+  }
+}
+
+.back button:hover {
+  color: #fff;
+  background: #4a9138;
+  text-decoration: none;
+}

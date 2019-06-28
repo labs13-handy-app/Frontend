@@ -181,3 +181,19 @@ button.StripeCheckout span {
 button.StripeCheckout span:hover {
   color: #fff !important;
 }
+
+button {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+a {
+  outline: none;
+}
+
+a:focus {
+  outline: none;
+}

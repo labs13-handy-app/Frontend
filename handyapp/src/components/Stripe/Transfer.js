@@ -16,9 +16,9 @@ class Transfer extends React.Component {
 
   render() {
     return (
-      <div className="tab">
+      <div className="transfer">
         {/* <p>Your Balance ${this.props.user.balance / 100} </p> */}
-        <button
+        <button className='transfer-btn'
           onClick={() =>
             this.props.paymentTransfer(
               this.state,

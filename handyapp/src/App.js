@@ -64,7 +64,13 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={props => <LandingPage {...props} />}
+              render={props => (
+                <LandingPage
+                  {...props}
+                  login={this.login}
+                  logout={this.logout}
+                />
+              )}
             />
 
             <Route
@@ -157,7 +163,7 @@ class App extends React.Component {
           </Switch>
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
