@@ -25,6 +25,11 @@ class ProjectsById extends Component {
       console.log(this.props.projects.bids)
       return (
         <div className="project-container">
+          <div className='back'>
+          <NavLink to={`/dashboard-homeowner/users/${this.props.projects.homeowner_id}/projects`}>
+            <button>Back to my dashboard</button>
+         </NavLink>
+         </div>
         {/* <div className='Project'>
          <div className="project-image">
         <img src={this.props.thumbnail ? this.props.thumbnail : ''} alt="" />
@@ -45,9 +50,6 @@ class ProjectsById extends Component {
              <BidsForProject bid={bid} key={bid.id} deleteBid={this.props.deleteBid} />
            ))}
          </div>
-         <NavLink to={`/dashboard-homeowner/users/${this.props.projects.homeowner_id}/projects`}>
-            <button>Back to my dashboard</button>
-         </NavLink>
         </div>
       );
     }
