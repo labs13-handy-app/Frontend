@@ -6,10 +6,10 @@ You can find the deployed project at [https://handyapp.netlify.com].
 
 ## Contributors
 
-
-|                                       [Guillaume Savy](https://github.com/guillsav)                                        |                                       [Tyler Foreman](https://github.com/tjforeman)                                        |                                       [Sharanjit Sandhu](https://github.com/sharanjitsandhu)                                            |                                       [Spencer Meredith](https://github.com/Spencer-M24)                                        |
+|                                       [Guillaume Savy](https://github.com/guillsav)                                        |                                       [Tyler Foreman](https://github.com/tjforeman)                                        |                                       [Sharanjit Sandhu](https://github.com/sharanjitsandhu)                                        |                                       [Spencer Meredith](https://github.com/Spencer-M24)                                        |                                       [Student 5](https://github.com/)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
+|              
+|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/guillsav))                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/tjforeman)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/sharanjitsandhu)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/Spencer-M24)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
@@ -28,32 +28,48 @@ You can find the deployed project at [https://handyapp.netlify.com].
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+ [Trello Board] https://trello.com/b/hLXT2CaQ/labs-13-handy-app
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+ [Product Canvas] https://docs.google.com/document/d/1LNHkSy6CoIkgM2C1SoIKxNyv6pDoZZJVjeMRSrfh7Qo/edit#heading=h.1jaf6eug9n0k
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
-
-🚫 Replace lorem ipsum with a description of your project
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ [UX Design files] https://invis.io/8FRGN9J6CK5
 
 
-### 4️⃣ Key Features
+Handy App allows homeowners to quickly and easily find home service professionals, (i.e: contractors, plumbers, electricians), to perform household repairs and maintenance
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
 
-## 1️⃣ Tech Stack
+###  Key Features
+
+-    The ablity for a Homeowner to add a project.
+-    The ablity for a Service Provider to see a list of projects related to their skills and place a bid
+-    The ability for a Homeowner to view a list of bids, and accept the one they like the best.
+-    The ablity for a Homeowner to pay via stripe, for the project.
+-    The ability for a Service Provider to collect payment via stripe connect. 
+
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+- Auth0
+- Axios
+- Cloudinary-React
+- Jquery
+- Js-Convert-Case
+- material-ui-core
+- material-ui-icons
+- material-ui-styles
+- Moment
+- React
+- React-Image-Lightbox
+- React-Loader-Spinner
+- React-Number-Format
+- React-Redux
+- React-Router
+- React-Router-Modal
+- React-Select
+- React-Stripe-Checkout
+- Redux
+- Redux-Logger
+- Redux-Thunk
 
 🚫 Why did you choose this framework?
 
